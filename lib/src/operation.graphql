@@ -1,0 +1,32 @@
+query FetchRecipeList{
+  recipes{
+    id
+    name
+    image_url
+    calories
+    time
+  }
+}
+
+
+query FetchIngredientsList($where: ingredients_bool_exp){
+  ingredients(where: $where){
+    id
+    name
+    quantite
+    recipe_id
+    __typename
+  }
+}
+
+query FetchStepsList($where: steps_bool_exp) {
+  steps(where: $where) {
+    id
+   	description
+    image_url
+    recipe_id
+    __typename
+  }
+}
+
+
