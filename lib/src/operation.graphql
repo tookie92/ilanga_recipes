@@ -30,3 +30,53 @@ query FetchStepsList($where: steps_bool_exp) {
 }
 
 
+mutation InsertRecipe($object: recipes_insert_input!){
+  insert_recipes_one(object: $object){
+    id
+    name
+    time
+    image_url
+    calories
+    __typename
+    ingredients{
+      id
+      name
+      quantite
+      recipe_id
+      __typename
+    }
+    steps{
+      id
+      description
+      image_url
+      recipe_id
+      __typename
+    }
+    
+  }
+}
+
+mutation DeleteRecipe($id: Int!){
+  delete_recipes_by_pk(id: $id){
+    id
+    name
+    time
+    image_url
+    calories
+    __typename
+  }
+}
+
+mutation UpdateRecipe($set: recipes_set_input, $pkcolumns: recipes_pk_columns_input!){
+  update_recipes_by_pk(pk_columns: $pkcolumns, _set: $set){
+    id
+    name
+    time
+    calories
+    image_url
+    __typename
+  }
+}
+
+
+

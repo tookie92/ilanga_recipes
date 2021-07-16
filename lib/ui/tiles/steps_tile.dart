@@ -19,17 +19,20 @@ class StepsTile extends StatelessWidget {
         child: Column(
           children: [
             Container(
+              clipBehavior: Clip.antiAlias,
               height: size.height * .25,
+              width: size.width,
               decoration: BoxDecoration(
                 color: Colors.amber,
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(10.0),
                   topRight: Radius.circular(10.0),
                 ),
-                image: DecorationImage(
-                  image: CachedNetworkImageProvider(steps.image_url),
-                  fit: BoxFit.cover,
-                ),
+              ),
+              child: CachedNetworkImage(
+                imageUrl: steps.image_url,
+                maxHeightDiskCache: 500,
+                fit: BoxFit.cover,
               ),
             ),
             Container(

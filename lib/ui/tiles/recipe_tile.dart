@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:nekhna/blocs/blocs.dart';
 import 'package:nekhna/rm_graphql.dart';
 import 'package:nekhna/ui/screens/recipes_detail.dart';
 import 'package:nekhna/ui/setttings/Palette.dart';
@@ -19,36 +20,49 @@ class RecipeTile extends StatelessWidget {
           builder: (BuildContext context) => RecipeDetail(recipes: recipes),
         );
       },
+      onDoubleTap: () {
+        // RecipeState().deleteRecipe(recipes);
+        Navigator.push(context, BlocRouter().editPage(recipes));
+      },
+      onLongPress: () {
+        RecipeState().deleteRecipe(recipes);
+      },
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Container(
           width: size.width * .6,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10.0),
-            image: DecorationImage(
-              image: CachedNetworkImageProvider(recipes.image_url ??
-                  'https://via.placeholder.com/350/12947C/?Text=No_Picture'),
-              fit: BoxFit.cover,
-            ),
-          ),
           child: Stack(
             children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(10.0),
-                child: Container(
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      colors: [
-                        Colors.black.withOpacity(0.3),
-                        Colors.black,
-                      ],
-                      stops: [
-                        0.2,
-                        0.8,
-                      ],
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
+              Positioned.fill(
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(10.0),
+                  child: Container(
+                    child: CachedNetworkImage(
+                      placeholder: (context, url) =>
+                          CircularProgressIndicator(),
+                      errorWidget: (context, url, error) => Icon(Icons.error),
+                      maxHeightDiskCache: 200,
+                      fit: BoxFit.cover,
+                      imageUrl: recipes.image_url ??
+                          'https://via.placeholder.com/350/00800/?Text=NoPicture',
                     ),
+                  ),
+                ),
+              ),
+              Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10.0),
+                  gradient: LinearGradient(
+                    colors: [
+                      Colors.black.withOpacity(0.3),
+                      Colors.black,
+                    ],
+                    stops: [
+                      0.2,
+                      0.8,
+                    ],
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
                   ),
                 ),
               ),

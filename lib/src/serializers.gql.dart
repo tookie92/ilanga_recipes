@@ -5,16 +5,36 @@ import 'package:gql_code_builder/src/serializers/operation_serializer.dart'
     show OperationSerializer;
 import 'package:nekhna/src/operation.data.gql.dart'
     show
+        GDeleteRecipeData,
+        GDeleteRecipeData_delete_recipes_by_pk,
         GFetchIngredientsListData,
         GFetchIngredientsListData_ingredients,
         GFetchRecipeListData,
         GFetchRecipeListData_recipes,
         GFetchStepsListData,
-        GFetchStepsListData_steps;
+        GFetchStepsListData_steps,
+        GInsertRecipeData,
+        GInsertRecipeData_insert_recipes_one,
+        GInsertRecipeData_insert_recipes_one_ingredients,
+        GInsertRecipeData_insert_recipes_one_steps,
+        GUpdateRecipeData,
+        GUpdateRecipeData_update_recipes_by_pk;
 import 'package:nekhna/src/operation.req.gql.dart'
-    show GFetchIngredientsListReq, GFetchRecipeListReq, GFetchStepsListReq;
+    show
+        GDeleteRecipeReq,
+        GFetchIngredientsListReq,
+        GFetchRecipeListReq,
+        GFetchStepsListReq,
+        GInsertRecipeReq,
+        GUpdateRecipeReq;
 import 'package:nekhna/src/operation.var.gql.dart'
-    show GFetchIngredientsListVars, GFetchRecipeListVars, GFetchStepsListVars;
+    show
+        GDeleteRecipeVars,
+        GFetchIngredientsListVars,
+        GFetchRecipeListVars,
+        GFetchStepsListVars,
+        GInsertRecipeVars,
+        GUpdateRecipeVars;
 import 'package:nekhna/src/schema.schema.gql.dart'
     show
         GInt_comparison_exp,
@@ -82,6 +102,10 @@ final SerializersBuilder _serializersBuilder = _$serializers.toBuilder()
   ..add(OperationSerializer())
   ..addPlugin(StandardJsonPlugin());
 @SerializersFor([
+  GDeleteRecipeData,
+  GDeleteRecipeData_delete_recipes_by_pk,
+  GDeleteRecipeReq,
+  GDeleteRecipeVars,
   GFetchIngredientsListData,
   GFetchIngredientsListData_ingredients,
   GFetchIngredientsListReq,
@@ -94,8 +118,18 @@ final SerializersBuilder _serializersBuilder = _$serializers.toBuilder()
   GFetchStepsListData_steps,
   GFetchStepsListReq,
   GFetchStepsListVars,
+  GInsertRecipeData,
+  GInsertRecipeData_insert_recipes_one,
+  GInsertRecipeData_insert_recipes_one_ingredients,
+  GInsertRecipeData_insert_recipes_one_steps,
+  GInsertRecipeReq,
+  GInsertRecipeVars,
   GInt_comparison_exp,
   GString_comparison_exp,
+  GUpdateRecipeData,
+  GUpdateRecipeData_update_recipes_by_pk,
+  GUpdateRecipeReq,
+  GUpdateRecipeVars,
   Gingredients_aggregate_order_by,
   Gingredients_arr_rel_insert_input,
   Gingredients_avg_order_by,

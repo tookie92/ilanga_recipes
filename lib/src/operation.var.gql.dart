@@ -60,3 +60,55 @@ abstract class GFetchStepsListVars
   static GFetchStepsListVars? fromJson(Map<String, dynamic> json) =>
       _i1.serializers.deserializeWith(GFetchStepsListVars.serializer, json);
 }
+
+abstract class GInsertRecipeVars
+    implements Built<GInsertRecipeVars, GInsertRecipeVarsBuilder> {
+  GInsertRecipeVars._();
+
+  factory GInsertRecipeVars([Function(GInsertRecipeVarsBuilder b) updates]) =
+      _$GInsertRecipeVars;
+
+  _i2.Grecipes_insert_input get object;
+  static Serializer<GInsertRecipeVars> get serializer =>
+      _$gInsertRecipeVarsSerializer;
+  Map<String, dynamic> toJson() =>
+      (_i1.serializers.serializeWith(GInsertRecipeVars.serializer, this)
+          as Map<String, dynamic>);
+  static GInsertRecipeVars? fromJson(Map<String, dynamic> json) =>
+      _i1.serializers.deserializeWith(GInsertRecipeVars.serializer, json);
+}
+
+abstract class GDeleteRecipeVars
+    implements Built<GDeleteRecipeVars, GDeleteRecipeVarsBuilder> {
+  GDeleteRecipeVars._();
+
+  factory GDeleteRecipeVars([Function(GDeleteRecipeVarsBuilder b) updates]) =
+      _$GDeleteRecipeVars;
+
+  int get id;
+  static Serializer<GDeleteRecipeVars> get serializer =>
+      _$gDeleteRecipeVarsSerializer;
+  Map<String, dynamic> toJson() =>
+      (_i1.serializers.serializeWith(GDeleteRecipeVars.serializer, this)
+          as Map<String, dynamic>);
+  static GDeleteRecipeVars? fromJson(Map<String, dynamic> json) =>
+      _i1.serializers.deserializeWith(GDeleteRecipeVars.serializer, json);
+}
+
+abstract class GUpdateRecipeVars
+    implements Built<GUpdateRecipeVars, GUpdateRecipeVarsBuilder> {
+  GUpdateRecipeVars._();
+
+  factory GUpdateRecipeVars([Function(GUpdateRecipeVarsBuilder b) updates]) =
+      _$GUpdateRecipeVars;
+
+  _i2.Grecipes_set_input? get set;
+  _i2.Grecipes_pk_columns_input get pkcolumns;
+  static Serializer<GUpdateRecipeVars> get serializer =>
+      _$gUpdateRecipeVarsSerializer;
+  Map<String, dynamic> toJson() =>
+      (_i1.serializers.serializeWith(GUpdateRecipeVars.serializer, this)
+          as Map<String, dynamic>);
+  static GUpdateRecipeVars? fromJson(Map<String, dynamic> json) =>
+      _i1.serializers.deserializeWith(GUpdateRecipeVars.serializer, json);
+}

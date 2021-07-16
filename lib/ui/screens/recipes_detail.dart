@@ -4,6 +4,8 @@ import 'package:ferry_flutter/ferry_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:nekhna/rm_graphql.dart';
+import 'package:nekhna/ui/emptylist/no_ingredients.dart';
+import 'package:nekhna/ui/emptylist/no_steps.dart';
 import 'package:nekhna/ui/setttings/Palette.dart';
 import 'package:nekhna/ui/tiles/ingredients_tile.dart';
 import 'package:nekhna/ui/tiles/steps_tile.dart';
@@ -39,6 +41,10 @@ class RecipeDetail extends StatelessWidget {
                 children: [
                   Positioned.fill(
                     child: CachedNetworkImage(
+                      maxHeightDiskCache: 200,
+                      placeholder: (context, url) =>
+                          CircularProgressIndicator(),
+                      errorWidget: (context, url, error) => Icon(Icons.error),
                       imageUrl: recipes!.image_url ??
                           'https://via.placeholder.com/350/008000/?Text=nopicture',
                       fit: BoxFit.cover,
@@ -126,7 +132,13 @@ class RecipeDetail extends StatelessWidget {
                         )
                       ],
                     ),
-                    MyText(label: 'Ingredients'),
+                    SizedBox(
+                      height: 10.0,
+                    ),
+                    MyText(
+                      label: 'Ingredients',
+                      fontSize: 22.0,
+                    ),
                     SizedBox(
                       height: 10.0,
                     ),
@@ -146,9 +158,7 @@ class RecipeDetail extends StatelessWidget {
                           final ingredients = response.data!.ingredients;
 
                           if (ingredients.isEmpty) {
-                            return Center(
-                              child: MyText(label: 'No Ingredients'),
-                            );
+                            return NoIngredients();
                           }
                           return Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -162,7 +172,13 @@ class RecipeDetail extends StatelessWidget {
                           );
                         },
                         client: GetIt.instance<Client>()),
-                    MyText(label: 'Steps'),
+                    SizedBox(
+                      height: 10.0,
+                    ),
+                    MyText(
+                      label: 'Steps',
+                      fontSize: 22.0,
+                    ),
                     SizedBox(
                       height: 10.0,
                     ),
@@ -182,9 +198,7 @@ class RecipeDetail extends StatelessWidget {
                           final steps = response.data!.steps;
 
                           if (steps.isEmpty) {
-                            return Center(
-                              child: MyText(label: 'No steps'),
-                            );
+                            return NoSteps();
                           }
                           return Column(
                             crossAxisAlignment: CrossAxisAlignment.start,

@@ -129,3 +129,117 @@ abstract class GFetchStepsListReq
   static GFetchStepsListReq? fromJson(Map<String, dynamic> json) =>
       _i6.serializers.deserializeWith(GFetchStepsListReq.serializer, json);
 }
+
+abstract class GInsertRecipeReq
+    implements
+        Built<GInsertRecipeReq, GInsertRecipeReqBuilder>,
+        _i1.OperationRequest<_i2.GInsertRecipeData, _i3.GInsertRecipeVars> {
+  GInsertRecipeReq._();
+
+  factory GInsertRecipeReq([Function(GInsertRecipeReqBuilder b) updates]) =
+      _$GInsertRecipeReq;
+
+  static void _initializeBuilder(GInsertRecipeReqBuilder b) => b
+    ..operation =
+        _i4.Operation(document: _i5.document, operationName: 'InsertRecipe')
+    ..executeOnListen = true;
+  _i3.GInsertRecipeVars get vars;
+  _i4.Operation get operation;
+  _i4.Request get execRequest =>
+      _i4.Request(operation: operation, variables: vars.toJson());
+  String? get requestId;
+  @BuiltValueField(serialize: false)
+  _i2.GInsertRecipeData? Function(
+      _i2.GInsertRecipeData?, _i2.GInsertRecipeData?)? get updateResult;
+  _i2.GInsertRecipeData? get optimisticResponse;
+  String? get updateCacheHandlerKey;
+  Map<String, dynamic>? get updateCacheHandlerContext;
+  _i1.FetchPolicy? get fetchPolicy;
+  bool get executeOnListen;
+  @override
+  _i2.GInsertRecipeData? parseData(Map<String, dynamic> json) =>
+      _i2.GInsertRecipeData.fromJson(json);
+  static Serializer<GInsertRecipeReq> get serializer =>
+      _$gInsertRecipeReqSerializer;
+  Map<String, dynamic> toJson() =>
+      (_i6.serializers.serializeWith(GInsertRecipeReq.serializer, this)
+          as Map<String, dynamic>);
+  static GInsertRecipeReq? fromJson(Map<String, dynamic> json) =>
+      _i6.serializers.deserializeWith(GInsertRecipeReq.serializer, json);
+}
+
+abstract class GDeleteRecipeReq
+    implements
+        Built<GDeleteRecipeReq, GDeleteRecipeReqBuilder>,
+        _i1.OperationRequest<_i2.GDeleteRecipeData, _i3.GDeleteRecipeVars> {
+  GDeleteRecipeReq._();
+
+  factory GDeleteRecipeReq([Function(GDeleteRecipeReqBuilder b) updates]) =
+      _$GDeleteRecipeReq;
+
+  static void _initializeBuilder(GDeleteRecipeReqBuilder b) => b
+    ..operation =
+        _i4.Operation(document: _i5.document, operationName: 'DeleteRecipe')
+    ..executeOnListen = true;
+  _i3.GDeleteRecipeVars get vars;
+  _i4.Operation get operation;
+  _i4.Request get execRequest =>
+      _i4.Request(operation: operation, variables: vars.toJson());
+  String? get requestId;
+  @BuiltValueField(serialize: false)
+  _i2.GDeleteRecipeData? Function(
+      _i2.GDeleteRecipeData?, _i2.GDeleteRecipeData?)? get updateResult;
+  _i2.GDeleteRecipeData? get optimisticResponse;
+  String? get updateCacheHandlerKey;
+  Map<String, dynamic>? get updateCacheHandlerContext;
+  _i1.FetchPolicy? get fetchPolicy;
+  bool get executeOnListen;
+  @override
+  _i2.GDeleteRecipeData? parseData(Map<String, dynamic> json) =>
+      _i2.GDeleteRecipeData.fromJson(json);
+  static Serializer<GDeleteRecipeReq> get serializer =>
+      _$gDeleteRecipeReqSerializer;
+  Map<String, dynamic> toJson() =>
+      (_i6.serializers.serializeWith(GDeleteRecipeReq.serializer, this)
+          as Map<String, dynamic>);
+  static GDeleteRecipeReq? fromJson(Map<String, dynamic> json) =>
+      _i6.serializers.deserializeWith(GDeleteRecipeReq.serializer, json);
+}
+
+abstract class GUpdateRecipeReq
+    implements
+        Built<GUpdateRecipeReq, GUpdateRecipeReqBuilder>,
+        _i1.OperationRequest<_i2.GUpdateRecipeData, _i3.GUpdateRecipeVars> {
+  GUpdateRecipeReq._();
+
+  factory GUpdateRecipeReq([Function(GUpdateRecipeReqBuilder b) updates]) =
+      _$GUpdateRecipeReq;
+
+  static void _initializeBuilder(GUpdateRecipeReqBuilder b) => b
+    ..operation =
+        _i4.Operation(document: _i5.document, operationName: 'UpdateRecipe')
+    ..executeOnListen = true;
+  _i3.GUpdateRecipeVars get vars;
+  _i4.Operation get operation;
+  _i4.Request get execRequest =>
+      _i4.Request(operation: operation, variables: vars.toJson());
+  String? get requestId;
+  @BuiltValueField(serialize: false)
+  _i2.GUpdateRecipeData? Function(
+      _i2.GUpdateRecipeData?, _i2.GUpdateRecipeData?)? get updateResult;
+  _i2.GUpdateRecipeData? get optimisticResponse;
+  String? get updateCacheHandlerKey;
+  Map<String, dynamic>? get updateCacheHandlerContext;
+  _i1.FetchPolicy? get fetchPolicy;
+  bool get executeOnListen;
+  @override
+  _i2.GUpdateRecipeData? parseData(Map<String, dynamic> json) =>
+      _i2.GUpdateRecipeData.fromJson(json);
+  static Serializer<GUpdateRecipeReq> get serializer =>
+      _$gUpdateRecipeReqSerializer;
+  Map<String, dynamic> toJson() =>
+      (_i6.serializers.serializeWith(GUpdateRecipeReq.serializer, this)
+          as Map<String, dynamic>);
+  static GUpdateRecipeReq? fromJson(Map<String, dynamic> json) =>
+      _i6.serializers.deserializeWith(GUpdateRecipeReq.serializer, json);
+}

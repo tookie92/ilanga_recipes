@@ -7,6 +7,10 @@ part of 'serializers.gql.dart';
 // **************************************************************************
 
 Serializers _$serializers = (new Serializers().toBuilder()
+      ..add(GDeleteRecipeData.serializer)
+      ..add(GDeleteRecipeData_delete_recipes_by_pk.serializer)
+      ..add(GDeleteRecipeReq.serializer)
+      ..add(GDeleteRecipeVars.serializer)
       ..add(GFetchIngredientsListData.serializer)
       ..add(GFetchIngredientsListData_ingredients.serializer)
       ..add(GFetchIngredientsListReq.serializer)
@@ -19,8 +23,18 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(GFetchStepsListData_steps.serializer)
       ..add(GFetchStepsListReq.serializer)
       ..add(GFetchStepsListVars.serializer)
+      ..add(GInsertRecipeData.serializer)
+      ..add(GInsertRecipeData_insert_recipes_one.serializer)
+      ..add(GInsertRecipeData_insert_recipes_one_ingredients.serializer)
+      ..add(GInsertRecipeData_insert_recipes_one_steps.serializer)
+      ..add(GInsertRecipeReq.serializer)
+      ..add(GInsertRecipeVars.serializer)
       ..add(GInt_comparison_exp.serializer)
       ..add(GString_comparison_exp.serializer)
+      ..add(GUpdateRecipeData.serializer)
+      ..add(GUpdateRecipeData_update_recipes_by_pk.serializer)
+      ..add(GUpdateRecipeReq.serializer)
+      ..add(GUpdateRecipeVars.serializer)
       ..add(Gingredients_aggregate_order_by.serializer)
       ..add(Gingredients_arr_rel_insert_input.serializer)
       ..add(Gingredients_avg_order_by.serializer)
@@ -90,6 +104,16 @@ Serializers _$serializers = (new Serializers().toBuilder()
               BuiltList, const [const FullType(GFetchStepsListData_steps)]),
           () => new ListBuilder<GFetchStepsListData_steps>())
       ..addBuilderFactory(
+          const FullType(BuiltList, const [
+            const FullType(GInsertRecipeData_insert_recipes_one_ingredients)
+          ]),
+          () => new ListBuilder<
+              GInsertRecipeData_insert_recipes_one_ingredients>())
+      ..addBuilderFactory(
+          const FullType(BuiltList,
+              const [const FullType(GInsertRecipeData_insert_recipes_one_steps)]),
+          () => new ListBuilder<GInsertRecipeData_insert_recipes_one_steps>())
+      ..addBuilderFactory(
           const FullType(
               BuiltList, const [const FullType(Gingredients_bool_exp)]),
           () => new ListBuilder<Gingredients_bool_exp>())
@@ -135,12 +159,8 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
           () => new ListBuilder<String>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(int)]),
-          () => new ListBuilder<int>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(int)]),
-          () => new ListBuilder<int>()))
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(int)]), () => new ListBuilder<int>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(int)]), () => new ListBuilder<int>()))
     .build();
 
 // ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new

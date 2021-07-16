@@ -157,5 +157,280 @@ const FetchStepsList = _i1.OperationDefinitionNode(
                 selectionSet: null)
           ]))
     ]));
-const document = _i1.DocumentNode(
-    definitions: [FetchRecipeList, FetchIngredientsList, FetchStepsList]);
+const InsertRecipe = _i1.OperationDefinitionNode(
+    type: _i1.OperationType.mutation,
+    name: _i1.NameNode(value: 'InsertRecipe'),
+    variableDefinitions: [
+      _i1.VariableDefinitionNode(
+          variable: _i1.VariableNode(name: _i1.NameNode(value: 'object')),
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'recipes_insert_input'),
+              isNonNull: true),
+          defaultValue: _i1.DefaultValueNode(value: null),
+          directives: [])
+    ],
+    directives: [],
+    selectionSet: _i1.SelectionSetNode(selections: [
+      _i1.FieldNode(
+          name: _i1.NameNode(value: 'insert_recipes_one'),
+          alias: null,
+          arguments: [
+            _i1.ArgumentNode(
+                name: _i1.NameNode(value: 'object'),
+                value: _i1.VariableNode(name: _i1.NameNode(value: 'object')))
+          ],
+          directives: [],
+          selectionSet: _i1.SelectionSetNode(selections: [
+            _i1.FieldNode(
+                name: _i1.NameNode(value: 'id'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null),
+            _i1.FieldNode(
+                name: _i1.NameNode(value: 'name'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null),
+            _i1.FieldNode(
+                name: _i1.NameNode(value: 'time'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null),
+            _i1.FieldNode(
+                name: _i1.NameNode(value: 'image_url'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null),
+            _i1.FieldNode(
+                name: _i1.NameNode(value: 'calories'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null),
+            _i1.FieldNode(
+                name: _i1.NameNode(value: '__typename'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null),
+            _i1.FieldNode(
+                name: _i1.NameNode(value: 'ingredients'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: _i1.SelectionSetNode(selections: [
+                  _i1.FieldNode(
+                      name: _i1.NameNode(value: 'id'),
+                      alias: null,
+                      arguments: [],
+                      directives: [],
+                      selectionSet: null),
+                  _i1.FieldNode(
+                      name: _i1.NameNode(value: 'name'),
+                      alias: null,
+                      arguments: [],
+                      directives: [],
+                      selectionSet: null),
+                  _i1.FieldNode(
+                      name: _i1.NameNode(value: 'quantite'),
+                      alias: null,
+                      arguments: [],
+                      directives: [],
+                      selectionSet: null),
+                  _i1.FieldNode(
+                      name: _i1.NameNode(value: 'recipe_id'),
+                      alias: null,
+                      arguments: [],
+                      directives: [],
+                      selectionSet: null),
+                  _i1.FieldNode(
+                      name: _i1.NameNode(value: '__typename'),
+                      alias: null,
+                      arguments: [],
+                      directives: [],
+                      selectionSet: null)
+                ])),
+            _i1.FieldNode(
+                name: _i1.NameNode(value: 'steps'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: _i1.SelectionSetNode(selections: [
+                  _i1.FieldNode(
+                      name: _i1.NameNode(value: 'id'),
+                      alias: null,
+                      arguments: [],
+                      directives: [],
+                      selectionSet: null),
+                  _i1.FieldNode(
+                      name: _i1.NameNode(value: 'description'),
+                      alias: null,
+                      arguments: [],
+                      directives: [],
+                      selectionSet: null),
+                  _i1.FieldNode(
+                      name: _i1.NameNode(value: 'image_url'),
+                      alias: null,
+                      arguments: [],
+                      directives: [],
+                      selectionSet: null),
+                  _i1.FieldNode(
+                      name: _i1.NameNode(value: 'recipe_id'),
+                      alias: null,
+                      arguments: [],
+                      directives: [],
+                      selectionSet: null),
+                  _i1.FieldNode(
+                      name: _i1.NameNode(value: '__typename'),
+                      alias: null,
+                      arguments: [],
+                      directives: [],
+                      selectionSet: null)
+                ]))
+          ]))
+    ]));
+const DeleteRecipe = _i1.OperationDefinitionNode(
+    type: _i1.OperationType.mutation,
+    name: _i1.NameNode(value: 'DeleteRecipe'),
+    variableDefinitions: [
+      _i1.VariableDefinitionNode(
+          variable: _i1.VariableNode(name: _i1.NameNode(value: 'id')),
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'Int'), isNonNull: true),
+          defaultValue: _i1.DefaultValueNode(value: null),
+          directives: [])
+    ],
+    directives: [],
+    selectionSet: _i1.SelectionSetNode(selections: [
+      _i1.FieldNode(
+          name: _i1.NameNode(value: 'delete_recipes_by_pk'),
+          alias: null,
+          arguments: [
+            _i1.ArgumentNode(
+                name: _i1.NameNode(value: 'id'),
+                value: _i1.VariableNode(name: _i1.NameNode(value: 'id')))
+          ],
+          directives: [],
+          selectionSet: _i1.SelectionSetNode(selections: [
+            _i1.FieldNode(
+                name: _i1.NameNode(value: 'id'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null),
+            _i1.FieldNode(
+                name: _i1.NameNode(value: 'name'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null),
+            _i1.FieldNode(
+                name: _i1.NameNode(value: 'time'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null),
+            _i1.FieldNode(
+                name: _i1.NameNode(value: 'image_url'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null),
+            _i1.FieldNode(
+                name: _i1.NameNode(value: 'calories'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null),
+            _i1.FieldNode(
+                name: _i1.NameNode(value: '__typename'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null)
+          ]))
+    ]));
+const UpdateRecipe = _i1.OperationDefinitionNode(
+    type: _i1.OperationType.mutation,
+    name: _i1.NameNode(value: 'UpdateRecipe'),
+    variableDefinitions: [
+      _i1.VariableDefinitionNode(
+          variable: _i1.VariableNode(name: _i1.NameNode(value: 'set')),
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'recipes_set_input'), isNonNull: false),
+          defaultValue: _i1.DefaultValueNode(value: null),
+          directives: []),
+      _i1.VariableDefinitionNode(
+          variable: _i1.VariableNode(name: _i1.NameNode(value: 'pkcolumns')),
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'recipes_pk_columns_input'),
+              isNonNull: true),
+          defaultValue: _i1.DefaultValueNode(value: null),
+          directives: [])
+    ],
+    directives: [],
+    selectionSet: _i1.SelectionSetNode(selections: [
+      _i1.FieldNode(
+          name: _i1.NameNode(value: 'update_recipes_by_pk'),
+          alias: null,
+          arguments: [
+            _i1.ArgumentNode(
+                name: _i1.NameNode(value: 'pk_columns'),
+                value:
+                    _i1.VariableNode(name: _i1.NameNode(value: 'pkcolumns'))),
+            _i1.ArgumentNode(
+                name: _i1.NameNode(value: '_set'),
+                value: _i1.VariableNode(name: _i1.NameNode(value: 'set')))
+          ],
+          directives: [],
+          selectionSet: _i1.SelectionSetNode(selections: [
+            _i1.FieldNode(
+                name: _i1.NameNode(value: 'id'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null),
+            _i1.FieldNode(
+                name: _i1.NameNode(value: 'name'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null),
+            _i1.FieldNode(
+                name: _i1.NameNode(value: 'time'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null),
+            _i1.FieldNode(
+                name: _i1.NameNode(value: 'calories'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null),
+            _i1.FieldNode(
+                name: _i1.NameNode(value: 'image_url'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null),
+            _i1.FieldNode(
+                name: _i1.NameNode(value: '__typename'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null)
+          ]))
+    ]));
+const document = _i1.DocumentNode(definitions: [
+  FetchRecipeList,
+  FetchIngredientsList,
+  FetchStepsList,
+  InsertRecipe,
+  DeleteRecipe,
+  UpdateRecipe
+]);
