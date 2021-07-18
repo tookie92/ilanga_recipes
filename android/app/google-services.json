@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "622214781191",
+    "project_id": "nekhna-b9c53",
+    "storage_bucket": "nekhna-b9c53.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:622214781191:android:9a10ad5090b9cbf4098da2",
+        "android_client_info": {
+          "package_name": "com.example.nekhna"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "622214781191-ci9ev27cj81d8b67f73prq922p8u1oja.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCvJZ5OmYfAMRuOXJchwbAZfs4ExPfPEhA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "622214781191-ci9ev27cj81d8b67f73prq922p8u1oja.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "622214781191-dpgdda86bg7if4v02k4ui7sskvhhief5.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.nekhna"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

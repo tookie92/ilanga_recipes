@@ -27,6 +27,8 @@ dependencies:
   cupertino_icons: ^1.0.2
   ferry: ^0.10.3
   ferry_flutter: ^0.5.3
+  firebase_auth: ^3.0.0
+  firebase_core: ^1.4.0
   font_awesome_flutter: ^9.1.0
   get_it: null
   google_fonts: ^2.1.0

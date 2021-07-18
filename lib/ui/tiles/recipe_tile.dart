@@ -21,7 +21,6 @@ class RecipeTile extends StatelessWidget {
         );
       },
       onDoubleTap: () {
-        // RecipeState().deleteRecipe(recipes);
         Navigator.push(context, BlocRouter().editPage(recipes));
       },
       onLongPress: () {
