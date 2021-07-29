@@ -91,7 +91,7 @@ class RecipeTile extends StatelessWidget {
                                 fontSize: 23.0,
                               ),
                               SizedBox(
-                                height: 30.0,
+                                height: 20.0,
                               ),
                               MyText(
                                 label:

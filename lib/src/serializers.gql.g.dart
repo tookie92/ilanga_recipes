@@ -11,18 +11,41 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(GDeleteRecipeData_delete_recipes_by_pk.serializer)
       ..add(GDeleteRecipeReq.serializer)
       ..add(GDeleteRecipeVars.serializer)
+      ..add(GFetchAllUserData.serializer)
+      ..add(GFetchAllUserData_users.serializer)
+      ..add(GFetchAllUserData_users_recipes.serializer)
+      ..add(GFetchAllUserReq.serializer)
+      ..add(GFetchAllUserVars.serializer)
       ..add(GFetchIngredientsListData.serializer)
       ..add(GFetchIngredientsListData_ingredients.serializer)
       ..add(GFetchIngredientsListReq.serializer)
       ..add(GFetchIngredientsListVars.serializer)
       ..add(GFetchRecipeListData.serializer)
       ..add(GFetchRecipeListData_recipes.serializer)
+      ..add(GFetchRecipeListData_recipes_user.serializer)
       ..add(GFetchRecipeListReq.serializer)
       ..add(GFetchRecipeListVars.serializer)
       ..add(GFetchStepsListData.serializer)
       ..add(GFetchStepsListData_steps.serializer)
       ..add(GFetchStepsListReq.serializer)
       ..add(GFetchStepsListVars.serializer)
+      ..add(GFetchUsersData.serializer)
+      ..add(GFetchUsersData_users.serializer)
+      ..add(GFetchUsersReq.serializer)
+      ..add(GFetchUsersVars.serializer)
+      ..add(GFindUserByNameData.serializer)
+      ..add(GFindUserByNameData_users.serializer)
+      ..add(GFindUserByNameData_users_recipes.serializer)
+      ..add(GFindUserByNameReq.serializer)
+      ..add(GFindUserByNameVars.serializer)
+      ..add(GFindUserData.serializer)
+      ..add(GFindUserData_users_by_pk.serializer)
+      ..add(GFindUserReq.serializer)
+      ..add(GFindUserVars.serializer)
+      ..add(GInsertNewUserData.serializer)
+      ..add(GInsertNewUserData_insert_users_one.serializer)
+      ..add(GInsertNewUserReq.serializer)
+      ..add(GInsertNewUserVars.serializer)
       ..add(GInsertRecipeData.serializer)
       ..add(GInsertRecipeData_insert_recipes_one.serializer)
       ..add(GInsertRecipeData_insert_recipes_one_ingredients.serializer)
@@ -58,17 +81,29 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(Gingredients_var_samp_order_by.serializer)
       ..add(Gingredients_variance_order_by.serializer)
       ..add(Gorder_by.serializer)
+      ..add(Grecipes_aggregate_order_by.serializer)
+      ..add(Grecipes_arr_rel_insert_input.serializer)
+      ..add(Grecipes_avg_order_by.serializer)
       ..add(Grecipes_bool_exp.serializer)
       ..add(Grecipes_constraint.serializer)
       ..add(Grecipes_inc_input.serializer)
       ..add(Grecipes_insert_input.serializer)
+      ..add(Grecipes_max_order_by.serializer)
+      ..add(Grecipes_min_order_by.serializer)
       ..add(Grecipes_obj_rel_insert_input.serializer)
       ..add(Grecipes_on_conflict.serializer)
       ..add(Grecipes_order_by.serializer)
       ..add(Grecipes_pk_columns_input.serializer)
       ..add(Grecipes_select_column.serializer)
       ..add(Grecipes_set_input.serializer)
+      ..add(Grecipes_stddev_order_by.serializer)
+      ..add(Grecipes_stddev_pop_order_by.serializer)
+      ..add(Grecipes_stddev_samp_order_by.serializer)
+      ..add(Grecipes_sum_order_by.serializer)
       ..add(Grecipes_update_column.serializer)
+      ..add(Grecipes_var_pop_order_by.serializer)
+      ..add(Grecipes_var_samp_order_by.serializer)
+      ..add(Grecipes_variance_order_by.serializer)
       ..add(Gsteps_aggregate_order_by.serializer)
       ..add(Gsteps_arr_rel_insert_input.serializer)
       ..add(Gsteps_avg_order_by.serializer)
@@ -91,6 +126,25 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(Gsteps_var_pop_order_by.serializer)
       ..add(Gsteps_var_samp_order_by.serializer)
       ..add(Gsteps_variance_order_by.serializer)
+      ..add(Gusers_bool_exp.serializer)
+      ..add(Gusers_constraint.serializer)
+      ..add(Gusers_inc_input.serializer)
+      ..add(Gusers_insert_input.serializer)
+      ..add(Gusers_obj_rel_insert_input.serializer)
+      ..add(Gusers_on_conflict.serializer)
+      ..add(Gusers_order_by.serializer)
+      ..add(Gusers_pk_columns_input.serializer)
+      ..add(Gusers_select_column.serializer)
+      ..add(Gusers_set_input.serializer)
+      ..add(Gusers_update_column.serializer)
+      ..addBuilderFactory(
+          const FullType(
+              BuiltList, const [const FullType(GFetchAllUserData_users)]),
+          () => new ListBuilder<GFetchAllUserData_users>())
+      ..addBuilderFactory(
+          const FullType(BuiltList,
+              const [const FullType(GFetchAllUserData_users_recipes)]),
+          () => new ListBuilder<GFetchAllUserData_users_recipes>())
       ..addBuilderFactory(
           const FullType(BuiltList,
               const [const FullType(GFetchIngredientsListData_ingredients)]),
@@ -103,6 +157,18 @@ Serializers _$serializers = (new Serializers().toBuilder()
           const FullType(
               BuiltList, const [const FullType(GFetchStepsListData_steps)]),
           () => new ListBuilder<GFetchStepsListData_steps>())
+      ..addBuilderFactory(
+          const FullType(
+              BuiltList, const [const FullType(GFetchUsersData_users)]),
+          () => new ListBuilder<GFetchUsersData_users>())
+      ..addBuilderFactory(
+          const FullType(
+              BuiltList, const [const FullType(GFindUserByNameData_users)]),
+          () => new ListBuilder<GFindUserByNameData_users>())
+      ..addBuilderFactory(
+          const FullType(BuiltList,
+              const [const FullType(GFindUserByNameData_users_recipes)]),
+          () => new ListBuilder<GFindUserByNameData_users_recipes>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [
             const FullType(GInsertRecipeData_insert_recipes_one_ingredients)
@@ -137,28 +203,21 @@ Serializers _$serializers = (new Serializers().toBuilder()
           () => new ListBuilder<Grecipes_bool_exp>())
       ..addBuilderFactory(
           const FullType(
+              BuiltList, const [const FullType(Grecipes_insert_input)]),
+          () => new ListBuilder<Grecipes_insert_input>())
+      ..addBuilderFactory(
+          const FullType(
               BuiltList, const [const FullType(Grecipes_update_column)]),
           () => new ListBuilder<Grecipes_update_column>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(Gsteps_bool_exp)]),
-          () => new ListBuilder<Gsteps_bool_exp>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(Gsteps_bool_exp)]),
-          () => new ListBuilder<Gsteps_bool_exp>())
-      ..addBuilderFactory(
-          const FullType(
-              BuiltList, const [const FullType(Gsteps_insert_input)]),
-          () => new ListBuilder<Gsteps_insert_input>())
-      ..addBuilderFactory(
-          const FullType(
-              BuiltList, const [const FullType(Gsteps_update_column)]),
-          () => new ListBuilder<Gsteps_update_column>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(Gsteps_bool_exp)]), () => new ListBuilder<Gsteps_bool_exp>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(Gsteps_bool_exp)]), () => new ListBuilder<Gsteps_bool_exp>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(Gsteps_insert_input)]), () => new ListBuilder<Gsteps_insert_input>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(Gsteps_update_column)]), () => new ListBuilder<Gsteps_update_column>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(Gusers_bool_exp)]), () => new ListBuilder<Gusers_bool_exp>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(Gusers_bool_exp)]), () => new ListBuilder<Gusers_bool_exp>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(Gusers_update_column)]), () => new ListBuilder<Gusers_update_column>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(String)]), () => new ListBuilder<String>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(String)]), () => new ListBuilder<String>())
       ..addBuilderFactory(const FullType(BuiltList, const [const FullType(int)]), () => new ListBuilder<int>())
       ..addBuilderFactory(const FullType(BuiltList, const [const FullType(int)]), () => new ListBuilder<int>()))
     .build();

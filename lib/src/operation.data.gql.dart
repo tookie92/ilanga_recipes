@@ -41,13 +41,15 @@ abstract class GFetchRecipeListData_recipes
 
   static void _initializeBuilder(GFetchRecipeListData_recipesBuilder b) =>
       b..G__typename = 'recipes';
-  @BuiltValueField(wireName: '__typename')
-  String get G__typename;
   int get id;
   String get name;
   String? get image_url;
   String get calories;
   String? get time;
+  int? get user_id;
+  @BuiltValueField(wireName: '__typename')
+  String get G__typename;
+  GFetchRecipeListData_recipes_user? get user;
   static Serializer<GFetchRecipeListData_recipes> get serializer =>
       _$gFetchRecipeListDataRecipesSerializer;
   Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(
@@ -55,6 +57,234 @@ abstract class GFetchRecipeListData_recipes
   static GFetchRecipeListData_recipes? fromJson(Map<String, dynamic> json) =>
       _i1.serializers
           .deserializeWith(GFetchRecipeListData_recipes.serializer, json);
+}
+
+abstract class GFetchRecipeListData_recipes_user
+    implements
+        Built<GFetchRecipeListData_recipes_user,
+            GFetchRecipeListData_recipes_userBuilder> {
+  GFetchRecipeListData_recipes_user._();
+
+  factory GFetchRecipeListData_recipes_user(
+          [Function(GFetchRecipeListData_recipes_userBuilder b) updates]) =
+      _$GFetchRecipeListData_recipes_user;
+
+  static void _initializeBuilder(GFetchRecipeListData_recipes_userBuilder b) =>
+      b..G__typename = 'users';
+  int get id;
+  String get name;
+  String get email;
+  @BuiltValueField(wireName: '__typename')
+  String get G__typename;
+  static Serializer<GFetchRecipeListData_recipes_user> get serializer =>
+      _$gFetchRecipeListDataRecipesUserSerializer;
+  Map<String, dynamic> toJson() => (_i1.serializers
+          .serializeWith(GFetchRecipeListData_recipes_user.serializer, this)
+      as Map<String, dynamic>);
+  static GFetchRecipeListData_recipes_user? fromJson(
+          Map<String, dynamic> json) =>
+      _i1.serializers
+          .deserializeWith(GFetchRecipeListData_recipes_user.serializer, json);
+}
+
+abstract class GFetchAllUserData
+    implements Built<GFetchAllUserData, GFetchAllUserDataBuilder> {
+  GFetchAllUserData._();
+
+  factory GFetchAllUserData([Function(GFetchAllUserDataBuilder b) updates]) =
+      _$GFetchAllUserData;
+
+  static void _initializeBuilder(GFetchAllUserDataBuilder b) =>
+      b..G__typename = 'query_root';
+  @BuiltValueField(wireName: '__typename')
+  String get G__typename;
+  BuiltList<GFetchAllUserData_users> get users;
+  static Serializer<GFetchAllUserData> get serializer =>
+      _$gFetchAllUserDataSerializer;
+  Map<String, dynamic> toJson() =>
+      (_i1.serializers.serializeWith(GFetchAllUserData.serializer, this)
+          as Map<String, dynamic>);
+  static GFetchAllUserData? fromJson(Map<String, dynamic> json) =>
+      _i1.serializers.deserializeWith(GFetchAllUserData.serializer, json);
+}
+
+abstract class GFetchAllUserData_users
+    implements Built<GFetchAllUserData_users, GFetchAllUserData_usersBuilder> {
+  GFetchAllUserData_users._();
+
+  factory GFetchAllUserData_users(
+          [Function(GFetchAllUserData_usersBuilder b) updates]) =
+      _$GFetchAllUserData_users;
+
+  static void _initializeBuilder(GFetchAllUserData_usersBuilder b) =>
+      b..G__typename = 'users';
+  int get id;
+  String get name;
+  String get email;
+  @BuiltValueField(wireName: '__typename')
+  String get G__typename;
+  BuiltList<GFetchAllUserData_users_recipes> get recipes;
+  static Serializer<GFetchAllUserData_users> get serializer =>
+      _$gFetchAllUserDataUsersSerializer;
+  Map<String, dynamic> toJson() =>
+      (_i1.serializers.serializeWith(GFetchAllUserData_users.serializer, this)
+          as Map<String, dynamic>);
+  static GFetchAllUserData_users? fromJson(Map<String, dynamic> json) =>
+      _i1.serializers.deserializeWith(GFetchAllUserData_users.serializer, json);
+}
+
+abstract class GFetchAllUserData_users_recipes
+    implements
+        Built<GFetchAllUserData_users_recipes,
+            GFetchAllUserData_users_recipesBuilder> {
+  GFetchAllUserData_users_recipes._();
+
+  factory GFetchAllUserData_users_recipes(
+          [Function(GFetchAllUserData_users_recipesBuilder b) updates]) =
+      _$GFetchAllUserData_users_recipes;
+
+  static void _initializeBuilder(GFetchAllUserData_users_recipesBuilder b) =>
+      b..G__typename = 'recipes';
+  @BuiltValueField(wireName: '__typename')
+  String get G__typename;
+  int get id;
+  String get name;
+  String get calories;
+  String? get time;
+  String? get image_url;
+  static Serializer<GFetchAllUserData_users_recipes> get serializer =>
+      _$gFetchAllUserDataUsersRecipesSerializer;
+  Map<String, dynamic> toJson() => (_i1.serializers
+          .serializeWith(GFetchAllUserData_users_recipes.serializer, this)
+      as Map<String, dynamic>);
+  static GFetchAllUserData_users_recipes? fromJson(Map<String, dynamic> json) =>
+      _i1.serializers
+          .deserializeWith(GFetchAllUserData_users_recipes.serializer, json);
+}
+
+abstract class GFindUserData
+    implements Built<GFindUserData, GFindUserDataBuilder> {
+  GFindUserData._();
+
+  factory GFindUserData([Function(GFindUserDataBuilder b) updates]) =
+      _$GFindUserData;
+
+  static void _initializeBuilder(GFindUserDataBuilder b) =>
+      b..G__typename = 'query_root';
+  @BuiltValueField(wireName: '__typename')
+  String get G__typename;
+  GFindUserData_users_by_pk? get users_by_pk;
+  static Serializer<GFindUserData> get serializer => _$gFindUserDataSerializer;
+  Map<String, dynamic> toJson() =>
+      (_i1.serializers.serializeWith(GFindUserData.serializer, this)
+          as Map<String, dynamic>);
+  static GFindUserData? fromJson(Map<String, dynamic> json) =>
+      _i1.serializers.deserializeWith(GFindUserData.serializer, json);
+}
+
+abstract class GFindUserData_users_by_pk
+    implements
+        Built<GFindUserData_users_by_pk, GFindUserData_users_by_pkBuilder> {
+  GFindUserData_users_by_pk._();
+
+  factory GFindUserData_users_by_pk(
+          [Function(GFindUserData_users_by_pkBuilder b) updates]) =
+      _$GFindUserData_users_by_pk;
+
+  static void _initializeBuilder(GFindUserData_users_by_pkBuilder b) =>
+      b..G__typename = 'users';
+  @BuiltValueField(wireName: '__typename')
+  String get G__typename;
+  int get id;
+  String get name;
+  String get email;
+  static Serializer<GFindUserData_users_by_pk> get serializer =>
+      _$gFindUserDataUsersByPkSerializer;
+  Map<String, dynamic> toJson() =>
+      (_i1.serializers.serializeWith(GFindUserData_users_by_pk.serializer, this)
+          as Map<String, dynamic>);
+  static GFindUserData_users_by_pk? fromJson(Map<String, dynamic> json) =>
+      _i1.serializers
+          .deserializeWith(GFindUserData_users_by_pk.serializer, json);
+}
+
+abstract class GFindUserByNameData
+    implements Built<GFindUserByNameData, GFindUserByNameDataBuilder> {
+  GFindUserByNameData._();
+
+  factory GFindUserByNameData(
+      [Function(GFindUserByNameDataBuilder b) updates]) = _$GFindUserByNameData;
+
+  static void _initializeBuilder(GFindUserByNameDataBuilder b) =>
+      b..G__typename = 'query_root';
+  @BuiltValueField(wireName: '__typename')
+  String get G__typename;
+  BuiltList<GFindUserByNameData_users> get users;
+  static Serializer<GFindUserByNameData> get serializer =>
+      _$gFindUserByNameDataSerializer;
+  Map<String, dynamic> toJson() =>
+      (_i1.serializers.serializeWith(GFindUserByNameData.serializer, this)
+          as Map<String, dynamic>);
+  static GFindUserByNameData? fromJson(Map<String, dynamic> json) =>
+      _i1.serializers.deserializeWith(GFindUserByNameData.serializer, json);
+}
+
+abstract class GFindUserByNameData_users
+    implements
+        Built<GFindUserByNameData_users, GFindUserByNameData_usersBuilder> {
+  GFindUserByNameData_users._();
+
+  factory GFindUserByNameData_users(
+          [Function(GFindUserByNameData_usersBuilder b) updates]) =
+      _$GFindUserByNameData_users;
+
+  static void _initializeBuilder(GFindUserByNameData_usersBuilder b) =>
+      b..G__typename = 'users';
+  int get id;
+  String get name;
+  String get email;
+  @BuiltValueField(wireName: '__typename')
+  String get G__typename;
+  BuiltList<GFindUserByNameData_users_recipes> get recipes;
+  static Serializer<GFindUserByNameData_users> get serializer =>
+      _$gFindUserByNameDataUsersSerializer;
+  Map<String, dynamic> toJson() =>
+      (_i1.serializers.serializeWith(GFindUserByNameData_users.serializer, this)
+          as Map<String, dynamic>);
+  static GFindUserByNameData_users? fromJson(Map<String, dynamic> json) =>
+      _i1.serializers
+          .deserializeWith(GFindUserByNameData_users.serializer, json);
+}
+
+abstract class GFindUserByNameData_users_recipes
+    implements
+        Built<GFindUserByNameData_users_recipes,
+            GFindUserByNameData_users_recipesBuilder> {
+  GFindUserByNameData_users_recipes._();
+
+  factory GFindUserByNameData_users_recipes(
+          [Function(GFindUserByNameData_users_recipesBuilder b) updates]) =
+      _$GFindUserByNameData_users_recipes;
+
+  static void _initializeBuilder(GFindUserByNameData_users_recipesBuilder b) =>
+      b..G__typename = 'recipes';
+  @BuiltValueField(wireName: '__typename')
+  String get G__typename;
+  int get id;
+  String get name;
+  String? get time;
+  String get calories;
+  String? get image_url;
+  int? get user_id;
+  static Serializer<GFindUserByNameData_users_recipes> get serializer =>
+      _$gFindUserByNameDataUsersRecipesSerializer;
+  Map<String, dynamic> toJson() => (_i1.serializers
+          .serializeWith(GFindUserByNameData_users_recipes.serializer, this)
+      as Map<String, dynamic>);
+  static GFindUserByNameData_users_recipes? fromJson(
+          Map<String, dynamic> json) =>
+      _i1.serializers
+          .deserializeWith(GFindUserByNameData_users_recipes.serializer, json);
 }
 
 abstract class GFetchIngredientsListData
@@ -145,7 +375,7 @@ abstract class GFetchStepsListData_steps
       b..G__typename = 'steps';
   int get id;
   String get description;
-  String get image_url;
+  String? get image_url;
   int get recipe_id;
   @BuiltValueField(wireName: '__typename')
   String get G__typename;
@@ -157,6 +387,101 @@ abstract class GFetchStepsListData_steps
   static GFetchStepsListData_steps? fromJson(Map<String, dynamic> json) =>
       _i1.serializers
           .deserializeWith(GFetchStepsListData_steps.serializer, json);
+}
+
+abstract class GFetchUsersData
+    implements Built<GFetchUsersData, GFetchUsersDataBuilder> {
+  GFetchUsersData._();
+
+  factory GFetchUsersData([Function(GFetchUsersDataBuilder b) updates]) =
+      _$GFetchUsersData;
+
+  static void _initializeBuilder(GFetchUsersDataBuilder b) =>
+      b..G__typename = 'query_root';
+  @BuiltValueField(wireName: '__typename')
+  String get G__typename;
+  BuiltList<GFetchUsersData_users> get users;
+  static Serializer<GFetchUsersData> get serializer =>
+      _$gFetchUsersDataSerializer;
+  Map<String, dynamic> toJson() =>
+      (_i1.serializers.serializeWith(GFetchUsersData.serializer, this)
+          as Map<String, dynamic>);
+  static GFetchUsersData? fromJson(Map<String, dynamic> json) =>
+      _i1.serializers.deserializeWith(GFetchUsersData.serializer, json);
+}
+
+abstract class GFetchUsersData_users
+    implements Built<GFetchUsersData_users, GFetchUsersData_usersBuilder> {
+  GFetchUsersData_users._();
+
+  factory GFetchUsersData_users(
+          [Function(GFetchUsersData_usersBuilder b) updates]) =
+      _$GFetchUsersData_users;
+
+  static void _initializeBuilder(GFetchUsersData_usersBuilder b) =>
+      b..G__typename = 'users';
+  int get id;
+  String get name;
+  String get email;
+  @BuiltValueField(wireName: '__typename')
+  String get G__typename;
+  static Serializer<GFetchUsersData_users> get serializer =>
+      _$gFetchUsersDataUsersSerializer;
+  Map<String, dynamic> toJson() =>
+      (_i1.serializers.serializeWith(GFetchUsersData_users.serializer, this)
+          as Map<String, dynamic>);
+  static GFetchUsersData_users? fromJson(Map<String, dynamic> json) =>
+      _i1.serializers.deserializeWith(GFetchUsersData_users.serializer, json);
+}
+
+abstract class GInsertNewUserData
+    implements Built<GInsertNewUserData, GInsertNewUserDataBuilder> {
+  GInsertNewUserData._();
+
+  factory GInsertNewUserData([Function(GInsertNewUserDataBuilder b) updates]) =
+      _$GInsertNewUserData;
+
+  static void _initializeBuilder(GInsertNewUserDataBuilder b) =>
+      b..G__typename = 'mutation_root';
+  @BuiltValueField(wireName: '__typename')
+  String get G__typename;
+  GInsertNewUserData_insert_users_one? get insert_users_one;
+  static Serializer<GInsertNewUserData> get serializer =>
+      _$gInsertNewUserDataSerializer;
+  Map<String, dynamic> toJson() =>
+      (_i1.serializers.serializeWith(GInsertNewUserData.serializer, this)
+          as Map<String, dynamic>);
+  static GInsertNewUserData? fromJson(Map<String, dynamic> json) =>
+      _i1.serializers.deserializeWith(GInsertNewUserData.serializer, json);
+}
+
+abstract class GInsertNewUserData_insert_users_one
+    implements
+        Built<GInsertNewUserData_insert_users_one,
+            GInsertNewUserData_insert_users_oneBuilder> {
+  GInsertNewUserData_insert_users_one._();
+
+  factory GInsertNewUserData_insert_users_one(
+          [Function(GInsertNewUserData_insert_users_oneBuilder b) updates]) =
+      _$GInsertNewUserData_insert_users_one;
+
+  static void _initializeBuilder(
+          GInsertNewUserData_insert_users_oneBuilder b) =>
+      b..G__typename = 'users';
+  int get id;
+  String get name;
+  String get email;
+  @BuiltValueField(wireName: '__typename')
+  String get G__typename;
+  static Serializer<GInsertNewUserData_insert_users_one> get serializer =>
+      _$gInsertNewUserDataInsertUsersOneSerializer;
+  Map<String, dynamic> toJson() => (_i1.serializers
+          .serializeWith(GInsertNewUserData_insert_users_one.serializer, this)
+      as Map<String, dynamic>);
+  static GInsertNewUserData_insert_users_one? fromJson(
+          Map<String, dynamic> json) =>
+      _i1.serializers.deserializeWith(
+          GInsertNewUserData_insert_users_one.serializer, json);
 }
 
 abstract class GInsertRecipeData
@@ -259,7 +584,7 @@ abstract class GInsertRecipeData_insert_recipes_one_steps
       b..G__typename = 'steps';
   int get id;
   String get description;
-  String get image_url;
+  String? get image_url;
   int get recipe_id;
   @BuiltValueField(wireName: '__typename')
   String get G__typename;

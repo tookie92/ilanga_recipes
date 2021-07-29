@@ -12,18 +12,25 @@ import 'package:nekhna/ui/tiles/steps_tile.dart';
 import 'package:nekhna/ui/widgets/widgets.dart';
 
 class RecipeDetail extends StatelessWidget {
-  final GFetchRecipeListData_recipes? recipes;
+  final GFetchRecipeListData_recipes recipes;
   final GFetchIngredientsListReq ingredientsListReq;
   final GFetchStepsListReq stepsListReq;
+  final GFindUserByNameReq findUserReq;
 
   RecipeDetail({required this.recipes})
       : ingredientsListReq = GFetchIngredientsListReq(
-            (b) => b..vars.where.recipe_id.G_eq = recipes!.id),
+            (b) => b..vars.where.recipe_id.G_eq = recipes.id),
+        // ? user
+        findUserReq = GFindUserByNameReq((b) {
+          return b..vars.where.recipes.user_id.G_eq = recipes.user_id;
+        }),
+        //!user fin
         stepsListReq = GFetchStepsListReq(
-            (b) => b..vars.where.recipe_id.G_eq = recipes!.id);
+            (b) => b..vars.where.recipe_id.G_eq = recipes.id);
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    print(recipes.user_id);
     return Scaffold(
       body: Container(
         height: size.height * .9,
@@ -45,7 +52,7 @@ class RecipeDetail extends StatelessWidget {
                       placeholder: (context, url) =>
                           CircularProgressIndicator(),
                       errorWidget: (context, url, error) => Icon(Icons.error),
-                      imageUrl: recipes!.image_url ??
+                      imageUrl: recipes.image_url ??
                           'https://via.placeholder.com/350/008000/?Text=nopicture',
                       fit: BoxFit.cover,
                     ),
@@ -87,10 +94,8 @@ class RecipeDetail extends StatelessWidget {
                                   label: 'recipe by',
                                   color: Colors.white,
                                 ),
-                                MyText(
-                                  label: 'Lisa Musterfrau',
-                                  fontWeight: FontWeight.w600,
-                                  color: Colors.white,
+                                SizedBox(
+                                  height: 2.0,
                                 ),
                               ],
                             ),
@@ -113,7 +118,7 @@ class RecipeDetail extends StatelessWidget {
                           //color: Colors.red,
                           width: size.width * .8,
                           child: MyText(
-                            label: '${recipes!.name}',
+                            label: '${recipes.name}',
                             color: Colors.black,
                             fontWeight: FontWeight.w600,
                             fontSize: 35.0,

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nekhna/blocs/blocs.dart';
-import 'package:nekhna/models/recipe_model.dart';
-import 'package:nekhna/rm_graphql.dart';
+import 'package:nekhna/ui/forms/form_new_rec.dart';
 import 'package:nekhna/ui/widgets/widgets.dart';
 
 class NewRecipePage extends StatelessWidget {
@@ -9,8 +8,6 @@ class NewRecipePage extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     final bloc = BlocProvider.of<BlocRecipe>(context);
-    final _formKey = GlobalKey<FormState>();
-    final fields = RecipeModel();
     return Scaffold(
       appBar: AppBar(),
       body: GestureDetector(
@@ -53,65 +50,7 @@ class NewRecipePage extends StatelessWidget {
                       SizedBox(
                         height: 30.0,
                       ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                        child: Form(
-                          key: _formKey,
-                          child: Column(
-                            children: [
-                              MyTextForm(
-                                validator: (value) => value!.isEmpty
-                                    ? 'Please Enter a value'
-                                    : null,
-                                labelText: 'Name',
-                                onSaved: (newValue) => fields.name = newValue,
-                              ),
-                              SizedBox(
-                                height: 20.0,
-                              ),
-                              MyTextForm(
-                                validator: (value) => value!.isEmpty
-                                    ? 'Please Enter a value'
-                                    : null,
-                                labelText: 'calories',
-                                onSaved: (newValue) =>
-                                    fields.calories = newValue,
-                              ),
-                              SizedBox(
-                                height: 20.0,
-                              ),
-                              MyTextForm(
-                                validator: (value) => value!.isEmpty
-                                    ? 'Please Enter a value'
-                                    : null,
-                                labelText: 'time',
-                                onSaved: (newValue) => fields.time = newValue,
-                              ),
-                              SizedBox(
-                                height: 20.0,
-                              ),
-                              MyTextForm(
-                                validator: (value) => value!.isEmpty
-                                    ? 'Please Enter a value'
-                                    : null,
-                                labelText: 'url',
-                                onSaved: (newValue) =>
-                                    fields.imageUrl = newValue,
-                              ),
-                              TextButton(
-                                onPressed: () {
-                                  if (_formKey.currentState!.validate()) {
-                                    _formKey.currentState!.save();
-                                    truc.addRecipe(fields);
-                                    Navigator.pop(context);
-                                  }
-                                },
-                                child: MyText(label: 'Enter'),
-                              ),
-                            ],
-                          ),
-                        ),
-                      )
+                      FormRecipe()
                     ],
                   ),
                 );

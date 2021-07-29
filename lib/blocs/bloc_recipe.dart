@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:ferry/ferry.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get_it/get_it.dart';
 import 'package:nekhna/blocs/bloc.dart';
 import 'package:nekhna/models/recipe_model.dart';
@@ -18,6 +19,18 @@ class BlocRecipe extends Bloc {
     sink.add(resultat);
   }
 
+  void myUser() {
+    final client = GetIt.instance<Client>();
+    final userReq = GFindUserByNameReq((b) {
+      return b..vars.where.name.G_eq = RecipeState().currentUser;
+    });
+
+    client.request(userReq).listen((response) {
+      final users = response.data!.users;
+      users.map((u) => print(u.id));
+    });
+  }
+
   BlocRecipe() {
     init();
   }
@@ -28,29 +41,46 @@ class BlocRecipe extends Bloc {
 
 class RecipeState {
   final bool isActive;
+  final fields = RecipeModel();
+  final currentUser = FirebaseAuth.instance.currentUser!.displayName;
   RecipeState({this.isActive = false});
 
   void addRecipe(RecipeModel recipeModel) {
     final client = GetIt.instance<Client>();
+
     final recipeReq = GInsertRecipeReq((b) {
       return b
         ..vars.object.name = recipeModel.name
         ..vars.object.calories = recipeModel.calories
         ..vars.object.time = recipeModel.time
-        ..vars.object.image_url = recipeModel.imageUrl;
+        ..vars.object.image_url = recipeModel.imageUrl
+        ..vars.object.user_id = 1;
     });
 
     client.request(recipeReq).listen(
       (response) {
         final allRecipe = GFetchRecipeListReq();
         final cache = client.cache.readQuery(allRecipe);
-        final updateList = GFetchRecipeListData((b) {
+        final updateList = GFetchRecipeListData(
+          (b) {
+            return b
+              ..recipes.addAll(cache!.recipes)
+              ..recipes.add(GFetchRecipeListData_recipes.fromJson(
+                  response.data!.insert_recipes_one!.toJson())!);
+          },
+        );
+        client.cache.writeQuery(allRecipe, updateList);
+
+        final allUsers = GFetchAllUserReq();
+        final cacheu = client.cache.readQuery(allUsers);
+        final updateListu = GFetchAllUserData((b) {
           return b
-            ..recipes.addAll(cache!.recipes)
-            ..recipes.add(GFetchRecipeListData_recipes.fromJson(
+            ..users.addAll(cacheu!.users)
+            ..users.add(GFetchAllUserData_users.fromJson(
                 response.data!.insert_recipes_one!.toJson())!);
         });
-        client.cache.writeQuery(allRecipe, updateList);
+
+        client.cache.writeQuery(allUsers, updateListu);
       },
     );
   }

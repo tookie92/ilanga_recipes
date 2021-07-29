@@ -30,7 +30,7 @@ class StepsTile extends StatelessWidget {
                 ),
               ),
               child: CachedNetworkImage(
-                imageUrl: steps.image_url,
+                imageUrl: steps.image_url!,
                 maxHeightDiskCache: 500,
                 fit: BoxFit.cover,
               ),

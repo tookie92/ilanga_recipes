@@ -604,6 +604,75 @@ class Gorder_by extends EnumClass {
   static Gorder_by valueOf(String name) => _$gorderByValueOf(name);
 }
 
+abstract class Grecipes_aggregate_order_by
+    implements
+        Built<Grecipes_aggregate_order_by, Grecipes_aggregate_order_byBuilder> {
+  Grecipes_aggregate_order_by._();
+
+  factory Grecipes_aggregate_order_by(
+          [Function(Grecipes_aggregate_order_byBuilder b) updates]) =
+      _$Grecipes_aggregate_order_by;
+
+  Grecipes_avg_order_by? get avg;
+  Gorder_by? get count;
+  Grecipes_max_order_by? get max;
+  Grecipes_min_order_by? get min;
+  Grecipes_stddev_order_by? get stddev;
+  Grecipes_stddev_pop_order_by? get stddev_pop;
+  Grecipes_stddev_samp_order_by? get stddev_samp;
+  Grecipes_sum_order_by? get sum;
+  Grecipes_var_pop_order_by? get var_pop;
+  Grecipes_var_samp_order_by? get var_samp;
+  Grecipes_variance_order_by? get variance;
+  static Serializer<Grecipes_aggregate_order_by> get serializer =>
+      _$grecipesAggregateOrderBySerializer;
+  Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(
+      Grecipes_aggregate_order_by.serializer, this) as Map<String, dynamic>);
+  static Grecipes_aggregate_order_by? fromJson(Map<String, dynamic> json) =>
+      _i1.serializers
+          .deserializeWith(Grecipes_aggregate_order_by.serializer, json);
+}
+
+abstract class Grecipes_arr_rel_insert_input
+    implements
+        Built<Grecipes_arr_rel_insert_input,
+            Grecipes_arr_rel_insert_inputBuilder> {
+  Grecipes_arr_rel_insert_input._();
+
+  factory Grecipes_arr_rel_insert_input(
+          [Function(Grecipes_arr_rel_insert_inputBuilder b) updates]) =
+      _$Grecipes_arr_rel_insert_input;
+
+  BuiltList<Grecipes_insert_input> get data;
+  Grecipes_on_conflict? get on_conflict;
+  static Serializer<Grecipes_arr_rel_insert_input> get serializer =>
+      _$grecipesArrRelInsertInputSerializer;
+  Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(
+      Grecipes_arr_rel_insert_input.serializer, this) as Map<String, dynamic>);
+  static Grecipes_arr_rel_insert_input? fromJson(Map<String, dynamic> json) =>
+      _i1.serializers
+          .deserializeWith(Grecipes_arr_rel_insert_input.serializer, json);
+}
+
+abstract class Grecipes_avg_order_by
+    implements Built<Grecipes_avg_order_by, Grecipes_avg_order_byBuilder> {
+  Grecipes_avg_order_by._();
+
+  factory Grecipes_avg_order_by(
+          [Function(Grecipes_avg_order_byBuilder b) updates]) =
+      _$Grecipes_avg_order_by;
+
+  Gorder_by? get id;
+  Gorder_by? get user_id;
+  static Serializer<Grecipes_avg_order_by> get serializer =>
+      _$grecipesAvgOrderBySerializer;
+  Map<String, dynamic> toJson() =>
+      (_i1.serializers.serializeWith(Grecipes_avg_order_by.serializer, this)
+          as Map<String, dynamic>);
+  static Grecipes_avg_order_by? fromJson(Map<String, dynamic> json) =>
+      _i1.serializers.deserializeWith(Grecipes_avg_order_by.serializer, json);
+}
+
 abstract class Grecipes_bool_exp
     implements Built<Grecipes_bool_exp, Grecipes_bool_expBuilder> {
   Grecipes_bool_exp._();
@@ -624,6 +693,8 @@ abstract class Grecipes_bool_exp
   GString_comparison_exp? get name;
   Gsteps_bool_exp? get steps;
   GString_comparison_exp? get time;
+  Gusers_bool_exp? get user;
+  GInt_comparison_exp? get user_id;
   static Serializer<Grecipes_bool_exp> get serializer =>
       _$grecipesBoolExpSerializer;
   Map<String, dynamic> toJson() =>
@@ -654,6 +725,7 @@ abstract class Grecipes_inc_input
       _$Grecipes_inc_input;
 
   int? get id;
+  int? get user_id;
   static Serializer<Grecipes_inc_input> get serializer =>
       _$grecipesIncInputSerializer;
   Map<String, dynamic> toJson() =>
@@ -678,6 +750,8 @@ abstract class Grecipes_insert_input
   String? get name;
   Gsteps_arr_rel_insert_input? get steps;
   String? get time;
+  Gusers_obj_rel_insert_input? get user;
+  int? get user_id;
   static Serializer<Grecipes_insert_input> get serializer =>
       _$grecipesInsertInputSerializer;
   Map<String, dynamic> toJson() =>
@@ -685,6 +759,52 @@ abstract class Grecipes_insert_input
           as Map<String, dynamic>);
   static Grecipes_insert_input? fromJson(Map<String, dynamic> json) =>
       _i1.serializers.deserializeWith(Grecipes_insert_input.serializer, json);
+}
+
+abstract class Grecipes_max_order_by
+    implements Built<Grecipes_max_order_by, Grecipes_max_order_byBuilder> {
+  Grecipes_max_order_by._();
+
+  factory Grecipes_max_order_by(
+          [Function(Grecipes_max_order_byBuilder b) updates]) =
+      _$Grecipes_max_order_by;
+
+  Gorder_by? get calories;
+  Gorder_by? get id;
+  Gorder_by? get image_url;
+  Gorder_by? get name;
+  Gorder_by? get time;
+  Gorder_by? get user_id;
+  static Serializer<Grecipes_max_order_by> get serializer =>
+      _$grecipesMaxOrderBySerializer;
+  Map<String, dynamic> toJson() =>
+      (_i1.serializers.serializeWith(Grecipes_max_order_by.serializer, this)
+          as Map<String, dynamic>);
+  static Grecipes_max_order_by? fromJson(Map<String, dynamic> json) =>
+      _i1.serializers.deserializeWith(Grecipes_max_order_by.serializer, json);
+}
+
+abstract class Grecipes_min_order_by
+    implements Built<Grecipes_min_order_by, Grecipes_min_order_byBuilder> {
+  Grecipes_min_order_by._();
+
+  factory Grecipes_min_order_by(
+          [Function(Grecipes_min_order_byBuilder b) updates]) =
+      _$Grecipes_min_order_by;
+
+  Gorder_by? get calories;
+  Gorder_by? get id;
+  Gorder_by? get image_url;
+  Gorder_by? get name;
+  Gorder_by? get time;
+  Gorder_by? get user_id;
+  static Serializer<Grecipes_min_order_by> get serializer =>
+      _$grecipesMinOrderBySerializer;
+  Map<String, dynamic> toJson() =>
+      (_i1.serializers.serializeWith(Grecipes_min_order_by.serializer, this)
+          as Map<String, dynamic>);
+  static Grecipes_min_order_by? fromJson(Map<String, dynamic> json) =>
+      _i1.serializers.deserializeWith(Grecipes_min_order_by.serializer, json);
 }
 
 abstract class Grecipes_obj_rel_insert_input
@@ -742,6 +862,8 @@ abstract class Grecipes_order_by
   Gorder_by? get name;
   Gsteps_aggregate_order_by? get steps_aggregate;
   Gorder_by? get time;
+  Gusers_order_by? get user;
+  Gorder_by? get user_id;
   static Serializer<Grecipes_order_by> get serializer =>
       _$grecipesOrderBySerializer;
   Map<String, dynamic> toJson() =>
@@ -786,6 +908,8 @@ class Grecipes_select_column extends EnumClass {
 
   static const Grecipes_select_column time = _$grecipesSelectColumntime;
 
+  static const Grecipes_select_column user_id = _$grecipesSelectColumnuser_id;
+
   static Serializer<Grecipes_select_column> get serializer =>
       _$grecipesSelectColumnSerializer;
   static BuiltSet<Grecipes_select_column> get values =>
@@ -806,6 +930,7 @@ abstract class Grecipes_set_input
   String? get image_url;
   String? get name;
   String? get time;
+  int? get user_id;
   static Serializer<Grecipes_set_input> get serializer =>
       _$grecipesSetInputSerializer;
   Map<String, dynamic> toJson() =>
@@ -813,6 +938,88 @@ abstract class Grecipes_set_input
           as Map<String, dynamic>);
   static Grecipes_set_input? fromJson(Map<String, dynamic> json) =>
       _i1.serializers.deserializeWith(Grecipes_set_input.serializer, json);
+}
+
+abstract class Grecipes_stddev_order_by
+    implements
+        Built<Grecipes_stddev_order_by, Grecipes_stddev_order_byBuilder> {
+  Grecipes_stddev_order_by._();
+
+  factory Grecipes_stddev_order_by(
+          [Function(Grecipes_stddev_order_byBuilder b) updates]) =
+      _$Grecipes_stddev_order_by;
+
+  Gorder_by? get id;
+  Gorder_by? get user_id;
+  static Serializer<Grecipes_stddev_order_by> get serializer =>
+      _$grecipesStddevOrderBySerializer;
+  Map<String, dynamic> toJson() =>
+      (_i1.serializers.serializeWith(Grecipes_stddev_order_by.serializer, this)
+          as Map<String, dynamic>);
+  static Grecipes_stddev_order_by? fromJson(Map<String, dynamic> json) =>
+      _i1.serializers
+          .deserializeWith(Grecipes_stddev_order_by.serializer, json);
+}
+
+abstract class Grecipes_stddev_pop_order_by
+    implements
+        Built<Grecipes_stddev_pop_order_by,
+            Grecipes_stddev_pop_order_byBuilder> {
+  Grecipes_stddev_pop_order_by._();
+
+  factory Grecipes_stddev_pop_order_by(
+          [Function(Grecipes_stddev_pop_order_byBuilder b) updates]) =
+      _$Grecipes_stddev_pop_order_by;
+
+  Gorder_by? get id;
+  Gorder_by? get user_id;
+  static Serializer<Grecipes_stddev_pop_order_by> get serializer =>
+      _$grecipesStddevPopOrderBySerializer;
+  Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(
+      Grecipes_stddev_pop_order_by.serializer, this) as Map<String, dynamic>);
+  static Grecipes_stddev_pop_order_by? fromJson(Map<String, dynamic> json) =>
+      _i1.serializers
+          .deserializeWith(Grecipes_stddev_pop_order_by.serializer, json);
+}
+
+abstract class Grecipes_stddev_samp_order_by
+    implements
+        Built<Grecipes_stddev_samp_order_by,
+            Grecipes_stddev_samp_order_byBuilder> {
+  Grecipes_stddev_samp_order_by._();
+
+  factory Grecipes_stddev_samp_order_by(
+          [Function(Grecipes_stddev_samp_order_byBuilder b) updates]) =
+      _$Grecipes_stddev_samp_order_by;
+
+  Gorder_by? get id;
+  Gorder_by? get user_id;
+  static Serializer<Grecipes_stddev_samp_order_by> get serializer =>
+      _$grecipesStddevSampOrderBySerializer;
+  Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(
+      Grecipes_stddev_samp_order_by.serializer, this) as Map<String, dynamic>);
+  static Grecipes_stddev_samp_order_by? fromJson(Map<String, dynamic> json) =>
+      _i1.serializers
+          .deserializeWith(Grecipes_stddev_samp_order_by.serializer, json);
+}
+
+abstract class Grecipes_sum_order_by
+    implements Built<Grecipes_sum_order_by, Grecipes_sum_order_byBuilder> {
+  Grecipes_sum_order_by._();
+
+  factory Grecipes_sum_order_by(
+          [Function(Grecipes_sum_order_byBuilder b) updates]) =
+      _$Grecipes_sum_order_by;
+
+  Gorder_by? get id;
+  Gorder_by? get user_id;
+  static Serializer<Grecipes_sum_order_by> get serializer =>
+      _$grecipesSumOrderBySerializer;
+  Map<String, dynamic> toJson() =>
+      (_i1.serializers.serializeWith(Grecipes_sum_order_by.serializer, this)
+          as Map<String, dynamic>);
+  static Grecipes_sum_order_by? fromJson(Map<String, dynamic> json) =>
+      _i1.serializers.deserializeWith(Grecipes_sum_order_by.serializer, json);
 }
 
 class Grecipes_update_column extends EnumClass {
@@ -830,12 +1037,75 @@ class Grecipes_update_column extends EnumClass {
 
   static const Grecipes_update_column time = _$grecipesUpdateColumntime;
 
+  static const Grecipes_update_column user_id = _$grecipesUpdateColumnuser_id;
+
   static Serializer<Grecipes_update_column> get serializer =>
       _$grecipesUpdateColumnSerializer;
   static BuiltSet<Grecipes_update_column> get values =>
       _$grecipesUpdateColumnValues;
   static Grecipes_update_column valueOf(String name) =>
       _$grecipesUpdateColumnValueOf(name);
+}
+
+abstract class Grecipes_var_pop_order_by
+    implements
+        Built<Grecipes_var_pop_order_by, Grecipes_var_pop_order_byBuilder> {
+  Grecipes_var_pop_order_by._();
+
+  factory Grecipes_var_pop_order_by(
+          [Function(Grecipes_var_pop_order_byBuilder b) updates]) =
+      _$Grecipes_var_pop_order_by;
+
+  Gorder_by? get id;
+  Gorder_by? get user_id;
+  static Serializer<Grecipes_var_pop_order_by> get serializer =>
+      _$grecipesVarPopOrderBySerializer;
+  Map<String, dynamic> toJson() =>
+      (_i1.serializers.serializeWith(Grecipes_var_pop_order_by.serializer, this)
+          as Map<String, dynamic>);
+  static Grecipes_var_pop_order_by? fromJson(Map<String, dynamic> json) =>
+      _i1.serializers
+          .deserializeWith(Grecipes_var_pop_order_by.serializer, json);
+}
+
+abstract class Grecipes_var_samp_order_by
+    implements
+        Built<Grecipes_var_samp_order_by, Grecipes_var_samp_order_byBuilder> {
+  Grecipes_var_samp_order_by._();
+
+  factory Grecipes_var_samp_order_by(
+          [Function(Grecipes_var_samp_order_byBuilder b) updates]) =
+      _$Grecipes_var_samp_order_by;
+
+  Gorder_by? get id;
+  Gorder_by? get user_id;
+  static Serializer<Grecipes_var_samp_order_by> get serializer =>
+      _$grecipesVarSampOrderBySerializer;
+  Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(
+      Grecipes_var_samp_order_by.serializer, this) as Map<String, dynamic>);
+  static Grecipes_var_samp_order_by? fromJson(Map<String, dynamic> json) =>
+      _i1.serializers
+          .deserializeWith(Grecipes_var_samp_order_by.serializer, json);
+}
+
+abstract class Grecipes_variance_order_by
+    implements
+        Built<Grecipes_variance_order_by, Grecipes_variance_order_byBuilder> {
+  Grecipes_variance_order_by._();
+
+  factory Grecipes_variance_order_by(
+          [Function(Grecipes_variance_order_byBuilder b) updates]) =
+      _$Grecipes_variance_order_by;
+
+  Gorder_by? get id;
+  Gorder_by? get user_id;
+  static Serializer<Grecipes_variance_order_by> get serializer =>
+      _$grecipesVarianceOrderBySerializer;
+  Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(
+      Grecipes_variance_order_by.serializer, this) as Map<String, dynamic>);
+  static Grecipes_variance_order_by? fromJson(Map<String, dynamic> json) =>
+      _i1.serializers
+          .deserializeWith(Grecipes_variance_order_by.serializer, json);
 }
 
 abstract class Gsteps_aggregate_order_by
@@ -1278,4 +1548,212 @@ abstract class Gsteps_variance_order_by
   static Gsteps_variance_order_by? fromJson(Map<String, dynamic> json) =>
       _i1.serializers
           .deserializeWith(Gsteps_variance_order_by.serializer, json);
+}
+
+abstract class Gusers_bool_exp
+    implements Built<Gusers_bool_exp, Gusers_bool_expBuilder> {
+  Gusers_bool_exp._();
+
+  factory Gusers_bool_exp([Function(Gusers_bool_expBuilder b) updates]) =
+      _$Gusers_bool_exp;
+
+  @BuiltValueField(wireName: '_and')
+  BuiltList<Gusers_bool_exp>? get G_and;
+  @BuiltValueField(wireName: '_not')
+  Gusers_bool_exp? get G_not;
+  @BuiltValueField(wireName: '_or')
+  BuiltList<Gusers_bool_exp>? get G_or;
+  GString_comparison_exp? get email;
+  GInt_comparison_exp? get id;
+  GString_comparison_exp? get name;
+  Grecipes_bool_exp? get recipes;
+  static Serializer<Gusers_bool_exp> get serializer =>
+      _$gusersBoolExpSerializer;
+  Map<String, dynamic> toJson() =>
+      (_i1.serializers.serializeWith(Gusers_bool_exp.serializer, this)
+          as Map<String, dynamic>);
+  static Gusers_bool_exp? fromJson(Map<String, dynamic> json) =>
+      _i1.serializers.deserializeWith(Gusers_bool_exp.serializer, json);
+}
+
+class Gusers_constraint extends EnumClass {
+  const Gusers_constraint._(String name) : super(name);
+
+  static const Gusers_constraint utilisateurs_pkey =
+      _$gusersConstraintutilisateurs_pkey;
+
+  static Serializer<Gusers_constraint> get serializer =>
+      _$gusersConstraintSerializer;
+  static BuiltSet<Gusers_constraint> get values => _$gusersConstraintValues;
+  static Gusers_constraint valueOf(String name) =>
+      _$gusersConstraintValueOf(name);
+}
+
+abstract class Gusers_inc_input
+    implements Built<Gusers_inc_input, Gusers_inc_inputBuilder> {
+  Gusers_inc_input._();
+
+  factory Gusers_inc_input([Function(Gusers_inc_inputBuilder b) updates]) =
+      _$Gusers_inc_input;
+
+  int? get id;
+  static Serializer<Gusers_inc_input> get serializer =>
+      _$gusersIncInputSerializer;
+  Map<String, dynamic> toJson() =>
+      (_i1.serializers.serializeWith(Gusers_inc_input.serializer, this)
+          as Map<String, dynamic>);
+  static Gusers_inc_input? fromJson(Map<String, dynamic> json) =>
+      _i1.serializers.deserializeWith(Gusers_inc_input.serializer, json);
+}
+
+abstract class Gusers_insert_input
+    implements Built<Gusers_insert_input, Gusers_insert_inputBuilder> {
+  Gusers_insert_input._();
+
+  factory Gusers_insert_input(
+      [Function(Gusers_insert_inputBuilder b) updates]) = _$Gusers_insert_input;
+
+  String? get email;
+  int? get id;
+  String? get name;
+  Grecipes_arr_rel_insert_input? get recipes;
+  static Serializer<Gusers_insert_input> get serializer =>
+      _$gusersInsertInputSerializer;
+  Map<String, dynamic> toJson() =>
+      (_i1.serializers.serializeWith(Gusers_insert_input.serializer, this)
+          as Map<String, dynamic>);
+  static Gusers_insert_input? fromJson(Map<String, dynamic> json) =>
+      _i1.serializers.deserializeWith(Gusers_insert_input.serializer, json);
+}
+
+abstract class Gusers_obj_rel_insert_input
+    implements
+        Built<Gusers_obj_rel_insert_input, Gusers_obj_rel_insert_inputBuilder> {
+  Gusers_obj_rel_insert_input._();
+
+  factory Gusers_obj_rel_insert_input(
+          [Function(Gusers_obj_rel_insert_inputBuilder b) updates]) =
+      _$Gusers_obj_rel_insert_input;
+
+  Gusers_insert_input get data;
+  Gusers_on_conflict? get on_conflict;
+  static Serializer<Gusers_obj_rel_insert_input> get serializer =>
+      _$gusersObjRelInsertInputSerializer;
+  Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(
+      Gusers_obj_rel_insert_input.serializer, this) as Map<String, dynamic>);
+  static Gusers_obj_rel_insert_input? fromJson(Map<String, dynamic> json) =>
+      _i1.serializers
+          .deserializeWith(Gusers_obj_rel_insert_input.serializer, json);
+}
+
+abstract class Gusers_on_conflict
+    implements Built<Gusers_on_conflict, Gusers_on_conflictBuilder> {
+  Gusers_on_conflict._();
+
+  factory Gusers_on_conflict([Function(Gusers_on_conflictBuilder b) updates]) =
+      _$Gusers_on_conflict;
+
+  Gusers_constraint get constraint;
+  BuiltList<Gusers_update_column> get update_columns;
+  Gusers_bool_exp? get where;
+  static Serializer<Gusers_on_conflict> get serializer =>
+      _$gusersOnConflictSerializer;
+  Map<String, dynamic> toJson() =>
+      (_i1.serializers.serializeWith(Gusers_on_conflict.serializer, this)
+          as Map<String, dynamic>);
+  static Gusers_on_conflict? fromJson(Map<String, dynamic> json) =>
+      _i1.serializers.deserializeWith(Gusers_on_conflict.serializer, json);
+}
+
+abstract class Gusers_order_by
+    implements Built<Gusers_order_by, Gusers_order_byBuilder> {
+  Gusers_order_by._();
+
+  factory Gusers_order_by([Function(Gusers_order_byBuilder b) updates]) =
+      _$Gusers_order_by;
+
+  Gorder_by? get email;
+  Gorder_by? get id;
+  Gorder_by? get name;
+  Grecipes_aggregate_order_by? get recipes_aggregate;
+  static Serializer<Gusers_order_by> get serializer =>
+      _$gusersOrderBySerializer;
+  Map<String, dynamic> toJson() =>
+      (_i1.serializers.serializeWith(Gusers_order_by.serializer, this)
+          as Map<String, dynamic>);
+  static Gusers_order_by? fromJson(Map<String, dynamic> json) =>
+      _i1.serializers.deserializeWith(Gusers_order_by.serializer, json);
+}
+
+abstract class Gusers_pk_columns_input
+    implements Built<Gusers_pk_columns_input, Gusers_pk_columns_inputBuilder> {
+  Gusers_pk_columns_input._();
+
+  factory Gusers_pk_columns_input(
+          [Function(Gusers_pk_columns_inputBuilder b) updates]) =
+      _$Gusers_pk_columns_input;
+
+  int get id;
+  static Serializer<Gusers_pk_columns_input> get serializer =>
+      _$gusersPkColumnsInputSerializer;
+  Map<String, dynamic> toJson() =>
+      (_i1.serializers.serializeWith(Gusers_pk_columns_input.serializer, this)
+          as Map<String, dynamic>);
+  static Gusers_pk_columns_input? fromJson(Map<String, dynamic> json) =>
+      _i1.serializers.deserializeWith(Gusers_pk_columns_input.serializer, json);
+}
+
+class Gusers_select_column extends EnumClass {
+  const Gusers_select_column._(String name) : super(name);
+
+  static const Gusers_select_column email = _$gusersSelectColumnemail;
+
+  static const Gusers_select_column id = _$gusersSelectColumnid;
+
+  @BuiltValueEnumConst(wireName: 'name')
+  static const Gusers_select_column Gname = _$gusersSelectColumnGname;
+
+  static Serializer<Gusers_select_column> get serializer =>
+      _$gusersSelectColumnSerializer;
+  static BuiltSet<Gusers_select_column> get values =>
+      _$gusersSelectColumnValues;
+  static Gusers_select_column valueOf(String name) =>
+      _$gusersSelectColumnValueOf(name);
+}
+
+abstract class Gusers_set_input
+    implements Built<Gusers_set_input, Gusers_set_inputBuilder> {
+  Gusers_set_input._();
+
+  factory Gusers_set_input([Function(Gusers_set_inputBuilder b) updates]) =
+      _$Gusers_set_input;
+
+  String? get email;
+  int? get id;
+  String? get name;
+  static Serializer<Gusers_set_input> get serializer =>
+      _$gusersSetInputSerializer;
+  Map<String, dynamic> toJson() =>
+      (_i1.serializers.serializeWith(Gusers_set_input.serializer, this)
+          as Map<String, dynamic>);
+  static Gusers_set_input? fromJson(Map<String, dynamic> json) =>
+      _i1.serializers.deserializeWith(Gusers_set_input.serializer, json);
+}
+
+class Gusers_update_column extends EnumClass {
+  const Gusers_update_column._(String name) : super(name);
+
+  static const Gusers_update_column email = _$gusersUpdateColumnemail;
+
+  static const Gusers_update_column id = _$gusersUpdateColumnid;
+
+  @BuiltValueEnumConst(wireName: 'name')
+  static const Gusers_update_column Gname = _$gusersUpdateColumnGname;
+
+  static Serializer<Gusers_update_column> get serializer =>
+      _$gusersUpdateColumnSerializer;
+  static BuiltSet<Gusers_update_column> get values =>
+      _$gusersUpdateColumnValues;
+  static Gusers_update_column valueOf(String name) =>
+      _$gusersUpdateColumnValueOf(name);
 }

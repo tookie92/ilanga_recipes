@@ -5,6 +5,7 @@ class MyTextForm extends StatelessWidget {
   final String? Function(String?)? validator;
   final String? Function(String?)? onSaved;
   final bool obscureText;
+  final TextEditingController? controller;
   final Widget? prefixIcon;
   final String? initialValue;
   final String? labelText;
@@ -12,6 +13,7 @@ class MyTextForm extends StatelessWidget {
   const MyTextForm(
       {Key? key,
       this.labelText,
+      this.controller,
       this.prefixIcon,
       this.obscureText = false,
       this.validator,
@@ -25,6 +27,7 @@ class MyTextForm extends StatelessWidget {
       validator: validator,
       obscureText: obscureText,
       initialValue: initialValue,
+      controller: controller,
       onSaved: onSaved,
       style: GoogleFonts.montserrat(
         fontSize: 16.0,

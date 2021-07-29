@@ -455,6 +455,19 @@ type mutation_root {
   delete_steps_by_pk(id: Int!): steps
 
   """
+  delete data from the table: "users"
+  """
+  delete_users(
+    """filter the rows which have to be deleted"""
+    where: users_bool_exp!
+  ): users_mutation_response
+
+  """
+  delete single row from the table: "users"
+  """
+  delete_users_by_pk(id: Int!): users
+
+  """
   insert data into the table: "ingredients"
   """
   insert_ingredients(
@@ -519,6 +532,28 @@ type mutation_root {
     """on conflict condition"""
     on_conflict: steps_on_conflict
   ): steps
+
+  """
+  insert data into the table: "users"
+  """
+  insert_users(
+    """the rows to be inserted"""
+    objects: [users_insert_input!]!
+
+    """on conflict condition"""
+    on_conflict: users_on_conflict
+  ): users_mutation_response
+
+  """
+  insert a single row into the table: "users"
+  """
+  insert_users_one(
+    """the row to be inserted"""
+    object: users_insert_input!
+
+    """on conflict condition"""
+    on_conflict: users_on_conflict
+  ): users
 
   """
   update data of the table: "ingredients"
@@ -597,6 +632,32 @@ type mutation_root {
     _set: steps_set_input
     pk_columns: steps_pk_columns_input!
   ): steps
+
+  """
+  update data of the table: "users"
+  """
+  update_users(
+    """increments the numeric columns with given value of the filtered values"""
+    _inc: users_inc_input
+
+    """sets the columns of the filtered rows to the given values"""
+    _set: users_set_input
+
+    """filter the rows which have to be updated"""
+    where: users_bool_exp!
+  ): users_mutation_response
+
+  """
+  update single row of the table: "users"
+  """
+  update_users_by_pk(
+    """increments the numeric columns with given value of the filtered values"""
+    _inc: users_inc_input
+
+    """sets the columns of the filtered rows to the given values"""
+    _set: users_set_input
+    pk_columns: users_pk_columns_input!
+  ): users
 }
 
 """column ordering options"""
@@ -660,9 +721,7 @@ type query_root {
   """fetch data from the table: "ingredients" using primary key columns"""
   ingredients_by_pk(id: Int!): ingredients
 
-  """
-  fetch data from the table: "recipes"
-  """
+  """An array relationship"""
   recipes(
     """distinct select on columns"""
     distinct_on: [recipes_select_column!]
@@ -680,9 +739,7 @@ type query_root {
     where: recipes_bool_exp
   ): [recipes!]!
 
-  """
-  fetch aggregated fields from the table: "recipes"
-  """
+  """An aggregate relationship"""
   recipes_aggregate(
     """distinct select on columns"""
     distinct_on: [recipes_select_column!]
@@ -743,6 +800,49 @@ type query_root {
 
   """fetch data from the table: "steps" using primary key columns"""
   steps_by_pk(id: Int!): steps
+
+  """
+  fetch data from the table: "users"
+  """
+  users(
+    """distinct select on columns"""
+    distinct_on: [users_select_column!]
+
+    """limit the number of rows returned"""
+    limit: Int
+
+    """skip the first n rows. Use only with order_by"""
+    offset: Int
+
+    """sort the rows by one or more columns"""
+    order_by: [users_order_by!]
+
+    """filter the rows returned"""
+    where: users_bool_exp
+  ): [users!]!
+
+  """
+  fetch aggregated fields from the table: "users"
+  """
+  users_aggregate(
+    """distinct select on columns"""
+    distinct_on: [users_select_column!]
+
+    """limit the number of rows returned"""
+    limit: Int
+
+    """skip the first n rows. Use only with order_by"""
+    offset: Int
+
+    """sort the rows by one or more columns"""
+    order_by: [users_order_by!]
+
+    """filter the rows returned"""
+    where: users_bool_exp
+  ): users_aggregate!
+
+  """fetch data from the table: "users" using primary key columns"""
+  users_by_pk(id: Int!): users
 }
 
 """
@@ -828,6 +928,10 @@ type recipes {
     where: steps_bool_exp
   ): steps_aggregate!
   time: String
+
+  """An object relationship"""
+  user: users
+  user_id: Int
 }
 
 """
@@ -855,9 +959,45 @@ type recipes_aggregate_fields {
   variance: recipes_variance_fields
 }
 
+"""
+order by aggregate values of table "recipes"
+"""
+input recipes_aggregate_order_by {
+  avg: recipes_avg_order_by
+  count: order_by
+  max: recipes_max_order_by
+  min: recipes_min_order_by
+  stddev: recipes_stddev_order_by
+  stddev_pop: recipes_stddev_pop_order_by
+  stddev_samp: recipes_stddev_samp_order_by
+  sum: recipes_sum_order_by
+  var_pop: recipes_var_pop_order_by
+  var_samp: recipes_var_samp_order_by
+  variance: recipes_variance_order_by
+}
+
+"""
+input type for inserting array relation for remote table "recipes"
+"""
+input recipes_arr_rel_insert_input {
+  data: [recipes_insert_input!]!
+
+  """on conflict condition"""
+  on_conflict: recipes_on_conflict
+}
+
 """aggregate avg on columns"""
 type recipes_avg_fields {
   id: Float
+  user_id: Float
+}
+
+"""
+order by avg() on columns of table "recipes"
+"""
+input recipes_avg_order_by {
+  id: order_by
+  user_id: order_by
 }
 
 """
@@ -874,6 +1014,8 @@ input recipes_bool_exp {
   name: String_comparison_exp
   steps: steps_bool_exp
   time: String_comparison_exp
+  user: users_bool_exp
+  user_id: Int_comparison_exp
 }
 
 """
@@ -889,6 +1031,7 @@ input type for incrementing numeric columns in table "recipes"
 """
 input recipes_inc_input {
   id: Int
+  user_id: Int
 }
 
 """
@@ -902,6 +1045,8 @@ input recipes_insert_input {
   name: String
   steps: steps_arr_rel_insert_input
   time: String
+  user: users_obj_rel_insert_input
+  user_id: Int
 }
 
 """aggregate max on columns"""
@@ -911,6 +1056,19 @@ type recipes_max_fields {
   image_url: String
   name: String
   time: String
+  user_id: Int
+}
+
+"""
+order by max() on columns of table "recipes"
+"""
+input recipes_max_order_by {
+  calories: order_by
+  id: order_by
+  image_url: order_by
+  name: order_by
+  time: order_by
+  user_id: order_by
 }
 
 """aggregate min on columns"""
@@ -920,6 +1078,19 @@ type recipes_min_fields {
   image_url: String
   name: String
   time: String
+  user_id: Int
+}
+
+"""
+order by min() on columns of table "recipes"
+"""
+input recipes_min_order_by {
+  calories: order_by
+  id: order_by
+  image_url: order_by
+  name: order_by
+  time: order_by
+  user_id: order_by
 }
 
 """
@@ -961,6 +1132,8 @@ input recipes_order_by {
   name: order_by
   steps_aggregate: steps_aggregate_order_by
   time: order_by
+  user: users_order_by
+  user_id: order_by
 }
 
 """primary key columns input for table: recipes"""
@@ -986,6 +1159,9 @@ enum recipes_select_column {
 
   """column name"""
   time
+
+  """column name"""
+  user_id
 }
 
 """
@@ -997,26 +1173,63 @@ input recipes_set_input {
   image_url: String
   name: String
   time: String
+  user_id: Int
 }
 
 """aggregate stddev on columns"""
 type recipes_stddev_fields {
   id: Float
+  user_id: Float
+}
+
+"""
+order by stddev() on columns of table "recipes"
+"""
+input recipes_stddev_order_by {
+  id: order_by
+  user_id: order_by
 }
 
 """aggregate stddev_pop on columns"""
 type recipes_stddev_pop_fields {
   id: Float
+  user_id: Float
+}
+
+"""
+order by stddev_pop() on columns of table "recipes"
+"""
+input recipes_stddev_pop_order_by {
+  id: order_by
+  user_id: order_by
 }
 
 """aggregate stddev_samp on columns"""
 type recipes_stddev_samp_fields {
   id: Float
+  user_id: Float
+}
+
+"""
+order by stddev_samp() on columns of table "recipes"
+"""
+input recipes_stddev_samp_order_by {
+  id: order_by
+  user_id: order_by
 }
 
 """aggregate sum on columns"""
 type recipes_sum_fields {
   id: Int
+  user_id: Int
+}
+
+"""
+order by sum() on columns of table "recipes"
+"""
+input recipes_sum_order_by {
+  id: order_by
+  user_id: order_by
 }
 
 """
@@ -1037,21 +1250,51 @@ enum recipes_update_column {
 
   """column name"""
   time
+
+  """column name"""
+  user_id
 }
 
 """aggregate var_pop on columns"""
 type recipes_var_pop_fields {
   id: Float
+  user_id: Float
+}
+
+"""
+order by var_pop() on columns of table "recipes"
+"""
+input recipes_var_pop_order_by {
+  id: order_by
+  user_id: order_by
 }
 
 """aggregate var_samp on columns"""
 type recipes_var_samp_fields {
   id: Float
+  user_id: Float
+}
+
+"""
+order by var_samp() on columns of table "recipes"
+"""
+input recipes_var_samp_order_by {
+  id: order_by
+  user_id: order_by
 }
 
 """aggregate variance on columns"""
 type recipes_variance_fields {
   id: Float
+  user_id: Float
+}
+
+"""
+order by variance() on columns of table "recipes"
+"""
+input recipes_variance_order_by {
+  id: order_by
+  user_id: order_by
 }
 
 """
@@ -1060,7 +1303,7 @@ columns and relationships of "steps"
 type steps {
   description: String!
   id: Int!
-  image_url: String!
+  image_url: String
 
   """An object relationship"""
   recipe: recipes!
@@ -1426,9 +1669,7 @@ type subscription_root {
   """fetch data from the table: "ingredients" using primary key columns"""
   ingredients_by_pk(id: Int!): ingredients
 
-  """
-  fetch data from the table: "recipes"
-  """
+  """An array relationship"""
   recipes(
     """distinct select on columns"""
     distinct_on: [recipes_select_column!]
@@ -1446,9 +1687,7 @@ type subscription_root {
     where: recipes_bool_exp
   ): [recipes!]!
 
-  """
-  fetch aggregated fields from the table: "recipes"
-  """
+  """An aggregate relationship"""
   recipes_aggregate(
     """distinct select on columns"""
     distinct_on: [recipes_select_column!]
@@ -1509,5 +1748,290 @@ type subscription_root {
 
   """fetch data from the table: "steps" using primary key columns"""
   steps_by_pk(id: Int!): steps
+
+  """
+  fetch data from the table: "users"
+  """
+  users(
+    """distinct select on columns"""
+    distinct_on: [users_select_column!]
+
+    """limit the number of rows returned"""
+    limit: Int
+
+    """skip the first n rows. Use only with order_by"""
+    offset: Int
+
+    """sort the rows by one or more columns"""
+    order_by: [users_order_by!]
+
+    """filter the rows returned"""
+    where: users_bool_exp
+  ): [users!]!
+
+  """
+  fetch aggregated fields from the table: "users"
+  """
+  users_aggregate(
+    """distinct select on columns"""
+    distinct_on: [users_select_column!]
+
+    """limit the number of rows returned"""
+    limit: Int
+
+    """skip the first n rows. Use only with order_by"""
+    offset: Int
+
+    """sort the rows by one or more columns"""
+    order_by: [users_order_by!]
+
+    """filter the rows returned"""
+    where: users_bool_exp
+  ): users_aggregate!
+
+  """fetch data from the table: "users" using primary key columns"""
+  users_by_pk(id: Int!): users
+}
+
+"""
+columns and relationships of "users"
+"""
+type users {
+  email: String!
+  id: Int!
+  name: String!
+
+  """An array relationship"""
+  recipes(
+    """distinct select on columns"""
+    distinct_on: [recipes_select_column!]
+
+    """limit the number of rows returned"""
+    limit: Int
+
+    """skip the first n rows. Use only with order_by"""
+    offset: Int
+
+    """sort the rows by one or more columns"""
+    order_by: [recipes_order_by!]
+
+    """filter the rows returned"""
+    where: recipes_bool_exp
+  ): [recipes!]!
+
+  """An aggregate relationship"""
+  recipes_aggregate(
+    """distinct select on columns"""
+    distinct_on: [recipes_select_column!]
+
+    """limit the number of rows returned"""
+    limit: Int
+
+    """skip the first n rows. Use only with order_by"""
+    offset: Int
+
+    """sort the rows by one or more columns"""
+    order_by: [recipes_order_by!]
+
+    """filter the rows returned"""
+    where: recipes_bool_exp
+  ): recipes_aggregate!
+}
+
+"""
+aggregated selection of "users"
+"""
+type users_aggregate {
+  aggregate: users_aggregate_fields
+  nodes: [users!]!
+}
+
+"""
+aggregate fields of "users"
+"""
+type users_aggregate_fields {
+  avg: users_avg_fields
+  count(columns: [users_select_column!], distinct: Boolean): Int!
+  max: users_max_fields
+  min: users_min_fields
+  stddev: users_stddev_fields
+  stddev_pop: users_stddev_pop_fields
+  stddev_samp: users_stddev_samp_fields
+  sum: users_sum_fields
+  var_pop: users_var_pop_fields
+  var_samp: users_var_samp_fields
+  variance: users_variance_fields
+}
+
+"""aggregate avg on columns"""
+type users_avg_fields {
+  id: Float
+}
+
+"""
+Boolean expression to filter rows from the table "users". All fields are combined with a logical 'AND'.
+"""
+input users_bool_exp {
+  _and: [users_bool_exp!]
+  _not: users_bool_exp
+  _or: [users_bool_exp!]
+  email: String_comparison_exp
+  id: Int_comparison_exp
+  name: String_comparison_exp
+  recipes: recipes_bool_exp
+}
+
+"""
+unique or primary key constraints on table "users"
+"""
+enum users_constraint {
+  """unique or primary key constraint"""
+  utilisateurs_pkey
+}
+
+"""
+input type for incrementing numeric columns in table "users"
+"""
+input users_inc_input {
+  id: Int
+}
+
+"""
+input type for inserting data into table "users"
+"""
+input users_insert_input {
+  email: String
+  id: Int
+  name: String
+  recipes: recipes_arr_rel_insert_input
+}
+
+"""aggregate max on columns"""
+type users_max_fields {
+  email: String
+  id: Int
+  name: String
+}
+
+"""aggregate min on columns"""
+type users_min_fields {
+  email: String
+  id: Int
+  name: String
+}
+
+"""
+response of any mutation on the table "users"
+"""
+type users_mutation_response {
+  """number of rows affected by the mutation"""
+  affected_rows: Int!
+
+  """data from the rows affected by the mutation"""
+  returning: [users!]!
+}
+
+"""
+input type for inserting object relation for remote table "users"
+"""
+input users_obj_rel_insert_input {
+  data: users_insert_input!
+
+  """on conflict condition"""
+  on_conflict: users_on_conflict
+}
+
+"""
+on conflict condition type for table "users"
+"""
+input users_on_conflict {
+  constraint: users_constraint!
+  update_columns: [users_update_column!]! = []
+  where: users_bool_exp
+}
+
+"""Ordering options when selecting data from "users"."""
+input users_order_by {
+  email: order_by
+  id: order_by
+  name: order_by
+  recipes_aggregate: recipes_aggregate_order_by
+}
+
+"""primary key columns input for table: users"""
+input users_pk_columns_input {
+  id: Int!
+}
+
+"""
+select columns of table "users"
+"""
+enum users_select_column {
+  """column name"""
+  email
+
+  """column name"""
+  id
+
+  """column name"""
+  name
+}
+
+"""
+input type for updating data in table "users"
+"""
+input users_set_input {
+  email: String
+  id: Int
+  name: String
+}
+
+"""aggregate stddev on columns"""
+type users_stddev_fields {
+  id: Float
+}
+
+"""aggregate stddev_pop on columns"""
+type users_stddev_pop_fields {
+  id: Float
+}
+
+"""aggregate stddev_samp on columns"""
+type users_stddev_samp_fields {
+  id: Float
+}
+
+"""aggregate sum on columns"""
+type users_sum_fields {
+  id: Int
+}
+
+"""
+update columns of table "users"
+"""
+enum users_update_column {
+  """column name"""
+  email
+
+  """column name"""
+  id
+
+  """column name"""
+  name
+}
+
+"""aggregate var_pop on columns"""
+type users_var_pop_fields {
+  id: Float
+}
+
+"""aggregate var_samp on columns"""
+type users_var_samp_fields {
+  id: Float
+}
+
+"""aggregate variance on columns"""
+type users_variance_fields {
+  id: Float
 }
 

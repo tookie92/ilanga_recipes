@@ -5,9 +5,58 @@ query FetchRecipeList{
     image_url
     calories
     time
+    user_id
+    __typename
+    user{
+      id
+      name
+      email
+      __typename
+    }
   }
 }
 
+query FetchAllUser{
+  users{
+    id
+    name
+    email
+    __typename
+    recipes{
+      id
+      name
+      calories
+      time
+      image_url
+    }
+  }
+}
+
+query FindUser($id: Int!){
+ users_by_pk(id: $id){
+  id
+  name
+  email
+	}
+}
+
+
+query FindUserByName($where: users_bool_exp){
+  users(where: $where){
+   id
+    name
+    email
+    __typename
+    recipes{
+      id
+      name
+      time
+      calories
+      image_url
+      user_id
+    }
+  }
+}
 
 query FetchIngredientsList($where: ingredients_bool_exp){
   ingredients(where: $where){
@@ -25,6 +74,25 @@ query FetchStepsList($where: steps_bool_exp) {
    	description
     image_url
     recipe_id
+    __typename
+  }
+}
+
+query FetchUsers{
+  users{
+    id
+    name
+    email
+    __typename
+  }
+}
+
+
+mutation InsertNewUser($object: users_insert_input!){
+  insert_users_one(object:$object){
+    id
+    name
+    email
     __typename
   }
 }
@@ -77,6 +145,8 @@ mutation UpdateRecipe($set: recipes_set_input, $pkcolumns: recipes_pk_columns_in
     __typename
   }
 }
+
+
 
 
 

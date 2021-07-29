@@ -1,12 +1,17 @@
 import 'package:ferry/ferry.dart';
 import 'package:ferry_flutter/ferry_flutter.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:nekhna/blocs/blocs.dart';
 import 'package:nekhna/rm_graphql.dart';
+import 'package:nekhna/ui/emptylist/no_recipes.dart';
 import 'package:nekhna/ui/setttings/Palette.dart';
+import 'package:nekhna/ui/setttings/db_fire.dart';
 import 'package:nekhna/ui/tiles/recipe_tile.dart';
 import 'package:nekhna/ui/widgets/widgets.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class AccueilPage extends StatelessWidget {
   @override
@@ -17,11 +22,7 @@ class AccueilPage extends StatelessWidget {
     return Scaffold(
       body: GestureDetector(
         onTap: () {
-          FocusScopeNode currentFocus = FocusScope.of(context);
-
-          if (!currentFocus.hasPrimaryFocus) {
-            currentFocus.unfocus();
-          }
+          FocusManager.instance.primaryFocus?.unfocus();
         },
         child: StreamBuilder<HomeState>(
           stream: bloc.stream,
@@ -40,11 +41,49 @@ class AccueilPage extends StatelessWidget {
             } else {
               return CustomScrollView(
                 slivers: [
+                  SliverAppBar(
+                    expandedHeight: 90.0,
+                    snap: true,
+                    floating: true,
+                    backgroundColor: Colors.grey[50],
+                    leading: IconButton(
+                      onPressed: () =>
+                          Navigator.push(context, BlocRouter().newRecipePage()),
+                      icon: FaIcon(
+                        FontAwesomeIcons.plus,
+                        color: Colors.amber,
+                        size: 20.0,
+                      ),
+                    ),
+                    flexibleSpace: FlexibleSpaceBar(
+                        title: Text(
+                      'Safna',
+                      style: GoogleFonts.pacifico(color: Palette.green),
+                    )),
+                    actions: [
+                      IconButton(
+                        onPressed: () async {
+                          SharedPreferences prefs =
+                              await SharedPreferences.getInstance();
+                          prefs.remove('email');
+
+                          await DbFire().signOut();
+                          Navigator.pushReplacement(
+                              context, BlocRouter().accueilPage());
+                        },
+                        icon: FaIcon(
+                          FontAwesomeIcons.signOutAlt,
+                          color: Colors.amber,
+                          size: 20.0,
+                        ),
+                      )
+                    ],
+                  ),
                   SliverList(
                     delegate: SliverChildListDelegate(
                       [
                         SizedBox(
-                          height: size.height * .12,
+                          height: size.height * .02,
                         ),
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 20.0),
@@ -52,7 +91,7 @@ class AccueilPage extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               MyText(
-                                label: 'Hey Joseph',
+                                label: 'Hey ${truc.currentUser}',
                                 fontWeight: FontWeight.w600,
                                 color: Palette.green,
                                 fontSize: 22.0,
@@ -91,11 +130,7 @@ class AccueilPage extends StatelessWidget {
                                     final recipes = response.data!.recipes;
 
                                     if (recipes.isEmpty) {
-                                      return Center(
-                                        child: MyText(
-                                          label: 'No Recipes',
-                                        ),
-                                      );
+                                      return Center(child: NoRecipes());
                                     }
                                     return Container(
                                       height: size.height * .45,
@@ -117,13 +152,6 @@ class AccueilPage extends StatelessWidget {
                               SizedBox(
                                 height: 20.0,
                               ),
-                              TextButton.icon(
-                                  onPressed: () => Navigator.push(
-                                      context, BlocRouter().newRecipePage()),
-                                  icon: FaIcon(FontAwesomeIcons.plus),
-                                  label: MyText(
-                                    label: 'Add Recipes',
-                                  ))
                             ],
                           ),
                         ),

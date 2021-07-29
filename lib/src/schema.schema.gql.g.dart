@@ -153,6 +153,8 @@ const Grecipes_select_column _$grecipesSelectColumnGname =
     const Grecipes_select_column._('Gname');
 const Grecipes_select_column _$grecipesSelectColumntime =
     const Grecipes_select_column._('time');
+const Grecipes_select_column _$grecipesSelectColumnuser_id =
+    const Grecipes_select_column._('user_id');
 
 Grecipes_select_column _$grecipesSelectColumnValueOf(String name) {
   switch (name) {
@@ -166,6 +168,8 @@ Grecipes_select_column _$grecipesSelectColumnValueOf(String name) {
       return _$grecipesSelectColumnGname;
     case 'time':
       return _$grecipesSelectColumntime;
+    case 'user_id':
+      return _$grecipesSelectColumnuser_id;
     default:
       throw new ArgumentError(name);
   }
@@ -178,6 +182,7 @@ final BuiltSet<Grecipes_select_column> _$grecipesSelectColumnValues =
   _$grecipesSelectColumnimage_url,
   _$grecipesSelectColumnGname,
   _$grecipesSelectColumntime,
+  _$grecipesSelectColumnuser_id,
 ]);
 
 const Grecipes_update_column _$grecipesUpdateColumncalories =
@@ -190,6 +195,8 @@ const Grecipes_update_column _$grecipesUpdateColumnGname =
     const Grecipes_update_column._('Gname');
 const Grecipes_update_column _$grecipesUpdateColumntime =
     const Grecipes_update_column._('time');
+const Grecipes_update_column _$grecipesUpdateColumnuser_id =
+    const Grecipes_update_column._('user_id');
 
 Grecipes_update_column _$grecipesUpdateColumnValueOf(String name) {
   switch (name) {
@@ -203,6 +210,8 @@ Grecipes_update_column _$grecipesUpdateColumnValueOf(String name) {
       return _$grecipesUpdateColumnGname;
     case 'time':
       return _$grecipesUpdateColumntime;
+    case 'user_id':
+      return _$grecipesUpdateColumnuser_id;
     default:
       throw new ArgumentError(name);
   }
@@ -215,6 +224,7 @@ final BuiltSet<Grecipes_update_column> _$grecipesUpdateColumnValues =
   _$grecipesUpdateColumnimage_url,
   _$grecipesUpdateColumnGname,
   _$grecipesUpdateColumntime,
+  _$grecipesUpdateColumnuser_id,
 ]);
 
 const Gsteps_constraint _$gstepsConstraintsteps_pkey =
@@ -298,6 +308,77 @@ final BuiltSet<Gsteps_update_column> _$gstepsUpdateColumnValues =
   _$gstepsUpdateColumnrecipe_id,
 ]);
 
+const Gusers_constraint _$gusersConstraintutilisateurs_pkey =
+    const Gusers_constraint._('utilisateurs_pkey');
+
+Gusers_constraint _$gusersConstraintValueOf(String name) {
+  switch (name) {
+    case 'utilisateurs_pkey':
+      return _$gusersConstraintutilisateurs_pkey;
+    default:
+      throw new ArgumentError(name);
+  }
+}
+
+final BuiltSet<Gusers_constraint> _$gusersConstraintValues =
+    new BuiltSet<Gusers_constraint>(const <Gusers_constraint>[
+  _$gusersConstraintutilisateurs_pkey,
+]);
+
+const Gusers_select_column _$gusersSelectColumnemail =
+    const Gusers_select_column._('email');
+const Gusers_select_column _$gusersSelectColumnid =
+    const Gusers_select_column._('id');
+const Gusers_select_column _$gusersSelectColumnGname =
+    const Gusers_select_column._('Gname');
+
+Gusers_select_column _$gusersSelectColumnValueOf(String name) {
+  switch (name) {
+    case 'email':
+      return _$gusersSelectColumnemail;
+    case 'id':
+      return _$gusersSelectColumnid;
+    case 'Gname':
+      return _$gusersSelectColumnGname;
+    default:
+      throw new ArgumentError(name);
+  }
+}
+
+final BuiltSet<Gusers_select_column> _$gusersSelectColumnValues =
+    new BuiltSet<Gusers_select_column>(const <Gusers_select_column>[
+  _$gusersSelectColumnemail,
+  _$gusersSelectColumnid,
+  _$gusersSelectColumnGname,
+]);
+
+const Gusers_update_column _$gusersUpdateColumnemail =
+    const Gusers_update_column._('email');
+const Gusers_update_column _$gusersUpdateColumnid =
+    const Gusers_update_column._('id');
+const Gusers_update_column _$gusersUpdateColumnGname =
+    const Gusers_update_column._('Gname');
+
+Gusers_update_column _$gusersUpdateColumnValueOf(String name) {
+  switch (name) {
+    case 'email':
+      return _$gusersUpdateColumnemail;
+    case 'id':
+      return _$gusersUpdateColumnid;
+    case 'Gname':
+      return _$gusersUpdateColumnGname;
+    default:
+      throw new ArgumentError(name);
+  }
+}
+
+final BuiltSet<Gusers_update_column> _$gusersUpdateColumnValues =
+    new BuiltSet<Gusers_update_column>(const <Gusers_update_column>[
+  _$gusersUpdateColumnemail,
+  _$gusersUpdateColumnid,
+  _$gusersUpdateColumnGname,
+]);
+
 Serializer<GInt_comparison_exp> _$gIntComparisonExpSerializer =
     new _$GInt_comparison_expSerializer();
 Serializer<GString_comparison_exp> _$gStringComparisonExpSerializer =
@@ -355,6 +436,13 @@ Serializer<Gingredients_variance_order_by>
     _$gingredientsVarianceOrderBySerializer =
     new _$Gingredients_variance_order_bySerializer();
 Serializer<Gorder_by> _$gorderBySerializer = new _$Gorder_bySerializer();
+Serializer<Grecipes_aggregate_order_by> _$grecipesAggregateOrderBySerializer =
+    new _$Grecipes_aggregate_order_bySerializer();
+Serializer<Grecipes_arr_rel_insert_input>
+    _$grecipesArrRelInsertInputSerializer =
+    new _$Grecipes_arr_rel_insert_inputSerializer();
+Serializer<Grecipes_avg_order_by> _$grecipesAvgOrderBySerializer =
+    new _$Grecipes_avg_order_bySerializer();
 Serializer<Grecipes_bool_exp> _$grecipesBoolExpSerializer =
     new _$Grecipes_bool_expSerializer();
 Serializer<Grecipes_constraint> _$grecipesConstraintSerializer =
@@ -363,6 +451,10 @@ Serializer<Grecipes_inc_input> _$grecipesIncInputSerializer =
     new _$Grecipes_inc_inputSerializer();
 Serializer<Grecipes_insert_input> _$grecipesInsertInputSerializer =
     new _$Grecipes_insert_inputSerializer();
+Serializer<Grecipes_max_order_by> _$grecipesMaxOrderBySerializer =
+    new _$Grecipes_max_order_bySerializer();
+Serializer<Grecipes_min_order_by> _$grecipesMinOrderBySerializer =
+    new _$Grecipes_min_order_bySerializer();
 Serializer<Grecipes_obj_rel_insert_input>
     _$grecipesObjRelInsertInputSerializer =
     new _$Grecipes_obj_rel_insert_inputSerializer();
@@ -376,8 +468,23 @@ Serializer<Grecipes_select_column> _$grecipesSelectColumnSerializer =
     new _$Grecipes_select_columnSerializer();
 Serializer<Grecipes_set_input> _$grecipesSetInputSerializer =
     new _$Grecipes_set_inputSerializer();
+Serializer<Grecipes_stddev_order_by> _$grecipesStddevOrderBySerializer =
+    new _$Grecipes_stddev_order_bySerializer();
+Serializer<Grecipes_stddev_pop_order_by> _$grecipesStddevPopOrderBySerializer =
+    new _$Grecipes_stddev_pop_order_bySerializer();
+Serializer<Grecipes_stddev_samp_order_by>
+    _$grecipesStddevSampOrderBySerializer =
+    new _$Grecipes_stddev_samp_order_bySerializer();
+Serializer<Grecipes_sum_order_by> _$grecipesSumOrderBySerializer =
+    new _$Grecipes_sum_order_bySerializer();
 Serializer<Grecipes_update_column> _$grecipesUpdateColumnSerializer =
     new _$Grecipes_update_columnSerializer();
+Serializer<Grecipes_var_pop_order_by> _$grecipesVarPopOrderBySerializer =
+    new _$Grecipes_var_pop_order_bySerializer();
+Serializer<Grecipes_var_samp_order_by> _$grecipesVarSampOrderBySerializer =
+    new _$Grecipes_var_samp_order_bySerializer();
+Serializer<Grecipes_variance_order_by> _$grecipesVarianceOrderBySerializer =
+    new _$Grecipes_variance_order_bySerializer();
 Serializer<Gsteps_aggregate_order_by> _$gstepsAggregateOrderBySerializer =
     new _$Gsteps_aggregate_order_bySerializer();
 Serializer<Gsteps_arr_rel_insert_input> _$gstepsArrRelInsertInputSerializer =
@@ -422,6 +529,28 @@ Serializer<Gsteps_var_samp_order_by> _$gstepsVarSampOrderBySerializer =
     new _$Gsteps_var_samp_order_bySerializer();
 Serializer<Gsteps_variance_order_by> _$gstepsVarianceOrderBySerializer =
     new _$Gsteps_variance_order_bySerializer();
+Serializer<Gusers_bool_exp> _$gusersBoolExpSerializer =
+    new _$Gusers_bool_expSerializer();
+Serializer<Gusers_constraint> _$gusersConstraintSerializer =
+    new _$Gusers_constraintSerializer();
+Serializer<Gusers_inc_input> _$gusersIncInputSerializer =
+    new _$Gusers_inc_inputSerializer();
+Serializer<Gusers_insert_input> _$gusersInsertInputSerializer =
+    new _$Gusers_insert_inputSerializer();
+Serializer<Gusers_obj_rel_insert_input> _$gusersObjRelInsertInputSerializer =
+    new _$Gusers_obj_rel_insert_inputSerializer();
+Serializer<Gusers_on_conflict> _$gusersOnConflictSerializer =
+    new _$Gusers_on_conflictSerializer();
+Serializer<Gusers_order_by> _$gusersOrderBySerializer =
+    new _$Gusers_order_bySerializer();
+Serializer<Gusers_pk_columns_input> _$gusersPkColumnsInputSerializer =
+    new _$Gusers_pk_columns_inputSerializer();
+Serializer<Gusers_select_column> _$gusersSelectColumnSerializer =
+    new _$Gusers_select_columnSerializer();
+Serializer<Gusers_set_input> _$gusersSetInputSerializer =
+    new _$Gusers_set_inputSerializer();
+Serializer<Gusers_update_column> _$gusersUpdateColumnSerializer =
+    new _$Gusers_update_columnSerializer();
 
 class _$GInt_comparison_expSerializer
     implements StructuredSerializer<GInt_comparison_exp> {
@@ -2357,6 +2486,296 @@ class _$Gorder_bySerializer implements PrimitiveSerializer<Gorder_by> {
       Gorder_by.valueOf(serialized as String);
 }
 
+class _$Grecipes_aggregate_order_bySerializer
+    implements StructuredSerializer<Grecipes_aggregate_order_by> {
+  @override
+  final Iterable<Type> types = const [
+    Grecipes_aggregate_order_by,
+    _$Grecipes_aggregate_order_by
+  ];
+  @override
+  final String wireName = 'Grecipes_aggregate_order_by';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, Grecipes_aggregate_order_by object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[];
+    Object? value;
+    value = object.avg;
+    if (value != null) {
+      result
+        ..add('avg')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(Grecipes_avg_order_by)));
+    }
+    value = object.count;
+    if (value != null) {
+      result
+        ..add('count')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(Gorder_by)));
+    }
+    value = object.max;
+    if (value != null) {
+      result
+        ..add('max')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(Grecipes_max_order_by)));
+    }
+    value = object.min;
+    if (value != null) {
+      result
+        ..add('min')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(Grecipes_min_order_by)));
+    }
+    value = object.stddev;
+    if (value != null) {
+      result
+        ..add('stddev')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(Grecipes_stddev_order_by)));
+    }
+    value = object.stddev_pop;
+    if (value != null) {
+      result
+        ..add('stddev_pop')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(Grecipes_stddev_pop_order_by)));
+    }
+    value = object.stddev_samp;
+    if (value != null) {
+      result
+        ..add('stddev_samp')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(Grecipes_stddev_samp_order_by)));
+    }
+    value = object.sum;
+    if (value != null) {
+      result
+        ..add('sum')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(Grecipes_sum_order_by)));
+    }
+    value = object.var_pop;
+    if (value != null) {
+      result
+        ..add('var_pop')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(Grecipes_var_pop_order_by)));
+    }
+    value = object.var_samp;
+    if (value != null) {
+      result
+        ..add('var_samp')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(Grecipes_var_samp_order_by)));
+    }
+    value = object.variance;
+    if (value != null) {
+      result
+        ..add('variance')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(Grecipes_variance_order_by)));
+    }
+    return result;
+  }
+
+  @override
+  Grecipes_aggregate_order_by deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = new Grecipes_aggregate_order_byBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'avg':
+          result.avg.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(Grecipes_avg_order_by))!
+              as Grecipes_avg_order_by);
+          break;
+        case 'count':
+          result.count = serializers.deserialize(value,
+              specifiedType: const FullType(Gorder_by)) as Gorder_by?;
+          break;
+        case 'max':
+          result.max.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(Grecipes_max_order_by))!
+              as Grecipes_max_order_by);
+          break;
+        case 'min':
+          result.min.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(Grecipes_min_order_by))!
+              as Grecipes_min_order_by);
+          break;
+        case 'stddev':
+          result.stddev.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(Grecipes_stddev_order_by))!
+              as Grecipes_stddev_order_by);
+          break;
+        case 'stddev_pop':
+          result.stddev_pop.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(Grecipes_stddev_pop_order_by))!
+              as Grecipes_stddev_pop_order_by);
+          break;
+        case 'stddev_samp':
+          result.stddev_samp.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(Grecipes_stddev_samp_order_by))!
+              as Grecipes_stddev_samp_order_by);
+          break;
+        case 'sum':
+          result.sum.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(Grecipes_sum_order_by))!
+              as Grecipes_sum_order_by);
+          break;
+        case 'var_pop':
+          result.var_pop.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(Grecipes_var_pop_order_by))!
+              as Grecipes_var_pop_order_by);
+          break;
+        case 'var_samp':
+          result.var_samp.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(Grecipes_var_samp_order_by))!
+              as Grecipes_var_samp_order_by);
+          break;
+        case 'variance':
+          result.variance.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(Grecipes_variance_order_by))!
+              as Grecipes_variance_order_by);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$Grecipes_arr_rel_insert_inputSerializer
+    implements StructuredSerializer<Grecipes_arr_rel_insert_input> {
+  @override
+  final Iterable<Type> types = const [
+    Grecipes_arr_rel_insert_input,
+    _$Grecipes_arr_rel_insert_input
+  ];
+  @override
+  final String wireName = 'Grecipes_arr_rel_insert_input';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, Grecipes_arr_rel_insert_input object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'data',
+      serializers.serialize(object.data,
+          specifiedType: const FullType(
+              BuiltList, const [const FullType(Grecipes_insert_input)])),
+    ];
+    Object? value;
+    value = object.on_conflict;
+    if (value != null) {
+      result
+        ..add('on_conflict')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(Grecipes_on_conflict)));
+    }
+    return result;
+  }
+
+  @override
+  Grecipes_arr_rel_insert_input deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = new Grecipes_arr_rel_insert_inputBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'data':
+          result.data.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, const [
+                const FullType(Grecipes_insert_input)
+              ]))! as BuiltList<Object?>);
+          break;
+        case 'on_conflict':
+          result.on_conflict.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(Grecipes_on_conflict))!
+              as Grecipes_on_conflict);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$Grecipes_avg_order_bySerializer
+    implements StructuredSerializer<Grecipes_avg_order_by> {
+  @override
+  final Iterable<Type> types = const [
+    Grecipes_avg_order_by,
+    _$Grecipes_avg_order_by
+  ];
+  @override
+  final String wireName = 'Grecipes_avg_order_by';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, Grecipes_avg_order_by object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[];
+    Object? value;
+    value = object.id;
+    if (value != null) {
+      result
+        ..add('id')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(Gorder_by)));
+    }
+    value = object.user_id;
+    if (value != null) {
+      result
+        ..add('user_id')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(Gorder_by)));
+    }
+    return result;
+  }
+
+  @override
+  Grecipes_avg_order_by deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = new Grecipes_avg_order_byBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'id':
+          result.id = serializers.deserialize(value,
+              specifiedType: const FullType(Gorder_by)) as Gorder_by?;
+          break;
+        case 'user_id':
+          result.user_id = serializers.deserialize(value,
+              specifiedType: const FullType(Gorder_by)) as Gorder_by?;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
 class _$Grecipes_bool_expSerializer
     implements StructuredSerializer<Grecipes_bool_exp> {
   @override
@@ -2441,6 +2860,20 @@ class _$Grecipes_bool_expSerializer
         ..add(serializers.serialize(value,
             specifiedType: const FullType(GString_comparison_exp)));
     }
+    value = object.user;
+    if (value != null) {
+      result
+        ..add('user')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(Gusers_bool_exp)));
+    }
+    value = object.user_id;
+    if (value != null) {
+      result
+        ..add('user_id')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GInt_comparison_exp)));
+    }
     return result;
   }
 
@@ -2508,6 +2941,16 @@ class _$Grecipes_bool_expSerializer
                   specifiedType: const FullType(GString_comparison_exp))!
               as GString_comparison_exp);
           break;
+        case 'user':
+          result.user.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(Gusers_bool_exp))!
+              as Gusers_bool_exp);
+          break;
+        case 'user_id':
+          result.user_id.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(GInt_comparison_exp))!
+              as GInt_comparison_exp);
+          break;
       }
     }
 
@@ -2552,6 +2995,12 @@ class _$Grecipes_inc_inputSerializer
         ..add('id')
         ..add(serializers.serialize(value, specifiedType: const FullType(int)));
     }
+    value = object.user_id;
+    if (value != null) {
+      result
+        ..add('user_id')
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
     return result;
   }
 
@@ -2569,6 +3018,10 @@ class _$Grecipes_inc_inputSerializer
       switch (key) {
         case 'id':
           result.id = serializers.deserialize(value,
+              specifiedType: const FullType(int)) as int?;
+          break;
+        case 'user_id':
+          result.user_id = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int?;
           break;
       }
@@ -2642,6 +3095,19 @@ class _$Grecipes_insert_inputSerializer
         ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
+    value = object.user;
+    if (value != null) {
+      result
+        ..add('user')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(Gusers_obj_rel_insert_input)));
+    }
+    value = object.user_id;
+    if (value != null) {
+      result
+        ..add('user_id')
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
     return result;
   }
 
@@ -2687,6 +3153,223 @@ class _$Grecipes_insert_inputSerializer
         case 'time':
           result.time = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String?;
+          break;
+        case 'user':
+          result.user.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(Gusers_obj_rel_insert_input))!
+              as Gusers_obj_rel_insert_input);
+          break;
+        case 'user_id':
+          result.user_id = serializers.deserialize(value,
+              specifiedType: const FullType(int)) as int?;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$Grecipes_max_order_bySerializer
+    implements StructuredSerializer<Grecipes_max_order_by> {
+  @override
+  final Iterable<Type> types = const [
+    Grecipes_max_order_by,
+    _$Grecipes_max_order_by
+  ];
+  @override
+  final String wireName = 'Grecipes_max_order_by';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, Grecipes_max_order_by object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[];
+    Object? value;
+    value = object.calories;
+    if (value != null) {
+      result
+        ..add('calories')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(Gorder_by)));
+    }
+    value = object.id;
+    if (value != null) {
+      result
+        ..add('id')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(Gorder_by)));
+    }
+    value = object.image_url;
+    if (value != null) {
+      result
+        ..add('image_url')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(Gorder_by)));
+    }
+    value = object.name;
+    if (value != null) {
+      result
+        ..add('name')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(Gorder_by)));
+    }
+    value = object.time;
+    if (value != null) {
+      result
+        ..add('time')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(Gorder_by)));
+    }
+    value = object.user_id;
+    if (value != null) {
+      result
+        ..add('user_id')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(Gorder_by)));
+    }
+    return result;
+  }
+
+  @override
+  Grecipes_max_order_by deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = new Grecipes_max_order_byBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'calories':
+          result.calories = serializers.deserialize(value,
+              specifiedType: const FullType(Gorder_by)) as Gorder_by?;
+          break;
+        case 'id':
+          result.id = serializers.deserialize(value,
+              specifiedType: const FullType(Gorder_by)) as Gorder_by?;
+          break;
+        case 'image_url':
+          result.image_url = serializers.deserialize(value,
+              specifiedType: const FullType(Gorder_by)) as Gorder_by?;
+          break;
+        case 'name':
+          result.name = serializers.deserialize(value,
+              specifiedType: const FullType(Gorder_by)) as Gorder_by?;
+          break;
+        case 'time':
+          result.time = serializers.deserialize(value,
+              specifiedType: const FullType(Gorder_by)) as Gorder_by?;
+          break;
+        case 'user_id':
+          result.user_id = serializers.deserialize(value,
+              specifiedType: const FullType(Gorder_by)) as Gorder_by?;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$Grecipes_min_order_bySerializer
+    implements StructuredSerializer<Grecipes_min_order_by> {
+  @override
+  final Iterable<Type> types = const [
+    Grecipes_min_order_by,
+    _$Grecipes_min_order_by
+  ];
+  @override
+  final String wireName = 'Grecipes_min_order_by';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, Grecipes_min_order_by object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[];
+    Object? value;
+    value = object.calories;
+    if (value != null) {
+      result
+        ..add('calories')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(Gorder_by)));
+    }
+    value = object.id;
+    if (value != null) {
+      result
+        ..add('id')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(Gorder_by)));
+    }
+    value = object.image_url;
+    if (value != null) {
+      result
+        ..add('image_url')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(Gorder_by)));
+    }
+    value = object.name;
+    if (value != null) {
+      result
+        ..add('name')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(Gorder_by)));
+    }
+    value = object.time;
+    if (value != null) {
+      result
+        ..add('time')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(Gorder_by)));
+    }
+    value = object.user_id;
+    if (value != null) {
+      result
+        ..add('user_id')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(Gorder_by)));
+    }
+    return result;
+  }
+
+  @override
+  Grecipes_min_order_by deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = new Grecipes_min_order_byBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'calories':
+          result.calories = serializers.deserialize(value,
+              specifiedType: const FullType(Gorder_by)) as Gorder_by?;
+          break;
+        case 'id':
+          result.id = serializers.deserialize(value,
+              specifiedType: const FullType(Gorder_by)) as Gorder_by?;
+          break;
+        case 'image_url':
+          result.image_url = serializers.deserialize(value,
+              specifiedType: const FullType(Gorder_by)) as Gorder_by?;
+          break;
+        case 'name':
+          result.name = serializers.deserialize(value,
+              specifiedType: const FullType(Gorder_by)) as Gorder_by?;
+          break;
+        case 'time':
+          result.time = serializers.deserialize(value,
+              specifiedType: const FullType(Gorder_by)) as Gorder_by?;
+          break;
+        case 'user_id':
+          result.user_id = serializers.deserialize(value,
+              specifiedType: const FullType(Gorder_by)) as Gorder_by?;
           break;
       }
     }
@@ -2884,6 +3567,20 @@ class _$Grecipes_order_bySerializer
         ..add(serializers.serialize(value,
             specifiedType: const FullType(Gorder_by)));
     }
+    value = object.user;
+    if (value != null) {
+      result
+        ..add('user')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(Gusers_order_by)));
+    }
+    value = object.user_id;
+    if (value != null) {
+      result
+        ..add('user_id')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(Gorder_by)));
+    }
     return result;
   }
 
@@ -2928,6 +3625,15 @@ class _$Grecipes_order_bySerializer
           break;
         case 'time':
           result.time = serializers.deserialize(value,
+              specifiedType: const FullType(Gorder_by)) as Gorder_by?;
+          break;
+        case 'user':
+          result.user.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(Gusers_order_by))!
+              as Gusers_order_by);
+          break;
+        case 'user_id':
+          result.user_id = serializers.deserialize(value,
               specifiedType: const FullType(Gorder_by)) as Gorder_by?;
           break;
       }
@@ -3055,6 +3761,12 @@ class _$Grecipes_set_inputSerializer
         ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
+    value = object.user_id;
+    if (value != null) {
+      result
+        ..add('user_id')
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
     return result;
   }
 
@@ -3090,6 +3802,250 @@ class _$Grecipes_set_inputSerializer
           result.time = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String?;
           break;
+        case 'user_id':
+          result.user_id = serializers.deserialize(value,
+              specifiedType: const FullType(int)) as int?;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$Grecipes_stddev_order_bySerializer
+    implements StructuredSerializer<Grecipes_stddev_order_by> {
+  @override
+  final Iterable<Type> types = const [
+    Grecipes_stddev_order_by,
+    _$Grecipes_stddev_order_by
+  ];
+  @override
+  final String wireName = 'Grecipes_stddev_order_by';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, Grecipes_stddev_order_by object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[];
+    Object? value;
+    value = object.id;
+    if (value != null) {
+      result
+        ..add('id')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(Gorder_by)));
+    }
+    value = object.user_id;
+    if (value != null) {
+      result
+        ..add('user_id')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(Gorder_by)));
+    }
+    return result;
+  }
+
+  @override
+  Grecipes_stddev_order_by deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = new Grecipes_stddev_order_byBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'id':
+          result.id = serializers.deserialize(value,
+              specifiedType: const FullType(Gorder_by)) as Gorder_by?;
+          break;
+        case 'user_id':
+          result.user_id = serializers.deserialize(value,
+              specifiedType: const FullType(Gorder_by)) as Gorder_by?;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$Grecipes_stddev_pop_order_bySerializer
+    implements StructuredSerializer<Grecipes_stddev_pop_order_by> {
+  @override
+  final Iterable<Type> types = const [
+    Grecipes_stddev_pop_order_by,
+    _$Grecipes_stddev_pop_order_by
+  ];
+  @override
+  final String wireName = 'Grecipes_stddev_pop_order_by';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, Grecipes_stddev_pop_order_by object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[];
+    Object? value;
+    value = object.id;
+    if (value != null) {
+      result
+        ..add('id')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(Gorder_by)));
+    }
+    value = object.user_id;
+    if (value != null) {
+      result
+        ..add('user_id')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(Gorder_by)));
+    }
+    return result;
+  }
+
+  @override
+  Grecipes_stddev_pop_order_by deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = new Grecipes_stddev_pop_order_byBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'id':
+          result.id = serializers.deserialize(value,
+              specifiedType: const FullType(Gorder_by)) as Gorder_by?;
+          break;
+        case 'user_id':
+          result.user_id = serializers.deserialize(value,
+              specifiedType: const FullType(Gorder_by)) as Gorder_by?;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$Grecipes_stddev_samp_order_bySerializer
+    implements StructuredSerializer<Grecipes_stddev_samp_order_by> {
+  @override
+  final Iterable<Type> types = const [
+    Grecipes_stddev_samp_order_by,
+    _$Grecipes_stddev_samp_order_by
+  ];
+  @override
+  final String wireName = 'Grecipes_stddev_samp_order_by';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, Grecipes_stddev_samp_order_by object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[];
+    Object? value;
+    value = object.id;
+    if (value != null) {
+      result
+        ..add('id')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(Gorder_by)));
+    }
+    value = object.user_id;
+    if (value != null) {
+      result
+        ..add('user_id')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(Gorder_by)));
+    }
+    return result;
+  }
+
+  @override
+  Grecipes_stddev_samp_order_by deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = new Grecipes_stddev_samp_order_byBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'id':
+          result.id = serializers.deserialize(value,
+              specifiedType: const FullType(Gorder_by)) as Gorder_by?;
+          break;
+        case 'user_id':
+          result.user_id = serializers.deserialize(value,
+              specifiedType: const FullType(Gorder_by)) as Gorder_by?;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$Grecipes_sum_order_bySerializer
+    implements StructuredSerializer<Grecipes_sum_order_by> {
+  @override
+  final Iterable<Type> types = const [
+    Grecipes_sum_order_by,
+    _$Grecipes_sum_order_by
+  ];
+  @override
+  final String wireName = 'Grecipes_sum_order_by';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, Grecipes_sum_order_by object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[];
+    Object? value;
+    value = object.id;
+    if (value != null) {
+      result
+        ..add('id')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(Gorder_by)));
+    }
+    value = object.user_id;
+    if (value != null) {
+      result
+        ..add('user_id')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(Gorder_by)));
+    }
+    return result;
+  }
+
+  @override
+  Grecipes_sum_order_by deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = new Grecipes_sum_order_byBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'id':
+          result.id = serializers.deserialize(value,
+              specifiedType: const FullType(Gorder_by)) as Gorder_by?;
+          break;
+        case 'user_id':
+          result.user_id = serializers.deserialize(value,
+              specifiedType: const FullType(Gorder_by)) as Gorder_by?;
+          break;
       }
     }
 
@@ -3121,6 +4077,186 @@ class _$Grecipes_update_columnSerializer
           {FullType specifiedType = FullType.unspecified}) =>
       Grecipes_update_column.valueOf(
           _fromWire[serialized] ?? (serialized is String ? serialized : ''));
+}
+
+class _$Grecipes_var_pop_order_bySerializer
+    implements StructuredSerializer<Grecipes_var_pop_order_by> {
+  @override
+  final Iterable<Type> types = const [
+    Grecipes_var_pop_order_by,
+    _$Grecipes_var_pop_order_by
+  ];
+  @override
+  final String wireName = 'Grecipes_var_pop_order_by';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, Grecipes_var_pop_order_by object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[];
+    Object? value;
+    value = object.id;
+    if (value != null) {
+      result
+        ..add('id')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(Gorder_by)));
+    }
+    value = object.user_id;
+    if (value != null) {
+      result
+        ..add('user_id')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(Gorder_by)));
+    }
+    return result;
+  }
+
+  @override
+  Grecipes_var_pop_order_by deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = new Grecipes_var_pop_order_byBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'id':
+          result.id = serializers.deserialize(value,
+              specifiedType: const FullType(Gorder_by)) as Gorder_by?;
+          break;
+        case 'user_id':
+          result.user_id = serializers.deserialize(value,
+              specifiedType: const FullType(Gorder_by)) as Gorder_by?;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$Grecipes_var_samp_order_bySerializer
+    implements StructuredSerializer<Grecipes_var_samp_order_by> {
+  @override
+  final Iterable<Type> types = const [
+    Grecipes_var_samp_order_by,
+    _$Grecipes_var_samp_order_by
+  ];
+  @override
+  final String wireName = 'Grecipes_var_samp_order_by';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, Grecipes_var_samp_order_by object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[];
+    Object? value;
+    value = object.id;
+    if (value != null) {
+      result
+        ..add('id')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(Gorder_by)));
+    }
+    value = object.user_id;
+    if (value != null) {
+      result
+        ..add('user_id')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(Gorder_by)));
+    }
+    return result;
+  }
+
+  @override
+  Grecipes_var_samp_order_by deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = new Grecipes_var_samp_order_byBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'id':
+          result.id = serializers.deserialize(value,
+              specifiedType: const FullType(Gorder_by)) as Gorder_by?;
+          break;
+        case 'user_id':
+          result.user_id = serializers.deserialize(value,
+              specifiedType: const FullType(Gorder_by)) as Gorder_by?;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$Grecipes_variance_order_bySerializer
+    implements StructuredSerializer<Grecipes_variance_order_by> {
+  @override
+  final Iterable<Type> types = const [
+    Grecipes_variance_order_by,
+    _$Grecipes_variance_order_by
+  ];
+  @override
+  final String wireName = 'Grecipes_variance_order_by';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, Grecipes_variance_order_by object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[];
+    Object? value;
+    value = object.id;
+    if (value != null) {
+      result
+        ..add('id')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(Gorder_by)));
+    }
+    value = object.user_id;
+    if (value != null) {
+      result
+        ..add('user_id')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(Gorder_by)));
+    }
+    return result;
+  }
+
+  @override
+  Grecipes_variance_order_by deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = new Grecipes_variance_order_byBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'id':
+          result.id = serializers.deserialize(value,
+              specifiedType: const FullType(Gorder_by)) as Gorder_by?;
+          break;
+        case 'user_id':
+          result.user_id = serializers.deserialize(value,
+              specifiedType: const FullType(Gorder_by)) as Gorder_by?;
+          break;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class _$Gsteps_aggregate_order_bySerializer
@@ -4606,6 +5742,639 @@ class _$Gsteps_variance_order_bySerializer
 
     return result.build();
   }
+}
+
+class _$Gusers_bool_expSerializer
+    implements StructuredSerializer<Gusers_bool_exp> {
+  @override
+  final Iterable<Type> types = const [Gusers_bool_exp, _$Gusers_bool_exp];
+  @override
+  final String wireName = 'Gusers_bool_exp';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, Gusers_bool_exp object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[];
+    Object? value;
+    value = object.G_and;
+    if (value != null) {
+      result
+        ..add('_and')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(
+                BuiltList, const [const FullType(Gusers_bool_exp)])));
+    }
+    value = object.G_not;
+    if (value != null) {
+      result
+        ..add('_not')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(Gusers_bool_exp)));
+    }
+    value = object.G_or;
+    if (value != null) {
+      result
+        ..add('_or')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(
+                BuiltList, const [const FullType(Gusers_bool_exp)])));
+    }
+    value = object.email;
+    if (value != null) {
+      result
+        ..add('email')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GString_comparison_exp)));
+    }
+    value = object.id;
+    if (value != null) {
+      result
+        ..add('id')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GInt_comparison_exp)));
+    }
+    value = object.name;
+    if (value != null) {
+      result
+        ..add('name')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(GString_comparison_exp)));
+    }
+    value = object.recipes;
+    if (value != null) {
+      result
+        ..add('recipes')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(Grecipes_bool_exp)));
+    }
+    return result;
+  }
+
+  @override
+  Gusers_bool_exp deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = new Gusers_bool_expBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case '_and':
+          result.G_and.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(Gusers_bool_exp)]))!
+              as BuiltList<Object?>);
+          break;
+        case '_not':
+          result.G_not.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(Gusers_bool_exp))!
+              as Gusers_bool_exp);
+          break;
+        case '_or':
+          result.G_or.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(Gusers_bool_exp)]))!
+              as BuiltList<Object?>);
+          break;
+        case 'email':
+          result.email.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(GString_comparison_exp))!
+              as GString_comparison_exp);
+          break;
+        case 'id':
+          result.id.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(GInt_comparison_exp))!
+              as GInt_comparison_exp);
+          break;
+        case 'name':
+          result.name.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(GString_comparison_exp))!
+              as GString_comparison_exp);
+          break;
+        case 'recipes':
+          result.recipes.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(Grecipes_bool_exp))!
+              as Grecipes_bool_exp);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$Gusers_constraintSerializer
+    implements PrimitiveSerializer<Gusers_constraint> {
+  @override
+  final Iterable<Type> types = const <Type>[Gusers_constraint];
+  @override
+  final String wireName = 'Gusers_constraint';
+
+  @override
+  Object serialize(Serializers serializers, Gusers_constraint object,
+          {FullType specifiedType = FullType.unspecified}) =>
+      object.name;
+
+  @override
+  Gusers_constraint deserialize(Serializers serializers, Object serialized,
+          {FullType specifiedType = FullType.unspecified}) =>
+      Gusers_constraint.valueOf(serialized as String);
+}
+
+class _$Gusers_inc_inputSerializer
+    implements StructuredSerializer<Gusers_inc_input> {
+  @override
+  final Iterable<Type> types = const [Gusers_inc_input, _$Gusers_inc_input];
+  @override
+  final String wireName = 'Gusers_inc_input';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, Gusers_inc_input object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[];
+    Object? value;
+    value = object.id;
+    if (value != null) {
+      result
+        ..add('id')
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
+    return result;
+  }
+
+  @override
+  Gusers_inc_input deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = new Gusers_inc_inputBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'id':
+          result.id = serializers.deserialize(value,
+              specifiedType: const FullType(int)) as int?;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$Gusers_insert_inputSerializer
+    implements StructuredSerializer<Gusers_insert_input> {
+  @override
+  final Iterable<Type> types = const [
+    Gusers_insert_input,
+    _$Gusers_insert_input
+  ];
+  @override
+  final String wireName = 'Gusers_insert_input';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, Gusers_insert_input object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[];
+    Object? value;
+    value = object.email;
+    if (value != null) {
+      result
+        ..add('email')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.id;
+    if (value != null) {
+      result
+        ..add('id')
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
+    value = object.name;
+    if (value != null) {
+      result
+        ..add('name')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.recipes;
+    if (value != null) {
+      result
+        ..add('recipes')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(Grecipes_arr_rel_insert_input)));
+    }
+    return result;
+  }
+
+  @override
+  Gusers_insert_input deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = new Gusers_insert_inputBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'email':
+          result.email = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
+        case 'id':
+          result.id = serializers.deserialize(value,
+              specifiedType: const FullType(int)) as int?;
+          break;
+        case 'name':
+          result.name = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
+        case 'recipes':
+          result.recipes.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(Grecipes_arr_rel_insert_input))!
+              as Grecipes_arr_rel_insert_input);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$Gusers_obj_rel_insert_inputSerializer
+    implements StructuredSerializer<Gusers_obj_rel_insert_input> {
+  @override
+  final Iterable<Type> types = const [
+    Gusers_obj_rel_insert_input,
+    _$Gusers_obj_rel_insert_input
+  ];
+  @override
+  final String wireName = 'Gusers_obj_rel_insert_input';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, Gusers_obj_rel_insert_input object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'data',
+      serializers.serialize(object.data,
+          specifiedType: const FullType(Gusers_insert_input)),
+    ];
+    Object? value;
+    value = object.on_conflict;
+    if (value != null) {
+      result
+        ..add('on_conflict')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(Gusers_on_conflict)));
+    }
+    return result;
+  }
+
+  @override
+  Gusers_obj_rel_insert_input deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = new Gusers_obj_rel_insert_inputBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'data':
+          result.data.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(Gusers_insert_input))!
+              as Gusers_insert_input);
+          break;
+        case 'on_conflict':
+          result.on_conflict.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(Gusers_on_conflict))!
+              as Gusers_on_conflict);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$Gusers_on_conflictSerializer
+    implements StructuredSerializer<Gusers_on_conflict> {
+  @override
+  final Iterable<Type> types = const [Gusers_on_conflict, _$Gusers_on_conflict];
+  @override
+  final String wireName = 'Gusers_on_conflict';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, Gusers_on_conflict object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'constraint',
+      serializers.serialize(object.constraint,
+          specifiedType: const FullType(Gusers_constraint)),
+      'update_columns',
+      serializers.serialize(object.update_columns,
+          specifiedType: const FullType(
+              BuiltList, const [const FullType(Gusers_update_column)])),
+    ];
+    Object? value;
+    value = object.where;
+    if (value != null) {
+      result
+        ..add('where')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(Gusers_bool_exp)));
+    }
+    return result;
+  }
+
+  @override
+  Gusers_on_conflict deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = new Gusers_on_conflictBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'constraint':
+          result.constraint = serializers.deserialize(value,
+                  specifiedType: const FullType(Gusers_constraint))
+              as Gusers_constraint;
+          break;
+        case 'update_columns':
+          result.update_columns.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(Gusers_update_column)]))!
+              as BuiltList<Object?>);
+          break;
+        case 'where':
+          result.where.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(Gusers_bool_exp))!
+              as Gusers_bool_exp);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$Gusers_order_bySerializer
+    implements StructuredSerializer<Gusers_order_by> {
+  @override
+  final Iterable<Type> types = const [Gusers_order_by, _$Gusers_order_by];
+  @override
+  final String wireName = 'Gusers_order_by';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, Gusers_order_by object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[];
+    Object? value;
+    value = object.email;
+    if (value != null) {
+      result
+        ..add('email')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(Gorder_by)));
+    }
+    value = object.id;
+    if (value != null) {
+      result
+        ..add('id')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(Gorder_by)));
+    }
+    value = object.name;
+    if (value != null) {
+      result
+        ..add('name')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(Gorder_by)));
+    }
+    value = object.recipes_aggregate;
+    if (value != null) {
+      result
+        ..add('recipes_aggregate')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(Grecipes_aggregate_order_by)));
+    }
+    return result;
+  }
+
+  @override
+  Gusers_order_by deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = new Gusers_order_byBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'email':
+          result.email = serializers.deserialize(value,
+              specifiedType: const FullType(Gorder_by)) as Gorder_by?;
+          break;
+        case 'id':
+          result.id = serializers.deserialize(value,
+              specifiedType: const FullType(Gorder_by)) as Gorder_by?;
+          break;
+        case 'name':
+          result.name = serializers.deserialize(value,
+              specifiedType: const FullType(Gorder_by)) as Gorder_by?;
+          break;
+        case 'recipes_aggregate':
+          result.recipes_aggregate.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(Grecipes_aggregate_order_by))!
+              as Grecipes_aggregate_order_by);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$Gusers_pk_columns_inputSerializer
+    implements StructuredSerializer<Gusers_pk_columns_input> {
+  @override
+  final Iterable<Type> types = const [
+    Gusers_pk_columns_input,
+    _$Gusers_pk_columns_input
+  ];
+  @override
+  final String wireName = 'Gusers_pk_columns_input';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, Gusers_pk_columns_input object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'id',
+      serializers.serialize(object.id, specifiedType: const FullType(int)),
+    ];
+
+    return result;
+  }
+
+  @override
+  Gusers_pk_columns_input deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = new Gusers_pk_columns_inputBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'id':
+          result.id = serializers.deserialize(value,
+              specifiedType: const FullType(int)) as int;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$Gusers_select_columnSerializer
+    implements PrimitiveSerializer<Gusers_select_column> {
+  static const Map<String, Object> _toWire = const <String, Object>{
+    'Gname': 'name',
+  };
+  static const Map<Object, String> _fromWire = const <Object, String>{
+    'name': 'Gname',
+  };
+
+  @override
+  final Iterable<Type> types = const <Type>[Gusers_select_column];
+  @override
+  final String wireName = 'Gusers_select_column';
+
+  @override
+  Object serialize(Serializers serializers, Gusers_select_column object,
+          {FullType specifiedType = FullType.unspecified}) =>
+      _toWire[object.name] ?? object.name;
+
+  @override
+  Gusers_select_column deserialize(Serializers serializers, Object serialized,
+          {FullType specifiedType = FullType.unspecified}) =>
+      Gusers_select_column.valueOf(
+          _fromWire[serialized] ?? (serialized is String ? serialized : ''));
+}
+
+class _$Gusers_set_inputSerializer
+    implements StructuredSerializer<Gusers_set_input> {
+  @override
+  final Iterable<Type> types = const [Gusers_set_input, _$Gusers_set_input];
+  @override
+  final String wireName = 'Gusers_set_input';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, Gusers_set_input object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[];
+    Object? value;
+    value = object.email;
+    if (value != null) {
+      result
+        ..add('email')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.id;
+    if (value != null) {
+      result
+        ..add('id')
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
+    value = object.name;
+    if (value != null) {
+      result
+        ..add('name')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    return result;
+  }
+
+  @override
+  Gusers_set_input deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = new Gusers_set_inputBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'email':
+          result.email = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
+        case 'id':
+          result.id = serializers.deserialize(value,
+              specifiedType: const FullType(int)) as int?;
+          break;
+        case 'name':
+          result.name = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$Gusers_update_columnSerializer
+    implements PrimitiveSerializer<Gusers_update_column> {
+  static const Map<String, Object> _toWire = const <String, Object>{
+    'Gname': 'name',
+  };
+  static const Map<Object, String> _fromWire = const <Object, String>{
+    'name': 'Gname',
+  };
+
+  @override
+  final Iterable<Type> types = const <Type>[Gusers_update_column];
+  @override
+  final String wireName = 'Gusers_update_column';
+
+  @override
+  Object serialize(Serializers serializers, Gusers_update_column object,
+          {FullType specifiedType = FullType.unspecified}) =>
+      _toWire[object.name] ?? object.name;
+
+  @override
+  Gusers_update_column deserialize(Serializers serializers, Object serialized,
+          {FullType specifiedType = FullType.unspecified}) =>
+      Gusers_update_column.valueOf(
+          _fromWire[serialized] ?? (serialized is String ? serialized : ''));
 }
 
 class _$GInt_comparison_exp extends GInt_comparison_exp {
@@ -7341,6 +9110,465 @@ class Gingredients_variance_order_byBuilder
   }
 }
 
+class _$Grecipes_aggregate_order_by extends Grecipes_aggregate_order_by {
+  @override
+  final Grecipes_avg_order_by? avg;
+  @override
+  final Gorder_by? count;
+  @override
+  final Grecipes_max_order_by? max;
+  @override
+  final Grecipes_min_order_by? min;
+  @override
+  final Grecipes_stddev_order_by? stddev;
+  @override
+  final Grecipes_stddev_pop_order_by? stddev_pop;
+  @override
+  final Grecipes_stddev_samp_order_by? stddev_samp;
+  @override
+  final Grecipes_sum_order_by? sum;
+  @override
+  final Grecipes_var_pop_order_by? var_pop;
+  @override
+  final Grecipes_var_samp_order_by? var_samp;
+  @override
+  final Grecipes_variance_order_by? variance;
+
+  factory _$Grecipes_aggregate_order_by(
+          [void Function(Grecipes_aggregate_order_byBuilder)? updates]) =>
+      (new Grecipes_aggregate_order_byBuilder()..update(updates)).build();
+
+  _$Grecipes_aggregate_order_by._(
+      {this.avg,
+      this.count,
+      this.max,
+      this.min,
+      this.stddev,
+      this.stddev_pop,
+      this.stddev_samp,
+      this.sum,
+      this.var_pop,
+      this.var_samp,
+      this.variance})
+      : super._();
+
+  @override
+  Grecipes_aggregate_order_by rebuild(
+          void Function(Grecipes_aggregate_order_byBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  Grecipes_aggregate_order_byBuilder toBuilder() =>
+      new Grecipes_aggregate_order_byBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is Grecipes_aggregate_order_by &&
+        avg == other.avg &&
+        count == other.count &&
+        max == other.max &&
+        min == other.min &&
+        stddev == other.stddev &&
+        stddev_pop == other.stddev_pop &&
+        stddev_samp == other.stddev_samp &&
+        sum == other.sum &&
+        var_pop == other.var_pop &&
+        var_samp == other.var_samp &&
+        variance == other.variance;
+  }
+
+  @override
+  int get hashCode {
+    return $jf($jc(
+        $jc(
+            $jc(
+                $jc(
+                    $jc(
+                        $jc(
+                            $jc(
+                                $jc(
+                                    $jc(
+                                        $jc($jc(0, avg.hashCode),
+                                            count.hashCode),
+                                        max.hashCode),
+                                    min.hashCode),
+                                stddev.hashCode),
+                            stddev_pop.hashCode),
+                        stddev_samp.hashCode),
+                    sum.hashCode),
+                var_pop.hashCode),
+            var_samp.hashCode),
+        variance.hashCode));
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper('Grecipes_aggregate_order_by')
+          ..add('avg', avg)
+          ..add('count', count)
+          ..add('max', max)
+          ..add('min', min)
+          ..add('stddev', stddev)
+          ..add('stddev_pop', stddev_pop)
+          ..add('stddev_samp', stddev_samp)
+          ..add('sum', sum)
+          ..add('var_pop', var_pop)
+          ..add('var_samp', var_samp)
+          ..add('variance', variance))
+        .toString();
+  }
+}
+
+class Grecipes_aggregate_order_byBuilder
+    implements
+        Builder<Grecipes_aggregate_order_by,
+            Grecipes_aggregate_order_byBuilder> {
+  _$Grecipes_aggregate_order_by? _$v;
+
+  Grecipes_avg_order_byBuilder? _avg;
+  Grecipes_avg_order_byBuilder get avg =>
+      _$this._avg ??= new Grecipes_avg_order_byBuilder();
+  set avg(Grecipes_avg_order_byBuilder? avg) => _$this._avg = avg;
+
+  Gorder_by? _count;
+  Gorder_by? get count => _$this._count;
+  set count(Gorder_by? count) => _$this._count = count;
+
+  Grecipes_max_order_byBuilder? _max;
+  Grecipes_max_order_byBuilder get max =>
+      _$this._max ??= new Grecipes_max_order_byBuilder();
+  set max(Grecipes_max_order_byBuilder? max) => _$this._max = max;
+
+  Grecipes_min_order_byBuilder? _min;
+  Grecipes_min_order_byBuilder get min =>
+      _$this._min ??= new Grecipes_min_order_byBuilder();
+  set min(Grecipes_min_order_byBuilder? min) => _$this._min = min;
+
+  Grecipes_stddev_order_byBuilder? _stddev;
+  Grecipes_stddev_order_byBuilder get stddev =>
+      _$this._stddev ??= new Grecipes_stddev_order_byBuilder();
+  set stddev(Grecipes_stddev_order_byBuilder? stddev) =>
+      _$this._stddev = stddev;
+
+  Grecipes_stddev_pop_order_byBuilder? _stddev_pop;
+  Grecipes_stddev_pop_order_byBuilder get stddev_pop =>
+      _$this._stddev_pop ??= new Grecipes_stddev_pop_order_byBuilder();
+  set stddev_pop(Grecipes_stddev_pop_order_byBuilder? stddev_pop) =>
+      _$this._stddev_pop = stddev_pop;
+
+  Grecipes_stddev_samp_order_byBuilder? _stddev_samp;
+  Grecipes_stddev_samp_order_byBuilder get stddev_samp =>
+      _$this._stddev_samp ??= new Grecipes_stddev_samp_order_byBuilder();
+  set stddev_samp(Grecipes_stddev_samp_order_byBuilder? stddev_samp) =>
+      _$this._stddev_samp = stddev_samp;
+
+  Grecipes_sum_order_byBuilder? _sum;
+  Grecipes_sum_order_byBuilder get sum =>
+      _$this._sum ??= new Grecipes_sum_order_byBuilder();
+  set sum(Grecipes_sum_order_byBuilder? sum) => _$this._sum = sum;
+
+  Grecipes_var_pop_order_byBuilder? _var_pop;
+  Grecipes_var_pop_order_byBuilder get var_pop =>
+      _$this._var_pop ??= new Grecipes_var_pop_order_byBuilder();
+  set var_pop(Grecipes_var_pop_order_byBuilder? var_pop) =>
+      _$this._var_pop = var_pop;
+
+  Grecipes_var_samp_order_byBuilder? _var_samp;
+  Grecipes_var_samp_order_byBuilder get var_samp =>
+      _$this._var_samp ??= new Grecipes_var_samp_order_byBuilder();
+  set var_samp(Grecipes_var_samp_order_byBuilder? var_samp) =>
+      _$this._var_samp = var_samp;
+
+  Grecipes_variance_order_byBuilder? _variance;
+  Grecipes_variance_order_byBuilder get variance =>
+      _$this._variance ??= new Grecipes_variance_order_byBuilder();
+  set variance(Grecipes_variance_order_byBuilder? variance) =>
+      _$this._variance = variance;
+
+  Grecipes_aggregate_order_byBuilder();
+
+  Grecipes_aggregate_order_byBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _avg = $v.avg?.toBuilder();
+      _count = $v.count;
+      _max = $v.max?.toBuilder();
+      _min = $v.min?.toBuilder();
+      _stddev = $v.stddev?.toBuilder();
+      _stddev_pop = $v.stddev_pop?.toBuilder();
+      _stddev_samp = $v.stddev_samp?.toBuilder();
+      _sum = $v.sum?.toBuilder();
+      _var_pop = $v.var_pop?.toBuilder();
+      _var_samp = $v.var_samp?.toBuilder();
+      _variance = $v.variance?.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(Grecipes_aggregate_order_by other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$Grecipes_aggregate_order_by;
+  }
+
+  @override
+  void update(void Function(Grecipes_aggregate_order_byBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  _$Grecipes_aggregate_order_by build() {
+    _$Grecipes_aggregate_order_by _$result;
+    try {
+      _$result = _$v ??
+          new _$Grecipes_aggregate_order_by._(
+              avg: _avg?.build(),
+              count: count,
+              max: _max?.build(),
+              min: _min?.build(),
+              stddev: _stddev?.build(),
+              stddev_pop: _stddev_pop?.build(),
+              stddev_samp: _stddev_samp?.build(),
+              sum: _sum?.build(),
+              var_pop: _var_pop?.build(),
+              var_samp: _var_samp?.build(),
+              variance: _variance?.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'avg';
+        _avg?.build();
+
+        _$failedField = 'max';
+        _max?.build();
+        _$failedField = 'min';
+        _min?.build();
+        _$failedField = 'stddev';
+        _stddev?.build();
+        _$failedField = 'stddev_pop';
+        _stddev_pop?.build();
+        _$failedField = 'stddev_samp';
+        _stddev_samp?.build();
+        _$failedField = 'sum';
+        _sum?.build();
+        _$failedField = 'var_pop';
+        _var_pop?.build();
+        _$failedField = 'var_samp';
+        _var_samp?.build();
+        _$failedField = 'variance';
+        _variance?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            'Grecipes_aggregate_order_by', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$Grecipes_arr_rel_insert_input extends Grecipes_arr_rel_insert_input {
+  @override
+  final BuiltList<Grecipes_insert_input> data;
+  @override
+  final Grecipes_on_conflict? on_conflict;
+
+  factory _$Grecipes_arr_rel_insert_input(
+          [void Function(Grecipes_arr_rel_insert_inputBuilder)? updates]) =>
+      (new Grecipes_arr_rel_insert_inputBuilder()..update(updates)).build();
+
+  _$Grecipes_arr_rel_insert_input._({required this.data, this.on_conflict})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        data, 'Grecipes_arr_rel_insert_input', 'data');
+  }
+
+  @override
+  Grecipes_arr_rel_insert_input rebuild(
+          void Function(Grecipes_arr_rel_insert_inputBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  Grecipes_arr_rel_insert_inputBuilder toBuilder() =>
+      new Grecipes_arr_rel_insert_inputBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is Grecipes_arr_rel_insert_input &&
+        data == other.data &&
+        on_conflict == other.on_conflict;
+  }
+
+  @override
+  int get hashCode {
+    return $jf($jc($jc(0, data.hashCode), on_conflict.hashCode));
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper('Grecipes_arr_rel_insert_input')
+          ..add('data', data)
+          ..add('on_conflict', on_conflict))
+        .toString();
+  }
+}
+
+class Grecipes_arr_rel_insert_inputBuilder
+    implements
+        Builder<Grecipes_arr_rel_insert_input,
+            Grecipes_arr_rel_insert_inputBuilder> {
+  _$Grecipes_arr_rel_insert_input? _$v;
+
+  ListBuilder<Grecipes_insert_input>? _data;
+  ListBuilder<Grecipes_insert_input> get data =>
+      _$this._data ??= new ListBuilder<Grecipes_insert_input>();
+  set data(ListBuilder<Grecipes_insert_input>? data) => _$this._data = data;
+
+  Grecipes_on_conflictBuilder? _on_conflict;
+  Grecipes_on_conflictBuilder get on_conflict =>
+      _$this._on_conflict ??= new Grecipes_on_conflictBuilder();
+  set on_conflict(Grecipes_on_conflictBuilder? on_conflict) =>
+      _$this._on_conflict = on_conflict;
+
+  Grecipes_arr_rel_insert_inputBuilder();
+
+  Grecipes_arr_rel_insert_inputBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _data = $v.data.toBuilder();
+      _on_conflict = $v.on_conflict?.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(Grecipes_arr_rel_insert_input other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$Grecipes_arr_rel_insert_input;
+  }
+
+  @override
+  void update(void Function(Grecipes_arr_rel_insert_inputBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  _$Grecipes_arr_rel_insert_input build() {
+    _$Grecipes_arr_rel_insert_input _$result;
+    try {
+      _$result = _$v ??
+          new _$Grecipes_arr_rel_insert_input._(
+              data: data.build(), on_conflict: _on_conflict?.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'data';
+        data.build();
+        _$failedField = 'on_conflict';
+        _on_conflict?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            'Grecipes_arr_rel_insert_input', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$Grecipes_avg_order_by extends Grecipes_avg_order_by {
+  @override
+  final Gorder_by? id;
+  @override
+  final Gorder_by? user_id;
+
+  factory _$Grecipes_avg_order_by(
+          [void Function(Grecipes_avg_order_byBuilder)? updates]) =>
+      (new Grecipes_avg_order_byBuilder()..update(updates)).build();
+
+  _$Grecipes_avg_order_by._({this.id, this.user_id}) : super._();
+
+  @override
+  Grecipes_avg_order_by rebuild(
+          void Function(Grecipes_avg_order_byBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  Grecipes_avg_order_byBuilder toBuilder() =>
+      new Grecipes_avg_order_byBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is Grecipes_avg_order_by &&
+        id == other.id &&
+        user_id == other.user_id;
+  }
+
+  @override
+  int get hashCode {
+    return $jf($jc($jc(0, id.hashCode), user_id.hashCode));
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper('Grecipes_avg_order_by')
+          ..add('id', id)
+          ..add('user_id', user_id))
+        .toString();
+  }
+}
+
+class Grecipes_avg_order_byBuilder
+    implements Builder<Grecipes_avg_order_by, Grecipes_avg_order_byBuilder> {
+  _$Grecipes_avg_order_by? _$v;
+
+  Gorder_by? _id;
+  Gorder_by? get id => _$this._id;
+  set id(Gorder_by? id) => _$this._id = id;
+
+  Gorder_by? _user_id;
+  Gorder_by? get user_id => _$this._user_id;
+  set user_id(Gorder_by? user_id) => _$this._user_id = user_id;
+
+  Grecipes_avg_order_byBuilder();
+
+  Grecipes_avg_order_byBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _id = $v.id;
+      _user_id = $v.user_id;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(Grecipes_avg_order_by other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$Grecipes_avg_order_by;
+  }
+
+  @override
+  void update(void Function(Grecipes_avg_order_byBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  _$Grecipes_avg_order_by build() {
+    final _$result =
+        _$v ?? new _$Grecipes_avg_order_by._(id: id, user_id: user_id);
+    replace(_$result);
+    return _$result;
+  }
+}
+
 class _$Grecipes_bool_exp extends Grecipes_bool_exp {
   @override
   final BuiltList<Grecipes_bool_exp>? G_and;
@@ -7362,6 +9590,10 @@ class _$Grecipes_bool_exp extends Grecipes_bool_exp {
   final Gsteps_bool_exp? steps;
   @override
   final GString_comparison_exp? time;
+  @override
+  final Gusers_bool_exp? user;
+  @override
+  final GInt_comparison_exp? user_id;
 
   factory _$Grecipes_bool_exp(
           [void Function(Grecipes_bool_expBuilder)? updates]) =>
@@ -7377,7 +9609,9 @@ class _$Grecipes_bool_exp extends Grecipes_bool_exp {
       this.ingredients,
       this.name,
       this.steps,
-      this.time})
+      this.time,
+      this.user,
+      this.user_id})
       : super._();
 
   @override
@@ -7401,7 +9635,9 @@ class _$Grecipes_bool_exp extends Grecipes_bool_exp {
         ingredients == other.ingredients &&
         name == other.name &&
         steps == other.steps &&
-        time == other.time;
+        time == other.time &&
+        user == other.user &&
+        user_id == other.user_id;
   }
 
   @override
@@ -7413,15 +9649,21 @@ class _$Grecipes_bool_exp extends Grecipes_bool_exp {
                     $jc(
                         $jc(
                             $jc(
-                                $jc($jc($jc(0, G_and.hashCode), G_not.hashCode),
-                                    G_or.hashCode),
-                                calories.hashCode),
-                            id.hashCode),
-                        image_url.hashCode),
-                    ingredients.hashCode),
-                name.hashCode),
-            steps.hashCode),
-        time.hashCode));
+                                $jc(
+                                    $jc(
+                                        $jc(
+                                            $jc($jc(0, G_and.hashCode),
+                                                G_not.hashCode),
+                                            G_or.hashCode),
+                                        calories.hashCode),
+                                    id.hashCode),
+                                image_url.hashCode),
+                            ingredients.hashCode),
+                        name.hashCode),
+                    steps.hashCode),
+                time.hashCode),
+            user.hashCode),
+        user_id.hashCode));
   }
 
   @override
@@ -7436,7 +9678,9 @@ class _$Grecipes_bool_exp extends Grecipes_bool_exp {
           ..add('ingredients', ingredients)
           ..add('name', name)
           ..add('steps', steps)
-          ..add('time', time))
+          ..add('time', time)
+          ..add('user', user)
+          ..add('user_id', user_id))
         .toString();
   }
 }
@@ -7498,6 +9742,16 @@ class Grecipes_bool_expBuilder
       _$this._time ??= new GString_comparison_expBuilder();
   set time(GString_comparison_expBuilder? time) => _$this._time = time;
 
+  Gusers_bool_expBuilder? _user;
+  Gusers_bool_expBuilder get user =>
+      _$this._user ??= new Gusers_bool_expBuilder();
+  set user(Gusers_bool_expBuilder? user) => _$this._user = user;
+
+  GInt_comparison_expBuilder? _user_id;
+  GInt_comparison_expBuilder get user_id =>
+      _$this._user_id ??= new GInt_comparison_expBuilder();
+  set user_id(GInt_comparison_expBuilder? user_id) => _$this._user_id = user_id;
+
   Grecipes_bool_expBuilder();
 
   Grecipes_bool_expBuilder get _$this {
@@ -7513,6 +9767,8 @@ class Grecipes_bool_expBuilder
       _name = $v.name?.toBuilder();
       _steps = $v.steps?.toBuilder();
       _time = $v.time?.toBuilder();
+      _user = $v.user?.toBuilder();
+      _user_id = $v.user_id?.toBuilder();
       _$v = null;
     }
     return this;
@@ -7544,7 +9800,9 @@ class Grecipes_bool_expBuilder
               ingredients: _ingredients?.build(),
               name: _name?.build(),
               steps: _steps?.build(),
-              time: _time?.build());
+              time: _time?.build(),
+              user: _user?.build(),
+              user_id: _user_id?.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -7568,6 +9826,10 @@ class Grecipes_bool_expBuilder
         _steps?.build();
         _$failedField = 'time';
         _time?.build();
+        _$failedField = 'user';
+        _user?.build();
+        _$failedField = 'user_id';
+        _user_id?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             'Grecipes_bool_exp', _$failedField, e.toString());
@@ -7582,12 +9844,14 @@ class Grecipes_bool_expBuilder
 class _$Grecipes_inc_input extends Grecipes_inc_input {
   @override
   final int? id;
+  @override
+  final int? user_id;
 
   factory _$Grecipes_inc_input(
           [void Function(Grecipes_inc_inputBuilder)? updates]) =>
       (new Grecipes_inc_inputBuilder()..update(updates)).build();
 
-  _$Grecipes_inc_input._({this.id}) : super._();
+  _$Grecipes_inc_input._({this.id, this.user_id}) : super._();
 
   @override
   Grecipes_inc_input rebuild(
@@ -7601,17 +9865,21 @@ class _$Grecipes_inc_input extends Grecipes_inc_input {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is Grecipes_inc_input && id == other.id;
+    return other is Grecipes_inc_input &&
+        id == other.id &&
+        user_id == other.user_id;
   }
 
   @override
   int get hashCode {
-    return $jf($jc(0, id.hashCode));
+    return $jf($jc($jc(0, id.hashCode), user_id.hashCode));
   }
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('Grecipes_inc_input')..add('id', id))
+    return (newBuiltValueToStringHelper('Grecipes_inc_input')
+          ..add('id', id)
+          ..add('user_id', user_id))
         .toString();
   }
 }
@@ -7624,12 +9892,17 @@ class Grecipes_inc_inputBuilder
   int? get id => _$this._id;
   set id(int? id) => _$this._id = id;
 
+  int? _user_id;
+  int? get user_id => _$this._user_id;
+  set user_id(int? user_id) => _$this._user_id = user_id;
+
   Grecipes_inc_inputBuilder();
 
   Grecipes_inc_inputBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _id = $v.id;
+      _user_id = $v.user_id;
       _$v = null;
     }
     return this;
@@ -7648,7 +9921,8 @@ class Grecipes_inc_inputBuilder
 
   @override
   _$Grecipes_inc_input build() {
-    final _$result = _$v ?? new _$Grecipes_inc_input._(id: id);
+    final _$result =
+        _$v ?? new _$Grecipes_inc_input._(id: id, user_id: user_id);
     replace(_$result);
     return _$result;
   }
@@ -7669,6 +9943,10 @@ class _$Grecipes_insert_input extends Grecipes_insert_input {
   final Gsteps_arr_rel_insert_input? steps;
   @override
   final String? time;
+  @override
+  final Gusers_obj_rel_insert_input? user;
+  @override
+  final int? user_id;
 
   factory _$Grecipes_insert_input(
           [void Function(Grecipes_insert_inputBuilder)? updates]) =>
@@ -7681,7 +9959,9 @@ class _$Grecipes_insert_input extends Grecipes_insert_input {
       this.ingredients,
       this.name,
       this.steps,
-      this.time})
+      this.time,
+      this.user,
+      this.user_id})
       : super._();
 
   @override
@@ -7703,7 +9983,9 @@ class _$Grecipes_insert_input extends Grecipes_insert_input {
         ingredients == other.ingredients &&
         name == other.name &&
         steps == other.steps &&
-        time == other.time;
+        time == other.time &&
+        user == other.user &&
+        user_id == other.user_id;
   }
 
   @override
@@ -7712,12 +9994,16 @@ class _$Grecipes_insert_input extends Grecipes_insert_input {
         $jc(
             $jc(
                 $jc(
-                    $jc($jc($jc(0, calories.hashCode), id.hashCode),
-                        image_url.hashCode),
-                    ingredients.hashCode),
-                name.hashCode),
-            steps.hashCode),
-        time.hashCode));
+                    $jc(
+                        $jc(
+                            $jc($jc($jc(0, calories.hashCode), id.hashCode),
+                                image_url.hashCode),
+                            ingredients.hashCode),
+                        name.hashCode),
+                    steps.hashCode),
+                time.hashCode),
+            user.hashCode),
+        user_id.hashCode));
   }
 
   @override
@@ -7729,7 +10015,9 @@ class _$Grecipes_insert_input extends Grecipes_insert_input {
           ..add('ingredients', ingredients)
           ..add('name', name)
           ..add('steps', steps)
-          ..add('time', time))
+          ..add('time', time)
+          ..add('user', user)
+          ..add('user_id', user_id))
         .toString();
   }
 }
@@ -7769,6 +10057,15 @@ class Grecipes_insert_inputBuilder
   String? get time => _$this._time;
   set time(String? time) => _$this._time = time;
 
+  Gusers_obj_rel_insert_inputBuilder? _user;
+  Gusers_obj_rel_insert_inputBuilder get user =>
+      _$this._user ??= new Gusers_obj_rel_insert_inputBuilder();
+  set user(Gusers_obj_rel_insert_inputBuilder? user) => _$this._user = user;
+
+  int? _user_id;
+  int? get user_id => _$this._user_id;
+  set user_id(int? user_id) => _$this._user_id = user_id;
+
   Grecipes_insert_inputBuilder();
 
   Grecipes_insert_inputBuilder get _$this {
@@ -7781,6 +10078,8 @@ class Grecipes_insert_inputBuilder
       _name = $v.name;
       _steps = $v.steps?.toBuilder();
       _time = $v.time;
+      _user = $v.user?.toBuilder();
+      _user_id = $v.user_id;
       _$v = null;
     }
     return this;
@@ -7809,7 +10108,9 @@ class Grecipes_insert_inputBuilder
               ingredients: _ingredients?.build(),
               name: name,
               steps: _steps?.build(),
-              time: time);
+              time: time,
+              user: _user?.build(),
+              user_id: user_id);
     } catch (_) {
       late String _$failedField;
       try {
@@ -7818,12 +10119,301 @@ class Grecipes_insert_inputBuilder
 
         _$failedField = 'steps';
         _steps?.build();
+
+        _$failedField = 'user';
+        _user?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             'Grecipes_insert_input', _$failedField, e.toString());
       }
       rethrow;
     }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$Grecipes_max_order_by extends Grecipes_max_order_by {
+  @override
+  final Gorder_by? calories;
+  @override
+  final Gorder_by? id;
+  @override
+  final Gorder_by? image_url;
+  @override
+  final Gorder_by? name;
+  @override
+  final Gorder_by? time;
+  @override
+  final Gorder_by? user_id;
+
+  factory _$Grecipes_max_order_by(
+          [void Function(Grecipes_max_order_byBuilder)? updates]) =>
+      (new Grecipes_max_order_byBuilder()..update(updates)).build();
+
+  _$Grecipes_max_order_by._(
+      {this.calories,
+      this.id,
+      this.image_url,
+      this.name,
+      this.time,
+      this.user_id})
+      : super._();
+
+  @override
+  Grecipes_max_order_by rebuild(
+          void Function(Grecipes_max_order_byBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  Grecipes_max_order_byBuilder toBuilder() =>
+      new Grecipes_max_order_byBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is Grecipes_max_order_by &&
+        calories == other.calories &&
+        id == other.id &&
+        image_url == other.image_url &&
+        name == other.name &&
+        time == other.time &&
+        user_id == other.user_id;
+  }
+
+  @override
+  int get hashCode {
+    return $jf($jc(
+        $jc(
+            $jc(
+                $jc($jc($jc(0, calories.hashCode), id.hashCode),
+                    image_url.hashCode),
+                name.hashCode),
+            time.hashCode),
+        user_id.hashCode));
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper('Grecipes_max_order_by')
+          ..add('calories', calories)
+          ..add('id', id)
+          ..add('image_url', image_url)
+          ..add('name', name)
+          ..add('time', time)
+          ..add('user_id', user_id))
+        .toString();
+  }
+}
+
+class Grecipes_max_order_byBuilder
+    implements Builder<Grecipes_max_order_by, Grecipes_max_order_byBuilder> {
+  _$Grecipes_max_order_by? _$v;
+
+  Gorder_by? _calories;
+  Gorder_by? get calories => _$this._calories;
+  set calories(Gorder_by? calories) => _$this._calories = calories;
+
+  Gorder_by? _id;
+  Gorder_by? get id => _$this._id;
+  set id(Gorder_by? id) => _$this._id = id;
+
+  Gorder_by? _image_url;
+  Gorder_by? get image_url => _$this._image_url;
+  set image_url(Gorder_by? image_url) => _$this._image_url = image_url;
+
+  Gorder_by? _name;
+  Gorder_by? get name => _$this._name;
+  set name(Gorder_by? name) => _$this._name = name;
+
+  Gorder_by? _time;
+  Gorder_by? get time => _$this._time;
+  set time(Gorder_by? time) => _$this._time = time;
+
+  Gorder_by? _user_id;
+  Gorder_by? get user_id => _$this._user_id;
+  set user_id(Gorder_by? user_id) => _$this._user_id = user_id;
+
+  Grecipes_max_order_byBuilder();
+
+  Grecipes_max_order_byBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _calories = $v.calories;
+      _id = $v.id;
+      _image_url = $v.image_url;
+      _name = $v.name;
+      _time = $v.time;
+      _user_id = $v.user_id;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(Grecipes_max_order_by other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$Grecipes_max_order_by;
+  }
+
+  @override
+  void update(void Function(Grecipes_max_order_byBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  _$Grecipes_max_order_by build() {
+    final _$result = _$v ??
+        new _$Grecipes_max_order_by._(
+            calories: calories,
+            id: id,
+            image_url: image_url,
+            name: name,
+            time: time,
+            user_id: user_id);
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$Grecipes_min_order_by extends Grecipes_min_order_by {
+  @override
+  final Gorder_by? calories;
+  @override
+  final Gorder_by? id;
+  @override
+  final Gorder_by? image_url;
+  @override
+  final Gorder_by? name;
+  @override
+  final Gorder_by? time;
+  @override
+  final Gorder_by? user_id;
+
+  factory _$Grecipes_min_order_by(
+          [void Function(Grecipes_min_order_byBuilder)? updates]) =>
+      (new Grecipes_min_order_byBuilder()..update(updates)).build();
+
+  _$Grecipes_min_order_by._(
+      {this.calories,
+      this.id,
+      this.image_url,
+      this.name,
+      this.time,
+      this.user_id})
+      : super._();
+
+  @override
+  Grecipes_min_order_by rebuild(
+          void Function(Grecipes_min_order_byBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  Grecipes_min_order_byBuilder toBuilder() =>
+      new Grecipes_min_order_byBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is Grecipes_min_order_by &&
+        calories == other.calories &&
+        id == other.id &&
+        image_url == other.image_url &&
+        name == other.name &&
+        time == other.time &&
+        user_id == other.user_id;
+  }
+
+  @override
+  int get hashCode {
+    return $jf($jc(
+        $jc(
+            $jc(
+                $jc($jc($jc(0, calories.hashCode), id.hashCode),
+                    image_url.hashCode),
+                name.hashCode),
+            time.hashCode),
+        user_id.hashCode));
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper('Grecipes_min_order_by')
+          ..add('calories', calories)
+          ..add('id', id)
+          ..add('image_url', image_url)
+          ..add('name', name)
+          ..add('time', time)
+          ..add('user_id', user_id))
+        .toString();
+  }
+}
+
+class Grecipes_min_order_byBuilder
+    implements Builder<Grecipes_min_order_by, Grecipes_min_order_byBuilder> {
+  _$Grecipes_min_order_by? _$v;
+
+  Gorder_by? _calories;
+  Gorder_by? get calories => _$this._calories;
+  set calories(Gorder_by? calories) => _$this._calories = calories;
+
+  Gorder_by? _id;
+  Gorder_by? get id => _$this._id;
+  set id(Gorder_by? id) => _$this._id = id;
+
+  Gorder_by? _image_url;
+  Gorder_by? get image_url => _$this._image_url;
+  set image_url(Gorder_by? image_url) => _$this._image_url = image_url;
+
+  Gorder_by? _name;
+  Gorder_by? get name => _$this._name;
+  set name(Gorder_by? name) => _$this._name = name;
+
+  Gorder_by? _time;
+  Gorder_by? get time => _$this._time;
+  set time(Gorder_by? time) => _$this._time = time;
+
+  Gorder_by? _user_id;
+  Gorder_by? get user_id => _$this._user_id;
+  set user_id(Gorder_by? user_id) => _$this._user_id = user_id;
+
+  Grecipes_min_order_byBuilder();
+
+  Grecipes_min_order_byBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _calories = $v.calories;
+      _id = $v.id;
+      _image_url = $v.image_url;
+      _name = $v.name;
+      _time = $v.time;
+      _user_id = $v.user_id;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(Grecipes_min_order_by other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$Grecipes_min_order_by;
+  }
+
+  @override
+  void update(void Function(Grecipes_min_order_byBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  _$Grecipes_min_order_by build() {
+    final _$result = _$v ??
+        new _$Grecipes_min_order_by._(
+            calories: calories,
+            id: id,
+            image_url: image_url,
+            name: name,
+            time: time,
+            user_id: user_id);
     replace(_$result);
     return _$result;
   }
@@ -8083,6 +10673,10 @@ class _$Grecipes_order_by extends Grecipes_order_by {
   final Gsteps_aggregate_order_by? steps_aggregate;
   @override
   final Gorder_by? time;
+  @override
+  final Gusers_order_by? user;
+  @override
+  final Gorder_by? user_id;
 
   factory _$Grecipes_order_by(
           [void Function(Grecipes_order_byBuilder)? updates]) =>
@@ -8095,7 +10689,9 @@ class _$Grecipes_order_by extends Grecipes_order_by {
       this.ingredients_aggregate,
       this.name,
       this.steps_aggregate,
-      this.time})
+      this.time,
+      this.user,
+      this.user_id})
       : super._();
 
   @override
@@ -8116,7 +10712,9 @@ class _$Grecipes_order_by extends Grecipes_order_by {
         ingredients_aggregate == other.ingredients_aggregate &&
         name == other.name &&
         steps_aggregate == other.steps_aggregate &&
-        time == other.time;
+        time == other.time &&
+        user == other.user &&
+        user_id == other.user_id;
   }
 
   @override
@@ -8125,12 +10723,16 @@ class _$Grecipes_order_by extends Grecipes_order_by {
         $jc(
             $jc(
                 $jc(
-                    $jc($jc($jc(0, calories.hashCode), id.hashCode),
-                        image_url.hashCode),
-                    ingredients_aggregate.hashCode),
-                name.hashCode),
-            steps_aggregate.hashCode),
-        time.hashCode));
+                    $jc(
+                        $jc(
+                            $jc($jc($jc(0, calories.hashCode), id.hashCode),
+                                image_url.hashCode),
+                            ingredients_aggregate.hashCode),
+                        name.hashCode),
+                    steps_aggregate.hashCode),
+                time.hashCode),
+            user.hashCode),
+        user_id.hashCode));
   }
 
   @override
@@ -8142,7 +10744,9 @@ class _$Grecipes_order_by extends Grecipes_order_by {
           ..add('ingredients_aggregate', ingredients_aggregate)
           ..add('name', name)
           ..add('steps_aggregate', steps_aggregate)
-          ..add('time', time))
+          ..add('time', time)
+          ..add('user', user)
+          ..add('user_id', user_id))
         .toString();
   }
 }
@@ -8185,6 +10789,15 @@ class Grecipes_order_byBuilder
   Gorder_by? get time => _$this._time;
   set time(Gorder_by? time) => _$this._time = time;
 
+  Gusers_order_byBuilder? _user;
+  Gusers_order_byBuilder get user =>
+      _$this._user ??= new Gusers_order_byBuilder();
+  set user(Gusers_order_byBuilder? user) => _$this._user = user;
+
+  Gorder_by? _user_id;
+  Gorder_by? get user_id => _$this._user_id;
+  set user_id(Gorder_by? user_id) => _$this._user_id = user_id;
+
   Grecipes_order_byBuilder();
 
   Grecipes_order_byBuilder get _$this {
@@ -8197,6 +10810,8 @@ class Grecipes_order_byBuilder
       _name = $v.name;
       _steps_aggregate = $v.steps_aggregate?.toBuilder();
       _time = $v.time;
+      _user = $v.user?.toBuilder();
+      _user_id = $v.user_id;
       _$v = null;
     }
     return this;
@@ -8225,7 +10840,9 @@ class Grecipes_order_byBuilder
               ingredients_aggregate: _ingredients_aggregate?.build(),
               name: name,
               steps_aggregate: _steps_aggregate?.build(),
-              time: time);
+              time: time,
+              user: _user?.build(),
+              user_id: user_id);
     } catch (_) {
       late String _$failedField;
       try {
@@ -8234,6 +10851,9 @@ class Grecipes_order_byBuilder
 
         _$failedField = 'steps_aggregate';
         _steps_aggregate?.build();
+
+        _$failedField = 'user';
+        _user?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             'Grecipes_order_by', _$failedField, e.toString());
@@ -8339,13 +10959,20 @@ class _$Grecipes_set_input extends Grecipes_set_input {
   final String? name;
   @override
   final String? time;
+  @override
+  final int? user_id;
 
   factory _$Grecipes_set_input(
           [void Function(Grecipes_set_inputBuilder)? updates]) =>
       (new Grecipes_set_inputBuilder()..update(updates)).build();
 
   _$Grecipes_set_input._(
-      {this.calories, this.id, this.image_url, this.name, this.time})
+      {this.calories,
+      this.id,
+      this.image_url,
+      this.name,
+      this.time,
+      this.user_id})
       : super._();
 
   @override
@@ -8365,17 +10992,20 @@ class _$Grecipes_set_input extends Grecipes_set_input {
         id == other.id &&
         image_url == other.image_url &&
         name == other.name &&
-        time == other.time;
+        time == other.time &&
+        user_id == other.user_id;
   }
 
   @override
   int get hashCode {
     return $jf($jc(
         $jc(
-            $jc($jc($jc(0, calories.hashCode), id.hashCode),
-                image_url.hashCode),
-            name.hashCode),
-        time.hashCode));
+            $jc(
+                $jc($jc($jc(0, calories.hashCode), id.hashCode),
+                    image_url.hashCode),
+                name.hashCode),
+            time.hashCode),
+        user_id.hashCode));
   }
 
   @override
@@ -8385,7 +11015,8 @@ class _$Grecipes_set_input extends Grecipes_set_input {
           ..add('id', id)
           ..add('image_url', image_url)
           ..add('name', name)
-          ..add('time', time))
+          ..add('time', time)
+          ..add('user_id', user_id))
         .toString();
   }
 }
@@ -8414,6 +11045,10 @@ class Grecipes_set_inputBuilder
   String? get time => _$this._time;
   set time(String? time) => _$this._time = time;
 
+  int? _user_id;
+  int? get user_id => _$this._user_id;
+  set user_id(int? user_id) => _$this._user_id = user_id;
+
   Grecipes_set_inputBuilder();
 
   Grecipes_set_inputBuilder get _$this {
@@ -8424,6 +11059,7 @@ class Grecipes_set_inputBuilder
       _image_url = $v.image_url;
       _name = $v.name;
       _time = $v.time;
+      _user_id = $v.user_id;
       _$v = null;
     }
     return this;
@@ -8448,7 +11084,625 @@ class Grecipes_set_inputBuilder
             id: id,
             image_url: image_url,
             name: name,
-            time: time);
+            time: time,
+            user_id: user_id);
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$Grecipes_stddev_order_by extends Grecipes_stddev_order_by {
+  @override
+  final Gorder_by? id;
+  @override
+  final Gorder_by? user_id;
+
+  factory _$Grecipes_stddev_order_by(
+          [void Function(Grecipes_stddev_order_byBuilder)? updates]) =>
+      (new Grecipes_stddev_order_byBuilder()..update(updates)).build();
+
+  _$Grecipes_stddev_order_by._({this.id, this.user_id}) : super._();
+
+  @override
+  Grecipes_stddev_order_by rebuild(
+          void Function(Grecipes_stddev_order_byBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  Grecipes_stddev_order_byBuilder toBuilder() =>
+      new Grecipes_stddev_order_byBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is Grecipes_stddev_order_by &&
+        id == other.id &&
+        user_id == other.user_id;
+  }
+
+  @override
+  int get hashCode {
+    return $jf($jc($jc(0, id.hashCode), user_id.hashCode));
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper('Grecipes_stddev_order_by')
+          ..add('id', id)
+          ..add('user_id', user_id))
+        .toString();
+  }
+}
+
+class Grecipes_stddev_order_byBuilder
+    implements
+        Builder<Grecipes_stddev_order_by, Grecipes_stddev_order_byBuilder> {
+  _$Grecipes_stddev_order_by? _$v;
+
+  Gorder_by? _id;
+  Gorder_by? get id => _$this._id;
+  set id(Gorder_by? id) => _$this._id = id;
+
+  Gorder_by? _user_id;
+  Gorder_by? get user_id => _$this._user_id;
+  set user_id(Gorder_by? user_id) => _$this._user_id = user_id;
+
+  Grecipes_stddev_order_byBuilder();
+
+  Grecipes_stddev_order_byBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _id = $v.id;
+      _user_id = $v.user_id;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(Grecipes_stddev_order_by other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$Grecipes_stddev_order_by;
+  }
+
+  @override
+  void update(void Function(Grecipes_stddev_order_byBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  _$Grecipes_stddev_order_by build() {
+    final _$result =
+        _$v ?? new _$Grecipes_stddev_order_by._(id: id, user_id: user_id);
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$Grecipes_stddev_pop_order_by extends Grecipes_stddev_pop_order_by {
+  @override
+  final Gorder_by? id;
+  @override
+  final Gorder_by? user_id;
+
+  factory _$Grecipes_stddev_pop_order_by(
+          [void Function(Grecipes_stddev_pop_order_byBuilder)? updates]) =>
+      (new Grecipes_stddev_pop_order_byBuilder()..update(updates)).build();
+
+  _$Grecipes_stddev_pop_order_by._({this.id, this.user_id}) : super._();
+
+  @override
+  Grecipes_stddev_pop_order_by rebuild(
+          void Function(Grecipes_stddev_pop_order_byBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  Grecipes_stddev_pop_order_byBuilder toBuilder() =>
+      new Grecipes_stddev_pop_order_byBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is Grecipes_stddev_pop_order_by &&
+        id == other.id &&
+        user_id == other.user_id;
+  }
+
+  @override
+  int get hashCode {
+    return $jf($jc($jc(0, id.hashCode), user_id.hashCode));
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper('Grecipes_stddev_pop_order_by')
+          ..add('id', id)
+          ..add('user_id', user_id))
+        .toString();
+  }
+}
+
+class Grecipes_stddev_pop_order_byBuilder
+    implements
+        Builder<Grecipes_stddev_pop_order_by,
+            Grecipes_stddev_pop_order_byBuilder> {
+  _$Grecipes_stddev_pop_order_by? _$v;
+
+  Gorder_by? _id;
+  Gorder_by? get id => _$this._id;
+  set id(Gorder_by? id) => _$this._id = id;
+
+  Gorder_by? _user_id;
+  Gorder_by? get user_id => _$this._user_id;
+  set user_id(Gorder_by? user_id) => _$this._user_id = user_id;
+
+  Grecipes_stddev_pop_order_byBuilder();
+
+  Grecipes_stddev_pop_order_byBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _id = $v.id;
+      _user_id = $v.user_id;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(Grecipes_stddev_pop_order_by other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$Grecipes_stddev_pop_order_by;
+  }
+
+  @override
+  void update(void Function(Grecipes_stddev_pop_order_byBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  _$Grecipes_stddev_pop_order_by build() {
+    final _$result =
+        _$v ?? new _$Grecipes_stddev_pop_order_by._(id: id, user_id: user_id);
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$Grecipes_stddev_samp_order_by extends Grecipes_stddev_samp_order_by {
+  @override
+  final Gorder_by? id;
+  @override
+  final Gorder_by? user_id;
+
+  factory _$Grecipes_stddev_samp_order_by(
+          [void Function(Grecipes_stddev_samp_order_byBuilder)? updates]) =>
+      (new Grecipes_stddev_samp_order_byBuilder()..update(updates)).build();
+
+  _$Grecipes_stddev_samp_order_by._({this.id, this.user_id}) : super._();
+
+  @override
+  Grecipes_stddev_samp_order_by rebuild(
+          void Function(Grecipes_stddev_samp_order_byBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  Grecipes_stddev_samp_order_byBuilder toBuilder() =>
+      new Grecipes_stddev_samp_order_byBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is Grecipes_stddev_samp_order_by &&
+        id == other.id &&
+        user_id == other.user_id;
+  }
+
+  @override
+  int get hashCode {
+    return $jf($jc($jc(0, id.hashCode), user_id.hashCode));
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper('Grecipes_stddev_samp_order_by')
+          ..add('id', id)
+          ..add('user_id', user_id))
+        .toString();
+  }
+}
+
+class Grecipes_stddev_samp_order_byBuilder
+    implements
+        Builder<Grecipes_stddev_samp_order_by,
+            Grecipes_stddev_samp_order_byBuilder> {
+  _$Grecipes_stddev_samp_order_by? _$v;
+
+  Gorder_by? _id;
+  Gorder_by? get id => _$this._id;
+  set id(Gorder_by? id) => _$this._id = id;
+
+  Gorder_by? _user_id;
+  Gorder_by? get user_id => _$this._user_id;
+  set user_id(Gorder_by? user_id) => _$this._user_id = user_id;
+
+  Grecipes_stddev_samp_order_byBuilder();
+
+  Grecipes_stddev_samp_order_byBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _id = $v.id;
+      _user_id = $v.user_id;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(Grecipes_stddev_samp_order_by other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$Grecipes_stddev_samp_order_by;
+  }
+
+  @override
+  void update(void Function(Grecipes_stddev_samp_order_byBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  _$Grecipes_stddev_samp_order_by build() {
+    final _$result =
+        _$v ?? new _$Grecipes_stddev_samp_order_by._(id: id, user_id: user_id);
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$Grecipes_sum_order_by extends Grecipes_sum_order_by {
+  @override
+  final Gorder_by? id;
+  @override
+  final Gorder_by? user_id;
+
+  factory _$Grecipes_sum_order_by(
+          [void Function(Grecipes_sum_order_byBuilder)? updates]) =>
+      (new Grecipes_sum_order_byBuilder()..update(updates)).build();
+
+  _$Grecipes_sum_order_by._({this.id, this.user_id}) : super._();
+
+  @override
+  Grecipes_sum_order_by rebuild(
+          void Function(Grecipes_sum_order_byBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  Grecipes_sum_order_byBuilder toBuilder() =>
+      new Grecipes_sum_order_byBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is Grecipes_sum_order_by &&
+        id == other.id &&
+        user_id == other.user_id;
+  }
+
+  @override
+  int get hashCode {
+    return $jf($jc($jc(0, id.hashCode), user_id.hashCode));
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper('Grecipes_sum_order_by')
+          ..add('id', id)
+          ..add('user_id', user_id))
+        .toString();
+  }
+}
+
+class Grecipes_sum_order_byBuilder
+    implements Builder<Grecipes_sum_order_by, Grecipes_sum_order_byBuilder> {
+  _$Grecipes_sum_order_by? _$v;
+
+  Gorder_by? _id;
+  Gorder_by? get id => _$this._id;
+  set id(Gorder_by? id) => _$this._id = id;
+
+  Gorder_by? _user_id;
+  Gorder_by? get user_id => _$this._user_id;
+  set user_id(Gorder_by? user_id) => _$this._user_id = user_id;
+
+  Grecipes_sum_order_byBuilder();
+
+  Grecipes_sum_order_byBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _id = $v.id;
+      _user_id = $v.user_id;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(Grecipes_sum_order_by other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$Grecipes_sum_order_by;
+  }
+
+  @override
+  void update(void Function(Grecipes_sum_order_byBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  _$Grecipes_sum_order_by build() {
+    final _$result =
+        _$v ?? new _$Grecipes_sum_order_by._(id: id, user_id: user_id);
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$Grecipes_var_pop_order_by extends Grecipes_var_pop_order_by {
+  @override
+  final Gorder_by? id;
+  @override
+  final Gorder_by? user_id;
+
+  factory _$Grecipes_var_pop_order_by(
+          [void Function(Grecipes_var_pop_order_byBuilder)? updates]) =>
+      (new Grecipes_var_pop_order_byBuilder()..update(updates)).build();
+
+  _$Grecipes_var_pop_order_by._({this.id, this.user_id}) : super._();
+
+  @override
+  Grecipes_var_pop_order_by rebuild(
+          void Function(Grecipes_var_pop_order_byBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  Grecipes_var_pop_order_byBuilder toBuilder() =>
+      new Grecipes_var_pop_order_byBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is Grecipes_var_pop_order_by &&
+        id == other.id &&
+        user_id == other.user_id;
+  }
+
+  @override
+  int get hashCode {
+    return $jf($jc($jc(0, id.hashCode), user_id.hashCode));
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper('Grecipes_var_pop_order_by')
+          ..add('id', id)
+          ..add('user_id', user_id))
+        .toString();
+  }
+}
+
+class Grecipes_var_pop_order_byBuilder
+    implements
+        Builder<Grecipes_var_pop_order_by, Grecipes_var_pop_order_byBuilder> {
+  _$Grecipes_var_pop_order_by? _$v;
+
+  Gorder_by? _id;
+  Gorder_by? get id => _$this._id;
+  set id(Gorder_by? id) => _$this._id = id;
+
+  Gorder_by? _user_id;
+  Gorder_by? get user_id => _$this._user_id;
+  set user_id(Gorder_by? user_id) => _$this._user_id = user_id;
+
+  Grecipes_var_pop_order_byBuilder();
+
+  Grecipes_var_pop_order_byBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _id = $v.id;
+      _user_id = $v.user_id;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(Grecipes_var_pop_order_by other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$Grecipes_var_pop_order_by;
+  }
+
+  @override
+  void update(void Function(Grecipes_var_pop_order_byBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  _$Grecipes_var_pop_order_by build() {
+    final _$result =
+        _$v ?? new _$Grecipes_var_pop_order_by._(id: id, user_id: user_id);
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$Grecipes_var_samp_order_by extends Grecipes_var_samp_order_by {
+  @override
+  final Gorder_by? id;
+  @override
+  final Gorder_by? user_id;
+
+  factory _$Grecipes_var_samp_order_by(
+          [void Function(Grecipes_var_samp_order_byBuilder)? updates]) =>
+      (new Grecipes_var_samp_order_byBuilder()..update(updates)).build();
+
+  _$Grecipes_var_samp_order_by._({this.id, this.user_id}) : super._();
+
+  @override
+  Grecipes_var_samp_order_by rebuild(
+          void Function(Grecipes_var_samp_order_byBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  Grecipes_var_samp_order_byBuilder toBuilder() =>
+      new Grecipes_var_samp_order_byBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is Grecipes_var_samp_order_by &&
+        id == other.id &&
+        user_id == other.user_id;
+  }
+
+  @override
+  int get hashCode {
+    return $jf($jc($jc(0, id.hashCode), user_id.hashCode));
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper('Grecipes_var_samp_order_by')
+          ..add('id', id)
+          ..add('user_id', user_id))
+        .toString();
+  }
+}
+
+class Grecipes_var_samp_order_byBuilder
+    implements
+        Builder<Grecipes_var_samp_order_by, Grecipes_var_samp_order_byBuilder> {
+  _$Grecipes_var_samp_order_by? _$v;
+
+  Gorder_by? _id;
+  Gorder_by? get id => _$this._id;
+  set id(Gorder_by? id) => _$this._id = id;
+
+  Gorder_by? _user_id;
+  Gorder_by? get user_id => _$this._user_id;
+  set user_id(Gorder_by? user_id) => _$this._user_id = user_id;
+
+  Grecipes_var_samp_order_byBuilder();
+
+  Grecipes_var_samp_order_byBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _id = $v.id;
+      _user_id = $v.user_id;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(Grecipes_var_samp_order_by other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$Grecipes_var_samp_order_by;
+  }
+
+  @override
+  void update(void Function(Grecipes_var_samp_order_byBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  _$Grecipes_var_samp_order_by build() {
+    final _$result =
+        _$v ?? new _$Grecipes_var_samp_order_by._(id: id, user_id: user_id);
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$Grecipes_variance_order_by extends Grecipes_variance_order_by {
+  @override
+  final Gorder_by? id;
+  @override
+  final Gorder_by? user_id;
+
+  factory _$Grecipes_variance_order_by(
+          [void Function(Grecipes_variance_order_byBuilder)? updates]) =>
+      (new Grecipes_variance_order_byBuilder()..update(updates)).build();
+
+  _$Grecipes_variance_order_by._({this.id, this.user_id}) : super._();
+
+  @override
+  Grecipes_variance_order_by rebuild(
+          void Function(Grecipes_variance_order_byBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  Grecipes_variance_order_byBuilder toBuilder() =>
+      new Grecipes_variance_order_byBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is Grecipes_variance_order_by &&
+        id == other.id &&
+        user_id == other.user_id;
+  }
+
+  @override
+  int get hashCode {
+    return $jf($jc($jc(0, id.hashCode), user_id.hashCode));
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper('Grecipes_variance_order_by')
+          ..add('id', id)
+          ..add('user_id', user_id))
+        .toString();
+  }
+}
+
+class Grecipes_variance_order_byBuilder
+    implements
+        Builder<Grecipes_variance_order_by, Grecipes_variance_order_byBuilder> {
+  _$Grecipes_variance_order_by? _$v;
+
+  Gorder_by? _id;
+  Gorder_by? get id => _$this._id;
+  set id(Gorder_by? id) => _$this._id = id;
+
+  Gorder_by? _user_id;
+  Gorder_by? get user_id => _$this._user_id;
+  set user_id(Gorder_by? user_id) => _$this._user_id = user_id;
+
+  Grecipes_variance_order_byBuilder();
+
+  Grecipes_variance_order_byBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _id = $v.id;
+      _user_id = $v.user_id;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(Grecipes_variance_order_by other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$Grecipes_variance_order_by;
+  }
+
+  @override
+  void update(void Function(Grecipes_variance_order_byBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  _$Grecipes_variance_order_by build() {
+    final _$result =
+        _$v ?? new _$Grecipes_variance_order_by._(id: id, user_id: user_id);
     replace(_$result);
     return _$result;
   }
@@ -10638,6 +13892,930 @@ class Gsteps_variance_order_byBuilder
   _$Gsteps_variance_order_by build() {
     final _$result =
         _$v ?? new _$Gsteps_variance_order_by._(id: id, recipe_id: recipe_id);
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$Gusers_bool_exp extends Gusers_bool_exp {
+  @override
+  final BuiltList<Gusers_bool_exp>? G_and;
+  @override
+  final Gusers_bool_exp? G_not;
+  @override
+  final BuiltList<Gusers_bool_exp>? G_or;
+  @override
+  final GString_comparison_exp? email;
+  @override
+  final GInt_comparison_exp? id;
+  @override
+  final GString_comparison_exp? name;
+  @override
+  final Grecipes_bool_exp? recipes;
+
+  factory _$Gusers_bool_exp([void Function(Gusers_bool_expBuilder)? updates]) =>
+      (new Gusers_bool_expBuilder()..update(updates)).build();
+
+  _$Gusers_bool_exp._(
+      {this.G_and,
+      this.G_not,
+      this.G_or,
+      this.email,
+      this.id,
+      this.name,
+      this.recipes})
+      : super._();
+
+  @override
+  Gusers_bool_exp rebuild(void Function(Gusers_bool_expBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  Gusers_bool_expBuilder toBuilder() =>
+      new Gusers_bool_expBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is Gusers_bool_exp &&
+        G_and == other.G_and &&
+        G_not == other.G_not &&
+        G_or == other.G_or &&
+        email == other.email &&
+        id == other.id &&
+        name == other.name &&
+        recipes == other.recipes;
+  }
+
+  @override
+  int get hashCode {
+    return $jf($jc(
+        $jc(
+            $jc(
+                $jc(
+                    $jc($jc($jc(0, G_and.hashCode), G_not.hashCode),
+                        G_or.hashCode),
+                    email.hashCode),
+                id.hashCode),
+            name.hashCode),
+        recipes.hashCode));
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper('Gusers_bool_exp')
+          ..add('G_and', G_and)
+          ..add('G_not', G_not)
+          ..add('G_or', G_or)
+          ..add('email', email)
+          ..add('id', id)
+          ..add('name', name)
+          ..add('recipes', recipes))
+        .toString();
+  }
+}
+
+class Gusers_bool_expBuilder
+    implements Builder<Gusers_bool_exp, Gusers_bool_expBuilder> {
+  _$Gusers_bool_exp? _$v;
+
+  ListBuilder<Gusers_bool_exp>? _G_and;
+  ListBuilder<Gusers_bool_exp> get G_and =>
+      _$this._G_and ??= new ListBuilder<Gusers_bool_exp>();
+  set G_and(ListBuilder<Gusers_bool_exp>? G_and) => _$this._G_and = G_and;
+
+  Gusers_bool_expBuilder? _G_not;
+  Gusers_bool_expBuilder get G_not =>
+      _$this._G_not ??= new Gusers_bool_expBuilder();
+  set G_not(Gusers_bool_expBuilder? G_not) => _$this._G_not = G_not;
+
+  ListBuilder<Gusers_bool_exp>? _G_or;
+  ListBuilder<Gusers_bool_exp> get G_or =>
+      _$this._G_or ??= new ListBuilder<Gusers_bool_exp>();
+  set G_or(ListBuilder<Gusers_bool_exp>? G_or) => _$this._G_or = G_or;
+
+  GString_comparison_expBuilder? _email;
+  GString_comparison_expBuilder get email =>
+      _$this._email ??= new GString_comparison_expBuilder();
+  set email(GString_comparison_expBuilder? email) => _$this._email = email;
+
+  GInt_comparison_expBuilder? _id;
+  GInt_comparison_expBuilder get id =>
+      _$this._id ??= new GInt_comparison_expBuilder();
+  set id(GInt_comparison_expBuilder? id) => _$this._id = id;
+
+  GString_comparison_expBuilder? _name;
+  GString_comparison_expBuilder get name =>
+      _$this._name ??= new GString_comparison_expBuilder();
+  set name(GString_comparison_expBuilder? name) => _$this._name = name;
+
+  Grecipes_bool_expBuilder? _recipes;
+  Grecipes_bool_expBuilder get recipes =>
+      _$this._recipes ??= new Grecipes_bool_expBuilder();
+  set recipes(Grecipes_bool_expBuilder? recipes) => _$this._recipes = recipes;
+
+  Gusers_bool_expBuilder();
+
+  Gusers_bool_expBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _G_and = $v.G_and?.toBuilder();
+      _G_not = $v.G_not?.toBuilder();
+      _G_or = $v.G_or?.toBuilder();
+      _email = $v.email?.toBuilder();
+      _id = $v.id?.toBuilder();
+      _name = $v.name?.toBuilder();
+      _recipes = $v.recipes?.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(Gusers_bool_exp other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$Gusers_bool_exp;
+  }
+
+  @override
+  void update(void Function(Gusers_bool_expBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  _$Gusers_bool_exp build() {
+    _$Gusers_bool_exp _$result;
+    try {
+      _$result = _$v ??
+          new _$Gusers_bool_exp._(
+              G_and: _G_and?.build(),
+              G_not: _G_not?.build(),
+              G_or: _G_or?.build(),
+              email: _email?.build(),
+              id: _id?.build(),
+              name: _name?.build(),
+              recipes: _recipes?.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'G_and';
+        _G_and?.build();
+        _$failedField = 'G_not';
+        _G_not?.build();
+        _$failedField = 'G_or';
+        _G_or?.build();
+        _$failedField = 'email';
+        _email?.build();
+        _$failedField = 'id';
+        _id?.build();
+        _$failedField = 'name';
+        _name?.build();
+        _$failedField = 'recipes';
+        _recipes?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            'Gusers_bool_exp', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$Gusers_inc_input extends Gusers_inc_input {
+  @override
+  final int? id;
+
+  factory _$Gusers_inc_input(
+          [void Function(Gusers_inc_inputBuilder)? updates]) =>
+      (new Gusers_inc_inputBuilder()..update(updates)).build();
+
+  _$Gusers_inc_input._({this.id}) : super._();
+
+  @override
+  Gusers_inc_input rebuild(void Function(Gusers_inc_inputBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  Gusers_inc_inputBuilder toBuilder() =>
+      new Gusers_inc_inputBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is Gusers_inc_input && id == other.id;
+  }
+
+  @override
+  int get hashCode {
+    return $jf($jc(0, id.hashCode));
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper('Gusers_inc_input')..add('id', id))
+        .toString();
+  }
+}
+
+class Gusers_inc_inputBuilder
+    implements Builder<Gusers_inc_input, Gusers_inc_inputBuilder> {
+  _$Gusers_inc_input? _$v;
+
+  int? _id;
+  int? get id => _$this._id;
+  set id(int? id) => _$this._id = id;
+
+  Gusers_inc_inputBuilder();
+
+  Gusers_inc_inputBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _id = $v.id;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(Gusers_inc_input other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$Gusers_inc_input;
+  }
+
+  @override
+  void update(void Function(Gusers_inc_inputBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  _$Gusers_inc_input build() {
+    final _$result = _$v ?? new _$Gusers_inc_input._(id: id);
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$Gusers_insert_input extends Gusers_insert_input {
+  @override
+  final String? email;
+  @override
+  final int? id;
+  @override
+  final String? name;
+  @override
+  final Grecipes_arr_rel_insert_input? recipes;
+
+  factory _$Gusers_insert_input(
+          [void Function(Gusers_insert_inputBuilder)? updates]) =>
+      (new Gusers_insert_inputBuilder()..update(updates)).build();
+
+  _$Gusers_insert_input._({this.email, this.id, this.name, this.recipes})
+      : super._();
+
+  @override
+  Gusers_insert_input rebuild(
+          void Function(Gusers_insert_inputBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  Gusers_insert_inputBuilder toBuilder() =>
+      new Gusers_insert_inputBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is Gusers_insert_input &&
+        email == other.email &&
+        id == other.id &&
+        name == other.name &&
+        recipes == other.recipes;
+  }
+
+  @override
+  int get hashCode {
+    return $jf($jc($jc($jc($jc(0, email.hashCode), id.hashCode), name.hashCode),
+        recipes.hashCode));
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper('Gusers_insert_input')
+          ..add('email', email)
+          ..add('id', id)
+          ..add('name', name)
+          ..add('recipes', recipes))
+        .toString();
+  }
+}
+
+class Gusers_insert_inputBuilder
+    implements Builder<Gusers_insert_input, Gusers_insert_inputBuilder> {
+  _$Gusers_insert_input? _$v;
+
+  String? _email;
+  String? get email => _$this._email;
+  set email(String? email) => _$this._email = email;
+
+  int? _id;
+  int? get id => _$this._id;
+  set id(int? id) => _$this._id = id;
+
+  String? _name;
+  String? get name => _$this._name;
+  set name(String? name) => _$this._name = name;
+
+  Grecipes_arr_rel_insert_inputBuilder? _recipes;
+  Grecipes_arr_rel_insert_inputBuilder get recipes =>
+      _$this._recipes ??= new Grecipes_arr_rel_insert_inputBuilder();
+  set recipes(Grecipes_arr_rel_insert_inputBuilder? recipes) =>
+      _$this._recipes = recipes;
+
+  Gusers_insert_inputBuilder();
+
+  Gusers_insert_inputBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _email = $v.email;
+      _id = $v.id;
+      _name = $v.name;
+      _recipes = $v.recipes?.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(Gusers_insert_input other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$Gusers_insert_input;
+  }
+
+  @override
+  void update(void Function(Gusers_insert_inputBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  _$Gusers_insert_input build() {
+    _$Gusers_insert_input _$result;
+    try {
+      _$result = _$v ??
+          new _$Gusers_insert_input._(
+              email: email, id: id, name: name, recipes: _recipes?.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'recipes';
+        _recipes?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            'Gusers_insert_input', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$Gusers_obj_rel_insert_input extends Gusers_obj_rel_insert_input {
+  @override
+  final Gusers_insert_input data;
+  @override
+  final Gusers_on_conflict? on_conflict;
+
+  factory _$Gusers_obj_rel_insert_input(
+          [void Function(Gusers_obj_rel_insert_inputBuilder)? updates]) =>
+      (new Gusers_obj_rel_insert_inputBuilder()..update(updates)).build();
+
+  _$Gusers_obj_rel_insert_input._({required this.data, this.on_conflict})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        data, 'Gusers_obj_rel_insert_input', 'data');
+  }
+
+  @override
+  Gusers_obj_rel_insert_input rebuild(
+          void Function(Gusers_obj_rel_insert_inputBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  Gusers_obj_rel_insert_inputBuilder toBuilder() =>
+      new Gusers_obj_rel_insert_inputBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is Gusers_obj_rel_insert_input &&
+        data == other.data &&
+        on_conflict == other.on_conflict;
+  }
+
+  @override
+  int get hashCode {
+    return $jf($jc($jc(0, data.hashCode), on_conflict.hashCode));
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper('Gusers_obj_rel_insert_input')
+          ..add('data', data)
+          ..add('on_conflict', on_conflict))
+        .toString();
+  }
+}
+
+class Gusers_obj_rel_insert_inputBuilder
+    implements
+        Builder<Gusers_obj_rel_insert_input,
+            Gusers_obj_rel_insert_inputBuilder> {
+  _$Gusers_obj_rel_insert_input? _$v;
+
+  Gusers_insert_inputBuilder? _data;
+  Gusers_insert_inputBuilder get data =>
+      _$this._data ??= new Gusers_insert_inputBuilder();
+  set data(Gusers_insert_inputBuilder? data) => _$this._data = data;
+
+  Gusers_on_conflictBuilder? _on_conflict;
+  Gusers_on_conflictBuilder get on_conflict =>
+      _$this._on_conflict ??= new Gusers_on_conflictBuilder();
+  set on_conflict(Gusers_on_conflictBuilder? on_conflict) =>
+      _$this._on_conflict = on_conflict;
+
+  Gusers_obj_rel_insert_inputBuilder();
+
+  Gusers_obj_rel_insert_inputBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _data = $v.data.toBuilder();
+      _on_conflict = $v.on_conflict?.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(Gusers_obj_rel_insert_input other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$Gusers_obj_rel_insert_input;
+  }
+
+  @override
+  void update(void Function(Gusers_obj_rel_insert_inputBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  _$Gusers_obj_rel_insert_input build() {
+    _$Gusers_obj_rel_insert_input _$result;
+    try {
+      _$result = _$v ??
+          new _$Gusers_obj_rel_insert_input._(
+              data: data.build(), on_conflict: _on_conflict?.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'data';
+        data.build();
+        _$failedField = 'on_conflict';
+        _on_conflict?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            'Gusers_obj_rel_insert_input', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$Gusers_on_conflict extends Gusers_on_conflict {
+  @override
+  final Gusers_constraint constraint;
+  @override
+  final BuiltList<Gusers_update_column> update_columns;
+  @override
+  final Gusers_bool_exp? where;
+
+  factory _$Gusers_on_conflict(
+          [void Function(Gusers_on_conflictBuilder)? updates]) =>
+      (new Gusers_on_conflictBuilder()..update(updates)).build();
+
+  _$Gusers_on_conflict._(
+      {required this.constraint, required this.update_columns, this.where})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        constraint, 'Gusers_on_conflict', 'constraint');
+    BuiltValueNullFieldError.checkNotNull(
+        update_columns, 'Gusers_on_conflict', 'update_columns');
+  }
+
+  @override
+  Gusers_on_conflict rebuild(
+          void Function(Gusers_on_conflictBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  Gusers_on_conflictBuilder toBuilder() =>
+      new Gusers_on_conflictBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is Gusers_on_conflict &&
+        constraint == other.constraint &&
+        update_columns == other.update_columns &&
+        where == other.where;
+  }
+
+  @override
+  int get hashCode {
+    return $jf($jc($jc($jc(0, constraint.hashCode), update_columns.hashCode),
+        where.hashCode));
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper('Gusers_on_conflict')
+          ..add('constraint', constraint)
+          ..add('update_columns', update_columns)
+          ..add('where', where))
+        .toString();
+  }
+}
+
+class Gusers_on_conflictBuilder
+    implements Builder<Gusers_on_conflict, Gusers_on_conflictBuilder> {
+  _$Gusers_on_conflict? _$v;
+
+  Gusers_constraint? _constraint;
+  Gusers_constraint? get constraint => _$this._constraint;
+  set constraint(Gusers_constraint? constraint) =>
+      _$this._constraint = constraint;
+
+  ListBuilder<Gusers_update_column>? _update_columns;
+  ListBuilder<Gusers_update_column> get update_columns =>
+      _$this._update_columns ??= new ListBuilder<Gusers_update_column>();
+  set update_columns(ListBuilder<Gusers_update_column>? update_columns) =>
+      _$this._update_columns = update_columns;
+
+  Gusers_bool_expBuilder? _where;
+  Gusers_bool_expBuilder get where =>
+      _$this._where ??= new Gusers_bool_expBuilder();
+  set where(Gusers_bool_expBuilder? where) => _$this._where = where;
+
+  Gusers_on_conflictBuilder();
+
+  Gusers_on_conflictBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _constraint = $v.constraint;
+      _update_columns = $v.update_columns.toBuilder();
+      _where = $v.where?.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(Gusers_on_conflict other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$Gusers_on_conflict;
+  }
+
+  @override
+  void update(void Function(Gusers_on_conflictBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  _$Gusers_on_conflict build() {
+    _$Gusers_on_conflict _$result;
+    try {
+      _$result = _$v ??
+          new _$Gusers_on_conflict._(
+              constraint: BuiltValueNullFieldError.checkNotNull(
+                  constraint, 'Gusers_on_conflict', 'constraint'),
+              update_columns: update_columns.build(),
+              where: _where?.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'update_columns';
+        update_columns.build();
+        _$failedField = 'where';
+        _where?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            'Gusers_on_conflict', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$Gusers_order_by extends Gusers_order_by {
+  @override
+  final Gorder_by? email;
+  @override
+  final Gorder_by? id;
+  @override
+  final Gorder_by? name;
+  @override
+  final Grecipes_aggregate_order_by? recipes_aggregate;
+
+  factory _$Gusers_order_by([void Function(Gusers_order_byBuilder)? updates]) =>
+      (new Gusers_order_byBuilder()..update(updates)).build();
+
+  _$Gusers_order_by._({this.email, this.id, this.name, this.recipes_aggregate})
+      : super._();
+
+  @override
+  Gusers_order_by rebuild(void Function(Gusers_order_byBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  Gusers_order_byBuilder toBuilder() =>
+      new Gusers_order_byBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is Gusers_order_by &&
+        email == other.email &&
+        id == other.id &&
+        name == other.name &&
+        recipes_aggregate == other.recipes_aggregate;
+  }
+
+  @override
+  int get hashCode {
+    return $jf($jc($jc($jc($jc(0, email.hashCode), id.hashCode), name.hashCode),
+        recipes_aggregate.hashCode));
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper('Gusers_order_by')
+          ..add('email', email)
+          ..add('id', id)
+          ..add('name', name)
+          ..add('recipes_aggregate', recipes_aggregate))
+        .toString();
+  }
+}
+
+class Gusers_order_byBuilder
+    implements Builder<Gusers_order_by, Gusers_order_byBuilder> {
+  _$Gusers_order_by? _$v;
+
+  Gorder_by? _email;
+  Gorder_by? get email => _$this._email;
+  set email(Gorder_by? email) => _$this._email = email;
+
+  Gorder_by? _id;
+  Gorder_by? get id => _$this._id;
+  set id(Gorder_by? id) => _$this._id = id;
+
+  Gorder_by? _name;
+  Gorder_by? get name => _$this._name;
+  set name(Gorder_by? name) => _$this._name = name;
+
+  Grecipes_aggregate_order_byBuilder? _recipes_aggregate;
+  Grecipes_aggregate_order_byBuilder get recipes_aggregate =>
+      _$this._recipes_aggregate ??= new Grecipes_aggregate_order_byBuilder();
+  set recipes_aggregate(
+          Grecipes_aggregate_order_byBuilder? recipes_aggregate) =>
+      _$this._recipes_aggregate = recipes_aggregate;
+
+  Gusers_order_byBuilder();
+
+  Gusers_order_byBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _email = $v.email;
+      _id = $v.id;
+      _name = $v.name;
+      _recipes_aggregate = $v.recipes_aggregate?.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(Gusers_order_by other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$Gusers_order_by;
+  }
+
+  @override
+  void update(void Function(Gusers_order_byBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  _$Gusers_order_by build() {
+    _$Gusers_order_by _$result;
+    try {
+      _$result = _$v ??
+          new _$Gusers_order_by._(
+              email: email,
+              id: id,
+              name: name,
+              recipes_aggregate: _recipes_aggregate?.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'recipes_aggregate';
+        _recipes_aggregate?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            'Gusers_order_by', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$Gusers_pk_columns_input extends Gusers_pk_columns_input {
+  @override
+  final int id;
+
+  factory _$Gusers_pk_columns_input(
+          [void Function(Gusers_pk_columns_inputBuilder)? updates]) =>
+      (new Gusers_pk_columns_inputBuilder()..update(updates)).build();
+
+  _$Gusers_pk_columns_input._({required this.id}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(id, 'Gusers_pk_columns_input', 'id');
+  }
+
+  @override
+  Gusers_pk_columns_input rebuild(
+          void Function(Gusers_pk_columns_inputBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  Gusers_pk_columns_inputBuilder toBuilder() =>
+      new Gusers_pk_columns_inputBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is Gusers_pk_columns_input && id == other.id;
+  }
+
+  @override
+  int get hashCode {
+    return $jf($jc(0, id.hashCode));
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper('Gusers_pk_columns_input')
+          ..add('id', id))
+        .toString();
+  }
+}
+
+class Gusers_pk_columns_inputBuilder
+    implements
+        Builder<Gusers_pk_columns_input, Gusers_pk_columns_inputBuilder> {
+  _$Gusers_pk_columns_input? _$v;
+
+  int? _id;
+  int? get id => _$this._id;
+  set id(int? id) => _$this._id = id;
+
+  Gusers_pk_columns_inputBuilder();
+
+  Gusers_pk_columns_inputBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _id = $v.id;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(Gusers_pk_columns_input other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$Gusers_pk_columns_input;
+  }
+
+  @override
+  void update(void Function(Gusers_pk_columns_inputBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  _$Gusers_pk_columns_input build() {
+    final _$result = _$v ??
+        new _$Gusers_pk_columns_input._(
+            id: BuiltValueNullFieldError.checkNotNull(
+                id, 'Gusers_pk_columns_input', 'id'));
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$Gusers_set_input extends Gusers_set_input {
+  @override
+  final String? email;
+  @override
+  final int? id;
+  @override
+  final String? name;
+
+  factory _$Gusers_set_input(
+          [void Function(Gusers_set_inputBuilder)? updates]) =>
+      (new Gusers_set_inputBuilder()..update(updates)).build();
+
+  _$Gusers_set_input._({this.email, this.id, this.name}) : super._();
+
+  @override
+  Gusers_set_input rebuild(void Function(Gusers_set_inputBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  Gusers_set_inputBuilder toBuilder() =>
+      new Gusers_set_inputBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is Gusers_set_input &&
+        email == other.email &&
+        id == other.id &&
+        name == other.name;
+  }
+
+  @override
+  int get hashCode {
+    return $jf($jc($jc($jc(0, email.hashCode), id.hashCode), name.hashCode));
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper('Gusers_set_input')
+          ..add('email', email)
+          ..add('id', id)
+          ..add('name', name))
+        .toString();
+  }
+}
+
+class Gusers_set_inputBuilder
+    implements Builder<Gusers_set_input, Gusers_set_inputBuilder> {
+  _$Gusers_set_input? _$v;
+
+  String? _email;
+  String? get email => _$this._email;
+  set email(String? email) => _$this._email = email;
+
+  int? _id;
+  int? get id => _$this._id;
+  set id(int? id) => _$this._id = id;
+
+  String? _name;
+  String? get name => _$this._name;
+  set name(String? name) => _$this._name = name;
+
+  Gusers_set_inputBuilder();
+
+  Gusers_set_inputBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _email = $v.email;
+      _id = $v.id;
+      _name = $v.name;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(Gusers_set_input other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$Gusers_set_input;
+  }
+
+  @override
+  void update(void Function(Gusers_set_inputBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  _$Gusers_set_input build() {
+    final _$result =
+        _$v ?? new _$Gusers_set_input._(email: email, id: id, name: name);
     replace(_$result);
     return _$result;
   }
