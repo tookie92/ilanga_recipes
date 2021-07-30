@@ -27,12 +27,15 @@ dependencies:
   cupertino_icons: ^1.0.2
   ferry: ^0.10.3
   ferry_flutter: ^0.5.3
+  ferry_hive_store: ^0.4.4
   firebase_auth: ^3.0.0
   firebase_core: ^1.4.0
   font_awesome_flutter: ^9.1.0
   get_it: null
   google_fonts: ^2.1.0
   gql_http_link: ^0.4.0
+  hive: ^2.0.4
+  hive_flutter: ^1.1.0
   shared_preferences: ^2.0.6
 
 dev_dependencies:

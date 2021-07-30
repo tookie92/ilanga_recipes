@@ -105,6 +105,7 @@ mutation InsertRecipe($object: recipes_insert_input!){
     time
     image_url
     calories
+    user_id
     __typename
     ingredients{
       id

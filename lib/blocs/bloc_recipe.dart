@@ -19,18 +19,6 @@ class BlocRecipe extends Bloc {
     sink.add(resultat);
   }
 
-  void myUser() {
-    final client = GetIt.instance<Client>();
-    final userReq = GFindUserByNameReq((b) {
-      return b..vars.where.name.G_eq = RecipeState().currentUser;
-    });
-
-    client.request(userReq).listen((response) {
-      final users = response.data!.users;
-      users.map((u) => print(u.id));
-    });
-  }
-
   BlocRecipe() {
     init();
   }
@@ -42,10 +30,11 @@ class BlocRecipe extends Bloc {
 class RecipeState {
   final bool isActive;
   final fields = RecipeModel();
+  GFindUserByNameData_users? usId;
   final currentUser = FirebaseAuth.instance.currentUser!.displayName;
-  RecipeState({this.isActive = false});
+  RecipeState({this.isActive = false, this.usId});
 
-  void addRecipe(RecipeModel recipeModel) {
+  void addRecipe(RecipeModel recipeModel, int modelId) {
     final client = GetIt.instance<Client>();
 
     final recipeReq = GInsertRecipeReq((b) {
@@ -54,7 +43,7 @@ class RecipeState {
         ..vars.object.calories = recipeModel.calories
         ..vars.object.time = recipeModel.time
         ..vars.object.image_url = recipeModel.imageUrl
-        ..vars.object.user_id = 1;
+        ..vars.object.user_id = modelId;
     });
 
     client.request(recipeReq).listen(
@@ -70,17 +59,6 @@ class RecipeState {
           },
         );
         client.cache.writeQuery(allRecipe, updateList);
-
-        final allUsers = GFetchAllUserReq();
-        final cacheu = client.cache.readQuery(allUsers);
-        final updateListu = GFetchAllUserData((b) {
-          return b
-            ..users.addAll(cacheu!.users)
-            ..users.add(GFetchAllUserData_users.fromJson(
-                response.data!.insert_recipes_one!.toJson())!);
-        });
-
-        client.cache.writeQuery(allUsers, updateListu);
       },
     );
   }

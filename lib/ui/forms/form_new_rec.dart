@@ -51,7 +51,7 @@ class FormRecipe extends StatelessWidget {
               onPressed: () {
                 if (_formKey.currentState!.validate()) {
                   _formKey.currentState!.save();
-                  RecipeState().addRecipe(fields);
+                  RecipeState().addRecipe(fields, 1);
                   Navigator.pop(context);
                 }
               },

@@ -4,11 +4,10 @@ import 'package:ferry_flutter/ferry_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:nekhna/rm_graphql.dart';
-import 'package:nekhna/ui/emptylist/no_ingredients.dart';
-import 'package:nekhna/ui/emptylist/no_steps.dart';
+import 'package:nekhna/ui/emptylist/emptylist.dart';
+
 import 'package:nekhna/ui/setttings/Palette.dart';
-import 'package:nekhna/ui/tiles/ingredients_tile.dart';
-import 'package:nekhna/ui/tiles/steps_tile.dart';
+import 'package:nekhna/ui/tiles/tiles.dart';
 import 'package:nekhna/ui/widgets/widgets.dart';
 
 class RecipeDetail extends StatelessWidget {
@@ -97,6 +96,52 @@ class RecipeDetail extends StatelessWidget {
                                 SizedBox(
                                   height: 2.0,
                                 ),
+                                SizedBox(
+                                  height: 40.0,
+                                  width: 150.0,
+                                  child: Operation(
+                                      operationRequest: findUserReq,
+                                      builder: (context,
+                                          OperationResponse<
+                                                  GFindUserByNameData?,
+                                                  GFindUserByNameVars?>?
+                                              response,
+                                          error) {
+                                        if (response!.loading) {
+                                          return Center(
+                                            child: CircularProgressIndicator(),
+                                          );
+                                        }
+
+                                        final user = response.data!.users;
+
+                                        if (user.isEmpty) {
+                                          return Container(
+                                              height: 20.0,
+                                              width: 40.0,
+                                              child: MyText(label: 'no name'));
+                                        }
+
+                                        return Container(
+                                            height: 30.0,
+                                            //width: 0.0,
+                                            child: Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                for (var index = 0;
+                                                    index < user.length;
+                                                    index++)
+                                                  MyText(
+                                                    label: user[index].name,
+                                                    fontWeight: FontWeight.w600,
+                                                    color: Colors.white,
+                                                  ),
+                                              ],
+                                            ));
+                                      },
+                                      client: GetIt.instance<Client>()),
+                                )
                               ],
                             ),
                           ],

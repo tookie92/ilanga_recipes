@@ -523,6 +523,7 @@ abstract class GInsertRecipeData_insert_recipes_one
   String? get time;
   String? get image_url;
   String get calories;
+  int? get user_id;
   @BuiltValueField(wireName: '__typename')
   String get G__typename;
   BuiltList<GInsertRecipeData_insert_recipes_one_ingredients> get ingredients;

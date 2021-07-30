@@ -552,6 +552,12 @@ const InsertRecipe = _i1.OperationDefinitionNode(
                 directives: [],
                 selectionSet: null),
             _i1.FieldNode(
+                name: _i1.NameNode(value: 'user_id'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null),
+            _i1.FieldNode(
                 name: _i1.NameNode(value: '__typename'),
                 alias: null,
                 arguments: [],

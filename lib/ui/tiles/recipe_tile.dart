@@ -24,7 +24,45 @@ class RecipeTile extends StatelessWidget {
         Navigator.push(context, BlocRouter().editPage(recipes));
       },
       onLongPress: () {
-        RecipeState().deleteRecipe(recipes);
+        showDialog(
+          context: context,
+          barrierDismissible: true,
+          builder: (BuildContext context) {
+            return AlertDialog(
+              title: MyText(
+                label: 'Confirmation',
+              ),
+              content: SingleChildScrollView(
+                child: ListBody(
+                  children: [
+                    MyText(label: 'Are you sure to Delete ${recipes.name} ?')
+                  ],
+                ),
+              ),
+              actions: [
+                TextButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: MyText(
+                    label: 'Cancel',
+                    color: Colors.blueGrey,
+                  ),
+                ),
+                TextButton(
+                  onPressed: () {
+                    RecipeState().deleteRecipe(recipes);
+                    Navigator.pop(context);
+                  },
+                  child: MyText(
+                    label: 'Delete',
+                    color: Colors.red,
+                  ),
+                )
+              ],
+            );
+          },
+        );
       },
       child: Padding(
         padding: const EdgeInsets.all(8.0),

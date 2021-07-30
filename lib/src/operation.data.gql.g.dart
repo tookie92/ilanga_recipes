@@ -1470,6 +1470,12 @@ class _$GInsertRecipeData_insert_recipes_oneSerializer
         ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
+    value = object.user_id;
+    if (value != null) {
+      result
+        ..add('user_id')
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
     return result;
   }
 
@@ -1504,6 +1510,10 @@ class _$GInsertRecipeData_insert_recipes_oneSerializer
         case 'calories':
           result.calories = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
+          break;
+        case 'user_id':
+          result.user_id = serializers.deserialize(value,
+              specifiedType: const FullType(int)) as int?;
           break;
         case '__typename':
           result.G__typename = serializers.deserialize(value,
@@ -4675,6 +4685,8 @@ class _$GInsertRecipeData_insert_recipes_one
   @override
   final String calories;
   @override
+  final int? user_id;
+  @override
   final String G__typename;
   @override
   final BuiltList<GInsertRecipeData_insert_recipes_one_ingredients> ingredients;
@@ -4693,6 +4705,7 @@ class _$GInsertRecipeData_insert_recipes_one
       this.time,
       this.image_url,
       required this.calories,
+      this.user_id,
       required this.G__typename,
       required this.ingredients,
       required this.steps})
@@ -4729,6 +4742,7 @@ class _$GInsertRecipeData_insert_recipes_one
         time == other.time &&
         image_url == other.image_url &&
         calories == other.calories &&
+        user_id == other.user_id &&
         G__typename == other.G__typename &&
         ingredients == other.ingredients &&
         steps == other.steps;
@@ -4741,10 +4755,12 @@ class _$GInsertRecipeData_insert_recipes_one
             $jc(
                 $jc(
                     $jc(
-                        $jc($jc($jc(0, id.hashCode), name.hashCode),
-                            time.hashCode),
-                        image_url.hashCode),
-                    calories.hashCode),
+                        $jc(
+                            $jc($jc($jc(0, id.hashCode), name.hashCode),
+                                time.hashCode),
+                            image_url.hashCode),
+                        calories.hashCode),
+                    user_id.hashCode),
                 G__typename.hashCode),
             ingredients.hashCode),
         steps.hashCode));
@@ -4758,6 +4774,7 @@ class _$GInsertRecipeData_insert_recipes_one
           ..add('time', time)
           ..add('image_url', image_url)
           ..add('calories', calories)
+          ..add('user_id', user_id)
           ..add('G__typename', G__typename)
           ..add('ingredients', ingredients)
           ..add('steps', steps))
@@ -4791,6 +4808,10 @@ class GInsertRecipeData_insert_recipes_oneBuilder
   String? get calories => _$this._calories;
   set calories(String? calories) => _$this._calories = calories;
 
+  int? _user_id;
+  int? get user_id => _$this._user_id;
+  set user_id(int? user_id) => _$this._user_id = user_id;
+
   String? _G__typename;
   String? get G__typename => _$this._G__typename;
   set G__typename(String? G__typename) => _$this._G__typename = G__typename;
@@ -4823,6 +4844,7 @@ class GInsertRecipeData_insert_recipes_oneBuilder
       _time = $v.time;
       _image_url = $v.image_url;
       _calories = $v.calories;
+      _user_id = $v.user_id;
       _G__typename = $v.G__typename;
       _ingredients = $v.ingredients.toBuilder();
       _steps = $v.steps.toBuilder();
@@ -4857,6 +4879,7 @@ class GInsertRecipeData_insert_recipes_oneBuilder
               image_url: image_url,
               calories: BuiltValueNullFieldError.checkNotNull(
                   calories, 'GInsertRecipeData_insert_recipes_one', 'calories'),
+              user_id: user_id,
               G__typename: BuiltValueNullFieldError.checkNotNull(G__typename,
                   'GInsertRecipeData_insert_recipes_one', 'G__typename'),
               ingredients: ingredients.build(),
