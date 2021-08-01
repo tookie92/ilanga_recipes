@@ -45,7 +45,7 @@ class NewRecipePage extends StatelessWidget {
                         height: size.height * .1,
                       ),
                       MyText(
-                        label: 'Add a Recipe',
+                        label: 'Add a Recipe  ',
                       ),
                       SizedBox(
                         height: 30.0,

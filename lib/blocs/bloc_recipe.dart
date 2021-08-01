@@ -7,6 +7,7 @@ import 'package:nekhna/blocs/bloc.dart';
 import 'package:nekhna/models/recipe_model.dart';
 import 'package:nekhna/rm_graphql.dart';
 import 'package:nekhna/src/operation.req.gql.dart';
+import 'package:nekhna/src/schema.ast.gql.dart';
 
 class BlocRecipe extends Bloc {
   final _streamController = StreamController<RecipeState>();
@@ -30,7 +31,7 @@ class BlocRecipe extends Bloc {
 class RecipeState {
   final bool isActive;
   final fields = RecipeModel();
-  GFindUserByNameData_users? usId;
+  final int? usId;
   final currentUser = FirebaseAuth.instance.currentUser!.displayName;
   RecipeState({this.isActive = false, this.usId});
 
