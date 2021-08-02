@@ -22,7 +22,7 @@ void main() async {
   runApp(MaterialApp(
     title: 'Flutter',
     debugShowCheckedModeBanner: false,
-    home: email == null ? BlocRouter().signUp() : BlocRouter().accueil(),
+    home: email == null ? BlocRouter().signIn() : BlocRouter().accueil(),
   ));
 }
 

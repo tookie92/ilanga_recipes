@@ -66,10 +66,9 @@ class AccueilPage extends StatelessWidget {
                           SharedPreferences prefs =
                               await SharedPreferences.getInstance();
                           prefs.remove('email');
-
-                          await DbFire().signOut();
                           Navigator.pushReplacement(
-                              context, BlocRouter().accueilPage());
+                              context, BlocRouter().signInPage());
+                          await DbFire().signOut();
                         },
                         icon: FaIcon(
                           FontAwesomeIcons.signOutAlt,
