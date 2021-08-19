@@ -220,6 +220,653 @@ const String_comparison_exp = _i1.InputObjectTypeDefinitionNode(
               name: _i1.NameNode(value: 'String'), isNonNull: false),
           defaultValue: null)
     ]);
+const categories = _i1.ObjectTypeDefinitionNode(
+    name: _i1.NameNode(value: 'categories'),
+    directives: [],
+    interfaces: [],
+    fields: [
+      _i1.FieldDefinitionNode(
+          name: _i1.NameNode(value: 'description'),
+          directives: [],
+          args: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'String'), isNonNull: true)),
+      _i1.FieldDefinitionNode(
+          name: _i1.NameNode(value: 'id'),
+          directives: [],
+          args: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'Int'), isNonNull: true)),
+      _i1.FieldDefinitionNode(
+          name: _i1.NameNode(value: 'name'),
+          directives: [],
+          args: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'String'), isNonNull: true)),
+      _i1.FieldDefinitionNode(
+          name: _i1.NameNode(value: 'recipes'),
+          directives: [],
+          args: [
+            _i1.InputValueDefinitionNode(
+                name: _i1.NameNode(value: 'distinct_on'),
+                directives: [],
+                type: _i1.ListTypeNode(
+                    type: _i1.NamedTypeNode(
+                        name: _i1.NameNode(value: 'recipes_select_column'),
+                        isNonNull: true),
+                    isNonNull: false),
+                defaultValue: null),
+            _i1.InputValueDefinitionNode(
+                name: _i1.NameNode(value: 'limit'),
+                directives: [],
+                type: _i1.NamedTypeNode(
+                    name: _i1.NameNode(value: 'Int'), isNonNull: false),
+                defaultValue: null),
+            _i1.InputValueDefinitionNode(
+                name: _i1.NameNode(value: 'offset'),
+                directives: [],
+                type: _i1.NamedTypeNode(
+                    name: _i1.NameNode(value: 'Int'), isNonNull: false),
+                defaultValue: null),
+            _i1.InputValueDefinitionNode(
+                name: _i1.NameNode(value: 'order_by'),
+                directives: [],
+                type: _i1.ListTypeNode(
+                    type: _i1.NamedTypeNode(
+                        name: _i1.NameNode(value: 'recipes_order_by'),
+                        isNonNull: true),
+                    isNonNull: false),
+                defaultValue: null),
+            _i1.InputValueDefinitionNode(
+                name: _i1.NameNode(value: 'where'),
+                directives: [],
+                type: _i1.NamedTypeNode(
+                    name: _i1.NameNode(value: 'recipes_bool_exp'),
+                    isNonNull: false),
+                defaultValue: null)
+          ],
+          type: _i1.ListTypeNode(
+              type: _i1.NamedTypeNode(
+                  name: _i1.NameNode(value: 'recipes'), isNonNull: true),
+              isNonNull: true)),
+      _i1.FieldDefinitionNode(
+          name: _i1.NameNode(value: 'recipes_aggregate'),
+          directives: [],
+          args: [
+            _i1.InputValueDefinitionNode(
+                name: _i1.NameNode(value: 'distinct_on'),
+                directives: [],
+                type: _i1.ListTypeNode(
+                    type: _i1.NamedTypeNode(
+                        name: _i1.NameNode(value: 'recipes_select_column'),
+                        isNonNull: true),
+                    isNonNull: false),
+                defaultValue: null),
+            _i1.InputValueDefinitionNode(
+                name: _i1.NameNode(value: 'limit'),
+                directives: [],
+                type: _i1.NamedTypeNode(
+                    name: _i1.NameNode(value: 'Int'), isNonNull: false),
+                defaultValue: null),
+            _i1.InputValueDefinitionNode(
+                name: _i1.NameNode(value: 'offset'),
+                directives: [],
+                type: _i1.NamedTypeNode(
+                    name: _i1.NameNode(value: 'Int'), isNonNull: false),
+                defaultValue: null),
+            _i1.InputValueDefinitionNode(
+                name: _i1.NameNode(value: 'order_by'),
+                directives: [],
+                type: _i1.ListTypeNode(
+                    type: _i1.NamedTypeNode(
+                        name: _i1.NameNode(value: 'recipes_order_by'),
+                        isNonNull: true),
+                    isNonNull: false),
+                defaultValue: null),
+            _i1.InputValueDefinitionNode(
+                name: _i1.NameNode(value: 'where'),
+                directives: [],
+                type: _i1.NamedTypeNode(
+                    name: _i1.NameNode(value: 'recipes_bool_exp'),
+                    isNonNull: false),
+                defaultValue: null)
+          ],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'recipes_aggregate'), isNonNull: true))
+    ]);
+const categories_aggregate = _i1.ObjectTypeDefinitionNode(
+    name: _i1.NameNode(value: 'categories_aggregate'),
+    directives: [],
+    interfaces: [],
+    fields: [
+      _i1.FieldDefinitionNode(
+          name: _i1.NameNode(value: 'aggregate'),
+          directives: [],
+          args: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'categories_aggregate_fields'),
+              isNonNull: false)),
+      _i1.FieldDefinitionNode(
+          name: _i1.NameNode(value: 'nodes'),
+          directives: [],
+          args: [],
+          type: _i1.ListTypeNode(
+              type: _i1.NamedTypeNode(
+                  name: _i1.NameNode(value: 'categories'), isNonNull: true),
+              isNonNull: true))
+    ]);
+const categories_aggregate_fields = _i1.ObjectTypeDefinitionNode(
+    name: _i1.NameNode(value: 'categories_aggregate_fields'),
+    directives: [],
+    interfaces: [],
+    fields: [
+      _i1.FieldDefinitionNode(
+          name: _i1.NameNode(value: 'avg'),
+          directives: [],
+          args: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'categories_avg_fields'),
+              isNonNull: false)),
+      _i1.FieldDefinitionNode(
+          name: _i1.NameNode(value: 'count'),
+          directives: [],
+          args: [
+            _i1.InputValueDefinitionNode(
+                name: _i1.NameNode(value: 'columns'),
+                directives: [],
+                type: _i1.ListTypeNode(
+                    type: _i1.NamedTypeNode(
+                        name: _i1.NameNode(value: 'categories_select_column'),
+                        isNonNull: true),
+                    isNonNull: false),
+                defaultValue: null),
+            _i1.InputValueDefinitionNode(
+                name: _i1.NameNode(value: 'distinct'),
+                directives: [],
+                type: _i1.NamedTypeNode(
+                    name: _i1.NameNode(value: 'Boolean'), isNonNull: false),
+                defaultValue: null)
+          ],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'Int'), isNonNull: true)),
+      _i1.FieldDefinitionNode(
+          name: _i1.NameNode(value: 'max'),
+          directives: [],
+          args: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'categories_max_fields'),
+              isNonNull: false)),
+      _i1.FieldDefinitionNode(
+          name: _i1.NameNode(value: 'min'),
+          directives: [],
+          args: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'categories_min_fields'),
+              isNonNull: false)),
+      _i1.FieldDefinitionNode(
+          name: _i1.NameNode(value: 'stddev'),
+          directives: [],
+          args: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'categories_stddev_fields'),
+              isNonNull: false)),
+      _i1.FieldDefinitionNode(
+          name: _i1.NameNode(value: 'stddev_pop'),
+          directives: [],
+          args: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'categories_stddev_pop_fields'),
+              isNonNull: false)),
+      _i1.FieldDefinitionNode(
+          name: _i1.NameNode(value: 'stddev_samp'),
+          directives: [],
+          args: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'categories_stddev_samp_fields'),
+              isNonNull: false)),
+      _i1.FieldDefinitionNode(
+          name: _i1.NameNode(value: 'sum'),
+          directives: [],
+          args: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'categories_sum_fields'),
+              isNonNull: false)),
+      _i1.FieldDefinitionNode(
+          name: _i1.NameNode(value: 'var_pop'),
+          directives: [],
+          args: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'categories_var_pop_fields'),
+              isNonNull: false)),
+      _i1.FieldDefinitionNode(
+          name: _i1.NameNode(value: 'var_samp'),
+          directives: [],
+          args: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'categories_var_samp_fields'),
+              isNonNull: false)),
+      _i1.FieldDefinitionNode(
+          name: _i1.NameNode(value: 'variance'),
+          directives: [],
+          args: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'categories_variance_fields'),
+              isNonNull: false))
+    ]);
+const categories_avg_fields = _i1.ObjectTypeDefinitionNode(
+    name: _i1.NameNode(value: 'categories_avg_fields'),
+    directives: [],
+    interfaces: [],
+    fields: [
+      _i1.FieldDefinitionNode(
+          name: _i1.NameNode(value: 'id'),
+          directives: [],
+          args: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'Float'), isNonNull: false))
+    ]);
+const categories_bool_exp = _i1.InputObjectTypeDefinitionNode(
+    name: _i1.NameNode(value: 'categories_bool_exp'),
+    directives: [],
+    fields: [
+      _i1.InputValueDefinitionNode(
+          name: _i1.NameNode(value: '_and'),
+          directives: [],
+          type: _i1.ListTypeNode(
+              type: _i1.NamedTypeNode(
+                  name: _i1.NameNode(value: 'categories_bool_exp'),
+                  isNonNull: true),
+              isNonNull: false),
+          defaultValue: null),
+      _i1.InputValueDefinitionNode(
+          name: _i1.NameNode(value: '_not'),
+          directives: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'categories_bool_exp'),
+              isNonNull: false),
+          defaultValue: null),
+      _i1.InputValueDefinitionNode(
+          name: _i1.NameNode(value: '_or'),
+          directives: [],
+          type: _i1.ListTypeNode(
+              type: _i1.NamedTypeNode(
+                  name: _i1.NameNode(value: 'categories_bool_exp'),
+                  isNonNull: true),
+              isNonNull: false),
+          defaultValue: null),
+      _i1.InputValueDefinitionNode(
+          name: _i1.NameNode(value: 'description'),
+          directives: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'String_comparison_exp'),
+              isNonNull: false),
+          defaultValue: null),
+      _i1.InputValueDefinitionNode(
+          name: _i1.NameNode(value: 'id'),
+          directives: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'Int_comparison_exp'),
+              isNonNull: false),
+          defaultValue: null),
+      _i1.InputValueDefinitionNode(
+          name: _i1.NameNode(value: 'name'),
+          directives: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'String_comparison_exp'),
+              isNonNull: false),
+          defaultValue: null),
+      _i1.InputValueDefinitionNode(
+          name: _i1.NameNode(value: 'recipes'),
+          directives: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'recipes_bool_exp'), isNonNull: false),
+          defaultValue: null)
+    ]);
+const categories_constraint = _i1.EnumTypeDefinitionNode(
+    name: _i1.NameNode(value: 'categories_constraint'),
+    directives: [],
+    values: [
+      _i1.EnumValueDefinitionNode(
+          name: _i1.NameNode(value: 'categories_pkey'), directives: [])
+    ]);
+const categories_inc_input = _i1.InputObjectTypeDefinitionNode(
+    name: _i1.NameNode(value: 'categories_inc_input'),
+    directives: [],
+    fields: [
+      _i1.InputValueDefinitionNode(
+          name: _i1.NameNode(value: 'id'),
+          directives: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'Int'), isNonNull: false),
+          defaultValue: null)
+    ]);
+const categories_insert_input = _i1.InputObjectTypeDefinitionNode(
+    name: _i1.NameNode(value: 'categories_insert_input'),
+    directives: [],
+    fields: [
+      _i1.InputValueDefinitionNode(
+          name: _i1.NameNode(value: 'description'),
+          directives: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'String'), isNonNull: false),
+          defaultValue: null),
+      _i1.InputValueDefinitionNode(
+          name: _i1.NameNode(value: 'id'),
+          directives: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'Int'), isNonNull: false),
+          defaultValue: null),
+      _i1.InputValueDefinitionNode(
+          name: _i1.NameNode(value: 'name'),
+          directives: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'String'), isNonNull: false),
+          defaultValue: null),
+      _i1.InputValueDefinitionNode(
+          name: _i1.NameNode(value: 'recipes'),
+          directives: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'recipes_arr_rel_insert_input'),
+              isNonNull: false),
+          defaultValue: null)
+    ]);
+const categories_max_fields = _i1.ObjectTypeDefinitionNode(
+    name: _i1.NameNode(value: 'categories_max_fields'),
+    directives: [],
+    interfaces: [],
+    fields: [
+      _i1.FieldDefinitionNode(
+          name: _i1.NameNode(value: 'description'),
+          directives: [],
+          args: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'String'), isNonNull: false)),
+      _i1.FieldDefinitionNode(
+          name: _i1.NameNode(value: 'id'),
+          directives: [],
+          args: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'Int'), isNonNull: false)),
+      _i1.FieldDefinitionNode(
+          name: _i1.NameNode(value: 'name'),
+          directives: [],
+          args: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'String'), isNonNull: false))
+    ]);
+const categories_min_fields = _i1.ObjectTypeDefinitionNode(
+    name: _i1.NameNode(value: 'categories_min_fields'),
+    directives: [],
+    interfaces: [],
+    fields: [
+      _i1.FieldDefinitionNode(
+          name: _i1.NameNode(value: 'description'),
+          directives: [],
+          args: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'String'), isNonNull: false)),
+      _i1.FieldDefinitionNode(
+          name: _i1.NameNode(value: 'id'),
+          directives: [],
+          args: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'Int'), isNonNull: false)),
+      _i1.FieldDefinitionNode(
+          name: _i1.NameNode(value: 'name'),
+          directives: [],
+          args: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'String'), isNonNull: false))
+    ]);
+const categories_mutation_response = _i1.ObjectTypeDefinitionNode(
+    name: _i1.NameNode(value: 'categories_mutation_response'),
+    directives: [],
+    interfaces: [],
+    fields: [
+      _i1.FieldDefinitionNode(
+          name: _i1.NameNode(value: 'affected_rows'),
+          directives: [],
+          args: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'Int'), isNonNull: true)),
+      _i1.FieldDefinitionNode(
+          name: _i1.NameNode(value: 'returning'),
+          directives: [],
+          args: [],
+          type: _i1.ListTypeNode(
+              type: _i1.NamedTypeNode(
+                  name: _i1.NameNode(value: 'categories'), isNonNull: true),
+              isNonNull: true))
+    ]);
+const categories_obj_rel_insert_input = _i1.InputObjectTypeDefinitionNode(
+    name: _i1.NameNode(value: 'categories_obj_rel_insert_input'),
+    directives: [],
+    fields: [
+      _i1.InputValueDefinitionNode(
+          name: _i1.NameNode(value: 'data'),
+          directives: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'categories_insert_input'),
+              isNonNull: true),
+          defaultValue: null),
+      _i1.InputValueDefinitionNode(
+          name: _i1.NameNode(value: 'on_conflict'),
+          directives: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'categories_on_conflict'),
+              isNonNull: false),
+          defaultValue: null)
+    ]);
+const categories_on_conflict = _i1.InputObjectTypeDefinitionNode(
+    name: _i1.NameNode(value: 'categories_on_conflict'),
+    directives: [],
+    fields: [
+      _i1.InputValueDefinitionNode(
+          name: _i1.NameNode(value: 'constraint'),
+          directives: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'categories_constraint'),
+              isNonNull: true),
+          defaultValue: null),
+      _i1.InputValueDefinitionNode(
+          name: _i1.NameNode(value: 'update_columns'),
+          directives: [],
+          type: _i1.ListTypeNode(
+              type: _i1.NamedTypeNode(
+                  name: _i1.NameNode(value: 'categories_update_column'),
+                  isNonNull: true),
+              isNonNull: true),
+          defaultValue: _i1.ListValueNode(values: [])),
+      _i1.InputValueDefinitionNode(
+          name: _i1.NameNode(value: 'where'),
+          directives: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'categories_bool_exp'),
+              isNonNull: false),
+          defaultValue: null)
+    ]);
+const categories_order_by = _i1.InputObjectTypeDefinitionNode(
+    name: _i1.NameNode(value: 'categories_order_by'),
+    directives: [],
+    fields: [
+      _i1.InputValueDefinitionNode(
+          name: _i1.NameNode(value: 'description'),
+          directives: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'order_by'), isNonNull: false),
+          defaultValue: null),
+      _i1.InputValueDefinitionNode(
+          name: _i1.NameNode(value: 'id'),
+          directives: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'order_by'), isNonNull: false),
+          defaultValue: null),
+      _i1.InputValueDefinitionNode(
+          name: _i1.NameNode(value: 'name'),
+          directives: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'order_by'), isNonNull: false),
+          defaultValue: null),
+      _i1.InputValueDefinitionNode(
+          name: _i1.NameNode(value: 'recipes_aggregate'),
+          directives: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'recipes_aggregate_order_by'),
+              isNonNull: false),
+          defaultValue: null)
+    ]);
+const categories_pk_columns_input = _i1.InputObjectTypeDefinitionNode(
+    name: _i1.NameNode(value: 'categories_pk_columns_input'),
+    directives: [],
+    fields: [
+      _i1.InputValueDefinitionNode(
+          name: _i1.NameNode(value: 'id'),
+          directives: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'Int'), isNonNull: true),
+          defaultValue: null)
+    ]);
+const categories_select_column = _i1.EnumTypeDefinitionNode(
+    name: _i1.NameNode(value: 'categories_select_column'),
+    directives: [],
+    values: [
+      _i1.EnumValueDefinitionNode(
+          name: _i1.NameNode(value: 'description'), directives: []),
+      _i1.EnumValueDefinitionNode(
+          name: _i1.NameNode(value: 'id'), directives: []),
+      _i1.EnumValueDefinitionNode(
+          name: _i1.NameNode(value: 'name'), directives: [])
+    ]);
+const categories_set_input = _i1.InputObjectTypeDefinitionNode(
+    name: _i1.NameNode(value: 'categories_set_input'),
+    directives: [],
+    fields: [
+      _i1.InputValueDefinitionNode(
+          name: _i1.NameNode(value: 'description'),
+          directives: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'String'), isNonNull: false),
+          defaultValue: null),
+      _i1.InputValueDefinitionNode(
+          name: _i1.NameNode(value: 'id'),
+          directives: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'Int'), isNonNull: false),
+          defaultValue: null),
+      _i1.InputValueDefinitionNode(
+          name: _i1.NameNode(value: 'name'),
+          directives: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'String'), isNonNull: false),
+          defaultValue: null)
+    ]);
+const categories_stddev_fields = _i1.ObjectTypeDefinitionNode(
+    name: _i1.NameNode(value: 'categories_stddev_fields'),
+    directives: [],
+    interfaces: [],
+    fields: [
+      _i1.FieldDefinitionNode(
+          name: _i1.NameNode(value: 'id'),
+          directives: [],
+          args: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'Float'), isNonNull: false))
+    ]);
+const categories_stddev_pop_fields = _i1.ObjectTypeDefinitionNode(
+    name: _i1.NameNode(value: 'categories_stddev_pop_fields'),
+    directives: [],
+    interfaces: [],
+    fields: [
+      _i1.FieldDefinitionNode(
+          name: _i1.NameNode(value: 'id'),
+          directives: [],
+          args: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'Float'), isNonNull: false))
+    ]);
+const categories_stddev_samp_fields = _i1.ObjectTypeDefinitionNode(
+    name: _i1.NameNode(value: 'categories_stddev_samp_fields'),
+    directives: [],
+    interfaces: [],
+    fields: [
+      _i1.FieldDefinitionNode(
+          name: _i1.NameNode(value: 'id'),
+          directives: [],
+          args: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'Float'), isNonNull: false))
+    ]);
+const categories_sum_fields = _i1.ObjectTypeDefinitionNode(
+    name: _i1.NameNode(value: 'categories_sum_fields'),
+    directives: [],
+    interfaces: [],
+    fields: [
+      _i1.FieldDefinitionNode(
+          name: _i1.NameNode(value: 'id'),
+          directives: [],
+          args: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'Int'), isNonNull: false))
+    ]);
+const categories_update_column = _i1.EnumTypeDefinitionNode(
+    name: _i1.NameNode(value: 'categories_update_column'),
+    directives: [],
+    values: [
+      _i1.EnumValueDefinitionNode(
+          name: _i1.NameNode(value: 'description'), directives: []),
+      _i1.EnumValueDefinitionNode(
+          name: _i1.NameNode(value: 'id'), directives: []),
+      _i1.EnumValueDefinitionNode(
+          name: _i1.NameNode(value: 'name'), directives: [])
+    ]);
+const categories_var_pop_fields = _i1.ObjectTypeDefinitionNode(
+    name: _i1.NameNode(value: 'categories_var_pop_fields'),
+    directives: [],
+    interfaces: [],
+    fields: [
+      _i1.FieldDefinitionNode(
+          name: _i1.NameNode(value: 'id'),
+          directives: [],
+          args: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'Float'), isNonNull: false))
+    ]);
+const categories_var_samp_fields = _i1.ObjectTypeDefinitionNode(
+    name: _i1.NameNode(value: 'categories_var_samp_fields'),
+    directives: [],
+    interfaces: [],
+    fields: [
+      _i1.FieldDefinitionNode(
+          name: _i1.NameNode(value: 'id'),
+          directives: [],
+          args: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'Float'), isNonNull: false))
+    ]);
+const categories_variance_fields = _i1.ObjectTypeDefinitionNode(
+    name: _i1.NameNode(value: 'categories_variance_fields'),
+    directives: [],
+    interfaces: [],
+    fields: [
+      _i1.FieldDefinitionNode(
+          name: _i1.NameNode(value: 'id'),
+          directives: [],
+          args: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'Float'), isNonNull: false))
+    ]);
+const fileOutput = _i1.ObjectTypeDefinitionNode(
+    name: _i1.NameNode(value: 'fileOutput'),
+    directives: [],
+    interfaces: [],
+    fields: [
+      _i1.FieldDefinitionNode(
+          name: _i1.NameNode(value: 'file_path'),
+          directives: [],
+          args: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'String'), isNonNull: true))
+    ]);
 const ingredients = _i1.ObjectTypeDefinitionNode(
     name: _i1.NameNode(value: 'ingredients'),
     directives: [],
@@ -1154,6 +1801,34 @@ const mutation_root = _i1.ObjectTypeDefinitionNode(
     interfaces: [],
     fields: [
       _i1.FieldDefinitionNode(
+          name: _i1.NameNode(value: 'delete_categories'),
+          directives: [],
+          args: [
+            _i1.InputValueDefinitionNode(
+                name: _i1.NameNode(value: 'where'),
+                directives: [],
+                type: _i1.NamedTypeNode(
+                    name: _i1.NameNode(value: 'categories_bool_exp'),
+                    isNonNull: true),
+                defaultValue: null)
+          ],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'categories_mutation_response'),
+              isNonNull: false)),
+      _i1.FieldDefinitionNode(
+          name: _i1.NameNode(value: 'delete_categories_by_pk'),
+          directives: [],
+          args: [
+            _i1.InputValueDefinitionNode(
+                name: _i1.NameNode(value: 'id'),
+                directives: [],
+                type: _i1.NamedTypeNode(
+                    name: _i1.NameNode(value: 'Int'), isNonNull: true),
+                defaultValue: null)
+          ],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'categories'), isNonNull: false)),
+      _i1.FieldDefinitionNode(
           name: _i1.NameNode(value: 'delete_ingredients'),
           directives: [],
           args: [
@@ -1265,6 +1940,76 @@ const mutation_root = _i1.ObjectTypeDefinitionNode(
           ],
           type: _i1.NamedTypeNode(
               name: _i1.NameNode(value: 'users'), isNonNull: false)),
+      _i1.FieldDefinitionNode(
+          name: _i1.NameNode(value: 'fileUpload'),
+          directives: [],
+          args: [
+            _i1.InputValueDefinitionNode(
+                name: _i1.NameNode(value: 'base64str'),
+                directives: [],
+                type: _i1.NamedTypeNode(
+                    name: _i1.NameNode(value: 'String'), isNonNull: true),
+                defaultValue: null),
+            _i1.InputValueDefinitionNode(
+                name: _i1.NameNode(value: 'name'),
+                directives: [],
+                type: _i1.NamedTypeNode(
+                    name: _i1.NameNode(value: 'String'), isNonNull: true),
+                defaultValue: null),
+            _i1.InputValueDefinitionNode(
+                name: _i1.NameNode(value: 'type'),
+                directives: [],
+                type: _i1.NamedTypeNode(
+                    name: _i1.NameNode(value: 'String'), isNonNull: true),
+                defaultValue: null)
+          ],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'fileOutput'), isNonNull: false)),
+      _i1.FieldDefinitionNode(
+          name: _i1.NameNode(value: 'insert_categories'),
+          directives: [],
+          args: [
+            _i1.InputValueDefinitionNode(
+                name: _i1.NameNode(value: 'objects'),
+                directives: [],
+                type: _i1.ListTypeNode(
+                    type: _i1.NamedTypeNode(
+                        name: _i1.NameNode(value: 'categories_insert_input'),
+                        isNonNull: true),
+                    isNonNull: true),
+                defaultValue: null),
+            _i1.InputValueDefinitionNode(
+                name: _i1.NameNode(value: 'on_conflict'),
+                directives: [],
+                type: _i1.NamedTypeNode(
+                    name: _i1.NameNode(value: 'categories_on_conflict'),
+                    isNonNull: false),
+                defaultValue: null)
+          ],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'categories_mutation_response'),
+              isNonNull: false)),
+      _i1.FieldDefinitionNode(
+          name: _i1.NameNode(value: 'insert_categories_one'),
+          directives: [],
+          args: [
+            _i1.InputValueDefinitionNode(
+                name: _i1.NameNode(value: 'object'),
+                directives: [],
+                type: _i1.NamedTypeNode(
+                    name: _i1.NameNode(value: 'categories_insert_input'),
+                    isNonNull: true),
+                defaultValue: null),
+            _i1.InputValueDefinitionNode(
+                name: _i1.NameNode(value: 'on_conflict'),
+                directives: [],
+                type: _i1.NamedTypeNode(
+                    name: _i1.NameNode(value: 'categories_on_conflict'),
+                    isNonNull: false),
+                defaultValue: null)
+          ],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'categories'), isNonNull: false)),
       _i1.FieldDefinitionNode(
           name: _i1.NameNode(value: 'insert_ingredients'),
           directives: [],
@@ -1445,6 +2190,63 @@ const mutation_root = _i1.ObjectTypeDefinitionNode(
           ],
           type: _i1.NamedTypeNode(
               name: _i1.NameNode(value: 'users'), isNonNull: false)),
+      _i1.FieldDefinitionNode(
+          name: _i1.NameNode(value: 'update_categories'),
+          directives: [],
+          args: [
+            _i1.InputValueDefinitionNode(
+                name: _i1.NameNode(value: '_inc'),
+                directives: [],
+                type: _i1.NamedTypeNode(
+                    name: _i1.NameNode(value: 'categories_inc_input'),
+                    isNonNull: false),
+                defaultValue: null),
+            _i1.InputValueDefinitionNode(
+                name: _i1.NameNode(value: '_set'),
+                directives: [],
+                type: _i1.NamedTypeNode(
+                    name: _i1.NameNode(value: 'categories_set_input'),
+                    isNonNull: false),
+                defaultValue: null),
+            _i1.InputValueDefinitionNode(
+                name: _i1.NameNode(value: 'where'),
+                directives: [],
+                type: _i1.NamedTypeNode(
+                    name: _i1.NameNode(value: 'categories_bool_exp'),
+                    isNonNull: true),
+                defaultValue: null)
+          ],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'categories_mutation_response'),
+              isNonNull: false)),
+      _i1.FieldDefinitionNode(
+          name: _i1.NameNode(value: 'update_categories_by_pk'),
+          directives: [],
+          args: [
+            _i1.InputValueDefinitionNode(
+                name: _i1.NameNode(value: '_inc'),
+                directives: [],
+                type: _i1.NamedTypeNode(
+                    name: _i1.NameNode(value: 'categories_inc_input'),
+                    isNonNull: false),
+                defaultValue: null),
+            _i1.InputValueDefinitionNode(
+                name: _i1.NameNode(value: '_set'),
+                directives: [],
+                type: _i1.NamedTypeNode(
+                    name: _i1.NameNode(value: 'categories_set_input'),
+                    isNonNull: false),
+                defaultValue: null),
+            _i1.InputValueDefinitionNode(
+                name: _i1.NameNode(value: 'pk_columns'),
+                directives: [],
+                type: _i1.NamedTypeNode(
+                    name: _i1.NameNode(value: 'categories_pk_columns_input'),
+                    isNonNull: true),
+                defaultValue: null)
+          ],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'categories'), isNonNull: false)),
       _i1.FieldDefinitionNode(
           name: _i1.NameNode(value: 'update_ingredients'),
           directives: [],
@@ -1696,6 +2498,110 @@ const query_root = _i1.ObjectTypeDefinitionNode(
     directives: [],
     interfaces: [],
     fields: [
+      _i1.FieldDefinitionNode(
+          name: _i1.NameNode(value: 'categories'),
+          directives: [],
+          args: [
+            _i1.InputValueDefinitionNode(
+                name: _i1.NameNode(value: 'distinct_on'),
+                directives: [],
+                type: _i1.ListTypeNode(
+                    type: _i1.NamedTypeNode(
+                        name: _i1.NameNode(value: 'categories_select_column'),
+                        isNonNull: true),
+                    isNonNull: false),
+                defaultValue: null),
+            _i1.InputValueDefinitionNode(
+                name: _i1.NameNode(value: 'limit'),
+                directives: [],
+                type: _i1.NamedTypeNode(
+                    name: _i1.NameNode(value: 'Int'), isNonNull: false),
+                defaultValue: null),
+            _i1.InputValueDefinitionNode(
+                name: _i1.NameNode(value: 'offset'),
+                directives: [],
+                type: _i1.NamedTypeNode(
+                    name: _i1.NameNode(value: 'Int'), isNonNull: false),
+                defaultValue: null),
+            _i1.InputValueDefinitionNode(
+                name: _i1.NameNode(value: 'order_by'),
+                directives: [],
+                type: _i1.ListTypeNode(
+                    type: _i1.NamedTypeNode(
+                        name: _i1.NameNode(value: 'categories_order_by'),
+                        isNonNull: true),
+                    isNonNull: false),
+                defaultValue: null),
+            _i1.InputValueDefinitionNode(
+                name: _i1.NameNode(value: 'where'),
+                directives: [],
+                type: _i1.NamedTypeNode(
+                    name: _i1.NameNode(value: 'categories_bool_exp'),
+                    isNonNull: false),
+                defaultValue: null)
+          ],
+          type: _i1.ListTypeNode(
+              type: _i1.NamedTypeNode(
+                  name: _i1.NameNode(value: 'categories'), isNonNull: true),
+              isNonNull: true)),
+      _i1.FieldDefinitionNode(
+          name: _i1.NameNode(value: 'categories_aggregate'),
+          directives: [],
+          args: [
+            _i1.InputValueDefinitionNode(
+                name: _i1.NameNode(value: 'distinct_on'),
+                directives: [],
+                type: _i1.ListTypeNode(
+                    type: _i1.NamedTypeNode(
+                        name: _i1.NameNode(value: 'categories_select_column'),
+                        isNonNull: true),
+                    isNonNull: false),
+                defaultValue: null),
+            _i1.InputValueDefinitionNode(
+                name: _i1.NameNode(value: 'limit'),
+                directives: [],
+                type: _i1.NamedTypeNode(
+                    name: _i1.NameNode(value: 'Int'), isNonNull: false),
+                defaultValue: null),
+            _i1.InputValueDefinitionNode(
+                name: _i1.NameNode(value: 'offset'),
+                directives: [],
+                type: _i1.NamedTypeNode(
+                    name: _i1.NameNode(value: 'Int'), isNonNull: false),
+                defaultValue: null),
+            _i1.InputValueDefinitionNode(
+                name: _i1.NameNode(value: 'order_by'),
+                directives: [],
+                type: _i1.ListTypeNode(
+                    type: _i1.NamedTypeNode(
+                        name: _i1.NameNode(value: 'categories_order_by'),
+                        isNonNull: true),
+                    isNonNull: false),
+                defaultValue: null),
+            _i1.InputValueDefinitionNode(
+                name: _i1.NameNode(value: 'where'),
+                directives: [],
+                type: _i1.NamedTypeNode(
+                    name: _i1.NameNode(value: 'categories_bool_exp'),
+                    isNonNull: false),
+                defaultValue: null)
+          ],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'categories_aggregate'),
+              isNonNull: true)),
+      _i1.FieldDefinitionNode(
+          name: _i1.NameNode(value: 'categories_by_pk'),
+          directives: [],
+          args: [
+            _i1.InputValueDefinitionNode(
+                name: _i1.NameNode(value: 'id'),
+                directives: [],
+                type: _i1.NamedTypeNode(
+                    name: _i1.NameNode(value: 'Int'), isNonNull: true),
+                defaultValue: null)
+          ],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'categories'), isNonNull: false)),
       _i1.FieldDefinitionNode(
           name: _i1.NameNode(value: 'ingredients'),
           directives: [],
@@ -2121,6 +3027,18 @@ const recipes = _i1.ObjectTypeDefinitionNode(
           args: [],
           type: _i1.NamedTypeNode(
               name: _i1.NameNode(value: 'String'), isNonNull: true)),
+      _i1.FieldDefinitionNode(
+          name: _i1.NameNode(value: 'categorie_id'),
+          directives: [],
+          args: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'Int'), isNonNull: false)),
+      _i1.FieldDefinitionNode(
+          name: _i1.NameNode(value: 'category'),
+          directives: [],
+          args: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'categories'), isNonNull: false)),
       _i1.FieldDefinitionNode(
           name: _i1.NameNode(value: 'id'),
           directives: [],
@@ -2566,6 +3484,12 @@ const recipes_avg_fields = _i1.ObjectTypeDefinitionNode(
     interfaces: [],
     fields: [
       _i1.FieldDefinitionNode(
+          name: _i1.NameNode(value: 'categorie_id'),
+          directives: [],
+          args: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'Float'), isNonNull: false)),
+      _i1.FieldDefinitionNode(
           name: _i1.NameNode(value: 'id'),
           directives: [],
           args: [],
@@ -2582,6 +3506,12 @@ const recipes_avg_order_by = _i1.InputObjectTypeDefinitionNode(
     name: _i1.NameNode(value: 'recipes_avg_order_by'),
     directives: [],
     fields: [
+      _i1.InputValueDefinitionNode(
+          name: _i1.NameNode(value: 'categorie_id'),
+          directives: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'order_by'), isNonNull: false),
+          defaultValue: null),
       _i1.InputValueDefinitionNode(
           name: _i1.NameNode(value: 'id'),
           directives: [],
@@ -2628,6 +3558,20 @@ const recipes_bool_exp = _i1.InputObjectTypeDefinitionNode(
           directives: [],
           type: _i1.NamedTypeNode(
               name: _i1.NameNode(value: 'String_comparison_exp'),
+              isNonNull: false),
+          defaultValue: null),
+      _i1.InputValueDefinitionNode(
+          name: _i1.NameNode(value: 'categorie_id'),
+          directives: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'Int_comparison_exp'),
+              isNonNull: false),
+          defaultValue: null),
+      _i1.InputValueDefinitionNode(
+          name: _i1.NameNode(value: 'category'),
+          directives: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'categories_bool_exp'),
               isNonNull: false),
           defaultValue: null),
       _i1.InputValueDefinitionNode(
@@ -2697,6 +3641,12 @@ const recipes_inc_input = _i1.InputObjectTypeDefinitionNode(
     directives: [],
     fields: [
       _i1.InputValueDefinitionNode(
+          name: _i1.NameNode(value: 'categorie_id'),
+          directives: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'Int'), isNonNull: false),
+          defaultValue: null),
+      _i1.InputValueDefinitionNode(
           name: _i1.NameNode(value: 'id'),
           directives: [],
           type: _i1.NamedTypeNode(
@@ -2718,6 +3668,19 @@ const recipes_insert_input = _i1.InputObjectTypeDefinitionNode(
           directives: [],
           type: _i1.NamedTypeNode(
               name: _i1.NameNode(value: 'String'), isNonNull: false),
+          defaultValue: null),
+      _i1.InputValueDefinitionNode(
+          name: _i1.NameNode(value: 'categorie_id'),
+          directives: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'Int'), isNonNull: false),
+          defaultValue: null),
+      _i1.InputValueDefinitionNode(
+          name: _i1.NameNode(value: 'category'),
+          directives: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'categories_obj_rel_insert_input'),
+              isNonNull: false),
           defaultValue: null),
       _i1.InputValueDefinitionNode(
           name: _i1.NameNode(value: 'id'),
@@ -2783,6 +3746,12 @@ const recipes_max_fields = _i1.ObjectTypeDefinitionNode(
           type: _i1.NamedTypeNode(
               name: _i1.NameNode(value: 'String'), isNonNull: false)),
       _i1.FieldDefinitionNode(
+          name: _i1.NameNode(value: 'categorie_id'),
+          directives: [],
+          args: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'Int'), isNonNull: false)),
+      _i1.FieldDefinitionNode(
           name: _i1.NameNode(value: 'id'),
           directives: [],
           args: [],
@@ -2819,6 +3788,12 @@ const recipes_max_order_by = _i1.InputObjectTypeDefinitionNode(
     fields: [
       _i1.InputValueDefinitionNode(
           name: _i1.NameNode(value: 'calories'),
+          directives: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'order_by'), isNonNull: false),
+          defaultValue: null),
+      _i1.InputValueDefinitionNode(
+          name: _i1.NameNode(value: 'categorie_id'),
           directives: [],
           type: _i1.NamedTypeNode(
               name: _i1.NameNode(value: 'order_by'), isNonNull: false),
@@ -2866,6 +3841,12 @@ const recipes_min_fields = _i1.ObjectTypeDefinitionNode(
           type: _i1.NamedTypeNode(
               name: _i1.NameNode(value: 'String'), isNonNull: false)),
       _i1.FieldDefinitionNode(
+          name: _i1.NameNode(value: 'categorie_id'),
+          directives: [],
+          args: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'Int'), isNonNull: false)),
+      _i1.FieldDefinitionNode(
           name: _i1.NameNode(value: 'id'),
           directives: [],
           args: [],
@@ -2902,6 +3883,12 @@ const recipes_min_order_by = _i1.InputObjectTypeDefinitionNode(
     fields: [
       _i1.InputValueDefinitionNode(
           name: _i1.NameNode(value: 'calories'),
+          directives: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'order_by'), isNonNull: false),
+          defaultValue: null),
+      _i1.InputValueDefinitionNode(
+          name: _i1.NameNode(value: 'categorie_id'),
           directives: [],
           type: _i1.NamedTypeNode(
               name: _i1.NameNode(value: 'order_by'), isNonNull: false),
@@ -3013,6 +4000,19 @@ const recipes_order_by = _i1.InputObjectTypeDefinitionNode(
               name: _i1.NameNode(value: 'order_by'), isNonNull: false),
           defaultValue: null),
       _i1.InputValueDefinitionNode(
+          name: _i1.NameNode(value: 'categorie_id'),
+          directives: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'order_by'), isNonNull: false),
+          defaultValue: null),
+      _i1.InputValueDefinitionNode(
+          name: _i1.NameNode(value: 'category'),
+          directives: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'categories_order_by'),
+              isNonNull: false),
+          defaultValue: null),
+      _i1.InputValueDefinitionNode(
           name: _i1.NameNode(value: 'id'),
           directives: [],
           type: _i1.NamedTypeNode(
@@ -3081,6 +4081,8 @@ const recipes_select_column = _i1.EnumTypeDefinitionNode(
       _i1.EnumValueDefinitionNode(
           name: _i1.NameNode(value: 'calories'), directives: []),
       _i1.EnumValueDefinitionNode(
+          name: _i1.NameNode(value: 'categorie_id'), directives: []),
+      _i1.EnumValueDefinitionNode(
           name: _i1.NameNode(value: 'id'), directives: []),
       _i1.EnumValueDefinitionNode(
           name: _i1.NameNode(value: 'image_url'), directives: []),
@@ -3100,6 +4102,12 @@ const recipes_set_input = _i1.InputObjectTypeDefinitionNode(
           directives: [],
           type: _i1.NamedTypeNode(
               name: _i1.NameNode(value: 'String'), isNonNull: false),
+          defaultValue: null),
+      _i1.InputValueDefinitionNode(
+          name: _i1.NameNode(value: 'categorie_id'),
+          directives: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'Int'), isNonNull: false),
           defaultValue: null),
       _i1.InputValueDefinitionNode(
           name: _i1.NameNode(value: 'id'),
@@ -3138,6 +4146,12 @@ const recipes_stddev_fields = _i1.ObjectTypeDefinitionNode(
     interfaces: [],
     fields: [
       _i1.FieldDefinitionNode(
+          name: _i1.NameNode(value: 'categorie_id'),
+          directives: [],
+          args: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'Float'), isNonNull: false)),
+      _i1.FieldDefinitionNode(
           name: _i1.NameNode(value: 'id'),
           directives: [],
           args: [],
@@ -3154,6 +4168,12 @@ const recipes_stddev_order_by = _i1.InputObjectTypeDefinitionNode(
     name: _i1.NameNode(value: 'recipes_stddev_order_by'),
     directives: [],
     fields: [
+      _i1.InputValueDefinitionNode(
+          name: _i1.NameNode(value: 'categorie_id'),
+          directives: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'order_by'), isNonNull: false),
+          defaultValue: null),
       _i1.InputValueDefinitionNode(
           name: _i1.NameNode(value: 'id'),
           directives: [],
@@ -3173,6 +4193,12 @@ const recipes_stddev_pop_fields = _i1.ObjectTypeDefinitionNode(
     interfaces: [],
     fields: [
       _i1.FieldDefinitionNode(
+          name: _i1.NameNode(value: 'categorie_id'),
+          directives: [],
+          args: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'Float'), isNonNull: false)),
+      _i1.FieldDefinitionNode(
           name: _i1.NameNode(value: 'id'),
           directives: [],
           args: [],
@@ -3189,6 +4215,12 @@ const recipes_stddev_pop_order_by = _i1.InputObjectTypeDefinitionNode(
     name: _i1.NameNode(value: 'recipes_stddev_pop_order_by'),
     directives: [],
     fields: [
+      _i1.InputValueDefinitionNode(
+          name: _i1.NameNode(value: 'categorie_id'),
+          directives: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'order_by'), isNonNull: false),
+          defaultValue: null),
       _i1.InputValueDefinitionNode(
           name: _i1.NameNode(value: 'id'),
           directives: [],
@@ -3208,6 +4240,12 @@ const recipes_stddev_samp_fields = _i1.ObjectTypeDefinitionNode(
     interfaces: [],
     fields: [
       _i1.FieldDefinitionNode(
+          name: _i1.NameNode(value: 'categorie_id'),
+          directives: [],
+          args: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'Float'), isNonNull: false)),
+      _i1.FieldDefinitionNode(
           name: _i1.NameNode(value: 'id'),
           directives: [],
           args: [],
@@ -3224,6 +4262,12 @@ const recipes_stddev_samp_order_by = _i1.InputObjectTypeDefinitionNode(
     name: _i1.NameNode(value: 'recipes_stddev_samp_order_by'),
     directives: [],
     fields: [
+      _i1.InputValueDefinitionNode(
+          name: _i1.NameNode(value: 'categorie_id'),
+          directives: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'order_by'), isNonNull: false),
+          defaultValue: null),
       _i1.InputValueDefinitionNode(
           name: _i1.NameNode(value: 'id'),
           directives: [],
@@ -3243,6 +4287,12 @@ const recipes_sum_fields = _i1.ObjectTypeDefinitionNode(
     interfaces: [],
     fields: [
       _i1.FieldDefinitionNode(
+          name: _i1.NameNode(value: 'categorie_id'),
+          directives: [],
+          args: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'Int'), isNonNull: false)),
+      _i1.FieldDefinitionNode(
           name: _i1.NameNode(value: 'id'),
           directives: [],
           args: [],
@@ -3259,6 +4309,12 @@ const recipes_sum_order_by = _i1.InputObjectTypeDefinitionNode(
     name: _i1.NameNode(value: 'recipes_sum_order_by'),
     directives: [],
     fields: [
+      _i1.InputValueDefinitionNode(
+          name: _i1.NameNode(value: 'categorie_id'),
+          directives: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'order_by'), isNonNull: false),
+          defaultValue: null),
       _i1.InputValueDefinitionNode(
           name: _i1.NameNode(value: 'id'),
           directives: [],
@@ -3279,6 +4335,8 @@ const recipes_update_column = _i1.EnumTypeDefinitionNode(
       _i1.EnumValueDefinitionNode(
           name: _i1.NameNode(value: 'calories'), directives: []),
       _i1.EnumValueDefinitionNode(
+          name: _i1.NameNode(value: 'categorie_id'), directives: []),
+      _i1.EnumValueDefinitionNode(
           name: _i1.NameNode(value: 'id'), directives: []),
       _i1.EnumValueDefinitionNode(
           name: _i1.NameNode(value: 'image_url'), directives: []),
@@ -3294,6 +4352,12 @@ const recipes_var_pop_fields = _i1.ObjectTypeDefinitionNode(
     directives: [],
     interfaces: [],
     fields: [
+      _i1.FieldDefinitionNode(
+          name: _i1.NameNode(value: 'categorie_id'),
+          directives: [],
+          args: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'Float'), isNonNull: false)),
       _i1.FieldDefinitionNode(
           name: _i1.NameNode(value: 'id'),
           directives: [],
@@ -3311,6 +4375,12 @@ const recipes_var_pop_order_by = _i1.InputObjectTypeDefinitionNode(
     name: _i1.NameNode(value: 'recipes_var_pop_order_by'),
     directives: [],
     fields: [
+      _i1.InputValueDefinitionNode(
+          name: _i1.NameNode(value: 'categorie_id'),
+          directives: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'order_by'), isNonNull: false),
+          defaultValue: null),
       _i1.InputValueDefinitionNode(
           name: _i1.NameNode(value: 'id'),
           directives: [],
@@ -3330,6 +4400,12 @@ const recipes_var_samp_fields = _i1.ObjectTypeDefinitionNode(
     interfaces: [],
     fields: [
       _i1.FieldDefinitionNode(
+          name: _i1.NameNode(value: 'categorie_id'),
+          directives: [],
+          args: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'Float'), isNonNull: false)),
+      _i1.FieldDefinitionNode(
           name: _i1.NameNode(value: 'id'),
           directives: [],
           args: [],
@@ -3346,6 +4422,12 @@ const recipes_var_samp_order_by = _i1.InputObjectTypeDefinitionNode(
     name: _i1.NameNode(value: 'recipes_var_samp_order_by'),
     directives: [],
     fields: [
+      _i1.InputValueDefinitionNode(
+          name: _i1.NameNode(value: 'categorie_id'),
+          directives: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'order_by'), isNonNull: false),
+          defaultValue: null),
       _i1.InputValueDefinitionNode(
           name: _i1.NameNode(value: 'id'),
           directives: [],
@@ -3365,6 +4447,12 @@ const recipes_variance_fields = _i1.ObjectTypeDefinitionNode(
     interfaces: [],
     fields: [
       _i1.FieldDefinitionNode(
+          name: _i1.NameNode(value: 'categorie_id'),
+          directives: [],
+          args: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'Float'), isNonNull: false)),
+      _i1.FieldDefinitionNode(
           name: _i1.NameNode(value: 'id'),
           directives: [],
           args: [],
@@ -3381,6 +4469,12 @@ const recipes_variance_order_by = _i1.InputObjectTypeDefinitionNode(
     name: _i1.NameNode(value: 'recipes_variance_order_by'),
     directives: [],
     fields: [
+      _i1.InputValueDefinitionNode(
+          name: _i1.NameNode(value: 'categorie_id'),
+          directives: [],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'order_by'), isNonNull: false),
+          defaultValue: null),
       _i1.InputValueDefinitionNode(
           name: _i1.NameNode(value: 'id'),
           directives: [],
@@ -4317,6 +5411,110 @@ const subscription_root = _i1.ObjectTypeDefinitionNode(
     directives: [],
     interfaces: [],
     fields: [
+      _i1.FieldDefinitionNode(
+          name: _i1.NameNode(value: 'categories'),
+          directives: [],
+          args: [
+            _i1.InputValueDefinitionNode(
+                name: _i1.NameNode(value: 'distinct_on'),
+                directives: [],
+                type: _i1.ListTypeNode(
+                    type: _i1.NamedTypeNode(
+                        name: _i1.NameNode(value: 'categories_select_column'),
+                        isNonNull: true),
+                    isNonNull: false),
+                defaultValue: null),
+            _i1.InputValueDefinitionNode(
+                name: _i1.NameNode(value: 'limit'),
+                directives: [],
+                type: _i1.NamedTypeNode(
+                    name: _i1.NameNode(value: 'Int'), isNonNull: false),
+                defaultValue: null),
+            _i1.InputValueDefinitionNode(
+                name: _i1.NameNode(value: 'offset'),
+                directives: [],
+                type: _i1.NamedTypeNode(
+                    name: _i1.NameNode(value: 'Int'), isNonNull: false),
+                defaultValue: null),
+            _i1.InputValueDefinitionNode(
+                name: _i1.NameNode(value: 'order_by'),
+                directives: [],
+                type: _i1.ListTypeNode(
+                    type: _i1.NamedTypeNode(
+                        name: _i1.NameNode(value: 'categories_order_by'),
+                        isNonNull: true),
+                    isNonNull: false),
+                defaultValue: null),
+            _i1.InputValueDefinitionNode(
+                name: _i1.NameNode(value: 'where'),
+                directives: [],
+                type: _i1.NamedTypeNode(
+                    name: _i1.NameNode(value: 'categories_bool_exp'),
+                    isNonNull: false),
+                defaultValue: null)
+          ],
+          type: _i1.ListTypeNode(
+              type: _i1.NamedTypeNode(
+                  name: _i1.NameNode(value: 'categories'), isNonNull: true),
+              isNonNull: true)),
+      _i1.FieldDefinitionNode(
+          name: _i1.NameNode(value: 'categories_aggregate'),
+          directives: [],
+          args: [
+            _i1.InputValueDefinitionNode(
+                name: _i1.NameNode(value: 'distinct_on'),
+                directives: [],
+                type: _i1.ListTypeNode(
+                    type: _i1.NamedTypeNode(
+                        name: _i1.NameNode(value: 'categories_select_column'),
+                        isNonNull: true),
+                    isNonNull: false),
+                defaultValue: null),
+            _i1.InputValueDefinitionNode(
+                name: _i1.NameNode(value: 'limit'),
+                directives: [],
+                type: _i1.NamedTypeNode(
+                    name: _i1.NameNode(value: 'Int'), isNonNull: false),
+                defaultValue: null),
+            _i1.InputValueDefinitionNode(
+                name: _i1.NameNode(value: 'offset'),
+                directives: [],
+                type: _i1.NamedTypeNode(
+                    name: _i1.NameNode(value: 'Int'), isNonNull: false),
+                defaultValue: null),
+            _i1.InputValueDefinitionNode(
+                name: _i1.NameNode(value: 'order_by'),
+                directives: [],
+                type: _i1.ListTypeNode(
+                    type: _i1.NamedTypeNode(
+                        name: _i1.NameNode(value: 'categories_order_by'),
+                        isNonNull: true),
+                    isNonNull: false),
+                defaultValue: null),
+            _i1.InputValueDefinitionNode(
+                name: _i1.NameNode(value: 'where'),
+                directives: [],
+                type: _i1.NamedTypeNode(
+                    name: _i1.NameNode(value: 'categories_bool_exp'),
+                    isNonNull: false),
+                defaultValue: null)
+          ],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'categories_aggregate'),
+              isNonNull: true)),
+      _i1.FieldDefinitionNode(
+          name: _i1.NameNode(value: 'categories_by_pk'),
+          directives: [],
+          args: [
+            _i1.InputValueDefinitionNode(
+                name: _i1.NameNode(value: 'id'),
+                directives: [],
+                type: _i1.NamedTypeNode(
+                    name: _i1.NameNode(value: 'Int'), isNonNull: true),
+                defaultValue: null)
+          ],
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'categories'), isNonNull: false)),
       _i1.FieldDefinitionNode(
           name: _i1.NameNode(value: 'ingredients'),
           directives: [],
@@ -5360,6 +6558,32 @@ const document = _i1.DocumentNode(definitions: [
   cached,
   Int_comparison_exp,
   String_comparison_exp,
+  categories,
+  categories_aggregate,
+  categories_aggregate_fields,
+  categories_avg_fields,
+  categories_bool_exp,
+  categories_constraint,
+  categories_inc_input,
+  categories_insert_input,
+  categories_max_fields,
+  categories_min_fields,
+  categories_mutation_response,
+  categories_obj_rel_insert_input,
+  categories_on_conflict,
+  categories_order_by,
+  categories_pk_columns_input,
+  categories_select_column,
+  categories_set_input,
+  categories_stddev_fields,
+  categories_stddev_pop_fields,
+  categories_stddev_samp_fields,
+  categories_sum_fields,
+  categories_update_column,
+  categories_var_pop_fields,
+  categories_var_samp_fields,
+  categories_variance_fields,
+  fileOutput,
   ingredients,
   ingredients_aggregate,
   ingredients_aggregate_fields,

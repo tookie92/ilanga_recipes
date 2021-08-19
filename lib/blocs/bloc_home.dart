@@ -34,6 +34,7 @@ class HomeState {
       FirebaseAuth.instance.currentUser!.displayName ?? 'Joseph';
 
   final recipeReq = GFetchRecipeListReq();
+  final categoriReq = GFetchCategorieListReq();
 
   final client = GetIt.instance<Client>();
 

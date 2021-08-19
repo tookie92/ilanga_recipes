@@ -14,6 +14,11 @@ Serializer<GFetchRecipeListData_recipes>
 Serializer<GFetchRecipeListData_recipes_user>
     _$gFetchRecipeListDataRecipesUserSerializer =
     new _$GFetchRecipeListData_recipes_userSerializer();
+Serializer<GFetchRecipeCatListData> _$gFetchRecipeCatListDataSerializer =
+    new _$GFetchRecipeCatListDataSerializer();
+Serializer<GFetchRecipeCatListData_recipes>
+    _$gFetchRecipeCatListDataRecipesSerializer =
+    new _$GFetchRecipeCatListData_recipesSerializer();
 Serializer<GFetchAllUserData> _$gFetchAllUserDataSerializer =
     new _$GFetchAllUserDataSerializer();
 Serializer<GFetchAllUserData_users> _$gFetchAllUserDataUsersSerializer =
@@ -45,6 +50,11 @@ Serializer<GFetchUsersData> _$gFetchUsersDataSerializer =
     new _$GFetchUsersDataSerializer();
 Serializer<GFetchUsersData_users> _$gFetchUsersDataUsersSerializer =
     new _$GFetchUsersData_usersSerializer();
+Serializer<GFetchCategorieListData> _$gFetchCategorieListDataSerializer =
+    new _$GFetchCategorieListDataSerializer();
+Serializer<GFetchCategorieListData_categories>
+    _$gFetchCategorieListDataCategoriesSerializer =
+    new _$GFetchCategorieListData_categoriesSerializer();
 Serializer<GInsertNewUserData> _$gInsertNewUserDataSerializer =
     new _$GInsertNewUserDataSerializer();
 Serializer<GInsertNewUserData_insert_users_one>
@@ -295,6 +305,159 @@ class _$GFetchRecipeListData_recipes_userSerializer
         case '__typename':
           result.G__typename = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$GFetchRecipeCatListDataSerializer
+    implements StructuredSerializer<GFetchRecipeCatListData> {
+  @override
+  final Iterable<Type> types = const [
+    GFetchRecipeCatListData,
+    _$GFetchRecipeCatListData
+  ];
+  @override
+  final String wireName = 'GFetchRecipeCatListData';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, GFetchRecipeCatListData object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      '__typename',
+      serializers.serialize(object.G__typename,
+          specifiedType: const FullType(String)),
+      'recipes',
+      serializers.serialize(object.recipes,
+          specifiedType: const FullType(BuiltList,
+              const [const FullType(GFetchRecipeCatListData_recipes)])),
+    ];
+
+    return result;
+  }
+
+  @override
+  GFetchRecipeCatListData deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = new GFetchRecipeCatListDataBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case '__typename':
+          result.G__typename = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
+        case 'recipes':
+          result.recipes.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, const [
+                const FullType(GFetchRecipeCatListData_recipes)
+              ]))! as BuiltList<Object?>);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$GFetchRecipeCatListData_recipesSerializer
+    implements StructuredSerializer<GFetchRecipeCatListData_recipes> {
+  @override
+  final Iterable<Type> types = const [
+    GFetchRecipeCatListData_recipes,
+    _$GFetchRecipeCatListData_recipes
+  ];
+  @override
+  final String wireName = 'GFetchRecipeCatListData_recipes';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, GFetchRecipeCatListData_recipes object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      '__typename',
+      serializers.serialize(object.G__typename,
+          specifiedType: const FullType(String)),
+      'id',
+      serializers.serialize(object.id, specifiedType: const FullType(int)),
+      'name',
+      serializers.serialize(object.name, specifiedType: const FullType(String)),
+      'calories',
+      serializers.serialize(object.calories,
+          specifiedType: const FullType(String)),
+    ];
+    Object? value;
+    value = object.time;
+    if (value != null) {
+      result
+        ..add('time')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.categorie_id;
+    if (value != null) {
+      result
+        ..add('categorie_id')
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
+    value = object.image_url;
+    if (value != null) {
+      result
+        ..add('image_url')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    return result;
+  }
+
+  @override
+  GFetchRecipeCatListData_recipes deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = new GFetchRecipeCatListData_recipesBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case '__typename':
+          result.G__typename = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
+        case 'id':
+          result.id = serializers.deserialize(value,
+              specifiedType: const FullType(int)) as int;
+          break;
+        case 'name':
+          result.name = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
+        case 'calories':
+          result.calories = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
+        case 'time':
+          result.time = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
+        case 'categorie_id':
+          result.categorie_id = serializers.deserialize(value,
+              specifiedType: const FullType(int)) as int?;
+          break;
+        case 'image_url':
+          result.image_url = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
           break;
       }
     }
@@ -1232,6 +1395,127 @@ class _$GFetchUsersData_usersSerializer
           break;
         case '__typename':
           result.G__typename = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$GFetchCategorieListDataSerializer
+    implements StructuredSerializer<GFetchCategorieListData> {
+  @override
+  final Iterable<Type> types = const [
+    GFetchCategorieListData,
+    _$GFetchCategorieListData
+  ];
+  @override
+  final String wireName = 'GFetchCategorieListData';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, GFetchCategorieListData object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      '__typename',
+      serializers.serialize(object.G__typename,
+          specifiedType: const FullType(String)),
+      'categories',
+      serializers.serialize(object.categories,
+          specifiedType: const FullType(BuiltList,
+              const [const FullType(GFetchCategorieListData_categories)])),
+    ];
+
+    return result;
+  }
+
+  @override
+  GFetchCategorieListData deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = new GFetchCategorieListDataBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case '__typename':
+          result.G__typename = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
+        case 'categories':
+          result.categories.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, const [
+                const FullType(GFetchCategorieListData_categories)
+              ]))! as BuiltList<Object?>);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$GFetchCategorieListData_categoriesSerializer
+    implements StructuredSerializer<GFetchCategorieListData_categories> {
+  @override
+  final Iterable<Type> types = const [
+    GFetchCategorieListData_categories,
+    _$GFetchCategorieListData_categories
+  ];
+  @override
+  final String wireName = 'GFetchCategorieListData_categories';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, GFetchCategorieListData_categories object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      '__typename',
+      serializers.serialize(object.G__typename,
+          specifiedType: const FullType(String)),
+      'id',
+      serializers.serialize(object.id, specifiedType: const FullType(int)),
+      'name',
+      serializers.serialize(object.name, specifiedType: const FullType(String)),
+      'description',
+      serializers.serialize(object.description,
+          specifiedType: const FullType(String)),
+    ];
+
+    return result;
+  }
+
+  @override
+  GFetchCategorieListData_categories deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = new GFetchCategorieListData_categoriesBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case '__typename':
+          result.G__typename = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
+        case 'id':
+          result.id = serializers.deserialize(value,
+              specifiedType: const FullType(int)) as int;
+          break;
+        case 'name':
+          result.name = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
+        case 'description':
+          result.description = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
       }
@@ -2419,6 +2703,295 @@ class GFetchRecipeListData_recipes_userBuilder
                 email, 'GFetchRecipeListData_recipes_user', 'email'),
             G__typename: BuiltValueNullFieldError.checkNotNull(G__typename,
                 'GFetchRecipeListData_recipes_user', 'G__typename'));
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$GFetchRecipeCatListData extends GFetchRecipeCatListData {
+  @override
+  final String G__typename;
+  @override
+  final BuiltList<GFetchRecipeCatListData_recipes> recipes;
+
+  factory _$GFetchRecipeCatListData(
+          [void Function(GFetchRecipeCatListDataBuilder)? updates]) =>
+      (new GFetchRecipeCatListDataBuilder()..update(updates)).build();
+
+  _$GFetchRecipeCatListData._(
+      {required this.G__typename, required this.recipes})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        G__typename, 'GFetchRecipeCatListData', 'G__typename');
+    BuiltValueNullFieldError.checkNotNull(
+        recipes, 'GFetchRecipeCatListData', 'recipes');
+  }
+
+  @override
+  GFetchRecipeCatListData rebuild(
+          void Function(GFetchRecipeCatListDataBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  GFetchRecipeCatListDataBuilder toBuilder() =>
+      new GFetchRecipeCatListDataBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is GFetchRecipeCatListData &&
+        G__typename == other.G__typename &&
+        recipes == other.recipes;
+  }
+
+  @override
+  int get hashCode {
+    return $jf($jc($jc(0, G__typename.hashCode), recipes.hashCode));
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper('GFetchRecipeCatListData')
+          ..add('G__typename', G__typename)
+          ..add('recipes', recipes))
+        .toString();
+  }
+}
+
+class GFetchRecipeCatListDataBuilder
+    implements
+        Builder<GFetchRecipeCatListData, GFetchRecipeCatListDataBuilder> {
+  _$GFetchRecipeCatListData? _$v;
+
+  String? _G__typename;
+  String? get G__typename => _$this._G__typename;
+  set G__typename(String? G__typename) => _$this._G__typename = G__typename;
+
+  ListBuilder<GFetchRecipeCatListData_recipes>? _recipes;
+  ListBuilder<GFetchRecipeCatListData_recipes> get recipes =>
+      _$this._recipes ??= new ListBuilder<GFetchRecipeCatListData_recipes>();
+  set recipes(ListBuilder<GFetchRecipeCatListData_recipes>? recipes) =>
+      _$this._recipes = recipes;
+
+  GFetchRecipeCatListDataBuilder() {
+    GFetchRecipeCatListData._initializeBuilder(this);
+  }
+
+  GFetchRecipeCatListDataBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _G__typename = $v.G__typename;
+      _recipes = $v.recipes.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(GFetchRecipeCatListData other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$GFetchRecipeCatListData;
+  }
+
+  @override
+  void update(void Function(GFetchRecipeCatListDataBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  _$GFetchRecipeCatListData build() {
+    _$GFetchRecipeCatListData _$result;
+    try {
+      _$result = _$v ??
+          new _$GFetchRecipeCatListData._(
+              G__typename: BuiltValueNullFieldError.checkNotNull(
+                  G__typename, 'GFetchRecipeCatListData', 'G__typename'),
+              recipes: recipes.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'recipes';
+        recipes.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            'GFetchRecipeCatListData', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$GFetchRecipeCatListData_recipes
+    extends GFetchRecipeCatListData_recipes {
+  @override
+  final String G__typename;
+  @override
+  final int id;
+  @override
+  final String name;
+  @override
+  final String calories;
+  @override
+  final String? time;
+  @override
+  final int? categorie_id;
+  @override
+  final String? image_url;
+
+  factory _$GFetchRecipeCatListData_recipes(
+          [void Function(GFetchRecipeCatListData_recipesBuilder)? updates]) =>
+      (new GFetchRecipeCatListData_recipesBuilder()..update(updates)).build();
+
+  _$GFetchRecipeCatListData_recipes._(
+      {required this.G__typename,
+      required this.id,
+      required this.name,
+      required this.calories,
+      this.time,
+      this.categorie_id,
+      this.image_url})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        G__typename, 'GFetchRecipeCatListData_recipes', 'G__typename');
+    BuiltValueNullFieldError.checkNotNull(
+        id, 'GFetchRecipeCatListData_recipes', 'id');
+    BuiltValueNullFieldError.checkNotNull(
+        name, 'GFetchRecipeCatListData_recipes', 'name');
+    BuiltValueNullFieldError.checkNotNull(
+        calories, 'GFetchRecipeCatListData_recipes', 'calories');
+  }
+
+  @override
+  GFetchRecipeCatListData_recipes rebuild(
+          void Function(GFetchRecipeCatListData_recipesBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  GFetchRecipeCatListData_recipesBuilder toBuilder() =>
+      new GFetchRecipeCatListData_recipesBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is GFetchRecipeCatListData_recipes &&
+        G__typename == other.G__typename &&
+        id == other.id &&
+        name == other.name &&
+        calories == other.calories &&
+        time == other.time &&
+        categorie_id == other.categorie_id &&
+        image_url == other.image_url;
+  }
+
+  @override
+  int get hashCode {
+    return $jf($jc(
+        $jc(
+            $jc(
+                $jc(
+                    $jc($jc($jc(0, G__typename.hashCode), id.hashCode),
+                        name.hashCode),
+                    calories.hashCode),
+                time.hashCode),
+            categorie_id.hashCode),
+        image_url.hashCode));
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper('GFetchRecipeCatListData_recipes')
+          ..add('G__typename', G__typename)
+          ..add('id', id)
+          ..add('name', name)
+          ..add('calories', calories)
+          ..add('time', time)
+          ..add('categorie_id', categorie_id)
+          ..add('image_url', image_url))
+        .toString();
+  }
+}
+
+class GFetchRecipeCatListData_recipesBuilder
+    implements
+        Builder<GFetchRecipeCatListData_recipes,
+            GFetchRecipeCatListData_recipesBuilder> {
+  _$GFetchRecipeCatListData_recipes? _$v;
+
+  String? _G__typename;
+  String? get G__typename => _$this._G__typename;
+  set G__typename(String? G__typename) => _$this._G__typename = G__typename;
+
+  int? _id;
+  int? get id => _$this._id;
+  set id(int? id) => _$this._id = id;
+
+  String? _name;
+  String? get name => _$this._name;
+  set name(String? name) => _$this._name = name;
+
+  String? _calories;
+  String? get calories => _$this._calories;
+  set calories(String? calories) => _$this._calories = calories;
+
+  String? _time;
+  String? get time => _$this._time;
+  set time(String? time) => _$this._time = time;
+
+  int? _categorie_id;
+  int? get categorie_id => _$this._categorie_id;
+  set categorie_id(int? categorie_id) => _$this._categorie_id = categorie_id;
+
+  String? _image_url;
+  String? get image_url => _$this._image_url;
+  set image_url(String? image_url) => _$this._image_url = image_url;
+
+  GFetchRecipeCatListData_recipesBuilder() {
+    GFetchRecipeCatListData_recipes._initializeBuilder(this);
+  }
+
+  GFetchRecipeCatListData_recipesBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _G__typename = $v.G__typename;
+      _id = $v.id;
+      _name = $v.name;
+      _calories = $v.calories;
+      _time = $v.time;
+      _categorie_id = $v.categorie_id;
+      _image_url = $v.image_url;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(GFetchRecipeCatListData_recipes other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$GFetchRecipeCatListData_recipes;
+  }
+
+  @override
+  void update(void Function(GFetchRecipeCatListData_recipesBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  _$GFetchRecipeCatListData_recipes build() {
+    final _$result = _$v ??
+        new _$GFetchRecipeCatListData_recipes._(
+            G__typename: BuiltValueNullFieldError.checkNotNull(
+                G__typename, 'GFetchRecipeCatListData_recipes', 'G__typename'),
+            id: BuiltValueNullFieldError.checkNotNull(
+                id, 'GFetchRecipeCatListData_recipes', 'id'),
+            name: BuiltValueNullFieldError.checkNotNull(
+                name, 'GFetchRecipeCatListData_recipes', 'name'),
+            calories: BuiltValueNullFieldError.checkNotNull(
+                calories, 'GFetchRecipeCatListData_recipes', 'calories'),
+            time: time,
+            categorie_id: categorie_id,
+            image_url: image_url);
     replace(_$result);
     return _$result;
   }
@@ -4306,6 +4879,259 @@ class GFetchUsersData_usersBuilder
                 email, 'GFetchUsersData_users', 'email'),
             G__typename: BuiltValueNullFieldError.checkNotNull(
                 G__typename, 'GFetchUsersData_users', 'G__typename'));
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$GFetchCategorieListData extends GFetchCategorieListData {
+  @override
+  final String G__typename;
+  @override
+  final BuiltList<GFetchCategorieListData_categories> categories;
+
+  factory _$GFetchCategorieListData(
+          [void Function(GFetchCategorieListDataBuilder)? updates]) =>
+      (new GFetchCategorieListDataBuilder()..update(updates)).build();
+
+  _$GFetchCategorieListData._(
+      {required this.G__typename, required this.categories})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        G__typename, 'GFetchCategorieListData', 'G__typename');
+    BuiltValueNullFieldError.checkNotNull(
+        categories, 'GFetchCategorieListData', 'categories');
+  }
+
+  @override
+  GFetchCategorieListData rebuild(
+          void Function(GFetchCategorieListDataBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  GFetchCategorieListDataBuilder toBuilder() =>
+      new GFetchCategorieListDataBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is GFetchCategorieListData &&
+        G__typename == other.G__typename &&
+        categories == other.categories;
+  }
+
+  @override
+  int get hashCode {
+    return $jf($jc($jc(0, G__typename.hashCode), categories.hashCode));
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper('GFetchCategorieListData')
+          ..add('G__typename', G__typename)
+          ..add('categories', categories))
+        .toString();
+  }
+}
+
+class GFetchCategorieListDataBuilder
+    implements
+        Builder<GFetchCategorieListData, GFetchCategorieListDataBuilder> {
+  _$GFetchCategorieListData? _$v;
+
+  String? _G__typename;
+  String? get G__typename => _$this._G__typename;
+  set G__typename(String? G__typename) => _$this._G__typename = G__typename;
+
+  ListBuilder<GFetchCategorieListData_categories>? _categories;
+  ListBuilder<GFetchCategorieListData_categories> get categories =>
+      _$this._categories ??=
+          new ListBuilder<GFetchCategorieListData_categories>();
+  set categories(ListBuilder<GFetchCategorieListData_categories>? categories) =>
+      _$this._categories = categories;
+
+  GFetchCategorieListDataBuilder() {
+    GFetchCategorieListData._initializeBuilder(this);
+  }
+
+  GFetchCategorieListDataBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _G__typename = $v.G__typename;
+      _categories = $v.categories.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(GFetchCategorieListData other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$GFetchCategorieListData;
+  }
+
+  @override
+  void update(void Function(GFetchCategorieListDataBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  _$GFetchCategorieListData build() {
+    _$GFetchCategorieListData _$result;
+    try {
+      _$result = _$v ??
+          new _$GFetchCategorieListData._(
+              G__typename: BuiltValueNullFieldError.checkNotNull(
+                  G__typename, 'GFetchCategorieListData', 'G__typename'),
+              categories: categories.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'categories';
+        categories.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            'GFetchCategorieListData', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$GFetchCategorieListData_categories
+    extends GFetchCategorieListData_categories {
+  @override
+  final String G__typename;
+  @override
+  final int id;
+  @override
+  final String name;
+  @override
+  final String description;
+
+  factory _$GFetchCategorieListData_categories(
+          [void Function(GFetchCategorieListData_categoriesBuilder)?
+              updates]) =>
+      (new GFetchCategorieListData_categoriesBuilder()..update(updates))
+          .build();
+
+  _$GFetchCategorieListData_categories._(
+      {required this.G__typename,
+      required this.id,
+      required this.name,
+      required this.description})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        G__typename, 'GFetchCategorieListData_categories', 'G__typename');
+    BuiltValueNullFieldError.checkNotNull(
+        id, 'GFetchCategorieListData_categories', 'id');
+    BuiltValueNullFieldError.checkNotNull(
+        name, 'GFetchCategorieListData_categories', 'name');
+    BuiltValueNullFieldError.checkNotNull(
+        description, 'GFetchCategorieListData_categories', 'description');
+  }
+
+  @override
+  GFetchCategorieListData_categories rebuild(
+          void Function(GFetchCategorieListData_categoriesBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  GFetchCategorieListData_categoriesBuilder toBuilder() =>
+      new GFetchCategorieListData_categoriesBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is GFetchCategorieListData_categories &&
+        G__typename == other.G__typename &&
+        id == other.id &&
+        name == other.name &&
+        description == other.description;
+  }
+
+  @override
+  int get hashCode {
+    return $jf($jc(
+        $jc($jc($jc(0, G__typename.hashCode), id.hashCode), name.hashCode),
+        description.hashCode));
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper('GFetchCategorieListData_categories')
+          ..add('G__typename', G__typename)
+          ..add('id', id)
+          ..add('name', name)
+          ..add('description', description))
+        .toString();
+  }
+}
+
+class GFetchCategorieListData_categoriesBuilder
+    implements
+        Builder<GFetchCategorieListData_categories,
+            GFetchCategorieListData_categoriesBuilder> {
+  _$GFetchCategorieListData_categories? _$v;
+
+  String? _G__typename;
+  String? get G__typename => _$this._G__typename;
+  set G__typename(String? G__typename) => _$this._G__typename = G__typename;
+
+  int? _id;
+  int? get id => _$this._id;
+  set id(int? id) => _$this._id = id;
+
+  String? _name;
+  String? get name => _$this._name;
+  set name(String? name) => _$this._name = name;
+
+  String? _description;
+  String? get description => _$this._description;
+  set description(String? description) => _$this._description = description;
+
+  GFetchCategorieListData_categoriesBuilder() {
+    GFetchCategorieListData_categories._initializeBuilder(this);
+  }
+
+  GFetchCategorieListData_categoriesBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _G__typename = $v.G__typename;
+      _id = $v.id;
+      _name = $v.name;
+      _description = $v.description;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(GFetchCategorieListData_categories other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$GFetchCategorieListData_categories;
+  }
+
+  @override
+  void update(
+      void Function(GFetchCategorieListData_categoriesBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  _$GFetchCategorieListData_categories build() {
+    final _$result = _$v ??
+        new _$GFetchCategorieListData_categories._(
+            G__typename: BuiltValueNullFieldError.checkNotNull(G__typename,
+                'GFetchCategorieListData_categories', 'G__typename'),
+            id: BuiltValueNullFieldError.checkNotNull(
+                id, 'GFetchCategorieListData_categories', 'id'),
+            name: BuiltValueNullFieldError.checkNotNull(
+                name, 'GFetchCategorieListData_categories', 'name'),
+            description: BuiltValueNullFieldError.checkNotNull(description,
+                'GFetchCategorieListData_categories', 'description'));
     replace(_$result);
     return _$result;
   }

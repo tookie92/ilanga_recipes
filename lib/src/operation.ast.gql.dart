@@ -89,6 +89,67 @@ const FetchRecipeList = _i1.OperationDefinitionNode(
                 ]))
           ]))
     ]));
+const FetchRecipeCatList = _i1.OperationDefinitionNode(
+    type: _i1.OperationType.query,
+    name: _i1.NameNode(value: 'FetchRecipeCatList'),
+    variableDefinitions: [
+      _i1.VariableDefinitionNode(
+          variable: _i1.VariableNode(name: _i1.NameNode(value: 'where')),
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'recipes_bool_exp'), isNonNull: false),
+          defaultValue: _i1.DefaultValueNode(value: null),
+          directives: [])
+    ],
+    directives: [],
+    selectionSet: _i1.SelectionSetNode(selections: [
+      _i1.FieldNode(
+          name: _i1.NameNode(value: 'recipes'),
+          alias: null,
+          arguments: [
+            _i1.ArgumentNode(
+                name: _i1.NameNode(value: 'where'),
+                value: _i1.VariableNode(name: _i1.NameNode(value: 'where')))
+          ],
+          directives: [],
+          selectionSet: _i1.SelectionSetNode(selections: [
+            _i1.FieldNode(
+                name: _i1.NameNode(value: 'id'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null),
+            _i1.FieldNode(
+                name: _i1.NameNode(value: 'name'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null),
+            _i1.FieldNode(
+                name: _i1.NameNode(value: 'calories'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null),
+            _i1.FieldNode(
+                name: _i1.NameNode(value: 'time'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null),
+            _i1.FieldNode(
+                name: _i1.NameNode(value: 'categorie_id'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null),
+            _i1.FieldNode(
+                name: _i1.NameNode(value: 'image_url'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null)
+          ]))
+    ]));
 const FetchAllUser = _i1.OperationDefinitionNode(
     type: _i1.OperationType.query,
     name: _i1.NameNode(value: 'FetchAllUser'),
@@ -448,6 +509,38 @@ const FetchUsers = _i1.OperationDefinitionNode(
                 selectionSet: null)
           ]))
     ]));
+const FetchCategorieList = _i1.OperationDefinitionNode(
+    type: _i1.OperationType.query,
+    name: _i1.NameNode(value: 'FetchCategorieList'),
+    variableDefinitions: [],
+    directives: [],
+    selectionSet: _i1.SelectionSetNode(selections: [
+      _i1.FieldNode(
+          name: _i1.NameNode(value: 'categories'),
+          alias: null,
+          arguments: [],
+          directives: [],
+          selectionSet: _i1.SelectionSetNode(selections: [
+            _i1.FieldNode(
+                name: _i1.NameNode(value: 'id'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null),
+            _i1.FieldNode(
+                name: _i1.NameNode(value: 'name'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null),
+            _i1.FieldNode(
+                name: _i1.NameNode(value: 'description'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null)
+          ]))
+    ]));
 const InsertNewUser = _i1.OperationDefinitionNode(
     type: _i1.OperationType.mutation,
     name: _i1.NameNode(value: 'InsertNewUser'),
@@ -774,12 +867,14 @@ const UpdateRecipe = _i1.OperationDefinitionNode(
     ]));
 const document = _i1.DocumentNode(definitions: [
   FetchRecipeList,
+  FetchRecipeCatList,
   FetchAllUser,
   FindUser,
   FindUserByName,
   FetchIngredientsList,
   FetchStepsList,
   FetchUsers,
+  FetchCategorieList,
   InsertNewUser,
   InsertRecipe,
   DeleteRecipe,

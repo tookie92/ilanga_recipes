@@ -16,10 +16,18 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(GFetchAllUserData_users_recipes.serializer)
       ..add(GFetchAllUserReq.serializer)
       ..add(GFetchAllUserVars.serializer)
+      ..add(GFetchCategorieListData.serializer)
+      ..add(GFetchCategorieListData_categories.serializer)
+      ..add(GFetchCategorieListReq.serializer)
+      ..add(GFetchCategorieListVars.serializer)
       ..add(GFetchIngredientsListData.serializer)
       ..add(GFetchIngredientsListData_ingredients.serializer)
       ..add(GFetchIngredientsListReq.serializer)
       ..add(GFetchIngredientsListVars.serializer)
+      ..add(GFetchRecipeCatListData.serializer)
+      ..add(GFetchRecipeCatListData_recipes.serializer)
+      ..add(GFetchRecipeCatListReq.serializer)
+      ..add(GFetchRecipeCatListVars.serializer)
       ..add(GFetchRecipeListData.serializer)
       ..add(GFetchRecipeListData_recipes.serializer)
       ..add(GFetchRecipeListData_recipes_user.serializer)
@@ -58,6 +66,17 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(GUpdateRecipeData_update_recipes_by_pk.serializer)
       ..add(GUpdateRecipeReq.serializer)
       ..add(GUpdateRecipeVars.serializer)
+      ..add(Gcategories_bool_exp.serializer)
+      ..add(Gcategories_constraint.serializer)
+      ..add(Gcategories_inc_input.serializer)
+      ..add(Gcategories_insert_input.serializer)
+      ..add(Gcategories_obj_rel_insert_input.serializer)
+      ..add(Gcategories_on_conflict.serializer)
+      ..add(Gcategories_order_by.serializer)
+      ..add(Gcategories_pk_columns_input.serializer)
+      ..add(Gcategories_select_column.serializer)
+      ..add(Gcategories_set_input.serializer)
+      ..add(Gcategories_update_column.serializer)
       ..add(Gingredients_aggregate_order_by.serializer)
       ..add(Gingredients_arr_rel_insert_input.serializer)
       ..add(Gingredients_avg_order_by.serializer)
@@ -147,8 +166,16 @@ Serializers _$serializers = (new Serializers().toBuilder()
           () => new ListBuilder<GFetchAllUserData_users_recipes>())
       ..addBuilderFactory(
           const FullType(BuiltList,
+              const [const FullType(GFetchCategorieListData_categories)]),
+          () => new ListBuilder<GFetchCategorieListData_categories>())
+      ..addBuilderFactory(
+          const FullType(BuiltList,
               const [const FullType(GFetchIngredientsListData_ingredients)]),
           () => new ListBuilder<GFetchIngredientsListData_ingredients>())
+      ..addBuilderFactory(
+          const FullType(BuiltList,
+              const [const FullType(GFetchRecipeCatListData_recipes)]),
+          () => new ListBuilder<GFetchRecipeCatListData_recipes>())
       ..addBuilderFactory(
           const FullType(
               BuiltList, const [const FullType(GFetchRecipeListData_recipes)]),
@@ -176,9 +203,22 @@ Serializers _$serializers = (new Serializers().toBuilder()
           () => new ListBuilder<
               GInsertRecipeData_insert_recipes_one_ingredients>())
       ..addBuilderFactory(
-          const FullType(BuiltList,
-              const [const FullType(GInsertRecipeData_insert_recipes_one_steps)]),
+          const FullType(BuiltList, const [
+            const FullType(GInsertRecipeData_insert_recipes_one_steps)
+          ]),
           () => new ListBuilder<GInsertRecipeData_insert_recipes_one_steps>())
+      ..addBuilderFactory(
+          const FullType(
+              BuiltList, const [const FullType(Gcategories_bool_exp)]),
+          () => new ListBuilder<Gcategories_bool_exp>())
+      ..addBuilderFactory(
+          const FullType(
+              BuiltList, const [const FullType(Gcategories_bool_exp)]),
+          () => new ListBuilder<Gcategories_bool_exp>())
+      ..addBuilderFactory(
+          const FullType(
+              BuiltList, const [const FullType(Gcategories_update_column)]),
+          () => new ListBuilder<Gcategories_update_column>())
       ..addBuilderFactory(
           const FullType(
               BuiltList, const [const FullType(Gingredients_bool_exp)]),
@@ -192,23 +232,12 @@ Serializers _$serializers = (new Serializers().toBuilder()
               BuiltList, const [const FullType(Gingredients_insert_input)]),
           () => new ListBuilder<Gingredients_insert_input>())
       ..addBuilderFactory(
-          const FullType(
-              BuiltList, const [const FullType(Gingredients_update_column)]),
+          const FullType(BuiltList, const [const FullType(Gingredients_update_column)]),
           () => new ListBuilder<Gingredients_update_column>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(Grecipes_bool_exp)]),
-          () => new ListBuilder<Grecipes_bool_exp>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(Grecipes_bool_exp)]),
-          () => new ListBuilder<Grecipes_bool_exp>())
-      ..addBuilderFactory(
-          const FullType(
-              BuiltList, const [const FullType(Grecipes_insert_input)]),
-          () => new ListBuilder<Grecipes_insert_input>())
-      ..addBuilderFactory(
-          const FullType(
-              BuiltList, const [const FullType(Grecipes_update_column)]),
-          () => new ListBuilder<Grecipes_update_column>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(Grecipes_bool_exp)]), () => new ListBuilder<Grecipes_bool_exp>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(Grecipes_bool_exp)]), () => new ListBuilder<Grecipes_bool_exp>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(Grecipes_insert_input)]), () => new ListBuilder<Grecipes_insert_input>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(Grecipes_update_column)]), () => new ListBuilder<Grecipes_update_column>())
       ..addBuilderFactory(const FullType(BuiltList, const [const FullType(Gsteps_bool_exp)]), () => new ListBuilder<Gsteps_bool_exp>())
       ..addBuilderFactory(const FullType(BuiltList, const [const FullType(Gsteps_bool_exp)]), () => new ListBuilder<Gsteps_bool_exp>())
       ..addBuilderFactory(const FullType(BuiltList, const [const FullType(Gsteps_insert_input)]), () => new ListBuilder<Gsteps_insert_input>())

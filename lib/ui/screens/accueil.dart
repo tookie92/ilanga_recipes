@@ -10,6 +10,7 @@ import 'package:nekhna/ui/emptylist/no_recipes.dart';
 import 'package:nekhna/ui/setttings/Palette.dart';
 import 'package:nekhna/ui/setttings/db_fire.dart';
 import 'package:nekhna/ui/tiles/recipe_tile.dart';
+import 'package:nekhna/ui/tiles/tiles.dart';
 import 'package:nekhna/ui/widgets/widgets.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -151,6 +152,54 @@ class AccueilPage extends StatelessWidget {
                               SizedBox(
                                 height: 20.0,
                               ),
+                              TextButton(
+                                onPressed: () {},
+                                child: MyText(
+                                  label: 'Categories',
+                                  fontWeight: FontWeight.w600,
+                                  color: Palette.green,
+                                  fontSize: 22.0,
+                                ),
+                              ),
+                              SizedBox(
+                                height: 5.0,
+                              ),
+                              Operation(
+                                  operationRequest: truc.categoriReq,
+                                  builder: (context,
+                                      OperationResponse<
+                                              GFetchCategorieListData?,
+                                              GFetchCategorieListVars?>?
+                                          response,
+                                      error) {
+                                    if (response!.loading) {
+                                      return Center(
+                                        child: MyText(
+                                          label: 'Ca charge',
+                                        ),
+                                      );
+                                    }
+
+                                    final categories =
+                                        response.data!.categories;
+                                    return Container(
+                                      height: size.height * .4,
+                                      // color: Colors.amber,
+                                      child: GridView.count(
+                                        crossAxisSpacing: 1,
+                                        primary: false,
+                                        padding: EdgeInsets.all(1.0),
+                                        crossAxisCount: 2,
+                                        children: [
+                                          for (var index = 0;
+                                              index < categories.length;
+                                              index++)
+                                            CategorieTile(categories[index])
+                                        ],
+                                      ),
+                                    );
+                                  },
+                                  client: truc.client)
                             ],
                           ),
                         ),

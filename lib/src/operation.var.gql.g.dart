@@ -8,6 +8,8 @@ part of 'operation.var.gql.dart';
 
 Serializer<GFetchRecipeListVars> _$gFetchRecipeListVarsSerializer =
     new _$GFetchRecipeListVarsSerializer();
+Serializer<GFetchRecipeCatListVars> _$gFetchRecipeCatListVarsSerializer =
+    new _$GFetchRecipeCatListVarsSerializer();
 Serializer<GFetchAllUserVars> _$gFetchAllUserVarsSerializer =
     new _$GFetchAllUserVarsSerializer();
 Serializer<GFindUserVars> _$gFindUserVarsSerializer =
@@ -20,6 +22,8 @@ Serializer<GFetchStepsListVars> _$gFetchStepsListVarsSerializer =
     new _$GFetchStepsListVarsSerializer();
 Serializer<GFetchUsersVars> _$gFetchUsersVarsSerializer =
     new _$GFetchUsersVarsSerializer();
+Serializer<GFetchCategorieListVars> _$gFetchCategorieListVarsSerializer =
+    new _$GFetchCategorieListVarsSerializer();
 Serializer<GInsertNewUserVars> _$gInsertNewUserVarsSerializer =
     new _$GInsertNewUserVarsSerializer();
 Serializer<GInsertRecipeVars> _$gInsertRecipeVarsSerializer =
@@ -51,6 +55,56 @@ class _$GFetchRecipeListVarsSerializer
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     return new GFetchRecipeListVarsBuilder().build();
+  }
+}
+
+class _$GFetchRecipeCatListVarsSerializer
+    implements StructuredSerializer<GFetchRecipeCatListVars> {
+  @override
+  final Iterable<Type> types = const [
+    GFetchRecipeCatListVars,
+    _$GFetchRecipeCatListVars
+  ];
+  @override
+  final String wireName = 'GFetchRecipeCatListVars';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, GFetchRecipeCatListVars object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[];
+    Object? value;
+    value = object.where;
+    if (value != null) {
+      result
+        ..add('where')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(_i2.Grecipes_bool_exp)));
+    }
+    return result;
+  }
+
+  @override
+  GFetchRecipeCatListVars deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = new GFetchRecipeCatListVarsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'where':
+          result.where.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(_i2.Grecipes_bool_exp))!
+              as _i2.Grecipes_bool_exp);
+          break;
+      }
+    }
+
+    return result.build();
   }
 }
 
@@ -283,6 +337,31 @@ class _$GFetchUsersVarsSerializer
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     return new GFetchUsersVarsBuilder().build();
+  }
+}
+
+class _$GFetchCategorieListVarsSerializer
+    implements StructuredSerializer<GFetchCategorieListVars> {
+  @override
+  final Iterable<Type> types = const [
+    GFetchCategorieListVars,
+    _$GFetchCategorieListVars
+  ];
+  @override
+  final String wireName = 'GFetchCategorieListVars';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, GFetchCategorieListVars object,
+      {FullType specifiedType = FullType.unspecified}) {
+    return <Object?>[];
+  }
+
+  @override
+  GFetchCategorieListVars deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    return new GFetchCategorieListVarsBuilder().build();
   }
 }
 
@@ -522,6 +601,97 @@ class GFetchRecipeListVarsBuilder
   @override
   _$GFetchRecipeListVars build() {
     final _$result = _$v ?? new _$GFetchRecipeListVars._();
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$GFetchRecipeCatListVars extends GFetchRecipeCatListVars {
+  @override
+  final _i2.Grecipes_bool_exp? where;
+
+  factory _$GFetchRecipeCatListVars(
+          [void Function(GFetchRecipeCatListVarsBuilder)? updates]) =>
+      (new GFetchRecipeCatListVarsBuilder()..update(updates)).build();
+
+  _$GFetchRecipeCatListVars._({this.where}) : super._();
+
+  @override
+  GFetchRecipeCatListVars rebuild(
+          void Function(GFetchRecipeCatListVarsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  GFetchRecipeCatListVarsBuilder toBuilder() =>
+      new GFetchRecipeCatListVarsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is GFetchRecipeCatListVars && where == other.where;
+  }
+
+  @override
+  int get hashCode {
+    return $jf($jc(0, where.hashCode));
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper('GFetchRecipeCatListVars')
+          ..add('where', where))
+        .toString();
+  }
+}
+
+class GFetchRecipeCatListVarsBuilder
+    implements
+        Builder<GFetchRecipeCatListVars, GFetchRecipeCatListVarsBuilder> {
+  _$GFetchRecipeCatListVars? _$v;
+
+  _i2.Grecipes_bool_expBuilder? _where;
+  _i2.Grecipes_bool_expBuilder get where =>
+      _$this._where ??= new _i2.Grecipes_bool_expBuilder();
+  set where(_i2.Grecipes_bool_expBuilder? where) => _$this._where = where;
+
+  GFetchRecipeCatListVarsBuilder();
+
+  GFetchRecipeCatListVarsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _where = $v.where?.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(GFetchRecipeCatListVars other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$GFetchRecipeCatListVars;
+  }
+
+  @override
+  void update(void Function(GFetchRecipeCatListVarsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  _$GFetchRecipeCatListVars build() {
+    _$GFetchRecipeCatListVars _$result;
+    try {
+      _$result = _$v ?? new _$GFetchRecipeCatListVars._(where: _where?.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'where';
+        _where?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            'GFetchRecipeCatListVars', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }
@@ -984,6 +1154,65 @@ class GFetchUsersVarsBuilder
   @override
   _$GFetchUsersVars build() {
     final _$result = _$v ?? new _$GFetchUsersVars._();
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$GFetchCategorieListVars extends GFetchCategorieListVars {
+  factory _$GFetchCategorieListVars(
+          [void Function(GFetchCategorieListVarsBuilder)? updates]) =>
+      (new GFetchCategorieListVarsBuilder()..update(updates)).build();
+
+  _$GFetchCategorieListVars._() : super._();
+
+  @override
+  GFetchCategorieListVars rebuild(
+          void Function(GFetchCategorieListVarsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  GFetchCategorieListVarsBuilder toBuilder() =>
+      new GFetchCategorieListVarsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is GFetchCategorieListVars;
+  }
+
+  @override
+  int get hashCode {
+    return 1072480638;
+  }
+
+  @override
+  String toString() {
+    return newBuiltValueToStringHelper('GFetchCategorieListVars').toString();
+  }
+}
+
+class GFetchCategorieListVarsBuilder
+    implements
+        Builder<GFetchCategorieListVars, GFetchCategorieListVarsBuilder> {
+  _$GFetchCategorieListVars? _$v;
+
+  GFetchCategorieListVarsBuilder();
+
+  @override
+  void replace(GFetchCategorieListVars other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$GFetchCategorieListVars;
+  }
+
+  @override
+  void update(void Function(GFetchCategorieListVarsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  _$GFetchCategorieListVars build() {
+    final _$result = _$v ?? new _$GFetchCategorieListVars._();
     replace(_$result);
     return _$result;
   }

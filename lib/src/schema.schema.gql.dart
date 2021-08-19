@@ -96,6 +96,230 @@ abstract class GString_comparison_exp
       _i1.serializers.deserializeWith(GString_comparison_exp.serializer, json);
 }
 
+abstract class Gcategories_bool_exp
+    implements Built<Gcategories_bool_exp, Gcategories_bool_expBuilder> {
+  Gcategories_bool_exp._();
+
+  factory Gcategories_bool_exp(
+          [Function(Gcategories_bool_expBuilder b) updates]) =
+      _$Gcategories_bool_exp;
+
+  @BuiltValueField(wireName: '_and')
+  BuiltList<Gcategories_bool_exp>? get G_and;
+  @BuiltValueField(wireName: '_not')
+  Gcategories_bool_exp? get G_not;
+  @BuiltValueField(wireName: '_or')
+  BuiltList<Gcategories_bool_exp>? get G_or;
+  GString_comparison_exp? get description;
+  GInt_comparison_exp? get id;
+  GString_comparison_exp? get name;
+  Grecipes_bool_exp? get recipes;
+  static Serializer<Gcategories_bool_exp> get serializer =>
+      _$gcategoriesBoolExpSerializer;
+  Map<String, dynamic> toJson() =>
+      (_i1.serializers.serializeWith(Gcategories_bool_exp.serializer, this)
+          as Map<String, dynamic>);
+  static Gcategories_bool_exp? fromJson(Map<String, dynamic> json) =>
+      _i1.serializers.deserializeWith(Gcategories_bool_exp.serializer, json);
+}
+
+class Gcategories_constraint extends EnumClass {
+  const Gcategories_constraint._(String name) : super(name);
+
+  static const Gcategories_constraint categories_pkey =
+      _$gcategoriesConstraintcategories_pkey;
+
+  static Serializer<Gcategories_constraint> get serializer =>
+      _$gcategoriesConstraintSerializer;
+  static BuiltSet<Gcategories_constraint> get values =>
+      _$gcategoriesConstraintValues;
+  static Gcategories_constraint valueOf(String name) =>
+      _$gcategoriesConstraintValueOf(name);
+}
+
+abstract class Gcategories_inc_input
+    implements Built<Gcategories_inc_input, Gcategories_inc_inputBuilder> {
+  Gcategories_inc_input._();
+
+  factory Gcategories_inc_input(
+          [Function(Gcategories_inc_inputBuilder b) updates]) =
+      _$Gcategories_inc_input;
+
+  int? get id;
+  static Serializer<Gcategories_inc_input> get serializer =>
+      _$gcategoriesIncInputSerializer;
+  Map<String, dynamic> toJson() =>
+      (_i1.serializers.serializeWith(Gcategories_inc_input.serializer, this)
+          as Map<String, dynamic>);
+  static Gcategories_inc_input? fromJson(Map<String, dynamic> json) =>
+      _i1.serializers.deserializeWith(Gcategories_inc_input.serializer, json);
+}
+
+abstract class Gcategories_insert_input
+    implements
+        Built<Gcategories_insert_input, Gcategories_insert_inputBuilder> {
+  Gcategories_insert_input._();
+
+  factory Gcategories_insert_input(
+          [Function(Gcategories_insert_inputBuilder b) updates]) =
+      _$Gcategories_insert_input;
+
+  String? get description;
+  int? get id;
+  String? get name;
+  Grecipes_arr_rel_insert_input? get recipes;
+  static Serializer<Gcategories_insert_input> get serializer =>
+      _$gcategoriesInsertInputSerializer;
+  Map<String, dynamic> toJson() =>
+      (_i1.serializers.serializeWith(Gcategories_insert_input.serializer, this)
+          as Map<String, dynamic>);
+  static Gcategories_insert_input? fromJson(Map<String, dynamic> json) =>
+      _i1.serializers
+          .deserializeWith(Gcategories_insert_input.serializer, json);
+}
+
+abstract class Gcategories_obj_rel_insert_input
+    implements
+        Built<Gcategories_obj_rel_insert_input,
+            Gcategories_obj_rel_insert_inputBuilder> {
+  Gcategories_obj_rel_insert_input._();
+
+  factory Gcategories_obj_rel_insert_input(
+          [Function(Gcategories_obj_rel_insert_inputBuilder b) updates]) =
+      _$Gcategories_obj_rel_insert_input;
+
+  Gcategories_insert_input get data;
+  Gcategories_on_conflict? get on_conflict;
+  static Serializer<Gcategories_obj_rel_insert_input> get serializer =>
+      _$gcategoriesObjRelInsertInputSerializer;
+  Map<String, dynamic> toJson() => (_i1.serializers
+          .serializeWith(Gcategories_obj_rel_insert_input.serializer, this)
+      as Map<String, dynamic>);
+  static Gcategories_obj_rel_insert_input? fromJson(
+          Map<String, dynamic> json) =>
+      _i1.serializers
+          .deserializeWith(Gcategories_obj_rel_insert_input.serializer, json);
+}
+
+abstract class Gcategories_on_conflict
+    implements Built<Gcategories_on_conflict, Gcategories_on_conflictBuilder> {
+  Gcategories_on_conflict._();
+
+  factory Gcategories_on_conflict(
+          [Function(Gcategories_on_conflictBuilder b) updates]) =
+      _$Gcategories_on_conflict;
+
+  Gcategories_constraint get constraint;
+  BuiltList<Gcategories_update_column> get update_columns;
+  Gcategories_bool_exp? get where;
+  static Serializer<Gcategories_on_conflict> get serializer =>
+      _$gcategoriesOnConflictSerializer;
+  Map<String, dynamic> toJson() =>
+      (_i1.serializers.serializeWith(Gcategories_on_conflict.serializer, this)
+          as Map<String, dynamic>);
+  static Gcategories_on_conflict? fromJson(Map<String, dynamic> json) =>
+      _i1.serializers.deserializeWith(Gcategories_on_conflict.serializer, json);
+}
+
+abstract class Gcategories_order_by
+    implements Built<Gcategories_order_by, Gcategories_order_byBuilder> {
+  Gcategories_order_by._();
+
+  factory Gcategories_order_by(
+          [Function(Gcategories_order_byBuilder b) updates]) =
+      _$Gcategories_order_by;
+
+  Gorder_by? get description;
+  Gorder_by? get id;
+  Gorder_by? get name;
+  Grecipes_aggregate_order_by? get recipes_aggregate;
+  static Serializer<Gcategories_order_by> get serializer =>
+      _$gcategoriesOrderBySerializer;
+  Map<String, dynamic> toJson() =>
+      (_i1.serializers.serializeWith(Gcategories_order_by.serializer, this)
+          as Map<String, dynamic>);
+  static Gcategories_order_by? fromJson(Map<String, dynamic> json) =>
+      _i1.serializers.deserializeWith(Gcategories_order_by.serializer, json);
+}
+
+abstract class Gcategories_pk_columns_input
+    implements
+        Built<Gcategories_pk_columns_input,
+            Gcategories_pk_columns_inputBuilder> {
+  Gcategories_pk_columns_input._();
+
+  factory Gcategories_pk_columns_input(
+          [Function(Gcategories_pk_columns_inputBuilder b) updates]) =
+      _$Gcategories_pk_columns_input;
+
+  int get id;
+  static Serializer<Gcategories_pk_columns_input> get serializer =>
+      _$gcategoriesPkColumnsInputSerializer;
+  Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(
+      Gcategories_pk_columns_input.serializer, this) as Map<String, dynamic>);
+  static Gcategories_pk_columns_input? fromJson(Map<String, dynamic> json) =>
+      _i1.serializers
+          .deserializeWith(Gcategories_pk_columns_input.serializer, json);
+}
+
+class Gcategories_select_column extends EnumClass {
+  const Gcategories_select_column._(String name) : super(name);
+
+  static const Gcategories_select_column description =
+      _$gcategoriesSelectColumndescription;
+
+  static const Gcategories_select_column id = _$gcategoriesSelectColumnid;
+
+  @BuiltValueEnumConst(wireName: 'name')
+  static const Gcategories_select_column Gname = _$gcategoriesSelectColumnGname;
+
+  static Serializer<Gcategories_select_column> get serializer =>
+      _$gcategoriesSelectColumnSerializer;
+  static BuiltSet<Gcategories_select_column> get values =>
+      _$gcategoriesSelectColumnValues;
+  static Gcategories_select_column valueOf(String name) =>
+      _$gcategoriesSelectColumnValueOf(name);
+}
+
+abstract class Gcategories_set_input
+    implements Built<Gcategories_set_input, Gcategories_set_inputBuilder> {
+  Gcategories_set_input._();
+
+  factory Gcategories_set_input(
+          [Function(Gcategories_set_inputBuilder b) updates]) =
+      _$Gcategories_set_input;
+
+  String? get description;
+  int? get id;
+  String? get name;
+  static Serializer<Gcategories_set_input> get serializer =>
+      _$gcategoriesSetInputSerializer;
+  Map<String, dynamic> toJson() =>
+      (_i1.serializers.serializeWith(Gcategories_set_input.serializer, this)
+          as Map<String, dynamic>);
+  static Gcategories_set_input? fromJson(Map<String, dynamic> json) =>
+      _i1.serializers.deserializeWith(Gcategories_set_input.serializer, json);
+}
+
+class Gcategories_update_column extends EnumClass {
+  const Gcategories_update_column._(String name) : super(name);
+
+  static const Gcategories_update_column description =
+      _$gcategoriesUpdateColumndescription;
+
+  static const Gcategories_update_column id = _$gcategoriesUpdateColumnid;
+
+  @BuiltValueEnumConst(wireName: 'name')
+  static const Gcategories_update_column Gname = _$gcategoriesUpdateColumnGname;
+
+  static Serializer<Gcategories_update_column> get serializer =>
+      _$gcategoriesUpdateColumnSerializer;
+  static BuiltSet<Gcategories_update_column> get values =>
+      _$gcategoriesUpdateColumnValues;
+  static Gcategories_update_column valueOf(String name) =>
+      _$gcategoriesUpdateColumnValueOf(name);
+}
+
 abstract class Gingredients_aggregate_order_by
     implements
         Built<Gingredients_aggregate_order_by,
@@ -662,6 +886,7 @@ abstract class Grecipes_avg_order_by
           [Function(Grecipes_avg_order_byBuilder b) updates]) =
       _$Grecipes_avg_order_by;
 
+  Gorder_by? get categorie_id;
   Gorder_by? get id;
   Gorder_by? get user_id;
   static Serializer<Grecipes_avg_order_by> get serializer =>
@@ -687,6 +912,8 @@ abstract class Grecipes_bool_exp
   @BuiltValueField(wireName: '_or')
   BuiltList<Grecipes_bool_exp>? get G_or;
   GString_comparison_exp? get calories;
+  GInt_comparison_exp? get categorie_id;
+  Gcategories_bool_exp? get category;
   GInt_comparison_exp? get id;
   GString_comparison_exp? get image_url;
   Gingredients_bool_exp? get ingredients;
@@ -724,6 +951,7 @@ abstract class Grecipes_inc_input
   factory Grecipes_inc_input([Function(Grecipes_inc_inputBuilder b) updates]) =
       _$Grecipes_inc_input;
 
+  int? get categorie_id;
   int? get id;
   int? get user_id;
   static Serializer<Grecipes_inc_input> get serializer =>
@@ -744,6 +972,8 @@ abstract class Grecipes_insert_input
       _$Grecipes_insert_input;
 
   String? get calories;
+  int? get categorie_id;
+  Gcategories_obj_rel_insert_input? get category;
   int? get id;
   String? get image_url;
   Gingredients_arr_rel_insert_input? get ingredients;
@@ -770,6 +1000,7 @@ abstract class Grecipes_max_order_by
       _$Grecipes_max_order_by;
 
   Gorder_by? get calories;
+  Gorder_by? get categorie_id;
   Gorder_by? get id;
   Gorder_by? get image_url;
   Gorder_by? get name;
@@ -793,6 +1024,7 @@ abstract class Grecipes_min_order_by
       _$Grecipes_min_order_by;
 
   Gorder_by? get calories;
+  Gorder_by? get categorie_id;
   Gorder_by? get id;
   Gorder_by? get image_url;
   Gorder_by? get name;
@@ -856,6 +1088,8 @@ abstract class Grecipes_order_by
       _$Grecipes_order_by;
 
   Gorder_by? get calories;
+  Gorder_by? get categorie_id;
+  Gcategories_order_by? get category;
   Gorder_by? get id;
   Gorder_by? get image_url;
   Gingredients_aggregate_order_by? get ingredients_aggregate;
@@ -898,6 +1132,9 @@ class Grecipes_select_column extends EnumClass {
 
   static const Grecipes_select_column calories = _$grecipesSelectColumncalories;
 
+  static const Grecipes_select_column categorie_id =
+      _$grecipesSelectColumncategorie_id;
+
   static const Grecipes_select_column id = _$grecipesSelectColumnid;
 
   static const Grecipes_select_column image_url =
@@ -926,6 +1163,7 @@ abstract class Grecipes_set_input
       _$Grecipes_set_input;
 
   String? get calories;
+  int? get categorie_id;
   int? get id;
   String? get image_url;
   String? get name;
@@ -949,6 +1187,7 @@ abstract class Grecipes_stddev_order_by
           [Function(Grecipes_stddev_order_byBuilder b) updates]) =
       _$Grecipes_stddev_order_by;
 
+  Gorder_by? get categorie_id;
   Gorder_by? get id;
   Gorder_by? get user_id;
   static Serializer<Grecipes_stddev_order_by> get serializer =>
@@ -971,6 +1210,7 @@ abstract class Grecipes_stddev_pop_order_by
           [Function(Grecipes_stddev_pop_order_byBuilder b) updates]) =
       _$Grecipes_stddev_pop_order_by;
 
+  Gorder_by? get categorie_id;
   Gorder_by? get id;
   Gorder_by? get user_id;
   static Serializer<Grecipes_stddev_pop_order_by> get serializer =>
@@ -992,6 +1232,7 @@ abstract class Grecipes_stddev_samp_order_by
           [Function(Grecipes_stddev_samp_order_byBuilder b) updates]) =
       _$Grecipes_stddev_samp_order_by;
 
+  Gorder_by? get categorie_id;
   Gorder_by? get id;
   Gorder_by? get user_id;
   static Serializer<Grecipes_stddev_samp_order_by> get serializer =>
@@ -1011,6 +1252,7 @@ abstract class Grecipes_sum_order_by
           [Function(Grecipes_sum_order_byBuilder b) updates]) =
       _$Grecipes_sum_order_by;
 
+  Gorder_by? get categorie_id;
   Gorder_by? get id;
   Gorder_by? get user_id;
   static Serializer<Grecipes_sum_order_by> get serializer =>
@@ -1026,6 +1268,9 @@ class Grecipes_update_column extends EnumClass {
   const Grecipes_update_column._(String name) : super(name);
 
   static const Grecipes_update_column calories = _$grecipesUpdateColumncalories;
+
+  static const Grecipes_update_column categorie_id =
+      _$grecipesUpdateColumncategorie_id;
 
   static const Grecipes_update_column id = _$grecipesUpdateColumnid;
 
@@ -1056,6 +1301,7 @@ abstract class Grecipes_var_pop_order_by
           [Function(Grecipes_var_pop_order_byBuilder b) updates]) =
       _$Grecipes_var_pop_order_by;
 
+  Gorder_by? get categorie_id;
   Gorder_by? get id;
   Gorder_by? get user_id;
   static Serializer<Grecipes_var_pop_order_by> get serializer =>
@@ -1077,6 +1323,7 @@ abstract class Grecipes_var_samp_order_by
           [Function(Grecipes_var_samp_order_byBuilder b) updates]) =
       _$Grecipes_var_samp_order_by;
 
+  Gorder_by? get categorie_id;
   Gorder_by? get id;
   Gorder_by? get user_id;
   static Serializer<Grecipes_var_samp_order_by> get serializer =>
@@ -1097,6 +1344,7 @@ abstract class Grecipes_variance_order_by
           [Function(Grecipes_variance_order_byBuilder b) updates]) =
       _$Grecipes_variance_order_by;
 
+  Gorder_by? get categorie_id;
   Gorder_by? get id;
   Gorder_by? get user_id;
   static Serializer<Grecipes_variance_order_by> get serializer =>

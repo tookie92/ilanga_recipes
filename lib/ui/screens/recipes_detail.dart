@@ -29,7 +29,6 @@ class RecipeDetail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    print(recipes.user_id);
     return Scaffold(
       body: Container(
         height: size.height * .9,

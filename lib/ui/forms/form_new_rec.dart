@@ -67,6 +67,9 @@ class FormRecipe extends StatelessWidget {
                     labelText: 'url',
                     onSaved: (newValue) => fields.imageUrl = newValue,
                   ),
+                  SizedBox(
+                    height: 20.0,
+                  ),
                   TextButton(
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {

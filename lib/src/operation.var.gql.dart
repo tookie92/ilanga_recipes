@@ -24,6 +24,24 @@ abstract class GFetchRecipeListVars
       _i1.serializers.deserializeWith(GFetchRecipeListVars.serializer, json);
 }
 
+abstract class GFetchRecipeCatListVars
+    implements Built<GFetchRecipeCatListVars, GFetchRecipeCatListVarsBuilder> {
+  GFetchRecipeCatListVars._();
+
+  factory GFetchRecipeCatListVars(
+          [Function(GFetchRecipeCatListVarsBuilder b) updates]) =
+      _$GFetchRecipeCatListVars;
+
+  _i2.Grecipes_bool_exp? get where;
+  static Serializer<GFetchRecipeCatListVars> get serializer =>
+      _$gFetchRecipeCatListVarsSerializer;
+  Map<String, dynamic> toJson() =>
+      (_i1.serializers.serializeWith(GFetchRecipeCatListVars.serializer, this)
+          as Map<String, dynamic>);
+  static GFetchRecipeCatListVars? fromJson(Map<String, dynamic> json) =>
+      _i1.serializers.deserializeWith(GFetchRecipeCatListVars.serializer, json);
+}
+
 abstract class GFetchAllUserVars
     implements Built<GFetchAllUserVars, GFetchAllUserVarsBuilder> {
   GFetchAllUserVars._();
@@ -124,6 +142,23 @@ abstract class GFetchUsersVars
           as Map<String, dynamic>);
   static GFetchUsersVars? fromJson(Map<String, dynamic> json) =>
       _i1.serializers.deserializeWith(GFetchUsersVars.serializer, json);
+}
+
+abstract class GFetchCategorieListVars
+    implements Built<GFetchCategorieListVars, GFetchCategorieListVarsBuilder> {
+  GFetchCategorieListVars._();
+
+  factory GFetchCategorieListVars(
+          [Function(GFetchCategorieListVarsBuilder b) updates]) =
+      _$GFetchCategorieListVars;
+
+  static Serializer<GFetchCategorieListVars> get serializer =>
+      _$gFetchCategorieListVarsSerializer;
+  Map<String, dynamic> toJson() =>
+      (_i1.serializers.serializeWith(GFetchCategorieListVars.serializer, this)
+          as Map<String, dynamic>);
+  static GFetchCategorieListVars? fromJson(Map<String, dynamic> json) =>
+      _i1.serializers.deserializeWith(GFetchCategorieListVars.serializer, json);
 }
 
 abstract class GInsertNewUserVars

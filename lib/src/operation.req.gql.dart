@@ -50,6 +50,47 @@ abstract class GFetchRecipeListReq
       _i6.serializers.deserializeWith(GFetchRecipeListReq.serializer, json);
 }
 
+abstract class GFetchRecipeCatListReq
+    implements
+        Built<GFetchRecipeCatListReq, GFetchRecipeCatListReqBuilder>,
+        _i1.OperationRequest<_i2.GFetchRecipeCatListData,
+            _i3.GFetchRecipeCatListVars> {
+  GFetchRecipeCatListReq._();
+
+  factory GFetchRecipeCatListReq(
+          [Function(GFetchRecipeCatListReqBuilder b) updates]) =
+      _$GFetchRecipeCatListReq;
+
+  static void _initializeBuilder(GFetchRecipeCatListReqBuilder b) => b
+    ..operation = _i4.Operation(
+        document: _i5.document, operationName: 'FetchRecipeCatList')
+    ..executeOnListen = true;
+  _i3.GFetchRecipeCatListVars get vars;
+  _i4.Operation get operation;
+  _i4.Request get execRequest =>
+      _i4.Request(operation: operation, variables: vars.toJson());
+  String? get requestId;
+  @BuiltValueField(serialize: false)
+  _i2.GFetchRecipeCatListData? Function(
+          _i2.GFetchRecipeCatListData?, _i2.GFetchRecipeCatListData?)?
+      get updateResult;
+  _i2.GFetchRecipeCatListData? get optimisticResponse;
+  String? get updateCacheHandlerKey;
+  Map<String, dynamic>? get updateCacheHandlerContext;
+  _i1.FetchPolicy? get fetchPolicy;
+  bool get executeOnListen;
+  @override
+  _i2.GFetchRecipeCatListData? parseData(Map<String, dynamic> json) =>
+      _i2.GFetchRecipeCatListData.fromJson(json);
+  static Serializer<GFetchRecipeCatListReq> get serializer =>
+      _$gFetchRecipeCatListReqSerializer;
+  Map<String, dynamic> toJson() =>
+      (_i6.serializers.serializeWith(GFetchRecipeCatListReq.serializer, this)
+          as Map<String, dynamic>);
+  static GFetchRecipeCatListReq? fromJson(Map<String, dynamic> json) =>
+      _i6.serializers.deserializeWith(GFetchRecipeCatListReq.serializer, json);
+}
+
 abstract class GFetchAllUserReq
     implements
         Built<GFetchAllUserReq, GFetchAllUserReqBuilder>,
@@ -279,6 +320,47 @@ abstract class GFetchUsersReq
           as Map<String, dynamic>);
   static GFetchUsersReq? fromJson(Map<String, dynamic> json) =>
       _i6.serializers.deserializeWith(GFetchUsersReq.serializer, json);
+}
+
+abstract class GFetchCategorieListReq
+    implements
+        Built<GFetchCategorieListReq, GFetchCategorieListReqBuilder>,
+        _i1.OperationRequest<_i2.GFetchCategorieListData,
+            _i3.GFetchCategorieListVars> {
+  GFetchCategorieListReq._();
+
+  factory GFetchCategorieListReq(
+          [Function(GFetchCategorieListReqBuilder b) updates]) =
+      _$GFetchCategorieListReq;
+
+  static void _initializeBuilder(GFetchCategorieListReqBuilder b) => b
+    ..operation = _i4.Operation(
+        document: _i5.document, operationName: 'FetchCategorieList')
+    ..executeOnListen = true;
+  _i3.GFetchCategorieListVars get vars;
+  _i4.Operation get operation;
+  _i4.Request get execRequest =>
+      _i4.Request(operation: operation, variables: vars.toJson());
+  String? get requestId;
+  @BuiltValueField(serialize: false)
+  _i2.GFetchCategorieListData? Function(
+          _i2.GFetchCategorieListData?, _i2.GFetchCategorieListData?)?
+      get updateResult;
+  _i2.GFetchCategorieListData? get optimisticResponse;
+  String? get updateCacheHandlerKey;
+  Map<String, dynamic>? get updateCacheHandlerContext;
+  _i1.FetchPolicy? get fetchPolicy;
+  bool get executeOnListen;
+  @override
+  _i2.GFetchCategorieListData? parseData(Map<String, dynamic> json) =>
+      _i2.GFetchCategorieListData.fromJson(json);
+  static Serializer<GFetchCategorieListReq> get serializer =>
+      _$gFetchCategorieListReqSerializer;
+  Map<String, dynamic> toJson() =>
+      (_i6.serializers.serializeWith(GFetchCategorieListReq.serializer, this)
+          as Map<String, dynamic>);
+  static GFetchCategorieListReq? fromJson(Map<String, dynamic> json) =>
+      _i6.serializers.deserializeWith(GFetchCategorieListReq.serializer, json);
 }
 
 abstract class GInsertNewUserReq

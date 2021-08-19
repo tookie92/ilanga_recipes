@@ -82,6 +82,252 @@ input String_comparison_exp {
 }
 
 """
+columns and relationships of "categories"
+"""
+type categories {
+  description: String!
+  id: Int!
+  name: String!
+
+  """An array relationship"""
+  recipes(
+    """distinct select on columns"""
+    distinct_on: [recipes_select_column!]
+
+    """limit the number of rows returned"""
+    limit: Int
+
+    """skip the first n rows. Use only with order_by"""
+    offset: Int
+
+    """sort the rows by one or more columns"""
+    order_by: [recipes_order_by!]
+
+    """filter the rows returned"""
+    where: recipes_bool_exp
+  ): [recipes!]!
+
+  """An aggregate relationship"""
+  recipes_aggregate(
+    """distinct select on columns"""
+    distinct_on: [recipes_select_column!]
+
+    """limit the number of rows returned"""
+    limit: Int
+
+    """skip the first n rows. Use only with order_by"""
+    offset: Int
+
+    """sort the rows by one or more columns"""
+    order_by: [recipes_order_by!]
+
+    """filter the rows returned"""
+    where: recipes_bool_exp
+  ): recipes_aggregate!
+}
+
+"""
+aggregated selection of "categories"
+"""
+type categories_aggregate {
+  aggregate: categories_aggregate_fields
+  nodes: [categories!]!
+}
+
+"""
+aggregate fields of "categories"
+"""
+type categories_aggregate_fields {
+  avg: categories_avg_fields
+  count(columns: [categories_select_column!], distinct: Boolean): Int!
+  max: categories_max_fields
+  min: categories_min_fields
+  stddev: categories_stddev_fields
+  stddev_pop: categories_stddev_pop_fields
+  stddev_samp: categories_stddev_samp_fields
+  sum: categories_sum_fields
+  var_pop: categories_var_pop_fields
+  var_samp: categories_var_samp_fields
+  variance: categories_variance_fields
+}
+
+"""aggregate avg on columns"""
+type categories_avg_fields {
+  id: Float
+}
+
+"""
+Boolean expression to filter rows from the table "categories". All fields are combined with a logical 'AND'.
+"""
+input categories_bool_exp {
+  _and: [categories_bool_exp!]
+  _not: categories_bool_exp
+  _or: [categories_bool_exp!]
+  description: String_comparison_exp
+  id: Int_comparison_exp
+  name: String_comparison_exp
+  recipes: recipes_bool_exp
+}
+
+"""
+unique or primary key constraints on table "categories"
+"""
+enum categories_constraint {
+  """unique or primary key constraint"""
+  categories_pkey
+}
+
+"""
+input type for incrementing numeric columns in table "categories"
+"""
+input categories_inc_input {
+  id: Int
+}
+
+"""
+input type for inserting data into table "categories"
+"""
+input categories_insert_input {
+  description: String
+  id: Int
+  name: String
+  recipes: recipes_arr_rel_insert_input
+}
+
+"""aggregate max on columns"""
+type categories_max_fields {
+  description: String
+  id: Int
+  name: String
+}
+
+"""aggregate min on columns"""
+type categories_min_fields {
+  description: String
+  id: Int
+  name: String
+}
+
+"""
+response of any mutation on the table "categories"
+"""
+type categories_mutation_response {
+  """number of rows affected by the mutation"""
+  affected_rows: Int!
+
+  """data from the rows affected by the mutation"""
+  returning: [categories!]!
+}
+
+"""
+input type for inserting object relation for remote table "categories"
+"""
+input categories_obj_rel_insert_input {
+  data: categories_insert_input!
+
+  """on conflict condition"""
+  on_conflict: categories_on_conflict
+}
+
+"""
+on conflict condition type for table "categories"
+"""
+input categories_on_conflict {
+  constraint: categories_constraint!
+  update_columns: [categories_update_column!]! = []
+  where: categories_bool_exp
+}
+
+"""Ordering options when selecting data from "categories"."""
+input categories_order_by {
+  description: order_by
+  id: order_by
+  name: order_by
+  recipes_aggregate: recipes_aggregate_order_by
+}
+
+"""primary key columns input for table: categories"""
+input categories_pk_columns_input {
+  id: Int!
+}
+
+"""
+select columns of table "categories"
+"""
+enum categories_select_column {
+  """column name"""
+  description
+
+  """column name"""
+  id
+
+  """column name"""
+  name
+}
+
+"""
+input type for updating data in table "categories"
+"""
+input categories_set_input {
+  description: String
+  id: Int
+  name: String
+}
+
+"""aggregate stddev on columns"""
+type categories_stddev_fields {
+  id: Float
+}
+
+"""aggregate stddev_pop on columns"""
+type categories_stddev_pop_fields {
+  id: Float
+}
+
+"""aggregate stddev_samp on columns"""
+type categories_stddev_samp_fields {
+  id: Float
+}
+
+"""aggregate sum on columns"""
+type categories_sum_fields {
+  id: Int
+}
+
+"""
+update columns of table "categories"
+"""
+enum categories_update_column {
+  """column name"""
+  description
+
+  """column name"""
+  id
+
+  """column name"""
+  name
+}
+
+"""aggregate var_pop on columns"""
+type categories_var_pop_fields {
+  id: Float
+}
+
+"""aggregate var_samp on columns"""
+type categories_var_samp_fields {
+  id: Float
+}
+
+"""aggregate variance on columns"""
+type categories_variance_fields {
+  id: Float
+}
+
+type fileOutput {
+  file_path: String!
+}
+
+"""
 columns and relationships of "ingredients"
 """
 type ingredients {
@@ -416,6 +662,19 @@ input ingredients_variance_order_by {
 """mutation root"""
 type mutation_root {
   """
+  delete data from the table: "categories"
+  """
+  delete_categories(
+    """filter the rows which have to be deleted"""
+    where: categories_bool_exp!
+  ): categories_mutation_response
+
+  """
+  delete single row from the table: "categories"
+  """
+  delete_categories_by_pk(id: Int!): categories
+
+  """
   delete data from the table: "ingredients"
   """
   delete_ingredients(
@@ -466,6 +725,29 @@ type mutation_root {
   delete single row from the table: "users"
   """
   delete_users_by_pk(id: Int!): users
+  fileUpload(base64str: String!, name: String!, type: String!): fileOutput
+
+  """
+  insert data into the table: "categories"
+  """
+  insert_categories(
+    """the rows to be inserted"""
+    objects: [categories_insert_input!]!
+
+    """on conflict condition"""
+    on_conflict: categories_on_conflict
+  ): categories_mutation_response
+
+  """
+  insert a single row into the table: "categories"
+  """
+  insert_categories_one(
+    """the row to be inserted"""
+    object: categories_insert_input!
+
+    """on conflict condition"""
+    on_conflict: categories_on_conflict
+  ): categories
 
   """
   insert data into the table: "ingredients"
@@ -554,6 +836,32 @@ type mutation_root {
     """on conflict condition"""
     on_conflict: users_on_conflict
   ): users
+
+  """
+  update data of the table: "categories"
+  """
+  update_categories(
+    """increments the numeric columns with given value of the filtered values"""
+    _inc: categories_inc_input
+
+    """sets the columns of the filtered rows to the given values"""
+    _set: categories_set_input
+
+    """filter the rows which have to be updated"""
+    where: categories_bool_exp!
+  ): categories_mutation_response
+
+  """
+  update single row of the table: "categories"
+  """
+  update_categories_by_pk(
+    """increments the numeric columns with given value of the filtered values"""
+    _inc: categories_inc_input
+
+    """sets the columns of the filtered rows to the given values"""
+    _set: categories_set_input
+    pk_columns: categories_pk_columns_input!
+  ): categories
 
   """
   update data of the table: "ingredients"
@@ -682,6 +990,49 @@ enum order_by {
 }
 
 type query_root {
+  """
+  fetch data from the table: "categories"
+  """
+  categories(
+    """distinct select on columns"""
+    distinct_on: [categories_select_column!]
+
+    """limit the number of rows returned"""
+    limit: Int
+
+    """skip the first n rows. Use only with order_by"""
+    offset: Int
+
+    """sort the rows by one or more columns"""
+    order_by: [categories_order_by!]
+
+    """filter the rows returned"""
+    where: categories_bool_exp
+  ): [categories!]!
+
+  """
+  fetch aggregated fields from the table: "categories"
+  """
+  categories_aggregate(
+    """distinct select on columns"""
+    distinct_on: [categories_select_column!]
+
+    """limit the number of rows returned"""
+    limit: Int
+
+    """skip the first n rows. Use only with order_by"""
+    offset: Int
+
+    """sort the rows by one or more columns"""
+    order_by: [categories_order_by!]
+
+    """filter the rows returned"""
+    where: categories_bool_exp
+  ): categories_aggregate!
+
+  """fetch data from the table: "categories" using primary key columns"""
+  categories_by_pk(id: Int!): categories
+
   """An array relationship"""
   ingredients(
     """distinct select on columns"""
@@ -760,9 +1111,7 @@ type query_root {
   """fetch data from the table: "recipes" using primary key columns"""
   recipes_by_pk(id: Int!): recipes
 
-  """
-  fetch data from the table: "steps"
-  """
+  """An array relationship"""
   steps(
     """distinct select on columns"""
     distinct_on: [steps_select_column!]
@@ -850,6 +1199,10 @@ columns and relationships of "recipes"
 """
 type recipes {
   calories: String!
+  categorie_id: Int
+
+  """An object relationship"""
+  category: categories
   id: Int!
   image_url: String
 
@@ -890,9 +1243,7 @@ type recipes {
   ): ingredients_aggregate!
   name: String!
 
-  """
-  fetch data from the table: "steps"
-  """
+  """An array relationship"""
   steps(
     """distinct select on columns"""
     distinct_on: [steps_select_column!]
@@ -988,6 +1339,7 @@ input recipes_arr_rel_insert_input {
 
 """aggregate avg on columns"""
 type recipes_avg_fields {
+  categorie_id: Float
   id: Float
   user_id: Float
 }
@@ -996,6 +1348,7 @@ type recipes_avg_fields {
 order by avg() on columns of table "recipes"
 """
 input recipes_avg_order_by {
+  categorie_id: order_by
   id: order_by
   user_id: order_by
 }
@@ -1008,6 +1361,8 @@ input recipes_bool_exp {
   _not: recipes_bool_exp
   _or: [recipes_bool_exp!]
   calories: String_comparison_exp
+  categorie_id: Int_comparison_exp
+  category: categories_bool_exp
   id: Int_comparison_exp
   image_url: String_comparison_exp
   ingredients: ingredients_bool_exp
@@ -1030,6 +1385,7 @@ enum recipes_constraint {
 input type for incrementing numeric columns in table "recipes"
 """
 input recipes_inc_input {
+  categorie_id: Int
   id: Int
   user_id: Int
 }
@@ -1039,6 +1395,8 @@ input type for inserting data into table "recipes"
 """
 input recipes_insert_input {
   calories: String
+  categorie_id: Int
+  category: categories_obj_rel_insert_input
   id: Int
   image_url: String
   ingredients: ingredients_arr_rel_insert_input
@@ -1052,6 +1410,7 @@ input recipes_insert_input {
 """aggregate max on columns"""
 type recipes_max_fields {
   calories: String
+  categorie_id: Int
   id: Int
   image_url: String
   name: String
@@ -1064,6 +1423,7 @@ order by max() on columns of table "recipes"
 """
 input recipes_max_order_by {
   calories: order_by
+  categorie_id: order_by
   id: order_by
   image_url: order_by
   name: order_by
@@ -1074,6 +1434,7 @@ input recipes_max_order_by {
 """aggregate min on columns"""
 type recipes_min_fields {
   calories: String
+  categorie_id: Int
   id: Int
   image_url: String
   name: String
@@ -1086,6 +1447,7 @@ order by min() on columns of table "recipes"
 """
 input recipes_min_order_by {
   calories: order_by
+  categorie_id: order_by
   id: order_by
   image_url: order_by
   name: order_by
@@ -1126,6 +1488,8 @@ input recipes_on_conflict {
 """Ordering options when selecting data from "recipes"."""
 input recipes_order_by {
   calories: order_by
+  categorie_id: order_by
+  category: categories_order_by
   id: order_by
   image_url: order_by
   ingredients_aggregate: ingredients_aggregate_order_by
@@ -1149,6 +1513,9 @@ enum recipes_select_column {
   calories
 
   """column name"""
+  categorie_id
+
+  """column name"""
   id
 
   """column name"""
@@ -1169,6 +1536,7 @@ input type for updating data in table "recipes"
 """
 input recipes_set_input {
   calories: String
+  categorie_id: Int
   id: Int
   image_url: String
   name: String
@@ -1178,6 +1546,7 @@ input recipes_set_input {
 
 """aggregate stddev on columns"""
 type recipes_stddev_fields {
+  categorie_id: Float
   id: Float
   user_id: Float
 }
@@ -1186,12 +1555,14 @@ type recipes_stddev_fields {
 order by stddev() on columns of table "recipes"
 """
 input recipes_stddev_order_by {
+  categorie_id: order_by
   id: order_by
   user_id: order_by
 }
 
 """aggregate stddev_pop on columns"""
 type recipes_stddev_pop_fields {
+  categorie_id: Float
   id: Float
   user_id: Float
 }
@@ -1200,12 +1571,14 @@ type recipes_stddev_pop_fields {
 order by stddev_pop() on columns of table "recipes"
 """
 input recipes_stddev_pop_order_by {
+  categorie_id: order_by
   id: order_by
   user_id: order_by
 }
 
 """aggregate stddev_samp on columns"""
 type recipes_stddev_samp_fields {
+  categorie_id: Float
   id: Float
   user_id: Float
 }
@@ -1214,12 +1587,14 @@ type recipes_stddev_samp_fields {
 order by stddev_samp() on columns of table "recipes"
 """
 input recipes_stddev_samp_order_by {
+  categorie_id: order_by
   id: order_by
   user_id: order_by
 }
 
 """aggregate sum on columns"""
 type recipes_sum_fields {
+  categorie_id: Int
   id: Int
   user_id: Int
 }
@@ -1228,6 +1603,7 @@ type recipes_sum_fields {
 order by sum() on columns of table "recipes"
 """
 input recipes_sum_order_by {
+  categorie_id: order_by
   id: order_by
   user_id: order_by
 }
@@ -1238,6 +1614,9 @@ update columns of table "recipes"
 enum recipes_update_column {
   """column name"""
   calories
+
+  """column name"""
+  categorie_id
 
   """column name"""
   id
@@ -1257,6 +1636,7 @@ enum recipes_update_column {
 
 """aggregate var_pop on columns"""
 type recipes_var_pop_fields {
+  categorie_id: Float
   id: Float
   user_id: Float
 }
@@ -1265,12 +1645,14 @@ type recipes_var_pop_fields {
 order by var_pop() on columns of table "recipes"
 """
 input recipes_var_pop_order_by {
+  categorie_id: order_by
   id: order_by
   user_id: order_by
 }
 
 """aggregate var_samp on columns"""
 type recipes_var_samp_fields {
+  categorie_id: Float
   id: Float
   user_id: Float
 }
@@ -1279,12 +1661,14 @@ type recipes_var_samp_fields {
 order by var_samp() on columns of table "recipes"
 """
 input recipes_var_samp_order_by {
+  categorie_id: order_by
   id: order_by
   user_id: order_by
 }
 
 """aggregate variance on columns"""
 type recipes_variance_fields {
+  categorie_id: Float
   id: Float
   user_id: Float
 }
@@ -1293,6 +1677,7 @@ type recipes_variance_fields {
 order by variance() on columns of table "recipes"
 """
 input recipes_variance_order_by {
+  categorie_id: order_by
   id: order_by
   user_id: order_by
 }
@@ -1630,6 +2015,49 @@ input steps_variance_order_by {
 }
 
 type subscription_root {
+  """
+  fetch data from the table: "categories"
+  """
+  categories(
+    """distinct select on columns"""
+    distinct_on: [categories_select_column!]
+
+    """limit the number of rows returned"""
+    limit: Int
+
+    """skip the first n rows. Use only with order_by"""
+    offset: Int
+
+    """sort the rows by one or more columns"""
+    order_by: [categories_order_by!]
+
+    """filter the rows returned"""
+    where: categories_bool_exp
+  ): [categories!]!
+
+  """
+  fetch aggregated fields from the table: "categories"
+  """
+  categories_aggregate(
+    """distinct select on columns"""
+    distinct_on: [categories_select_column!]
+
+    """limit the number of rows returned"""
+    limit: Int
+
+    """skip the first n rows. Use only with order_by"""
+    offset: Int
+
+    """sort the rows by one or more columns"""
+    order_by: [categories_order_by!]
+
+    """filter the rows returned"""
+    where: categories_bool_exp
+  ): categories_aggregate!
+
+  """fetch data from the table: "categories" using primary key columns"""
+  categories_by_pk(id: Int!): categories
+
   """An array relationship"""
   ingredients(
     """distinct select on columns"""
@@ -1708,9 +2136,7 @@ type subscription_root {
   """fetch data from the table: "recipes" using primary key columns"""
   recipes_by_pk(id: Int!): recipes
 
-  """
-  fetch data from the table: "steps"
-  """
+  """An array relationship"""
   steps(
     """distinct select on columns"""
     distinct_on: [steps_select_column!]
