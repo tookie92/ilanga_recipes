@@ -50,6 +50,44 @@ abstract class GFetchRecipeListReq
       _i6.serializers.deserializeWith(GFetchRecipeListReq.serializer, json);
 }
 
+abstract class GFindRecipesReq
+    implements
+        Built<GFindRecipesReq, GFindRecipesReqBuilder>,
+        _i1.OperationRequest<_i2.GFindRecipesData, _i3.GFindRecipesVars> {
+  GFindRecipesReq._();
+
+  factory GFindRecipesReq([Function(GFindRecipesReqBuilder b) updates]) =
+      _$GFindRecipesReq;
+
+  static void _initializeBuilder(GFindRecipesReqBuilder b) => b
+    ..operation =
+        _i4.Operation(document: _i5.document, operationName: 'FindRecipes')
+    ..executeOnListen = true;
+  _i3.GFindRecipesVars get vars;
+  _i4.Operation get operation;
+  _i4.Request get execRequest =>
+      _i4.Request(operation: operation, variables: vars.toJson());
+  String? get requestId;
+  @BuiltValueField(serialize: false)
+  _i2.GFindRecipesData? Function(_i2.GFindRecipesData?, _i2.GFindRecipesData?)?
+      get updateResult;
+  _i2.GFindRecipesData? get optimisticResponse;
+  String? get updateCacheHandlerKey;
+  Map<String, dynamic>? get updateCacheHandlerContext;
+  _i1.FetchPolicy? get fetchPolicy;
+  bool get executeOnListen;
+  @override
+  _i2.GFindRecipesData? parseData(Map<String, dynamic> json) =>
+      _i2.GFindRecipesData.fromJson(json);
+  static Serializer<GFindRecipesReq> get serializer =>
+      _$gFindRecipesReqSerializer;
+  Map<String, dynamic> toJson() =>
+      (_i6.serializers.serializeWith(GFindRecipesReq.serializer, this)
+          as Map<String, dynamic>);
+  static GFindRecipesReq? fromJson(Map<String, dynamic> json) =>
+      _i6.serializers.deserializeWith(GFindRecipesReq.serializer, json);
+}
+
 abstract class GFetchRecipeCatListReq
     implements
         Built<GFetchRecipeCatListReq, GFetchRecipeCatListReqBuilder>,
@@ -361,6 +399,44 @@ abstract class GFetchCategorieListReq
           as Map<String, dynamic>);
   static GFetchCategorieListReq? fromJson(Map<String, dynamic> json) =>
       _i6.serializers.deserializeWith(GFetchCategorieListReq.serializer, json);
+}
+
+abstract class GFindCategoriesReq
+    implements
+        Built<GFindCategoriesReq, GFindCategoriesReqBuilder>,
+        _i1.OperationRequest<_i2.GFindCategoriesData, _i3.GFindCategoriesVars> {
+  GFindCategoriesReq._();
+
+  factory GFindCategoriesReq([Function(GFindCategoriesReqBuilder b) updates]) =
+      _$GFindCategoriesReq;
+
+  static void _initializeBuilder(GFindCategoriesReqBuilder b) => b
+    ..operation =
+        _i4.Operation(document: _i5.document, operationName: 'FindCategories')
+    ..executeOnListen = true;
+  _i3.GFindCategoriesVars get vars;
+  _i4.Operation get operation;
+  _i4.Request get execRequest =>
+      _i4.Request(operation: operation, variables: vars.toJson());
+  String? get requestId;
+  @BuiltValueField(serialize: false)
+  _i2.GFindCategoriesData? Function(
+      _i2.GFindCategoriesData?, _i2.GFindCategoriesData?)? get updateResult;
+  _i2.GFindCategoriesData? get optimisticResponse;
+  String? get updateCacheHandlerKey;
+  Map<String, dynamic>? get updateCacheHandlerContext;
+  _i1.FetchPolicy? get fetchPolicy;
+  bool get executeOnListen;
+  @override
+  _i2.GFindCategoriesData? parseData(Map<String, dynamic> json) =>
+      _i2.GFindCategoriesData.fromJson(json);
+  static Serializer<GFindCategoriesReq> get serializer =>
+      _$gFindCategoriesReqSerializer;
+  Map<String, dynamic> toJson() =>
+      (_i6.serializers.serializeWith(GFindCategoriesReq.serializer, this)
+          as Map<String, dynamic>);
+  static GFindCategoriesReq? fromJson(Map<String, dynamic> json) =>
+      _i6.serializers.deserializeWith(GFindCategoriesReq.serializer, json);
 }
 
 abstract class GInsertNewUserReq

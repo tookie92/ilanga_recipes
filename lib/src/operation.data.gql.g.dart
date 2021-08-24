@@ -14,6 +14,10 @@ Serializer<GFetchRecipeListData_recipes>
 Serializer<GFetchRecipeListData_recipes_user>
     _$gFetchRecipeListDataRecipesUserSerializer =
     new _$GFetchRecipeListData_recipes_userSerializer();
+Serializer<GFindRecipesData> _$gFindRecipesDataSerializer =
+    new _$GFindRecipesDataSerializer();
+Serializer<GFindRecipesData_recipes> _$gFindRecipesDataRecipesSerializer =
+    new _$GFindRecipesData_recipesSerializer();
 Serializer<GFetchRecipeCatListData> _$gFetchRecipeCatListDataSerializer =
     new _$GFetchRecipeCatListDataSerializer();
 Serializer<GFetchRecipeCatListData_recipes>
@@ -55,6 +59,11 @@ Serializer<GFetchCategorieListData> _$gFetchCategorieListDataSerializer =
 Serializer<GFetchCategorieListData_categories>
     _$gFetchCategorieListDataCategoriesSerializer =
     new _$GFetchCategorieListData_categoriesSerializer();
+Serializer<GFindCategoriesData> _$gFindCategoriesDataSerializer =
+    new _$GFindCategoriesDataSerializer();
+Serializer<GFindCategoriesData_categories>
+    _$gFindCategoriesDataCategoriesSerializer =
+    new _$GFindCategoriesData_categoriesSerializer();
 Serializer<GInsertNewUserData> _$gInsertNewUserDataSerializer =
     new _$GInsertNewUserDataSerializer();
 Serializer<GInsertNewUserData_insert_users_one>
@@ -305,6 +314,165 @@ class _$GFetchRecipeListData_recipes_userSerializer
         case '__typename':
           result.G__typename = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$GFindRecipesDataSerializer
+    implements StructuredSerializer<GFindRecipesData> {
+  @override
+  final Iterable<Type> types = const [GFindRecipesData, _$GFindRecipesData];
+  @override
+  final String wireName = 'GFindRecipesData';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, GFindRecipesData object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      '__typename',
+      serializers.serialize(object.G__typename,
+          specifiedType: const FullType(String)),
+      'recipes',
+      serializers.serialize(object.recipes,
+          specifiedType: const FullType(
+              BuiltList, const [const FullType(GFindRecipesData_recipes)])),
+    ];
+
+    return result;
+  }
+
+  @override
+  GFindRecipesData deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = new GFindRecipesDataBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case '__typename':
+          result.G__typename = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
+        case 'recipes':
+          result.recipes.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, const [
+                const FullType(GFindRecipesData_recipes)
+              ]))! as BuiltList<Object?>);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$GFindRecipesData_recipesSerializer
+    implements StructuredSerializer<GFindRecipesData_recipes> {
+  @override
+  final Iterable<Type> types = const [
+    GFindRecipesData_recipes,
+    _$GFindRecipesData_recipes
+  ];
+  @override
+  final String wireName = 'GFindRecipesData_recipes';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, GFindRecipesData_recipes object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      '__typename',
+      serializers.serialize(object.G__typename,
+          specifiedType: const FullType(String)),
+      'id',
+      serializers.serialize(object.id, specifiedType: const FullType(int)),
+      'name',
+      serializers.serialize(object.name, specifiedType: const FullType(String)),
+      'calories',
+      serializers.serialize(object.calories,
+          specifiedType: const FullType(String)),
+    ];
+    Object? value;
+    value = object.time;
+    if (value != null) {
+      result
+        ..add('time')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.user_id;
+    if (value != null) {
+      result
+        ..add('user_id')
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
+    value = object.categorie_id;
+    if (value != null) {
+      result
+        ..add('categorie_id')
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
+    value = object.image_url;
+    if (value != null) {
+      result
+        ..add('image_url')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    return result;
+  }
+
+  @override
+  GFindRecipesData_recipes deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = new GFindRecipesData_recipesBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case '__typename':
+          result.G__typename = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
+        case 'id':
+          result.id = serializers.deserialize(value,
+              specifiedType: const FullType(int)) as int;
+          break;
+        case 'name':
+          result.name = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
+        case 'time':
+          result.time = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
+        case 'calories':
+          result.calories = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
+        case 'user_id':
+          result.user_id = serializers.deserialize(value,
+              specifiedType: const FullType(int)) as int?;
+          break;
+        case 'categorie_id':
+          result.categorie_id = serializers.deserialize(value,
+              specifiedType: const FullType(int)) as int?;
+          break;
+        case 'image_url':
+          result.image_url = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
           break;
       }
     }
@@ -1525,6 +1693,127 @@ class _$GFetchCategorieListData_categoriesSerializer
   }
 }
 
+class _$GFindCategoriesDataSerializer
+    implements StructuredSerializer<GFindCategoriesData> {
+  @override
+  final Iterable<Type> types = const [
+    GFindCategoriesData,
+    _$GFindCategoriesData
+  ];
+  @override
+  final String wireName = 'GFindCategoriesData';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, GFindCategoriesData object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      '__typename',
+      serializers.serialize(object.G__typename,
+          specifiedType: const FullType(String)),
+      'categories',
+      serializers.serialize(object.categories,
+          specifiedType: const FullType(BuiltList,
+              const [const FullType(GFindCategoriesData_categories)])),
+    ];
+
+    return result;
+  }
+
+  @override
+  GFindCategoriesData deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = new GFindCategoriesDataBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case '__typename':
+          result.G__typename = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
+        case 'categories':
+          result.categories.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, const [
+                const FullType(GFindCategoriesData_categories)
+              ]))! as BuiltList<Object?>);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$GFindCategoriesData_categoriesSerializer
+    implements StructuredSerializer<GFindCategoriesData_categories> {
+  @override
+  final Iterable<Type> types = const [
+    GFindCategoriesData_categories,
+    _$GFindCategoriesData_categories
+  ];
+  @override
+  final String wireName = 'GFindCategoriesData_categories';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, GFindCategoriesData_categories object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      '__typename',
+      serializers.serialize(object.G__typename,
+          specifiedType: const FullType(String)),
+      'id',
+      serializers.serialize(object.id, specifiedType: const FullType(int)),
+      'name',
+      serializers.serialize(object.name, specifiedType: const FullType(String)),
+      'description',
+      serializers.serialize(object.description,
+          specifiedType: const FullType(String)),
+    ];
+
+    return result;
+  }
+
+  @override
+  GFindCategoriesData_categories deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = new GFindCategoriesData_categoriesBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case '__typename':
+          result.G__typename = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
+        case 'id':
+          result.id = serializers.deserialize(value,
+              specifiedType: const FullType(int)) as int;
+          break;
+        case 'name':
+          result.name = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
+        case 'description':
+          result.description = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
 class _$GInsertNewUserDataSerializer
     implements StructuredSerializer<GInsertNewUserData> {
   @override
@@ -1760,6 +2049,12 @@ class _$GInsertRecipeData_insert_recipes_oneSerializer
         ..add('user_id')
         ..add(serializers.serialize(value, specifiedType: const FullType(int)));
     }
+    value = object.categorie_id;
+    if (value != null) {
+      result
+        ..add('categorie_id')
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
     return result;
   }
 
@@ -1797,6 +2092,10 @@ class _$GInsertRecipeData_insert_recipes_oneSerializer
           break;
         case 'user_id':
           result.user_id = serializers.deserialize(value,
+              specifiedType: const FullType(int)) as int?;
+          break;
+        case 'categorie_id':
+          result.categorie_id = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int?;
           break;
         case '__typename':
@@ -2703,6 +3002,302 @@ class GFetchRecipeListData_recipes_userBuilder
                 email, 'GFetchRecipeListData_recipes_user', 'email'),
             G__typename: BuiltValueNullFieldError.checkNotNull(G__typename,
                 'GFetchRecipeListData_recipes_user', 'G__typename'));
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$GFindRecipesData extends GFindRecipesData {
+  @override
+  final String G__typename;
+  @override
+  final BuiltList<GFindRecipesData_recipes> recipes;
+
+  factory _$GFindRecipesData(
+          [void Function(GFindRecipesDataBuilder)? updates]) =>
+      (new GFindRecipesDataBuilder()..update(updates)).build();
+
+  _$GFindRecipesData._({required this.G__typename, required this.recipes})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        G__typename, 'GFindRecipesData', 'G__typename');
+    BuiltValueNullFieldError.checkNotNull(
+        recipes, 'GFindRecipesData', 'recipes');
+  }
+
+  @override
+  GFindRecipesData rebuild(void Function(GFindRecipesDataBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  GFindRecipesDataBuilder toBuilder() =>
+      new GFindRecipesDataBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is GFindRecipesData &&
+        G__typename == other.G__typename &&
+        recipes == other.recipes;
+  }
+
+  @override
+  int get hashCode {
+    return $jf($jc($jc(0, G__typename.hashCode), recipes.hashCode));
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper('GFindRecipesData')
+          ..add('G__typename', G__typename)
+          ..add('recipes', recipes))
+        .toString();
+  }
+}
+
+class GFindRecipesDataBuilder
+    implements Builder<GFindRecipesData, GFindRecipesDataBuilder> {
+  _$GFindRecipesData? _$v;
+
+  String? _G__typename;
+  String? get G__typename => _$this._G__typename;
+  set G__typename(String? G__typename) => _$this._G__typename = G__typename;
+
+  ListBuilder<GFindRecipesData_recipes>? _recipes;
+  ListBuilder<GFindRecipesData_recipes> get recipes =>
+      _$this._recipes ??= new ListBuilder<GFindRecipesData_recipes>();
+  set recipes(ListBuilder<GFindRecipesData_recipes>? recipes) =>
+      _$this._recipes = recipes;
+
+  GFindRecipesDataBuilder() {
+    GFindRecipesData._initializeBuilder(this);
+  }
+
+  GFindRecipesDataBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _G__typename = $v.G__typename;
+      _recipes = $v.recipes.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(GFindRecipesData other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$GFindRecipesData;
+  }
+
+  @override
+  void update(void Function(GFindRecipesDataBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  _$GFindRecipesData build() {
+    _$GFindRecipesData _$result;
+    try {
+      _$result = _$v ??
+          new _$GFindRecipesData._(
+              G__typename: BuiltValueNullFieldError.checkNotNull(
+                  G__typename, 'GFindRecipesData', 'G__typename'),
+              recipes: recipes.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'recipes';
+        recipes.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            'GFindRecipesData', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$GFindRecipesData_recipes extends GFindRecipesData_recipes {
+  @override
+  final String G__typename;
+  @override
+  final int id;
+  @override
+  final String name;
+  @override
+  final String? time;
+  @override
+  final String calories;
+  @override
+  final int? user_id;
+  @override
+  final int? categorie_id;
+  @override
+  final String? image_url;
+
+  factory _$GFindRecipesData_recipes(
+          [void Function(GFindRecipesData_recipesBuilder)? updates]) =>
+      (new GFindRecipesData_recipesBuilder()..update(updates)).build();
+
+  _$GFindRecipesData_recipes._(
+      {required this.G__typename,
+      required this.id,
+      required this.name,
+      this.time,
+      required this.calories,
+      this.user_id,
+      this.categorie_id,
+      this.image_url})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        G__typename, 'GFindRecipesData_recipes', 'G__typename');
+    BuiltValueNullFieldError.checkNotNull(id, 'GFindRecipesData_recipes', 'id');
+    BuiltValueNullFieldError.checkNotNull(
+        name, 'GFindRecipesData_recipes', 'name');
+    BuiltValueNullFieldError.checkNotNull(
+        calories, 'GFindRecipesData_recipes', 'calories');
+  }
+
+  @override
+  GFindRecipesData_recipes rebuild(
+          void Function(GFindRecipesData_recipesBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  GFindRecipesData_recipesBuilder toBuilder() =>
+      new GFindRecipesData_recipesBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is GFindRecipesData_recipes &&
+        G__typename == other.G__typename &&
+        id == other.id &&
+        name == other.name &&
+        time == other.time &&
+        calories == other.calories &&
+        user_id == other.user_id &&
+        categorie_id == other.categorie_id &&
+        image_url == other.image_url;
+  }
+
+  @override
+  int get hashCode {
+    return $jf($jc(
+        $jc(
+            $jc(
+                $jc(
+                    $jc(
+                        $jc($jc($jc(0, G__typename.hashCode), id.hashCode),
+                            name.hashCode),
+                        time.hashCode),
+                    calories.hashCode),
+                user_id.hashCode),
+            categorie_id.hashCode),
+        image_url.hashCode));
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper('GFindRecipesData_recipes')
+          ..add('G__typename', G__typename)
+          ..add('id', id)
+          ..add('name', name)
+          ..add('time', time)
+          ..add('calories', calories)
+          ..add('user_id', user_id)
+          ..add('categorie_id', categorie_id)
+          ..add('image_url', image_url))
+        .toString();
+  }
+}
+
+class GFindRecipesData_recipesBuilder
+    implements
+        Builder<GFindRecipesData_recipes, GFindRecipesData_recipesBuilder> {
+  _$GFindRecipesData_recipes? _$v;
+
+  String? _G__typename;
+  String? get G__typename => _$this._G__typename;
+  set G__typename(String? G__typename) => _$this._G__typename = G__typename;
+
+  int? _id;
+  int? get id => _$this._id;
+  set id(int? id) => _$this._id = id;
+
+  String? _name;
+  String? get name => _$this._name;
+  set name(String? name) => _$this._name = name;
+
+  String? _time;
+  String? get time => _$this._time;
+  set time(String? time) => _$this._time = time;
+
+  String? _calories;
+  String? get calories => _$this._calories;
+  set calories(String? calories) => _$this._calories = calories;
+
+  int? _user_id;
+  int? get user_id => _$this._user_id;
+  set user_id(int? user_id) => _$this._user_id = user_id;
+
+  int? _categorie_id;
+  int? get categorie_id => _$this._categorie_id;
+  set categorie_id(int? categorie_id) => _$this._categorie_id = categorie_id;
+
+  String? _image_url;
+  String? get image_url => _$this._image_url;
+  set image_url(String? image_url) => _$this._image_url = image_url;
+
+  GFindRecipesData_recipesBuilder() {
+    GFindRecipesData_recipes._initializeBuilder(this);
+  }
+
+  GFindRecipesData_recipesBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _G__typename = $v.G__typename;
+      _id = $v.id;
+      _name = $v.name;
+      _time = $v.time;
+      _calories = $v.calories;
+      _user_id = $v.user_id;
+      _categorie_id = $v.categorie_id;
+      _image_url = $v.image_url;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(GFindRecipesData_recipes other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$GFindRecipesData_recipes;
+  }
+
+  @override
+  void update(void Function(GFindRecipesData_recipesBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  _$GFindRecipesData_recipes build() {
+    final _$result = _$v ??
+        new _$GFindRecipesData_recipes._(
+            G__typename: BuiltValueNullFieldError.checkNotNull(
+                G__typename, 'GFindRecipesData_recipes', 'G__typename'),
+            id: BuiltValueNullFieldError.checkNotNull(
+                id, 'GFindRecipesData_recipes', 'id'),
+            name: BuiltValueNullFieldError.checkNotNull(
+                name, 'GFindRecipesData_recipes', 'name'),
+            time: time,
+            calories: BuiltValueNullFieldError.checkNotNull(
+                calories, 'GFindRecipesData_recipes', 'calories'),
+            user_id: user_id,
+            categorie_id: categorie_id,
+            image_url: image_url);
     replace(_$result);
     return _$result;
   }
@@ -5137,6 +5732,252 @@ class GFetchCategorieListData_categoriesBuilder
   }
 }
 
+class _$GFindCategoriesData extends GFindCategoriesData {
+  @override
+  final String G__typename;
+  @override
+  final BuiltList<GFindCategoriesData_categories> categories;
+
+  factory _$GFindCategoriesData(
+          [void Function(GFindCategoriesDataBuilder)? updates]) =>
+      (new GFindCategoriesDataBuilder()..update(updates)).build();
+
+  _$GFindCategoriesData._({required this.G__typename, required this.categories})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        G__typename, 'GFindCategoriesData', 'G__typename');
+    BuiltValueNullFieldError.checkNotNull(
+        categories, 'GFindCategoriesData', 'categories');
+  }
+
+  @override
+  GFindCategoriesData rebuild(
+          void Function(GFindCategoriesDataBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  GFindCategoriesDataBuilder toBuilder() =>
+      new GFindCategoriesDataBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is GFindCategoriesData &&
+        G__typename == other.G__typename &&
+        categories == other.categories;
+  }
+
+  @override
+  int get hashCode {
+    return $jf($jc($jc(0, G__typename.hashCode), categories.hashCode));
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper('GFindCategoriesData')
+          ..add('G__typename', G__typename)
+          ..add('categories', categories))
+        .toString();
+  }
+}
+
+class GFindCategoriesDataBuilder
+    implements Builder<GFindCategoriesData, GFindCategoriesDataBuilder> {
+  _$GFindCategoriesData? _$v;
+
+  String? _G__typename;
+  String? get G__typename => _$this._G__typename;
+  set G__typename(String? G__typename) => _$this._G__typename = G__typename;
+
+  ListBuilder<GFindCategoriesData_categories>? _categories;
+  ListBuilder<GFindCategoriesData_categories> get categories =>
+      _$this._categories ??= new ListBuilder<GFindCategoriesData_categories>();
+  set categories(ListBuilder<GFindCategoriesData_categories>? categories) =>
+      _$this._categories = categories;
+
+  GFindCategoriesDataBuilder() {
+    GFindCategoriesData._initializeBuilder(this);
+  }
+
+  GFindCategoriesDataBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _G__typename = $v.G__typename;
+      _categories = $v.categories.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(GFindCategoriesData other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$GFindCategoriesData;
+  }
+
+  @override
+  void update(void Function(GFindCategoriesDataBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  _$GFindCategoriesData build() {
+    _$GFindCategoriesData _$result;
+    try {
+      _$result = _$v ??
+          new _$GFindCategoriesData._(
+              G__typename: BuiltValueNullFieldError.checkNotNull(
+                  G__typename, 'GFindCategoriesData', 'G__typename'),
+              categories: categories.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'categories';
+        categories.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            'GFindCategoriesData', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$GFindCategoriesData_categories extends GFindCategoriesData_categories {
+  @override
+  final String G__typename;
+  @override
+  final int id;
+  @override
+  final String name;
+  @override
+  final String description;
+
+  factory _$GFindCategoriesData_categories(
+          [void Function(GFindCategoriesData_categoriesBuilder)? updates]) =>
+      (new GFindCategoriesData_categoriesBuilder()..update(updates)).build();
+
+  _$GFindCategoriesData_categories._(
+      {required this.G__typename,
+      required this.id,
+      required this.name,
+      required this.description})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        G__typename, 'GFindCategoriesData_categories', 'G__typename');
+    BuiltValueNullFieldError.checkNotNull(
+        id, 'GFindCategoriesData_categories', 'id');
+    BuiltValueNullFieldError.checkNotNull(
+        name, 'GFindCategoriesData_categories', 'name');
+    BuiltValueNullFieldError.checkNotNull(
+        description, 'GFindCategoriesData_categories', 'description');
+  }
+
+  @override
+  GFindCategoriesData_categories rebuild(
+          void Function(GFindCategoriesData_categoriesBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  GFindCategoriesData_categoriesBuilder toBuilder() =>
+      new GFindCategoriesData_categoriesBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is GFindCategoriesData_categories &&
+        G__typename == other.G__typename &&
+        id == other.id &&
+        name == other.name &&
+        description == other.description;
+  }
+
+  @override
+  int get hashCode {
+    return $jf($jc(
+        $jc($jc($jc(0, G__typename.hashCode), id.hashCode), name.hashCode),
+        description.hashCode));
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper('GFindCategoriesData_categories')
+          ..add('G__typename', G__typename)
+          ..add('id', id)
+          ..add('name', name)
+          ..add('description', description))
+        .toString();
+  }
+}
+
+class GFindCategoriesData_categoriesBuilder
+    implements
+        Builder<GFindCategoriesData_categories,
+            GFindCategoriesData_categoriesBuilder> {
+  _$GFindCategoriesData_categories? _$v;
+
+  String? _G__typename;
+  String? get G__typename => _$this._G__typename;
+  set G__typename(String? G__typename) => _$this._G__typename = G__typename;
+
+  int? _id;
+  int? get id => _$this._id;
+  set id(int? id) => _$this._id = id;
+
+  String? _name;
+  String? get name => _$this._name;
+  set name(String? name) => _$this._name = name;
+
+  String? _description;
+  String? get description => _$this._description;
+  set description(String? description) => _$this._description = description;
+
+  GFindCategoriesData_categoriesBuilder() {
+    GFindCategoriesData_categories._initializeBuilder(this);
+  }
+
+  GFindCategoriesData_categoriesBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _G__typename = $v.G__typename;
+      _id = $v.id;
+      _name = $v.name;
+      _description = $v.description;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(GFindCategoriesData_categories other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$GFindCategoriesData_categories;
+  }
+
+  @override
+  void update(void Function(GFindCategoriesData_categoriesBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  _$GFindCategoriesData_categories build() {
+    final _$result = _$v ??
+        new _$GFindCategoriesData_categories._(
+            G__typename: BuiltValueNullFieldError.checkNotNull(
+                G__typename, 'GFindCategoriesData_categories', 'G__typename'),
+            id: BuiltValueNullFieldError.checkNotNull(
+                id, 'GFindCategoriesData_categories', 'id'),
+            name: BuiltValueNullFieldError.checkNotNull(
+                name, 'GFindCategoriesData_categories', 'name'),
+            description: BuiltValueNullFieldError.checkNotNull(
+                description, 'GFindCategoriesData_categories', 'description'));
+    replace(_$result);
+    return _$result;
+  }
+}
+
 class _$GInsertNewUserData extends GInsertNewUserData {
   @override
   final String G__typename;
@@ -5513,6 +6354,8 @@ class _$GInsertRecipeData_insert_recipes_one
   @override
   final int? user_id;
   @override
+  final int? categorie_id;
+  @override
   final String G__typename;
   @override
   final BuiltList<GInsertRecipeData_insert_recipes_one_ingredients> ingredients;
@@ -5532,6 +6375,7 @@ class _$GInsertRecipeData_insert_recipes_one
       this.image_url,
       required this.calories,
       this.user_id,
+      this.categorie_id,
       required this.G__typename,
       required this.ingredients,
       required this.steps})
@@ -5569,6 +6413,7 @@ class _$GInsertRecipeData_insert_recipes_one
         image_url == other.image_url &&
         calories == other.calories &&
         user_id == other.user_id &&
+        categorie_id == other.categorie_id &&
         G__typename == other.G__typename &&
         ingredients == other.ingredients &&
         steps == other.steps;
@@ -5582,11 +6427,13 @@ class _$GInsertRecipeData_insert_recipes_one
                 $jc(
                     $jc(
                         $jc(
-                            $jc($jc($jc(0, id.hashCode), name.hashCode),
-                                time.hashCode),
-                            image_url.hashCode),
-                        calories.hashCode),
-                    user_id.hashCode),
+                            $jc(
+                                $jc($jc($jc(0, id.hashCode), name.hashCode),
+                                    time.hashCode),
+                                image_url.hashCode),
+                            calories.hashCode),
+                        user_id.hashCode),
+                    categorie_id.hashCode),
                 G__typename.hashCode),
             ingredients.hashCode),
         steps.hashCode));
@@ -5601,6 +6448,7 @@ class _$GInsertRecipeData_insert_recipes_one
           ..add('image_url', image_url)
           ..add('calories', calories)
           ..add('user_id', user_id)
+          ..add('categorie_id', categorie_id)
           ..add('G__typename', G__typename)
           ..add('ingredients', ingredients)
           ..add('steps', steps))
@@ -5638,6 +6486,10 @@ class GInsertRecipeData_insert_recipes_oneBuilder
   int? get user_id => _$this._user_id;
   set user_id(int? user_id) => _$this._user_id = user_id;
 
+  int? _categorie_id;
+  int? get categorie_id => _$this._categorie_id;
+  set categorie_id(int? categorie_id) => _$this._categorie_id = categorie_id;
+
   String? _G__typename;
   String? get G__typename => _$this._G__typename;
   set G__typename(String? G__typename) => _$this._G__typename = G__typename;
@@ -5671,6 +6523,7 @@ class GInsertRecipeData_insert_recipes_oneBuilder
       _image_url = $v.image_url;
       _calories = $v.calories;
       _user_id = $v.user_id;
+      _categorie_id = $v.categorie_id;
       _G__typename = $v.G__typename;
       _ingredients = $v.ingredients.toBuilder();
       _steps = $v.steps.toBuilder();
@@ -5706,6 +6559,7 @@ class GInsertRecipeData_insert_recipes_oneBuilder
               calories: BuiltValueNullFieldError.checkNotNull(
                   calories, 'GInsertRecipeData_insert_recipes_one', 'calories'),
               user_id: user_id,
+              categorie_id: categorie_id,
               G__typename: BuiltValueNullFieldError.checkNotNull(G__typename,
                   'GInsertRecipeData_insert_recipes_one', 'G__typename'),
               ingredients: ingredients.build(),

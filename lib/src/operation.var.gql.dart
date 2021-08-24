@@ -24,6 +24,23 @@ abstract class GFetchRecipeListVars
       _i1.serializers.deserializeWith(GFetchRecipeListVars.serializer, json);
 }
 
+abstract class GFindRecipesVars
+    implements Built<GFindRecipesVars, GFindRecipesVarsBuilder> {
+  GFindRecipesVars._();
+
+  factory GFindRecipesVars([Function(GFindRecipesVarsBuilder b) updates]) =
+      _$GFindRecipesVars;
+
+  _i2.Grecipes_bool_exp? get where;
+  static Serializer<GFindRecipesVars> get serializer =>
+      _$gFindRecipesVarsSerializer;
+  Map<String, dynamic> toJson() =>
+      (_i1.serializers.serializeWith(GFindRecipesVars.serializer, this)
+          as Map<String, dynamic>);
+  static GFindRecipesVars? fromJson(Map<String, dynamic> json) =>
+      _i1.serializers.deserializeWith(GFindRecipesVars.serializer, json);
+}
+
 abstract class GFetchRecipeCatListVars
     implements Built<GFetchRecipeCatListVars, GFetchRecipeCatListVarsBuilder> {
   GFetchRecipeCatListVars._();
@@ -159,6 +176,23 @@ abstract class GFetchCategorieListVars
           as Map<String, dynamic>);
   static GFetchCategorieListVars? fromJson(Map<String, dynamic> json) =>
       _i1.serializers.deserializeWith(GFetchCategorieListVars.serializer, json);
+}
+
+abstract class GFindCategoriesVars
+    implements Built<GFindCategoriesVars, GFindCategoriesVarsBuilder> {
+  GFindCategoriesVars._();
+
+  factory GFindCategoriesVars(
+      [Function(GFindCategoriesVarsBuilder b) updates]) = _$GFindCategoriesVars;
+
+  _i2.Gcategories_bool_exp? get where;
+  static Serializer<GFindCategoriesVars> get serializer =>
+      _$gFindCategoriesVarsSerializer;
+  Map<String, dynamic> toJson() =>
+      (_i1.serializers.serializeWith(GFindCategoriesVars.serializer, this)
+          as Map<String, dynamic>);
+  static GFindCategoriesVars? fromJson(Map<String, dynamic> json) =>
+      _i1.serializers.deserializeWith(GFindCategoriesVars.serializer, json);
 }
 
 abstract class GInsertNewUserVars

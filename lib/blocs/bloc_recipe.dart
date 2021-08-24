@@ -7,7 +7,6 @@ import 'package:nekhna/blocs/bloc.dart';
 import 'package:nekhna/models/recipe_model.dart';
 import 'package:nekhna/rm_graphql.dart';
 import 'package:nekhna/src/operation.req.gql.dart';
-import 'package:nekhna/src/schema.ast.gql.dart';
 
 class BlocRecipe extends Bloc {
   final _streamController = StreamController<RecipeState>();
@@ -24,18 +23,40 @@ class BlocRecipe extends Bloc {
     init();
   }
 
+  Stream<OperationResponse<GFindCategoriesData, GFindCategoriesVars>> catchCat(
+      String? name) {
+    final client = GetIt.instance<Client>();
+    final req = GFindCategoriesReq((b) {
+      return b..vars.where.name.G_eq = name;
+    });
+
+    var o = client.request(req);
+
+    return o;
+  }
+
+  csf(String? namex) async {
+    var oui = catchCat(namex).listen((response) {
+      final cat = response.data!.categories.first.id;
+      print(cat);
+    });
+    return oui;
+  }
+
   @override
   dispose() => _streamController.close();
 }
 
 class RecipeState {
   final bool isActive;
+  List<String>? cate;
   final fields = RecipeModel();
   final int? usId;
+  final int? usCat;
   final currentUser = FirebaseAuth.instance.currentUser!.displayName;
-  RecipeState({this.isActive = false, this.usId});
+  RecipeState({this.isActive = false, this.usId, this.usCat, this.cate});
 
-  void addRecipe(RecipeModel recipeModel, int modelId) {
+  void addRecipe(RecipeModel recipeModel, int modelId, int catId) {
     final client = GetIt.instance<Client>();
 
     final recipeReq = GInsertRecipeReq((b) {
@@ -44,6 +65,7 @@ class RecipeState {
         ..vars.object.calories = recipeModel.calories
         ..vars.object.time = recipeModel.time
         ..vars.object.image_url = recipeModel.imageUrl
+        ..vars.object.categorie_id = catId
         ..vars.object.user_id = modelId;
     });
 

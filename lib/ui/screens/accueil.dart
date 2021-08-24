@@ -5,20 +5,25 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:nekhna/blocs/blocs.dart';
+import 'package:nekhna/models/recipe_model.dart';
 import 'package:nekhna/rm_graphql.dart';
 import 'package:nekhna/ui/emptylist/no_recipes.dart';
+import 'package:nekhna/ui/screens/suche_details.dart';
 import 'package:nekhna/ui/setttings/Palette.dart';
 import 'package:nekhna/ui/setttings/db_fire.dart';
 import 'package:nekhna/ui/tiles/recipe_tile.dart';
 import 'package:nekhna/ui/tiles/tiles.dart';
 import 'package:nekhna/ui/widgets/widgets.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:nekhna/ui/setttings/string_extensions.dart';
 
 class AccueilPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     final bloc = BlocProvider.of<BlocHome>(context);
+    final fields = RecipeModel();
+    final _formKey = GlobalKey<FormState>();
     //final recipe = GFetchRecipeListData_recipes();
     return Scaffold(
       body: GestureDetector(
@@ -108,8 +113,37 @@ class AccueilPage extends StatelessWidget {
                               SizedBox(
                                 height: 15.0,
                               ),
-                              MyTextForm(
-                                prefixIcon: Icon(Icons.search),
+                              Form(
+                                key: _formKey,
+                                child: MyTextForm(
+                                  validator: (value) => value!.isEmpty
+                                      ? 'Please Enter a nana'
+                                      : null,
+                                  onSaved: (newValue) =>
+                                      fields.suchname = newValue,
+                                  prefixIcon: Icon(Icons.search),
+                                  suffixIcon: IconButton(
+                                      onPressed: () {
+                                        if (_formKey.currentState!.validate()) {
+                                          _formKey.currentState!.save();
+                                          print(fields.suchname);
+                                          showDialog(
+                                              context: context,
+                                              barrierDismissible: true,
+                                              builder: (BuildContext context) =>
+                                                  SucheDetails(
+                                                      fields.suchname ??
+                                                          fields.suchname!
+                                                              .capitalize()));
+                                          //truc.suchen(fields.suchname, context);
+                                        }
+                                        _formKey.currentState!.reset();
+                                      },
+                                      icon: FaIcon(
+                                        FontAwesomeIcons.arrowRight,
+                                        size: 15.0,
+                                      )),
+                                ),
                               ),
                               SizedBox(
                                 height: 15.0,

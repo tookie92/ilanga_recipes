@@ -8,6 +8,8 @@ part of 'operation.var.gql.dart';
 
 Serializer<GFetchRecipeListVars> _$gFetchRecipeListVarsSerializer =
     new _$GFetchRecipeListVarsSerializer();
+Serializer<GFindRecipesVars> _$gFindRecipesVarsSerializer =
+    new _$GFindRecipesVarsSerializer();
 Serializer<GFetchRecipeCatListVars> _$gFetchRecipeCatListVarsSerializer =
     new _$GFetchRecipeCatListVarsSerializer();
 Serializer<GFetchAllUserVars> _$gFetchAllUserVarsSerializer =
@@ -24,6 +26,8 @@ Serializer<GFetchUsersVars> _$gFetchUsersVarsSerializer =
     new _$GFetchUsersVarsSerializer();
 Serializer<GFetchCategorieListVars> _$gFetchCategorieListVarsSerializer =
     new _$GFetchCategorieListVarsSerializer();
+Serializer<GFindCategoriesVars> _$gFindCategoriesVarsSerializer =
+    new _$GFindCategoriesVarsSerializer();
 Serializer<GInsertNewUserVars> _$gInsertNewUserVarsSerializer =
     new _$GInsertNewUserVarsSerializer();
 Serializer<GInsertRecipeVars> _$gInsertRecipeVarsSerializer =
@@ -55,6 +59,52 @@ class _$GFetchRecipeListVarsSerializer
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     return new GFetchRecipeListVarsBuilder().build();
+  }
+}
+
+class _$GFindRecipesVarsSerializer
+    implements StructuredSerializer<GFindRecipesVars> {
+  @override
+  final Iterable<Type> types = const [GFindRecipesVars, _$GFindRecipesVars];
+  @override
+  final String wireName = 'GFindRecipesVars';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, GFindRecipesVars object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[];
+    Object? value;
+    value = object.where;
+    if (value != null) {
+      result
+        ..add('where')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(_i2.Grecipes_bool_exp)));
+    }
+    return result;
+  }
+
+  @override
+  GFindRecipesVars deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = new GFindRecipesVarsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'where':
+          result.where.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(_i2.Grecipes_bool_exp))!
+              as _i2.Grecipes_bool_exp);
+          break;
+      }
+    }
+
+    return result.build();
   }
 }
 
@@ -365,6 +415,56 @@ class _$GFetchCategorieListVarsSerializer
   }
 }
 
+class _$GFindCategoriesVarsSerializer
+    implements StructuredSerializer<GFindCategoriesVars> {
+  @override
+  final Iterable<Type> types = const [
+    GFindCategoriesVars,
+    _$GFindCategoriesVars
+  ];
+  @override
+  final String wireName = 'GFindCategoriesVars';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, GFindCategoriesVars object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[];
+    Object? value;
+    value = object.where;
+    if (value != null) {
+      result
+        ..add('where')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(_i2.Gcategories_bool_exp)));
+    }
+    return result;
+  }
+
+  @override
+  GFindCategoriesVars deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = new GFindCategoriesVarsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'where':
+          result.where.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(_i2.Gcategories_bool_exp))!
+              as _i2.Gcategories_bool_exp);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
 class _$GInsertNewUserVarsSerializer
     implements StructuredSerializer<GInsertNewUserVars> {
   @override
@@ -601,6 +701,95 @@ class GFetchRecipeListVarsBuilder
   @override
   _$GFetchRecipeListVars build() {
     final _$result = _$v ?? new _$GFetchRecipeListVars._();
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$GFindRecipesVars extends GFindRecipesVars {
+  @override
+  final _i2.Grecipes_bool_exp? where;
+
+  factory _$GFindRecipesVars(
+          [void Function(GFindRecipesVarsBuilder)? updates]) =>
+      (new GFindRecipesVarsBuilder()..update(updates)).build();
+
+  _$GFindRecipesVars._({this.where}) : super._();
+
+  @override
+  GFindRecipesVars rebuild(void Function(GFindRecipesVarsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  GFindRecipesVarsBuilder toBuilder() =>
+      new GFindRecipesVarsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is GFindRecipesVars && where == other.where;
+  }
+
+  @override
+  int get hashCode {
+    return $jf($jc(0, where.hashCode));
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper('GFindRecipesVars')
+          ..add('where', where))
+        .toString();
+  }
+}
+
+class GFindRecipesVarsBuilder
+    implements Builder<GFindRecipesVars, GFindRecipesVarsBuilder> {
+  _$GFindRecipesVars? _$v;
+
+  _i2.Grecipes_bool_expBuilder? _where;
+  _i2.Grecipes_bool_expBuilder get where =>
+      _$this._where ??= new _i2.Grecipes_bool_expBuilder();
+  set where(_i2.Grecipes_bool_expBuilder? where) => _$this._where = where;
+
+  GFindRecipesVarsBuilder();
+
+  GFindRecipesVarsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _where = $v.where?.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(GFindRecipesVars other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$GFindRecipesVars;
+  }
+
+  @override
+  void update(void Function(GFindRecipesVarsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  _$GFindRecipesVars build() {
+    _$GFindRecipesVars _$result;
+    try {
+      _$result = _$v ?? new _$GFindRecipesVars._(where: _where?.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'where';
+        _where?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            'GFindRecipesVars', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }
@@ -1213,6 +1402,96 @@ class GFetchCategorieListVarsBuilder
   @override
   _$GFetchCategorieListVars build() {
     final _$result = _$v ?? new _$GFetchCategorieListVars._();
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$GFindCategoriesVars extends GFindCategoriesVars {
+  @override
+  final _i2.Gcategories_bool_exp? where;
+
+  factory _$GFindCategoriesVars(
+          [void Function(GFindCategoriesVarsBuilder)? updates]) =>
+      (new GFindCategoriesVarsBuilder()..update(updates)).build();
+
+  _$GFindCategoriesVars._({this.where}) : super._();
+
+  @override
+  GFindCategoriesVars rebuild(
+          void Function(GFindCategoriesVarsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  GFindCategoriesVarsBuilder toBuilder() =>
+      new GFindCategoriesVarsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is GFindCategoriesVars && where == other.where;
+  }
+
+  @override
+  int get hashCode {
+    return $jf($jc(0, where.hashCode));
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper('GFindCategoriesVars')
+          ..add('where', where))
+        .toString();
+  }
+}
+
+class GFindCategoriesVarsBuilder
+    implements Builder<GFindCategoriesVars, GFindCategoriesVarsBuilder> {
+  _$GFindCategoriesVars? _$v;
+
+  _i2.Gcategories_bool_expBuilder? _where;
+  _i2.Gcategories_bool_expBuilder get where =>
+      _$this._where ??= new _i2.Gcategories_bool_expBuilder();
+  set where(_i2.Gcategories_bool_expBuilder? where) => _$this._where = where;
+
+  GFindCategoriesVarsBuilder();
+
+  GFindCategoriesVarsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _where = $v.where?.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(GFindCategoriesVars other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$GFindCategoriesVars;
+  }
+
+  @override
+  void update(void Function(GFindCategoriesVarsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  _$GFindCategoriesVars build() {
+    _$GFindCategoriesVars _$result;
+    try {
+      _$result = _$v ?? new _$GFindCategoriesVars._(where: _where?.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'where';
+        _where?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            'GFindCategoriesVars', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }

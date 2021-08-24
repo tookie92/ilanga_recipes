@@ -7,6 +7,7 @@ class MyTextForm extends StatelessWidget {
   final bool obscureText;
   final TextEditingController? controller;
   final Widget? prefixIcon;
+  final Widget? suffixIcon;
   final String? initialValue;
   final String? labelText;
 
@@ -15,6 +16,7 @@ class MyTextForm extends StatelessWidget {
       this.labelText,
       this.controller,
       this.prefixIcon,
+      this.suffixIcon,
       this.obscureText = false,
       this.validator,
       this.onSaved,
@@ -38,6 +40,7 @@ class MyTextForm extends StatelessWidget {
           horizontal: 20.0,
         ),
         prefixIcon: prefixIcon,
+        suffixIcon: suffixIcon,
         labelText: labelText,
         filled: true,
         fillColor: Colors.blueGrey[50],

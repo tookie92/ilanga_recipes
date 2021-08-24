@@ -87,6 +87,57 @@ abstract class GFetchRecipeListData_recipes_user
           .deserializeWith(GFetchRecipeListData_recipes_user.serializer, json);
 }
 
+abstract class GFindRecipesData
+    implements Built<GFindRecipesData, GFindRecipesDataBuilder> {
+  GFindRecipesData._();
+
+  factory GFindRecipesData([Function(GFindRecipesDataBuilder b) updates]) =
+      _$GFindRecipesData;
+
+  static void _initializeBuilder(GFindRecipesDataBuilder b) =>
+      b..G__typename = 'query_root';
+  @BuiltValueField(wireName: '__typename')
+  String get G__typename;
+  BuiltList<GFindRecipesData_recipes> get recipes;
+  static Serializer<GFindRecipesData> get serializer =>
+      _$gFindRecipesDataSerializer;
+  Map<String, dynamic> toJson() =>
+      (_i1.serializers.serializeWith(GFindRecipesData.serializer, this)
+          as Map<String, dynamic>);
+  static GFindRecipesData? fromJson(Map<String, dynamic> json) =>
+      _i1.serializers.deserializeWith(GFindRecipesData.serializer, json);
+}
+
+abstract class GFindRecipesData_recipes
+    implements
+        Built<GFindRecipesData_recipes, GFindRecipesData_recipesBuilder> {
+  GFindRecipesData_recipes._();
+
+  factory GFindRecipesData_recipes(
+          [Function(GFindRecipesData_recipesBuilder b) updates]) =
+      _$GFindRecipesData_recipes;
+
+  static void _initializeBuilder(GFindRecipesData_recipesBuilder b) =>
+      b..G__typename = 'recipes';
+  @BuiltValueField(wireName: '__typename')
+  String get G__typename;
+  int get id;
+  String get name;
+  String? get time;
+  String get calories;
+  int? get user_id;
+  int? get categorie_id;
+  String? get image_url;
+  static Serializer<GFindRecipesData_recipes> get serializer =>
+      _$gFindRecipesDataRecipesSerializer;
+  Map<String, dynamic> toJson() =>
+      (_i1.serializers.serializeWith(GFindRecipesData_recipes.serializer, this)
+          as Map<String, dynamic>);
+  static GFindRecipesData_recipes? fromJson(Map<String, dynamic> json) =>
+      _i1.serializers
+          .deserializeWith(GFindRecipesData_recipes.serializer, json);
+}
+
 abstract class GFetchRecipeCatListData
     implements Built<GFetchRecipeCatListData, GFetchRecipeCatListDataBuilder> {
   GFetchRecipeCatListData._();
@@ -536,6 +587,53 @@ abstract class GFetchCategorieListData_categories
           .deserializeWith(GFetchCategorieListData_categories.serializer, json);
 }
 
+abstract class GFindCategoriesData
+    implements Built<GFindCategoriesData, GFindCategoriesDataBuilder> {
+  GFindCategoriesData._();
+
+  factory GFindCategoriesData(
+      [Function(GFindCategoriesDataBuilder b) updates]) = _$GFindCategoriesData;
+
+  static void _initializeBuilder(GFindCategoriesDataBuilder b) =>
+      b..G__typename = 'query_root';
+  @BuiltValueField(wireName: '__typename')
+  String get G__typename;
+  BuiltList<GFindCategoriesData_categories> get categories;
+  static Serializer<GFindCategoriesData> get serializer =>
+      _$gFindCategoriesDataSerializer;
+  Map<String, dynamic> toJson() =>
+      (_i1.serializers.serializeWith(GFindCategoriesData.serializer, this)
+          as Map<String, dynamic>);
+  static GFindCategoriesData? fromJson(Map<String, dynamic> json) =>
+      _i1.serializers.deserializeWith(GFindCategoriesData.serializer, json);
+}
+
+abstract class GFindCategoriesData_categories
+    implements
+        Built<GFindCategoriesData_categories,
+            GFindCategoriesData_categoriesBuilder> {
+  GFindCategoriesData_categories._();
+
+  factory GFindCategoriesData_categories(
+          [Function(GFindCategoriesData_categoriesBuilder b) updates]) =
+      _$GFindCategoriesData_categories;
+
+  static void _initializeBuilder(GFindCategoriesData_categoriesBuilder b) =>
+      b..G__typename = 'categories';
+  @BuiltValueField(wireName: '__typename')
+  String get G__typename;
+  int get id;
+  String get name;
+  String get description;
+  static Serializer<GFindCategoriesData_categories> get serializer =>
+      _$gFindCategoriesDataCategoriesSerializer;
+  Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(
+      GFindCategoriesData_categories.serializer, this) as Map<String, dynamic>);
+  static GFindCategoriesData_categories? fromJson(Map<String, dynamic> json) =>
+      _i1.serializers
+          .deserializeWith(GFindCategoriesData_categories.serializer, json);
+}
+
 abstract class GInsertNewUserData
     implements Built<GInsertNewUserData, GInsertNewUserDataBuilder> {
   GInsertNewUserData._();
@@ -626,6 +724,7 @@ abstract class GInsertRecipeData_insert_recipes_one
   String? get image_url;
   String get calories;
   int? get user_id;
+  int? get categorie_id;
   @BuiltValueField(wireName: '__typename')
   String get G__typename;
   BuiltList<GInsertRecipeData_insert_recipes_one_ingredients> get ingredients;

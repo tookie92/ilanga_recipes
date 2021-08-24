@@ -150,118 +150,123 @@ class RecipeDetail extends StatelessWidget {
               ),
             ),
             SliverList(
-                delegate: SliverChildListDelegate([
-              Padding(
-                padding: const EdgeInsets.all(20.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
+              delegate: SliverChildListDelegate(
+                [
+                  Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Container(
-                          //color: Colors.red,
-                          width: size.width * .8,
-                          child: MyText(
-                            label: '${recipes.name}',
-                            color: Colors.black,
-                            fontWeight: FontWeight.w600,
-                            fontSize: 35.0,
-                            maxLines: 2,
-                          ),
-                        ),
-                        Expanded(
-                          child: IconButton(
-                            onPressed: () {},
-                            icon: Icon(
-                              Icons.bookmark,
-                              color: Palette.green,
+                        Row(
+                          children: [
+                            Container(
+                              //color: Colors.red,
+                              width: size.width * .8,
+                              child: MyText(
+                                label: '${recipes.name}',
+                                color: Colors.black,
+                                fontWeight: FontWeight.w600,
+                                fontSize: 35.0,
+                                maxLines: 2,
+                              ),
                             ),
-                            iconSize: 40.0,
-                          ),
-                        )
+                            Expanded(
+                              child: IconButton(
+                                onPressed: () {},
+                                icon: Icon(
+                                  Icons.bookmark,
+                                  color: Palette.green,
+                                ),
+                                iconSize: 40.0,
+                              ),
+                            )
+                          ],
+                        ),
+                        SizedBox(
+                          height: 10.0,
+                        ),
+                        MyText(
+                          label: 'Ingredients',
+                          fontSize: 22.0,
+                        ),
+                        SizedBox(
+                          height: 10.0,
+                        ),
+                        Operation(
+                            operationRequest: ingredientsListReq,
+                            builder: (context,
+                                OperationResponse<GFetchIngredientsListData?,
+                                        GFetchIngredientsListVars?>?
+                                    response,
+                                error) {
+                              if (response!.loading) {
+                                return Center(
+                                  child: CircularProgressIndicator(),
+                                );
+                              }
+
+                              final ingredients = response.data!.ingredients;
+
+                              if (ingredients.isEmpty) {
+                                return NoIngredients();
+                              }
+                              return Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  for (var index = 0;
+                                      index < ingredients.length;
+                                      index++)
+                                    IngredientsTile(
+                                        ingredients: ingredients[index]),
+                                ],
+                              );
+                            },
+                            client: GetIt.instance<Client>()),
+                        SizedBox(
+                          height: 10.0,
+                        ),
+                        MyText(
+                          label: 'Steps',
+                          fontSize: 22.0,
+                        ),
+                        SizedBox(
+                          height: 10.0,
+                        ),
+                        Operation(
+                            operationRequest: stepsListReq,
+                            builder: (context,
+                                OperationResponse<GFetchStepsListData?,
+                                        GFetchStepsListVars?>?
+                                    response,
+                                error) {
+                              if (response!.loading) {
+                                return Center(
+                                  child: CircularProgressIndicator(),
+                                );
+                              }
+
+                              final steps = response.data!.steps;
+
+                              if (steps.isEmpty) {
+                                return NoSteps();
+                              }
+                              return Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  for (var index = 0;
+                                      index < steps.length;
+                                      index++)
+                                    StepsTile(steps: steps[index])
+                                ],
+                              );
+                            },
+                            client: GetIt.instance<Client>())
                       ],
                     ),
-                    SizedBox(
-                      height: 10.0,
-                    ),
-                    MyText(
-                      label: 'Ingredients',
-                      fontSize: 22.0,
-                    ),
-                    SizedBox(
-                      height: 10.0,
-                    ),
-                    Operation(
-                        operationRequest: ingredientsListReq,
-                        builder: (context,
-                            OperationResponse<GFetchIngredientsListData?,
-                                    GFetchIngredientsListVars?>?
-                                response,
-                            error) {
-                          if (response!.loading) {
-                            return Center(
-                              child: CircularProgressIndicator(),
-                            );
-                          }
-
-                          final ingredients = response.data!.ingredients;
-
-                          if (ingredients.isEmpty) {
-                            return NoIngredients();
-                          }
-                          return Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              for (var index = 0;
-                                  index < ingredients.length;
-                                  index++)
-                                IngredientsTile(
-                                    ingredients: ingredients[index]),
-                            ],
-                          );
-                        },
-                        client: GetIt.instance<Client>()),
-                    SizedBox(
-                      height: 10.0,
-                    ),
-                    MyText(
-                      label: 'Steps',
-                      fontSize: 22.0,
-                    ),
-                    SizedBox(
-                      height: 10.0,
-                    ),
-                    Operation(
-                        operationRequest: stepsListReq,
-                        builder: (context,
-                            OperationResponse<GFetchStepsListData?,
-                                    GFetchStepsListVars?>?
-                                response,
-                            error) {
-                          if (response!.loading) {
-                            return Center(
-                              child: CircularProgressIndicator(),
-                            );
-                          }
-
-                          final steps = response.data!.steps;
-
-                          if (steps.isEmpty) {
-                            return NoSteps();
-                          }
-                          return Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              for (var index = 0; index < steps.length; index++)
-                                StepsTile(steps: steps[index])
-                            ],
-                          );
-                        },
-                        client: GetIt.instance<Client>())
-                  ],
-                ),
-              )
-            ]))
+                  )
+                ],
+              ),
+            )
           ],
         ),
       ),

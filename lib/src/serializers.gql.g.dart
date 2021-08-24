@@ -41,6 +41,14 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(GFetchUsersData_users.serializer)
       ..add(GFetchUsersReq.serializer)
       ..add(GFetchUsersVars.serializer)
+      ..add(GFindCategoriesData.serializer)
+      ..add(GFindCategoriesData_categories.serializer)
+      ..add(GFindCategoriesReq.serializer)
+      ..add(GFindCategoriesVars.serializer)
+      ..add(GFindRecipesData.serializer)
+      ..add(GFindRecipesData_recipes.serializer)
+      ..add(GFindRecipesReq.serializer)
+      ..add(GFindRecipesVars.serializer)
       ..add(GFindUserByNameData.serializer)
       ..add(GFindUserByNameData_users.serializer)
       ..add(GFindUserByNameData_users_recipes.serializer)
@@ -189,6 +197,14 @@ Serializers _$serializers = (new Serializers().toBuilder()
               BuiltList, const [const FullType(GFetchUsersData_users)]),
           () => new ListBuilder<GFetchUsersData_users>())
       ..addBuilderFactory(
+          const FullType(BuiltList,
+              const [const FullType(GFindCategoriesData_categories)]),
+          () => new ListBuilder<GFindCategoriesData_categories>())
+      ..addBuilderFactory(
+          const FullType(
+              BuiltList, const [const FullType(GFindRecipesData_recipes)]),
+          () => new ListBuilder<GFindRecipesData_recipes>())
+      ..addBuilderFactory(
           const FullType(
               BuiltList, const [const FullType(GFindUserByNameData_users)]),
           () => new ListBuilder<GFindUserByNameData_users>())
@@ -203,9 +219,8 @@ Serializers _$serializers = (new Serializers().toBuilder()
           () => new ListBuilder<
               GInsertRecipeData_insert_recipes_one_ingredients>())
       ..addBuilderFactory(
-          const FullType(BuiltList, const [
-            const FullType(GInsertRecipeData_insert_recipes_one_steps)
-          ]),
+          const FullType(BuiltList,
+              const [const FullType(GInsertRecipeData_insert_recipes_one_steps)]),
           () => new ListBuilder<GInsertRecipeData_insert_recipes_one_steps>())
       ..addBuilderFactory(
           const FullType(
@@ -231,9 +246,7 @@ Serializers _$serializers = (new Serializers().toBuilder()
           const FullType(
               BuiltList, const [const FullType(Gingredients_insert_input)]),
           () => new ListBuilder<Gingredients_insert_input>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(Gingredients_update_column)]),
-          () => new ListBuilder<Gingredients_update_column>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(Gingredients_update_column)]), () => new ListBuilder<Gingredients_update_column>())
       ..addBuilderFactory(const FullType(BuiltList, const [const FullType(Grecipes_bool_exp)]), () => new ListBuilder<Grecipes_bool_exp>())
       ..addBuilderFactory(const FullType(BuiltList, const [const FullType(Grecipes_bool_exp)]), () => new ListBuilder<Grecipes_bool_exp>())
       ..addBuilderFactory(const FullType(BuiltList, const [const FullType(Grecipes_insert_input)]), () => new ListBuilder<Grecipes_insert_input>())

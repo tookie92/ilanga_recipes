@@ -16,6 +16,21 @@ query FetchRecipeList{
   }
 }
 
+query FindRecipes($where: recipes_bool_exp){
+  recipes(where: $where) {
+    id
+    name
+    time
+    calories
+    user_id
+    categorie_id
+    image_url
+  }
+}
+
+
+
+
 query FetchRecipeCatList($where: recipes_bool_exp){
   recipes(where: $where){
     id
@@ -106,6 +121,17 @@ query FetchCategorieList{
   }
 }
 
+#find Categorie
+query FindCategories($where: categories_bool_exp){
+  categories(where: $where) {
+    id
+    name
+    description
+
+  }
+}
+
+
 
 
 
@@ -127,6 +153,8 @@ mutation InsertRecipe($object: recipes_insert_input!){
     image_url
     calories
     user_id
+  
+    categorie_id
     __typename
     ingredients{
       id
